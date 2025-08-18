@@ -1,0 +1,60 @@
+---
+indexpage:
+  title: NetApp 최신 데이터 분석 솔루션
+  summary: NetApp 최신 데이터 분석 솔루션은 AI 분야 전반에 걸쳐 NetApp 스토리지의 역량을 입증하는 전략적 및 기술적 역량의
+    집합입니다.
+  lead: Apache Spark, Hadoop, Kafka 및 엣지에서 클라우드까지 확장 가능한 최신 데이터 레이크 아키텍처를 포함하여 빅데이터
+    워크로드를 위한 NetApp의 검증된 솔루션으로 데이터 분석 인프라를 혁신하세요.
+  tiles:
+  - title: Apache Kafka 솔루션
+    links:
+    - title: NetApp NFS 스토리지를 사용한 Apache Kafka 워크로드
+      url: kafka-nfs-introduction.html
+    - title: NetApp ONTAP 스토리지 컨트롤러가 포함된 Confluent Kafka
+      url: kafka-ontap-overview.html
+    - title: Confluent Kafka 모범 사례
+      url: confluent-kafka-introduction.html
+    - title: AWS를 통한 Kafka 성능 검증
+      url: kafka-nfs-perf-aws-fsxn.html
+    - title: Kafka 워크로드에 NetApp NFS를 사용해야 하는 이유는 무엇입니까?
+      url: kafka-nfs-why-netapp.html
+  - title: Apache Spark 및 Hadoop 솔루션
+    links:
+    - title: Apache Spark를 위한 NetApp 스토리지 솔루션
+      url: apache-spark-solution-overview.html
+    - title: NetApp 스토리지를 사용하여 Apache Spark 워크로드 배포
+      url: nva-1157-deploy.html
+    - title: Spark 및 Hadoop을 위한 NetApp 하이브리드 클라우드 데이터 솔루션
+      url: hdcs-sh-solution-overview.html
+    - title: 사용 사례 및 아키텍처
+      url: spark-ai-use-cases.html
+    - title: Apache Spark 테스트 결과
+      url: apache-spark-testing-results.html
+  - title: 클라우드 데이터 관리 및 AI
+    links:
+    - title: NetApp 파일-객체 이중성과 AWS SageMaker를 활용한 클라우드 데이터 관리
+      url: cdm-fod-solution-overview.html
+    - title: 빅데이터 분석 데이터를 인공지능으로
+      url: bda-ai-introduction.html
+    - title: MLOps Amazon FSx for NetApp ONTAP
+      url: "../cloud/ai-mlops-fsxn-intro.html"
+    - title: Apache Spark 하이브리드 클라우드 솔루션
+      url: spark-hybrid-cloud.html
+  - title: 최신 데이터 레이크 및 분석 플랫폼
+    links:
+    - title: NetApp 과 Dremio의 차세대 하이브리드 아이스버그 레이크하우스 솔루션
+      url: dremio-lakehouse-introduction.html
+    - title: Splunk SmartStore가 포함된 NetApp StorageGRID
+      url: stgr-splunkss-introduction.html
+    - title: NetApp E-Series E5700 및 Splunk Enterprise
+      url: tr-4623.html
+  - title: 추가 자료
+    links:
+    - title: 다양한 분석 전략에 따른 다양한 솔루션
+      url: sb-4154.html
+    - title: '블로그: NetApp 데이터 분석 분야에서 Apache Spark의 활약'
+      url: https://www.netapp.com/blog/apache-spark-data-analytics/
+    - title: '블로그: XCP를 사용하여 데이터 레이크 및 HPC에서 ONTAP NFS로 데이터 마이그레이션'
+      url: https://www.netapp.com/blog/data-migration-xcp/
+    - title: 'NetApp TV: 빅데이터 분석 플레이리스트'
+      url: https://youtube.com/playlist?list=PLdXI3bZJEw7l8oFkYC_umsBaBX3hqK3Oq

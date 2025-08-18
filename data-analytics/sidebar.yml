@@ -1,0 +1,193 @@
+---
+section: data-analytics
+title: 최신 데이터 분석
+url: "/data-analytics/index.html"
+entries:
+- title: NetApp 파일-객체 이중성과 AWS SageMaker를 활용한 클라우드 데이터 관리
+  pdf-filename: NetApp 파일-객체 이중성과 AWS SageMaker를 활용한 클라우드 데이터 관리
+  entries:
+  - title: 솔루션 개요
+    url: "/data-analytics/cdm-fod-solution-overview.html"
+  - title: 솔루션 기술
+    url: "/data-analytics/cdm-fod-solution-technology.html"
+  - title: 데이터 과학자 및 기타 애플리케이션을 위한 데이터 이중성
+    url: "/data-analytics/cdm-fod-data-duality.html"
+  - title: 결론
+    url: "/data-analytics/cdm-fod-conclusion.html"
+- title: NetApp NFS 스토리지를 사용한 Apache Kafka 워크로드
+  pdf-filename: NetApp NFS 스토리지를 사용한 Apache Kafka 워크로드
+  entries:
+  - title: 소개
+    url: "/data-analytics/kafka-nfs-introduction.html"
+  - title: NFS에서 Kafka 워크로드로의 어리석은 이름 변경 문제에 대한 NetApp 솔루션
+    url: "/data-analytics/kafka-nfs-silly-rename-solution.html"
+  - title: 기능 검증 - 어리석은 이름 바꾸기 수정
+    url: "/data-analytics/kafka-nfs-silly-rename-validate.html"
+  - title: Kafka 워크로드에 NetApp NFS를 사용해야 하는 이유는 무엇입니까?
+    url: "/data-analytics/kafka-nfs-why-netapp.html"
+  - title: AWS에서의 성능 개요 및 검증 - Cloud Volume ONTAP
+    url: "/data-analytics/kafka-nfs-perf-aws.html"
+  - title: AWS에서의 성능 개요 및 검증 - FSx for NetApp ONTAP
+    url: "/data-analytics/kafka-nfs-perf-aws-fsxn.html"
+  - title: AFF 온프레미스를 통한 성능 개요 및 검증
+    url: "/data-analytics/kafka-nfs-perf-aff.html"
+  - title: 결론
+    url: "/data-analytics/kafka-nfs-conclusion.html"
+  - title: 추가 정보를 찾을 수 있는 곳
+    url: "/data-analytics/kafka-nfs-additional-info.html"
+- title: NetApp ONTAP 스토리지 컨트롤러가 포함된 Confluent Kafka
+  pdf-filename: NetApp ONTAP 스토리지 컨트롤러가 포함된 Confluent Kafka
+  entries:
+  - title: 개요
+    url: "/data-analytics/kafka-ontap-overview.html"
+  - title: 해결책
+    url: "/data-analytics/kafka-sc-solution.html"
+  - title: 기술 개요
+    url: "/data-analytics/kafka-sc-technology-overview.html"
+  - title: Confluent 성능 검증
+    url: "/data-analytics/kafka-sc-confluent-perf.html"
+  - title: 생산-소비 워크로드 생성기를 사용한 성능 테스트
+    url: "/data-analytics/kafka-sc-performance.html"
+  - title: 성능 모범 사례 지침
+    url: "/data-analytics/kafka-sc-best-practice.html"
+  - title: 결론
+    url: "/data-analytics/kafka-sc-conclusion.html"
+- title: Apache Spark를 위한 NetApp 스토리지 솔루션
+  pdf-filename: Apache Spark를 위한 NetApp 스토리지 솔루션
+  entries:
+  - title: 솔루션 개요
+    url: "/data-analytics/apache-spark-solution-overview.html"
+  - title: 타겟 고객층
+    url: "/data-analytics/apache-spark-target-audience.html"
+  - title: 솔루션 기술
+    url: "/data-analytics/apache-spark-solution-technology.html"
+  - title: NetApp Spark 솔루션 개요
+    url: "/data-analytics/spark-solutions-overview.html"
+  - title: 사용 사례 요약
+    url: "/data-analytics/apache-spark-use-cases-summary.html"
+  - title: 주요 AI, ML 및 DL 사용 사례 및 아키텍처
+    url: "/data-analytics/spark-ai-use-cases.html"
+  - title: 테스트 결과
+    url: "/data-analytics/apache-spark-testing-results.html"
+  - title: 하이브리드 클라우드 솔루션
+    url: "/data-analytics/spark-hybrid-cloud.html"
+  - title: 각 주요 사용 사례에 대한 Python 스크립트
+    url: "/data-analytics/spark-python-scripts.html"
+  - title: 결론
+    url: "/data-analytics/apache-spark-conclusion.html"
+  - title: 추가 정보를 찾을 수 있는 곳
+    url: "/data-analytics/spark-additional-info.html"
+- title: 빅데이터 분석 데이터를 인공지능으로
+  pdf-filename: 빅데이터 분석 데이터를 인공지능으로
+  entries:
+  - title: 소개
+    url: "/data-analytics/bda-ai-introduction.html"
+  - title: 고객의 과제
+    url: "/data-analytics/bda-ai-customer-challenges.html"
+  - title: 데이터 무버 솔루션
+    url: "/data-analytics/bda-ai-data-mover-solution.html"
+  - title: AI를 위한 데이터 무버 솔루션
+    url: "/data-analytics/bda-ai-data-mover.html"
+  - title: GPFS에서 NetApp ONTAP NFS로
+    url: "/data-analytics/bda-ai-gpfs-to-netapp-ontap-nfs.html"
+  - title: HDFS 및 MapR-FS에서 ONTAP NFS로
+    url: "/data-analytics/bda-ai-hdfs-maprfs-to-nfs.html"
+  - title: 사업상의 이점
+    url: "/data-analytics/bda-ai-business-benefits.html"
+  - title: GPFS에서 NFS로 - 자세한 단계
+    url: "/data-analytics/bda-ai-gpfs-to-nfs.html"
+  - title: MapR-FS에서 ONTAP NFS로
+    url: "/data-analytics/bda-ai-mapr-fs-to-ontap-nfs.html"
+  - title: 추가 정보
+    url: "/data-analytics/bda-ai-additional-info.html"
+- title: Confluent Kafka 모범 사례
+  pdf-filename: Confluent Kafka 모범 사례
+  entries:
+  - title: 소개
+    url: "/data-analytics/confluent-kafka-introduction.html"
+  - title: 솔루션 아키텍처 세부 정보
+    url: "/data-analytics/confluent-kafka-solution.html"
+  - title: 기술 개요
+    url: "/data-analytics/kafka-tech-overview.html"
+  - title: Confluent 검증
+    url: "/data-analytics/kafka-certification.html"
+  - title: 확장성을 갖춘 성능 테스트
+    url: "/data-analytics/kafka-perf.html"
+  - title: Confluent S3 커넥터
+    url: "/data-analytics/kafka-s3-connector.html"
+  - title: 합류형 자체 재조정 클러스터
+    url: "/data-analytics/kafka-rebalance.html"
+  - title: 모범 사례 지침
+    url: "/data-analytics/kafka-best-practices.html"
+  - title: 사이징
+    url: "/data-analytics/confluent-kafka-sizing.html"
+  - title: 결론
+    url: "/data-analytics/confluent-kafka-conclusion.html"
+- title: NetApp 하이브리드 클라우드 데이터 솔루션 - 고객 사용 사례 기반 Spark 및 Hadoop
+  pdf-filename: NetApp 하이브리드 클라우드 데이터 솔루션 - 고객 사용 사례 기반 Spark 및 Hadoop
+  entries:
+  - title: 솔루션 개요
+    url: "/data-analytics/hdcs-sh-solution-overview.html"
+  - title: 빅데이터 아키텍처를 위한 NetApp 기반 데이터 패브릭
+    url: "/data-analytics/hdcs-sh-data-fabric.html"
+  - title: Hadoop 데이터 보호 및 NetApp
+    url: "/data-analytics/hdcs-sh-hadoop-data-protection.html"
+  - title: Hadoop 데이터 보호 사용 사례 개요
+    url: "/data-analytics/hdcs-sh-use-cases.html"
+  - title: 사례 1 - Hadoop 데이터 백업
+    url: "/data-analytics/hdcs-sh-use-case-backup.html"
+  - title: 사용 사례 2 - 클라우드에서 온프레미스로의 백업 및 재해 복구
+    url: "/data-analytics/hdcs-sh-use-case-backup-dr-cloud.html"
+  - title: 사용 사례 3 - 기존 Hadoop 데이터에 DevTest 활성화
+    url: "/data-analytics/hdcs-sh-use-case-devtest.html"
+  - title: 사용 사례 4 - 데이터 보호 및 멀티클라우드 연결
+    url: "/data-analytics/hdcs-sh-use-case-dp-multicloud.html"
+  - title: 사용 사례 5 - 분석 워크로드 가속화
+    url: "/data-analytics/hdcs-sh-use-case-analytics.html"
+  - title: 결론
+    url: "/data-analytics/hdcs-sh-conclusion.html"
+- title: NetApp 과 Dremio의 차세대 하이브리드 아이스버그 레이크하우스 솔루션
+  pdf-filename: NetApp 과 Dremio의 차세대 하이브리드 Iceberg Lakehouse 솔루션
+  entries:
+  - title: 소개
+    url: "/data-analytics/dremio-lakehouse-introduction.html"
+  - title: 솔루션 개요
+    url: "/data-analytics/dremio-lakehouse-solution.html"
+  - title: 기술 요구 사항
+    url: "/data-analytics/dremio-lakehouse-tech-overview.html"
+  - title: 배포 절차
+    url: "/data-analytics/dremio-lakehouse-deployment.html"
+  - title: 솔루션 검증 개요
+    url: "/data-analytics/dremio-lakehouse-verification.html"
+  - title: 고객 사용 사례
+    url: "/data-analytics/dremio-lakehouse-use-cases.html"
+  - title: 결론
+    url: "/data-analytics/dremio-lakehouse-conclusion.html"
+- title: 다양한 분석 전략에 따른 다양한 솔루션
+  pdf-filename: 다양한 분석 전략에 대한 다양한 솔루션 솔루션 개요
+  url: "/data-analytics/sb-4154.html"
+- title: Splunk SmartStore가 포함된 NetApp StorageGRID
+  pdf-filename: Splunk SmartStore가 포함된 NetApp StorageGRID
+  entries:
+  - title: 소개
+    url: "/data-analytics/stgr-splunkss-introduction.html"
+  - title: 솔루션 개요
+    url: "/data-analytics/stgr-splunkss-solution-overview.html"
+  - title: 이 솔루션의 이점
+    url: "/data-analytics/stgr-splunkss-solution-benefits.html"
+  - title: Splunk 아키텍처
+    url: "/data-analytics/stgr-splunkss-arch.html"
+  - title: Splunk SmartStore의 StorageGRID 기능
+    url: "/data-analytics/stgr-splunkss-storagegrid-feat.html"
+  - title: 계층화 및 비용 절감
+    url: "/data-analytics/stgr-splunkss-tiering-savings.html"
+  - title: 단일 사이트 SmartStore 성능
+    url: "/data-analytics/stgr-splunkss-single-site-perf.html"
+  - title: 결론
+    url: "/data-analytics/stgr-splunkss-conclusion.html"
+- title: NetApp E-Series E5700 및 Splunk Enterprise
+  pdf-filename: NetApp E-Series E5700 및 Splunk Enterprise
+  url: "/data-analytics/tr-4623.html"
+- title: NetApp 스토리지를 사용하여 Apache Spark 워크로드 배포
+  pdf-filename: NetApp 스토리지 솔루션을 사용한 Apache Spark 워크로드(배포 가이드)
+  url: "/data-analytics/nva-1157-deploy.html"

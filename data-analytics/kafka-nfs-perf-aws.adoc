@@ -1,0 +1,369 @@
+---
+sidebar: sidebar 
+permalink: data-analytics/kafka-nfs-perf-aws.html 
+keywords: AWS cloud, ha pair, high availability, openmessage benchmarking, architectural setup 
+summary: NetApp NFS에 스토리지 계층이 탑재된 Kafka 클러스터의 성능이 AWS 클라우드에서 벤치마킹되었습니다.  벤치마킹 사례는 다음 섹션에 설명되어 있습니다. 
+---
+= AWS에서의 성능 개요 및 검증
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+NetApp NFS에 스토리지 계층이 탑재된 Kafka 클러스터의 성능이 AWS 클라우드에서 벤치마킹되었습니다.  벤치마킹 사례는 다음 섹션에 설명되어 있습니다.
+
+
+
+== NetApp Cloud Volumes ONTAP (고가용성 쌍 및 단일 노드)을 사용한 AWS 클라우드의 Kafka
+
+NetApp Cloud Volumes ONTAP (HA 쌍)이 포함된 Kafka 클러스터는 AWS 클라우드에서 성능을 벤치마킹했습니다.  다음 섹션에서는 이 벤치마킹에 대해 설명합니다.
+
+
+
+=== 건축적 설정
+
+다음 표는 NAS를 사용하는 Kafka 클러스터의 환경 구성을 보여줍니다.
+
+|===
+| 플랫폼 구성 요소 | 환경 구성 
+
+
+| 카프카 3.2.3  a| 
+* 3 x 동물원 관리인 – t2.small
+* 3개의 브로커 서버 - i3en.2xlarge
+* 1 x 그라파나 – c5n.2xlarge
+* 4 x 생산자/소비자 -- c5n.2xlarge *
+
+
+
+
+| 모든 노드의 운영 체제 | RHEL8.6 
+
+
+| NetApp Cloud Volumes ONTAP 인스턴스 | HA 쌍 인스턴스 - m5dn.12xLarge x 2노드 단일 노드 인스턴스 - m5dn.12xLarge x 1노드 
+|===
+
+
+=== NetApp 클러스터 볼륨 ONTAP 설정
+
+. Cloud Volumes ONTAP HA 쌍의 경우 각 스토리지 컨트롤러에서 각 집계에 3개의 볼륨이 있는 2개의 집계를 생성했습니다.  단일 Cloud Volumes ONTAP 노드의 경우 집계된 6개의 볼륨을 생성합니다.
++
+image:kafka-nfs-025.png["이 이미지는 aggr3와 aggr22의 속성을 보여줍니다."]
+
++
+image:kafka-nfs-026.png["이 이미지는 aggr2의 속성을 보여줍니다."]
+
+. 더 나은 네트워크 성능을 달성하기 위해 HA 쌍과 단일 노드 모두에 고속 네트워킹을 구현했습니다.
++
+image:kafka-nfs-027.png["이 이미지는 고속 네트워킹을 활성화하는 방법을 보여줍니다."]
+
+. ONTAP NVRAM IOPS가 더 높다는 것을 알았으므로 Cloud Volumes ONTAP 루트 볼륨의 IOPS를 2350으로 변경했습니다.  Cloud Volumes ONTAP 의 루트 볼륨 디스크 크기는 47GB입니다.  다음 ONTAP 명령은 HA 쌍을 위한 것이며, 동일한 단계가 단일 노드에도 적용됩니다.
++
+....
+statistics start -object vnvram -instance vnvram -counter backing_store_iops -sample-id sample_555
+kafka_nfs_cvo_ha1::*> statistics show -sample-id sample_555
+Object: vnvram
+Instance: vnvram
+Start-time: 1/18/2023 18:03:11
+End-time: 1/18/2023 18:03:13
+Elapsed-time: 2s
+Scope: kafka_nfs_cvo_ha1-01
+    Counter                                                     Value
+    -------------------------------- --------------------------------
+    backing_store_iops                                           1479
+Object: vnvram
+Instance: vnvram
+Start-time: 1/18/2023 18:03:11
+End-time: 1/18/2023 18:03:13
+Elapsed-time: 2s
+Scope: kafka_nfs_cvo_ha1-02
+    Counter                                                     Value
+    -------------------------------- --------------------------------
+    backing_store_iops                                           1210
+2 entries were displayed.
+kafka_nfs_cvo_ha1::*>
+....
++
+image:kafka-nfs-028.png["이 이미지는 볼륨 속성을 수정하는 방법을 보여줍니다."]
+
+
+
+다음 그림은 NAS 기반 Kafka 클러스터의 아키텍처를 보여줍니다.
+
+* *계산합니다.*  우리는 전용 서버에서 실행되는 3노드 Zookeeper 앙상블과 함께 3노드 Kafka 클러스터를 사용했습니다.  각 브로커는 전용 LIF를 통해 Cloud Volumes ONTAP 인스턴스의 단일 볼륨에 대한 두 개의 NFS 마운트 지점을 가졌습니다.
+* *모니터링.*  우리는 Prometheus-Grafana 조합을 위해 두 개의 노드를 사용했습니다.  워크로드를 생성하기 위해 이 Kafka 클러스터에서 워크로드를 생성하고 소비할 수 있는 별도의 3노드 클러스터를 사용했습니다.
+* *저장.*  우리는 인스턴스에 마운트된 6TB GP3 AWS-EBS 볼륨 1개가 있는 HA 쌍 Cloud Volumes ONTAP 인스턴스를 사용했습니다.  그런 다음 볼륨은 NFS 마운트를 통해 Kafka 브로커로 내보내졌습니다.
+
+
+image:kafka-nfs-029.png["이 그림은 NAS 기반 Kafka 클러스터의 아키텍처를 보여줍니다."]
+
+
+
+=== OpenMessage 벤치마킹 구성
+
+. 더 나은 NFS 성능을 위해서는 NFS 서버와 NFS 클라이언트 사이에 더 많은 네트워크 연결이 필요한데, 이는 nconnect를 사용하여 생성할 수 있습니다.  다음 명령을 실행하여 nconnect 옵션으로 브로커 노드에 NFS 볼륨을 마운트합니다.
++
+....
+[root@ip-172-30-0-121 ~]# cat /etc/fstab
+UUID=eaa1f38e-de0f-4ed5-a5b5-2fa9db43bb38/xfsdefaults00
+/dev/nvme1n1 /mnt/data-1 xfs defaults,noatime,nodiscard 0 0
+/dev/nvme2n1 /mnt/data-2 xfs defaults,noatime,nodiscard 0 0
+172.30.0.233:/kafka_aggr3_vol1 /kafka_aggr3_vol1 nfs defaults,nconnect=16 0 0
+172.30.0.233:/kafka_aggr3_vol2 /kafka_aggr3_vol2 nfs defaults,nconnect=16 0 0
+172.30.0.233:/kafka_aggr3_vol3 /kafka_aggr3_vol3 nfs defaults,nconnect=16 0 0
+172.30.0.242:/kafka_aggr22_vol1 /kafka_aggr22_vol1 nfs defaults,nconnect=16 0 0
+172.30.0.242:/kafka_aggr22_vol2 /kafka_aggr22_vol2 nfs defaults,nconnect=16 0 0
+172.30.0.242:/kafka_aggr22_vol3 /kafka_aggr22_vol3 nfs defaults,nconnect=16 0 0
+[root@ip-172-30-0-121 ~]# mount -a
+[root@ip-172-30-0-121 ~]# df -h
+Filesystem                       Size  Used Avail Use% Mounted on
+devtmpfs                          31G     0   31G   0% /dev
+tmpfs                             31G  249M   31G   1% /run
+tmpfs                             31G     0   31G   0% /sys/fs/cgroup
+/dev/nvme0n1p2                    10G  2.8G  7.2G  28% /
+/dev/nvme1n1                     2.3T  248G  2.1T  11% /mnt/data-1
+/dev/nvme2n1                     2.3T  245G  2.1T  11% /mnt/data-2
+172.30.0.233:/kafka_aggr3_vol1   1.0T   12G 1013G   2% /kafka_aggr3_vol1
+172.30.0.233:/kafka_aggr3_vol2   1.0T  5.5G 1019G   1% /kafka_aggr3_vol2
+172.30.0.233:/kafka_aggr3_vol3   1.0T  8.9G 1016G   1% /kafka_aggr3_vol3
+172.30.0.242:/kafka_aggr22_vol1  1.0T  7.3G 1017G   1% /kafka_aggr22_vol1
+172.30.0.242:/kafka_aggr22_vol2  1.0T  6.9G 1018G   1% /kafka_aggr22_vol2
+172.30.0.242:/kafka_aggr22_vol3  1.0T  5.9G 1019G   1% /kafka_aggr22_vol3
+tmpfs                            6.2G     0  6.2G   0% /run/user/1000
+[root@ip-172-30-0-121 ~]#
+....
+. Cloud Volumes ONTAP 에서 네트워크 연결을 확인하세요.  다음 ONTAP 명령은 단일 Cloud Volumes ONTAP 노드에서 사용됩니다.  동일한 단계는 Cloud Volumes ONTAP HA 쌍에도 적용됩니다.
++
+....
+Last login time: 1/20/2023 00:16:29
+kafka_nfs_cvo_sn::> network connections active show -service nfs* -fields remote-host
+node                cid        vserver              remote-host
+------------------- ---------- -------------------- ------------
+kafka_nfs_cvo_sn-01 2315762628 svm_kafka_nfs_cvo_sn 172.30.0.121
+kafka_nfs_cvo_sn-01 2315762629 svm_kafka_nfs_cvo_sn 172.30.0.121
+kafka_nfs_cvo_sn-01 2315762630 svm_kafka_nfs_cvo_sn 172.30.0.121
+kafka_nfs_cvo_sn-01 2315762631 svm_kafka_nfs_cvo_sn 172.30.0.121
+kafka_nfs_cvo_sn-01 2315762632 svm_kafka_nfs_cvo_sn 172.30.0.121
+kafka_nfs_cvo_sn-01 2315762633 svm_kafka_nfs_cvo_sn 172.30.0.121
+kafka_nfs_cvo_sn-01 2315762634 svm_kafka_nfs_cvo_sn 172.30.0.121
+kafka_nfs_cvo_sn-01 2315762635 svm_kafka_nfs_cvo_sn 172.30.0.121
+kafka_nfs_cvo_sn-01 2315762636 svm_kafka_nfs_cvo_sn 172.30.0.121
+kafka_nfs_cvo_sn-01 2315762637 svm_kafka_nfs_cvo_sn 172.30.0.121
+kafka_nfs_cvo_sn-01 2315762639 svm_kafka_nfs_cvo_sn 172.30.0.72
+kafka_nfs_cvo_sn-01 2315762640 svm_kafka_nfs_cvo_sn 172.30.0.72
+kafka_nfs_cvo_sn-01 2315762641 svm_kafka_nfs_cvo_sn 172.30.0.72
+kafka_nfs_cvo_sn-01 2315762642 svm_kafka_nfs_cvo_sn 172.30.0.72
+kafka_nfs_cvo_sn-01 2315762643 svm_kafka_nfs_cvo_sn 172.30.0.72
+kafka_nfs_cvo_sn-01 2315762644 svm_kafka_nfs_cvo_sn 172.30.0.72
+kafka_nfs_cvo_sn-01 2315762645 svm_kafka_nfs_cvo_sn 172.30.0.72
+kafka_nfs_cvo_sn-01 2315762646 svm_kafka_nfs_cvo_sn 172.30.0.72
+kafka_nfs_cvo_sn-01 2315762647 svm_kafka_nfs_cvo_sn 172.30.0.72
+kafka_nfs_cvo_sn-01 2315762648 svm_kafka_nfs_cvo_sn 172.30.0.72
+kafka_nfs_cvo_sn-01 2315762649 svm_kafka_nfs_cvo_sn 172.30.0.121
+kafka_nfs_cvo_sn-01 2315762650 svm_kafka_nfs_cvo_sn 172.30.0.121
+kafka_nfs_cvo_sn-01 2315762651 svm_kafka_nfs_cvo_sn 172.30.0.121
+kafka_nfs_cvo_sn-01 2315762652 svm_kafka_nfs_cvo_sn 172.30.0.121
+kafka_nfs_cvo_sn-01 2315762653 svm_kafka_nfs_cvo_sn 172.30.0.121
+kafka_nfs_cvo_sn-01 2315762656 svm_kafka_nfs_cvo_sn 172.30.0.223
+kafka_nfs_cvo_sn-01 2315762657 svm_kafka_nfs_cvo_sn 172.30.0.223
+kafka_nfs_cvo_sn-01 2315762658 svm_kafka_nfs_cvo_sn 172.30.0.223
+kafka_nfs_cvo_sn-01 2315762659 svm_kafka_nfs_cvo_sn 172.30.0.223
+kafka_nfs_cvo_sn-01 2315762660 svm_kafka_nfs_cvo_sn 172.30.0.223
+kafka_nfs_cvo_sn-01 2315762661 svm_kafka_nfs_cvo_sn 172.30.0.223
+kafka_nfs_cvo_sn-01 2315762662 svm_kafka_nfs_cvo_sn 172.30.0.223
+kafka_nfs_cvo_sn-01 2315762663 svm_kafka_nfs_cvo_sn 172.30.0.223
+kafka_nfs_cvo_sn-01 2315762664 svm_kafka_nfs_cvo_sn 172.30.0.223
+kafka_nfs_cvo_sn-01 2315762665 svm_kafka_nfs_cvo_sn 172.30.0.223
+kafka_nfs_cvo_sn-01 2315762666 svm_kafka_nfs_cvo_sn 172.30.0.223
+kafka_nfs_cvo_sn-01 2315762667 svm_kafka_nfs_cvo_sn 172.30.0.72
+kafka_nfs_cvo_sn-01 2315762668 svm_kafka_nfs_cvo_sn 172.30.0.72
+kafka_nfs_cvo_sn-01 2315762669 svm_kafka_nfs_cvo_sn 172.30.0.72
+kafka_nfs_cvo_sn-01 2315762670 svm_kafka_nfs_cvo_sn 172.30.0.72
+kafka_nfs_cvo_sn-01 2315762671 svm_kafka_nfs_cvo_sn 172.30.0.72
+kafka_nfs_cvo_sn-01 2315762672 svm_kafka_nfs_cvo_sn 172.30.0.72
+kafka_nfs_cvo_sn-01 2315762673 svm_kafka_nfs_cvo_sn 172.30.0.223
+kafka_nfs_cvo_sn-01 2315762674 svm_kafka_nfs_cvo_sn 172.30.0.223
+kafka_nfs_cvo_sn-01 2315762676 svm_kafka_nfs_cvo_sn 172.30.0.121
+kafka_nfs_cvo_sn-01 2315762677 svm_kafka_nfs_cvo_sn 172.30.0.223
+kafka_nfs_cvo_sn-01 2315762678 svm_kafka_nfs_cvo_sn 172.30.0.223
+kafka_nfs_cvo_sn-01 2315762679 svm_kafka_nfs_cvo_sn 172.30.0.223
+48 entries were displayed.
+ 
+kafka_nfs_cvo_sn::>
+....
+. 우리는 다음의 카프카를 사용합니다 `server.properties` Cloud Volumes ONTAP HA 쌍에 대한 모든 Kafka 브로커에서.  그만큼 `log.dirs` 각 중개인마다 취급하는 부동산의 종류가 다르고, 나머지 부동산은 중개인들이 공통적으로 취급합니다.  브로커1의 경우 `log.dirs` 값은 다음과 같습니다.
++
+....
+[root@ip-172-30-0-121 ~]# cat /opt/kafka/config/server.properties
+broker.id=0
+advertised.listeners=PLAINTEXT://172.30.0.121:9092
+#log.dirs=/mnt/data-1/d1,/mnt/data-1/d2,/mnt/data-1/d3,/mnt/data-2/d1,/mnt/data-2/d2,/mnt/data-2/d3
+log.dirs=/kafka_aggr3_vol1/broker1,/kafka_aggr3_vol2/broker1,/kafka_aggr3_vol3/broker1,/kafka_aggr22_vol1/broker1,/kafka_aggr22_vol2/broker1,/kafka_aggr22_vol3/broker1
+zookeeper.connect=172.30.0.12:2181,172.30.0.30:2181,172.30.0.178:2181
+num.network.threads=64
+num.io.threads=64
+socket.send.buffer.bytes=102400
+socket.receive.buffer.bytes=102400
+socket.request.max.bytes=104857600
+num.partitions=1
+num.recovery.threads.per.data.dir=1
+offsets.topic.replication.factor=1
+transaction.state.log.replication.factor=1
+transaction.state.log.min.isr=1
+replica.fetch.max.bytes=524288000
+background.threads=20
+num.replica.alter.log.dirs.threads=40
+num.replica.fetchers=20
+[root@ip-172-30-0-121 ~]#
+....
++
+** 브로커2의 경우 `log.dirs` 재산 가치는 다음과 같습니다.
++
+....
+log.dirs=/kafka_aggr3_vol1/broker2,/kafka_aggr3_vol2/broker2,/kafka_aggr3_vol3/broker2,/kafka_aggr22_vol1/broker2,/kafka_aggr22_vol2/broker2,/kafka_aggr22_vol3/broker2
+....
+** 브로커3의 경우 `log.dirs` 재산 가치는 다음과 같습니다.
++
+....
+log.dirs=/kafka_aggr3_vol1/broker3,/kafka_aggr3_vol2/broker3,/kafka_aggr3_vol3/broker3,/kafka_aggr22_vol1/broker3,/kafka_aggr22_vol2/broker3,/kafka_aggr22_vol3/broker3
+....
+
+
+. 단일 Cloud Volumes ONTAP 노드의 경우 Kafka `servers.properties` Cloud Volumes ONTAP HA 쌍의 경우와 동일하지만 `log.dirs` 재산.
++
+** 브로커1의 경우 `log.dirs` 값은 다음과 같습니다.
++
+....
+log.dirs=/kafka_aggr2_vol1/broker1,/kafka_aggr2_vol2/broker1,/kafka_aggr2_vol3/broker1,/kafka_aggr2_vol4/broker1,/kafka_aggr2_vol5/broker1,/kafka_aggr2_vol6/broker1
+....
+** 브로커2의 경우 `log.dirs` 값은 다음과 같습니다.
++
+....
+log.dirs=/kafka_aggr2_vol1/broker2,/kafka_aggr2_vol2/broker2,/kafka_aggr2_vol3/broker2,/kafka_aggr2_vol4/broker2,/kafka_aggr2_vol5/broker2,/kafka_aggr2_vol6/broker2
+....
+** 브로커3의 경우 `log.dirs` 재산 가치는 다음과 같습니다.
++
+....
+log.dirs=/kafka_aggr2_vol1/broker3,/kafka_aggr2_vol2/broker3,/kafka_aggr2_vol3/broker3,/kafka_aggr2_vol4/broker3,/kafka_aggr2_vol5/broker3,/kafka_aggr2_vol6/broker3
+....
+
+
+. OMB의 작업 부하는 다음 속성으로 구성됩니다. `(/opt/benchmark/workloads/1-topic-100-partitions-1kb.yaml)` .
++
+....
+topics: 4
+partitionsPerTopic: 100
+messageSize: 32768
+useRandomizedPayloads: true
+randomBytesRatio: 0.5
+randomizedPayloadPoolSize: 100
+subscriptionsPerTopic: 1
+consumerPerSubscription: 80
+producersPerTopic: 40
+producerRate: 1000000
+consumerBacklogSizeGB: 0
+testDurationMinutes: 5
+....
++
+그만큼 `messageSize` 각 사용 사례마다 다를 수 있습니다.  성능 테스트에서는 3K를 사용했습니다.
+
++
+우리는 OMB의 Sync와 Throughput이라는 두 가지 드라이버를 사용하여 Kafka 클러스터에서 작업 부하를 생성했습니다.
+
++
+** 동기화 드라이버 속성에 사용되는 yaml 파일은 다음과 같습니다. `(/opt/benchmark/driver- kafka/kafka-sync.yaml)` :
++
+....
+name: Kafka
+driverClass: io.openmessaging.benchmark.driver.kafka.KafkaBenchmarkDriver
+# Kafka client-specific configuration
+replicationFactor: 3
+topicConfig: |
+  min.insync.replicas=2
+  flush.messages=1
+  flush.ms=0
+commonConfig: |
+  bootstrap.servers=172.30.0.121:9092,172.30.0.72:9092,172.30.0.223:9092
+producerConfig: |
+  acks=all
+  linger.ms=1
+  batch.size=1048576
+consumerConfig: |
+  auto.offset.reset=earliest
+  enable.auto.commit=false
+  max.partition.fetch.bytes=10485760
+....
+** Throughput 드라이버 속성에 사용되는 yaml 파일은 다음과 같습니다. `(/opt/benchmark/driver- kafka/kafka-throughput.yaml)` :
++
+....
+name: Kafka
+driverClass: io.openmessaging.benchmark.driver.kafka.KafkaBenchmarkDriver
+# Kafka client-specific configuration
+replicationFactor: 3
+topicConfig: |
+  min.insync.replicas=2
+commonConfig: |
+  bootstrap.servers=172.30.0.121:9092,172.30.0.72:9092,172.30.0.223:9092
+  default.api.timeout.ms=1200000
+  request.timeout.ms=1200000
+producerConfig: |
+  acks=all
+  linger.ms=1
+  batch.size=1048576
+consumerConfig: |
+  auto.offset.reset=earliest
+  enable.auto.commit=false
+  max.partition.fetch.bytes=10485760
+....
+
+
+
+
+
+
+== 테스트 방법론
+
+. Terraform과 Ansible을 사용하여 위에 설명된 사양에 따라 Kafka 클러스터가 프로비저닝되었습니다.  Terraform은 Kafka 클러스터용 AWS 인스턴스를 사용하여 인프라를 구축하는 데 사용되고 Ansible은 해당 인스턴스에 Kafka 클러스터를 구축합니다.
+. 위에 설명된 워크로드 구성과 Sync 드라이버를 사용하여 OMB 워크로드가 트리거되었습니다.
++
+....
+Sudo bin/benchmark –drivers driver-kafka/kafka- sync.yaml workloads/1-topic-100-partitions-1kb.yaml
+....
+. 동일한 작업 부하 구성을 사용하는 Throughput 드라이버로 또 다른 작업 부하가 트리거되었습니다.
++
+....
+sudo bin/benchmark –drivers driver-kafka/kafka-throughput.yaml workloads/1-topic-100-partitions-1kb.yaml
+....
+
+
+
+
+== 관찰
+
+NFS에서 실행되는 Kafka 인스턴스의 성능을 벤치마킹하기 위한 워크로드를 생성하기 위해 두 가지 유형의 드라이버가 사용되었습니다.  드라이버 간의 차이점은 로그 플러시 속성입니다.
+
+Cloud Volumes ONTAP HA 쌍의 경우:
+
+* Sync 드라이버에서 지속적으로 생성된 총 처리량: ~1236MBps.
+* Throughput 드라이버에 대해 생성된 총 처리량: 최대 ~1412MBps.
+
+
+단일 Cloud Volumes ONTAP 노드의 경우:
+
+* Sync 드라이버에서 지속적으로 생성된 총 처리량: ~ 1962MBps.
+* Throughput 드라이버에서 생성된 총 처리량: 최대 ~1660MBps
+
+
+Sync 드라이버는 로그가 디스크에 즉시 플러시되므로 일관된 처리량을 생성할 수 있는 반면, Throughput 드라이버는 로그가 대량으로 디스크에 커밋되므로 처리량이 급증합니다.
+
+이러한 처리량 수치는 주어진 AWS 구성에 대해 생성됩니다.  더 높은 성능이 필요한 경우 인스턴스 유형을 확장하고 조정하여 처리량을 더욱 높일 수 있습니다.  총 처리량 또는 총 속도는 생산자 속도와 소비자 속도를 합친 것입니다.
+
+image:kafka-nfs-030.png["여기에는 네 가지 다른 그래프가 제시되어 있습니다.  CVO-HA 쌍 처리량 드라이버.  CVO-HA 쌍 동기화 드라이버.  CVO-단일 노드 처리량 드라이버.  CVO-단일 노드 동기화 드라이버."]
+
+처리량이나 동기화 드라이버 벤치마킹을 수행할 때는 반드시 저장소 처리량을 확인하세요.
+
+image:kafka-nfs-031.png["이 그래프는 지연 시간, IOPS, 처리량 측면에서의 성능을 보여줍니다."]

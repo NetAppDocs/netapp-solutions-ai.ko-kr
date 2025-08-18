@@ -1,0 +1,23 @@
+---
+sidebar: sidebar 
+permalink: data-analytics/bda-ai-customer-challenges.html 
+keywords: customer, challenge, data lake, repository, syncing, moving data 
+summary: 이 페이지에서는 AI 운영을 위해 빅데이터 분석 데이터에 액세스하려고 할 때 고객이 직면할 수 있는 과제에 대해 설명합니다. 
+---
+= 고객의 과제
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+고객은 AI 운영을 위해 빅데이터 분석 데이터에 액세스하려고 할 때 다음과 같은 문제에 직면할 수 있습니다.
+
+* 고객 데이터는 데이터 레이크 저장소에 저장됩니다.  데이터 레이크에는 구조화된 데이터, 구조화되지 않은 데이터, 반구조화된 데이터, 로그, 머신 간 데이터 등 다양한 유형의 데이터가 포함될 수 있습니다.  이러한 모든 데이터 유형은 AI 시스템에서 처리되어야 합니다.
+* AI는 Hadoop 파일 시스템과 호환되지 않습니다.  일반적인 AI 아키텍처는 HDFS 및 HCFS 데이터에 직접 액세스할 수 없으므로, 해당 데이터는 AI가 이해할 수 있는 파일 시스템(NFS)으로 옮겨야 합니다.
+* 데이터 레이크 데이터를 AI로 옮기려면 일반적으로 전문적인 프로세스가 필요합니다.  데이터 레이크에 저장되는 데이터의 양은 매우 클 수 있습니다.  고객은 데이터를 AI 시스템으로 옮기는 데 효율적이고 처리량이 높으며 비용 효율적인 방법이 필요합니다.
+* 데이터 동기화.  고객이 빅데이터 플랫폼과 AI 간에 데이터를 동기화하고 싶어하는 경우, AI를 통해 처리된 데이터를 빅데이터와 함께 사용하여 분석 처리할 수도 있습니다.
+

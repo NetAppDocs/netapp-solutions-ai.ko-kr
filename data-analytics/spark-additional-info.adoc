@@ -1,0 +1,73 @@
+---
+sidebar: sidebar 
+permalink: data-analytics/spark-additional-info.html 
+keywords:  
+summary:  
+---
+= 추가 정보를 찾을 수 있는 곳
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 TR에서는 다음 참고문헌이 사용되었습니다.
+
+* Apache Spark 아키텍처 및 구성 요소
++
+http://spark.apache.org/docs/latest/cluster-overview.html["http://spark.apache.org/docs/latest/cluster-overview.html"^]
+
+* Apache Spark 사용 사례
++
+https://www.qubole.com/blog/big-data/apache-spark-use-cases/["https://www.qubole.com/blog/big-data/apache-spark-use-cases/"^]
+
+* 스파크 NLP
++
+https://www.johnsnowlabs.com/spark-nlp/["https://www.johnsnowlabs.com/spark-nlp/"^]
+
+* 버트
++
+https://arxiv.org/abs/1810.04805["https://arxiv.org/abs/1810.04805"^]
+
+* 광고 클릭 예측을 위한 심층 및 교차 네트워크
++
+https://arxiv.org/abs/1708.05123["https://arxiv.org/abs/1708.05123"^]
+
+* FlexGroup
++
+https://www.netapp.com/pdf.html?item=/media/7337-tr4557pdf.pdf[]
+
+* 스트리밍 ETL
++
+https://www.infoq.com/articles/apache-spark-streaming["https://www.infoq.com/articles/apache-spark-streaming"^]
+
+* Hadoop을 위한 NetApp E-Series 솔루션
++
+https://www.netapp.com/media/16420-tr-3969.pdf["https://www.netapp.com/media/16420-tr-3969.pdf"^]
+
+
+
+* NetApp 최신 데이터 분석 솔루션
++
+link:index.html["데이터 분석 솔루션"]
+
+* SnapMirror
++
+https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-replication-concept.html["https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-replication-concept.html"^]
+
+* 엑스피
++
+https://mysupport.netapp.com/documentation/docweb/index.html?productID=63942&language=en-US["https://mysupport.netapp.com/documentation/docweb/index.html?productID=63942&language=en-US"^]
+
+* BlueXP 복사 및 동기화
++
+https://cloud.netapp.com/cloud-sync-service["https://cloud.netapp.com/cloud-sync-service"^]
+
+* DataOps 툴킷
++
+https://github.com/NetApp/netapp-dataops-toolkit["https://github.com/NetApp/netapp-dataops-toolkit"^]
+
+

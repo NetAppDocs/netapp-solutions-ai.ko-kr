@@ -1,0 +1,64 @@
+---
+sidebar: sidebar 
+permalink: software/ai-conf-protopia-addtl.html 
+keywords:  
+summary:  
+---
+= 추가 정보 및 감사의 말씀을 찾을 수 있는 곳
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 문서에 설명된 정보에 대해 자세히 알아보려면 다음 문서 및/또는 웹사이트를 참조하세요.
+
+* NetApp ONTAP 데이터 관리 소프트웨어 - ONTAP 정보 라이브러리
++
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=62286["http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=62286"^]
+
+* 컨테이너용 NetApp 영구 스토리지 NetApp Trident
++
+https://netapp.io/persistent-storage-provisioner-for-kubernetes/["https://netapp.io/persistent-storage-provisioner-for-kubernetes/"^]
+
+* NetApp DataOps 툴킷
++
+https://github.com/NetApp/netapp-dataops-toolkit["https://github.com/NetApp/netapp-dataops-toolkit"^]
+
+* 컨테이너용 NetApp 영구 스토리지 NetApp Trident
++
+https://netapp.io/persistent-storage-provisioner-for-kubernetes/["https://netapp.io/persistent-storage-provisioner-for-kubernetes/"^]
+
+* Protopia AI—기밀 추론
++
+https://protopia.ai/blog/protopia-ai-takes-on-the-missing-link-in-ai-privacy-confidential-inference/["https://protopia.ai/blog/protopia-ai-takes-on-the-missing-link-in-ai-privacy-confidential-inference/"^]
+
+* NetApp BlueXP 복사 및 동기화
++
+https://docs.netapp.com/us-en/occm/concept_cloud_sync.html#how-cloud-sync-works["https://docs.netapp.com/us-en/occm/concept_cloud_sync.html#how-cloud-sync-works"^]
+
+* NVIDIA Triton 추론 서버
++
+https://developer.nvidia.com/nvidia-triton-inference-server["https://developer.nvidia.com/nvidia-triton-inference-server"^]
+
+* NVIDIA Triton 추론 서버 설명서
++
+https://docs.nvidia.com/deeplearning/triton-inference-server/index.html["https://docs.nvidia.com/deeplearning/triton-inference-server/index.html"^]
+
+* PyTorch의 FaceBox
++
+https://github.com/zisianw/FaceBoxes.PyTorch["https://github.com/zisianw/FaceBoxes.PyTorch"^]
+
+
+
+
+
+== 감사의 말
+
+* Mark Cates, NetApp 수석 제품 관리자
+* Sufian Ahmad, 기술 마케팅 엔지니어, NetApp
+* Hadi Esmaeilzadeh, Protopia AI의 최고 기술 책임자 겸 교수
+

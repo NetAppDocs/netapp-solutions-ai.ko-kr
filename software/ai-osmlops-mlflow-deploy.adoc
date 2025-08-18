@@ -1,0 +1,102 @@
+---
+sidebar: sidebar 
+permalink: software/ai-osmlops-mlflow-deploy.html 
+keywords: AI, control plane, MLOps, MLflow 
+summary: NetApp 활용한 오픈소스 MLOps - MLflow 배포 
+---
+= MLflow 배포
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 섹션에서는 Kubernetes 클러스터에 MLflow를 배포하기 위해 완료해야 하는 작업에 대해 설명합니다.
+
+
+NOTE: Kubernetes 외의 플랫폼에도 MLflow를 배포하는 것이 가능합니다.  Kubernetes 이외의 플랫폼에 MLflow를 배포하는 것은 이 솔루션의 범위를 벗어납니다.
+
+
+
+== 필수 조건
+
+이 섹션에 설명된 배포 연습을 수행하기 전에 다음 작업을 이미 수행했다고 가정합니다.
+
+. 이미 작동하는 Kubernetes 클러스터가 있습니다.
+. Kubernetes 클러스터에 NetApp Trident 이미 설치하고 구성했습니다.  Trident 에 대한 자세한 내용은 다음을 참조하세요.link:https://docs.netapp.com/us-en/trident/index.html["Trident 문서"^] .
+
+
+
+
+== Helm 설치
+
+MLflow는 Kubernetes의 인기 있는 패키지 관리자인 Helm을 사용하여 배포됩니다.  MLflow를 배포하기 전에 Kubernetes 제어 노드에 Helm을 설치해야 합니다.  Helm을 설치하려면 다음을 따르세요. https://helm.sh/docs/intro/install/["설치 지침"^] 공식 Helm 문서에서.
+
+
+
+== 기본 Kubernetes StorageClass 설정
+
+MLflow를 배포하기 전에 Kubernetes 클러스터 내에서 기본 StorageClass를 지정해야 합니다.  클러스터 내에서 기본 StorageClass를 지정하려면 다음 지침을 따르세요.link:ai-osmlops-kubeflow-deploy.html["Kubeflow 배포"] 부분.  클러스터 내에서 기본 StorageClass를 이미 지정한 경우 이 단계를 건너뛸 수 있습니다.
+
+
+
+== MLflow 배포
+
+필수 조건을 충족하면 Helm 차트를 사용하여 MLflow 배포를 시작할 수 있습니다.
+
+
+
+=== MLflow Helm 차트 배포를 구성합니다.
+
+Helm 차트를 사용하여 MLflow를 배포하기 전에 *config.yaml* 파일을 사용하여 NetApp Trident Storage Class를 사용하도록 배포를 구성하고 다른 매개변수를 요구 사항에 맞게 변경할 수 있습니다.  *config.yaml* 파일의 예는 다음에서 찾을 수 있습니다. https://github.com/bitnami/charts/blob/main/bitnami/mlflow/values.yaml[]
+
+
+NOTE: config.yaml 파일의 *global.defaultStorageClass* 매개변수에서 Trident storageClass를 설정할 수 있습니다(예: storageClass: "ontap-flexvol").
+
+
+
+=== Helm 차트 설치
+
+다음 명령을 사용하여 MLflow용 사용자 정의 *config.yaml* 파일로 Helm 차트를 설치할 수 있습니다.
+
+[source, shell]
+----
+helm install oci://registry-1.docker.io/bitnamicharts/mlflow -f config.yaml --generate-name --namespace jupyterhub
+----
+
+NOTE: 이 명령은 제공된 *config.yaml* 파일을 통해 사용자 정의 구성으로 Kubernetes 클러스터에 MLflow를 배포합니다.  MLflow는 지정된 네임스페이스에 배포되고, 릴리스에 대한 무작위 릴리스 이름은 Kubernetes를 통해 제공됩니다.
+
+
+
+=== 배포 확인
+
+Helm 차트 배포가 완료되면 다음을 사용하여 서비스에 액세스할 수 있는지 확인할 수 있습니다.
+
+[source, shell]
+----
+kubectl get service -n jupyterhub
+----
+
+NOTE: *jupyterhub*를 배포 중에 사용한 네임스페이스로 바꾸세요.
+
+다음 서비스가 표시되어야 합니다.
+
+[source, shell]
+----
+NAME                              TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)           AGE
+mlflow-1719843029-minio           ClusterIP   10.233.22.4     <none>        80/TCP,9001/TCP   25d
+mlflow-1719843029-postgresql      ClusterIP   10.233.5.141    <none>        5432/TCP          25d
+mlflow-1719843029-postgresql-hl   ClusterIP   None            <none>        5432/TCP          25d
+mlflow-1719843029-tracking        NodePort    10.233.2.158    <none>        30002:30002/TCP   25d
+----
+
+NOTE: MLflow에 포트 30002로 접근하기 위해 NodePort 서비스를 사용하도록 config.yaml 파일을 편집했습니다.
+
+
+
+=== MLflow에 접속하세요
+
+MLflow와 관련된 모든 서비스가 실행되면 지정된 NodePort 또는 LoadBalancer IP 주소(예: `http://10.61.181.109:30002` )

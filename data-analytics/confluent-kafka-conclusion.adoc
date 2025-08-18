@@ -1,0 +1,72 @@
+---
+sidebar: sidebar 
+permalink: data-analytics/confluent-kafka-conclusion.html 
+keywords: conclusion 
+summary: 이 문서에서는 Confluent Kafka 인증 테스트, 성능 결과, 튜닝, Kafka 커넥터 및 자체 리밸런싱 기능을 포함하여 NetApp 스토리지와 함께 Kafka를 사용하기 위한 모범 사례 가이드라인을 제공합니다. 
+---
+= 결론
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 문서에서는 검증 테스트, 계층형 스토리지 성능 결과, 튜닝, Confluent S3 커넥터, 셀프 밸런싱 기능을 포함하여 NetApp 스토리지와 함께 Confluent Tiered Storage를 사용하기 위한 모범 사례 가이드라인을 제공합니다.  ILM 정책, 검증을 위한 여러 성능 테스트를 통한 Confluent 성능, 업계 표준 S3 API를 고려할 때 NetApp StorageGRID 개체 스토리지는 Confluent 계층형 스토리지에 최적의 선택입니다.
+
+
+
+== 추가 정보를 찾을 수 있는 곳
+
+이 문서에 설명된 정보에 대해 자세히 알아보려면 다음 문서 및/또는 웹사이트를 검토하세요.
+
+* Apache Kafka란 무엇입니까?
++
+https://www.confluent.io/what-is-apache-kafka/["https://www.confluent.io/what-is-apache-kafka/"^]
+
+* NetApp 제품 문서
++
+https://www.netapp.com/support-and-training/documentation/["https://www.netapp.com/support-and-training/documentation/"^]
+
+* S3-싱크 매개변수 세부 정보
++
+https://docs.confluent.io/kafka-connect-s3-sink/current/configuration_options.html["https://docs.confluent.io/kafka-connect-s3-sink/current/configuration_options.html#s3-configuration-options"^]
+
+* 아파치 카프카
++
+https://en.wikipedia.org/wiki/Apache_Kafka["https://en.wikipedia.org/wiki/Apache_Kafka"^]
+
+* Confluent 플랫폼의 무한 스토리지
++
+https://www.confluent.io/blog/infinite-kafka-storage-in-confluent-platform/["https://www.confluent.io/blog/infinite-kafka-storage-in-confluent-platform/"^]
+
+* Confluent Tiered Storage - 모범 사례 및 크기 조정
++
+https://docs.confluent.io/platform/current/kafka/tiered-storage.html#best-practices-and-recommendations["https://docs.confluent.io/platform/current/kafka/tiered-storage.html#best-practices-and-recommendations"^]
+
+* Confluent Platform용 Amazon S3 싱크 커넥터
++
+https://docs.confluent.io/kafka-connect-s3-sink/current/overview.html["https://docs.confluent.io/kafka-connect-s3-sink/current/overview.html"^]
+
+* 카프카 크기 조정
++
+https://eventsizer.io["https://eventsizer.io"]
+
+* StorageGRID 크기 조정
++
+https://fusion.netapp.com/["https://fusion.netapp.com/"^]
+
+* 카프카 사용 사례
++
+https://kafka.apache.org/uses["https://kafka.apache.org/uses"^]
+
+* Confluent 플랫폼 6.0에서 Kafka 클러스터의 자체 균형 조정
++
+https://www.confluent.io/blog/self-balancing-kafka-clusters-in-confluent-platform-6-0/["https://www.confluent.io/blog/self-balancing-kafka-clusters-in-confluent-platform-6-0/"^]
+
++
+https://www.confluent.io/blog/confluent-platform-6-0-delivers-the-most-powerful-event-streaming-platform-to-date/["https://www.confluent.io/blog/confluent-platform-6-0-delivers-the-most-powerful-event-streaming-platform-to-date/"^]
+
+

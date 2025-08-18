@@ -1,0 +1,256 @@
+---
+sidebar: sidebar 
+permalink: data-analytics/kafka-nfs-perf-aws-fsxn.html 
+keywords: AWS FSx ONTAP, openmessage benchmarking, architectural setup, kafka 
+summary: NetApp NFS에 스토리지 계층이 탑재된 Kafka 클러스터의 성능이 AWS 클라우드에서 벤치마킹되었습니다.  벤치마킹 사례는 다음 섹션에 설명되어 있습니다. 
+---
+= AWS FSx ONTAP 의 성능 개요 및 검증
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+NetApp NFS에 스토리지 계층이 장착된 Kafka 클러스터는 AWS FSx ONTAP 에서 성능을 벤치마킹했습니다.  벤치마킹 사례는 다음 섹션에 설명되어 있습니다.
+
+
+
+== AWS FSx ONTAP 의 Apache Kafka
+
+네트워크 파일 시스템(NFS)은 대량의 데이터를 저장하는 데 널리 사용되는 네트워크 파일 시스템입니다.  대부분의 조직에서는 Apache Kafka와 같은 스트리밍 애플리케이션을 통해 데이터가 생성되는 경우가 점점 늘어나고 있습니다.  이러한 작업에는 확장성, 낮은 지연 시간, 최신 스토리지 기능을 갖춘 강력한 데이터 수집 아키텍처가 필요합니다.  실시간 분석을 가능하게 하고 실행 가능한 통찰력을 제공하려면 잘 설계되고 성능이 뛰어난 인프라가 필요합니다.
+
+Kafka는 설계상 POSIX 호환 파일 시스템에서 작동하며 파일 작업을 처리하기 위해 해당 파일 시스템에 의존하지만, NFSv3 파일 시스템에 데이터를 저장하는 경우 Kafka 브로커 NFS 클라이언트는 XFS나 Ext4와 같은 로컬 파일 시스템과 다르게 파일 작업을 해석할 수 있습니다.  흔한 예로는 NFS Silly 이름 변경으로 인해 클러스터를 확장하고 파티션을 재할당할 때 Kafka 브로커가 실패하는 경우가 있습니다.  이러한 과제를 해결하기 위해 NetApp 오픈 소스 Linux NFS 클라이언트를 업데이트하여 현재 RHEL8.7, RHEL9.1에서 일반적으로 사용할 수 있는 변경 사항을 적용했으며, 현재 FSx ONTAP 릴리스인 ONTAP 9.12.1에서 지원됩니다.
+
+Amazon FSx ONTAP 클라우드에서 완벽하게 관리되고 확장 가능하며 성능이 뛰어난 NFS 파일 시스템을 제공합니다.  FSx ONTAP 의 Kafka 데이터는 대량의 데이터를 처리하고 내결함성을 보장하도록 확장될 수 있습니다.  NFS는 중요하고 민감한 데이터 세트에 대한 중앙 집중식 스토리지 관리 및 데이터 보호를 제공합니다.
+
+이러한 향상된 기능을 통해 AWS 고객은 AWS 컴퓨팅 서비스에서 Kafka 워크로드를 실행할 때 FSx ONTAP 의 이점을 활용할 수 있습니다.  이러한 이점은 다음과 같습니다. * CPU 사용률을 줄여 I/O 대기 시간을 줄입니다. * Kafka 브로커 복구 시간이 더 빠릅니다.  * 신뢰성과 효율성.  * 확장성 및 성능.  * 다중 이용 가능 구역 이용 가능.  * 데이터 보호.
+
+
+
+=== AWS FSx ONTAP 의 성능 개요 및 검증
+
+NetApp NFS에 스토리지 계층이 탑재된 Kafka 클러스터의 성능이 AWS 클라우드에서 벤치마킹되었습니다.  벤치마킹 사례는 다음 섹션에 설명되어 있습니다.
+
+
+
+==== AWS FSx ONTAP 의 카프카
+
+AWS FSx ONTAP 탑재된 Kafka 클러스터는 AWS 클라우드에서 성능을 벤치마킹했습니다.  다음 섹션에서는 이 벤치마킹에 대해 설명합니다.
+
+
+
+==== 건축적 설정
+
+다음 표는 AWS FSx ONTAP 사용하는 Kafka 클러스터의 환경 구성을 보여줍니다.
+
+|===
+| 플랫폼 구성 요소 | 환경 구성 
+
+
+| 카프카 3.2.3  a| 
+* 3 x 동물원 관리인 – t2.small
+* 3개의 브로커 서버 - i3en.2xlarge
+* 1 x 그라파나 – c5n.2xlarge
+* 4 x 생산자/소비자 -- c5n.2xlarge *
+
+
+
+
+| 모든 노드의 운영 체제 | RHEL8.6 
+
+
+| AWS FSx ONTAP | 4GB/초 처리량과 160000 IOPS를 갖춘 다중 AZ 
+|===
+
+
+==== NetApp FSx ONTAP 설정
+
+. 초기 테스트를 위해 2TB 용량과 2GB/초 처리량을 위한 40000 IOPS를 갖춘 FSx ONTAP 파일 시스템을 만들었습니다.
++
+....
+[root@ip-172-31-33-69 ~]# aws fsx create-file-system --region us-east-2  --storage-capacity 2048 --subnet-ids <desired subnet 1> subnet-<desired subnet 2> --file-system-type ONTAP --ontap-configuration DeploymentType=MULTI_AZ_HA_1,ThroughputCapacity=2048,PreferredSubnetId=<desired primary subnet>,FsxAdminPassword=<new password>,DiskIopsConfiguration="{Mode=USER_PROVISIONED,Iops=40000"}
+....
++
+우리의 예에서는 AWS CLI를 통해 FSx ONTAP 배포합니다.  필요에 따라 사용자 환경에서 명령을 추가로 사용자 지정해야 합니다.  FSx ONTAP AWS 콘솔을 통해 배포 및 관리할 수 있으므로 명령줄 입력을 줄여 더 쉽고 간소화된 배포 환경을 제공합니다.
+
++
+FSx ONTAP 에서 테스트 지역(US-East-1)의 처리량 2GB/초 파일 시스템에서 달성 가능한 최대 IOPS는 80,000 iops입니다.  FSx ONTAP 파일 시스템의 총 최대 IOPS는 160,000 IOPS이며, 이를 달성하려면 4GB/초의 처리량 배포가 필요합니다. 이에 대해서는 이 문서의 뒷부분에서 설명하겠습니다.
+
++
+FSx ONTAP 성능 사양에 대한 자세한 내용은 여기에서 AWS FSx ONTAP 설명서를 참조하세요. https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/performance.html[] .
+
++
+FSx "create-file-system"에 대한 자세한 명령줄 구문은 여기에서 확인할 수 있습니다. https://docs.aws.amazon.com/cli/latest/reference/fsx/create-file-system.html[]
+
++
+예를 들어, KMS 키가 지정되지 않은 경우 사용되는 기본 AWS FSx 마스터 키 대신 특정 KMS 키를 지정할 수 있습니다.
+
+. FSx ONTAP 파일 시스템을 생성하는 동안 다음과 같이 파일 시스템을 설명한 후 JSON 반환에서 "LifeCycle" 상태가 "AVAILABLE"로 변경될 때까지 기다리세요.
++
+....
+[root@ip-172-31-33-69 ~]# aws fsx describe-file-systems  --region us-east-1 --file-system-ids fs-02ff04bab5ce01c7c
+....
+. fsxadmin 사용자로 FSx ONTAP SSH에 로그인하여 자격 증명을 확인합니다. Fsxadmin은 FSx ONTAP 파일 시스템을 생성할 때 사용되는 기본 관리자 계정입니다.  fsxadmin의 비밀번호는 1단계에서 완료한 대로 AWS 콘솔이나 AWS CLI를 사용하여 파일 시스템을 처음 생성할 때 구성한 비밀번호입니다.
++
+....
+[root@ip-172-31-33-69 ~]# ssh fsxadmin@198.19.250.244
+The authenticity of host '198.19.250.244 (198.19.250.244)' can't be established.
+ED25519 key fingerprint is SHA256:mgCyRXJfWRc2d/jOjFbMBsUcYOWjxoIky0ltHvVDL/Y.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '198.19.250.244' (ED25519) to the list of known hosts.
+(fsxadmin@198.19.250.244) Password:
+
+This is your first recorded login.
+....
+. 자격 증명이 검증되면 FSx ONTAP 파일 시스템에 스토리지 가상 머신을 생성합니다.
++
+....
+[root@ip-172-31-33-69 ~]# aws fsx --region us-east-1 create-storage-virtual-machine --name svmkafkatest --file-system-id fs-02ff04bab5ce01c7c
+....
++
+SVM(Storage Virtual Machine)은 FSx ONTAP 볼륨의 데이터를 관리하고 액세스하기 위한 자체 관리 자격 증명과 엔드포인트를 갖춘 격리된 파일 서버이며 FSx ONTAP 다중 테넌시를 제공합니다.
+
+. 기본 스토리지 가상 머신을 구성한 후 새로 만든 FSx ONTAP 파일 시스템에 SSH를 실행하고 아래 샘플 명령을 사용하여 스토리지 가상 머신에 볼륨을 생성합니다. 마찬가지로 이 검증을 위해 6개의 볼륨을 생성합니다.  우리의 검증에 따르면, 카프카에 더 나은 성능을 제공하는 기본 구성 요소(8) 또는 그 이하의 구성 요소를 유지합니다.
++
+....
+FsxId02ff04bab5ce01c7c::*> volume create -volume kafkafsxN1 -state online -policy default -unix-permissions ---rwxr-xr-x -junction-active true -type RW -snapshot-policy none  -junction-path /kafkafsxN1 -aggr-list aggr1
+....
+. 테스트를 위해서는 볼륨에 추가 용량이 필요합니다.  볼륨 크기를 2TB로 확장하고 연결 경로에 마운트합니다.
++
+....
+FsxId02ff04bab5ce01c7c::*> volume size -volume kafkafsxN1 -new-size +2TB
+vol size: Volume "svmkafkatest:kafkafsxN1" size set to 2.10t.
+
+FsxId02ff04bab5ce01c7c::*> volume size -volume kafkafsxN2 -new-size +2TB
+vol size: Volume "svmkafkatest:kafkafsxN2" size set to 2.10t.
+
+FsxId02ff04bab5ce01c7c::*> volume size -volume kafkafsxN3 -new-size +2TB
+vol size: Volume "svmkafkatest:kafkafsxN3" size set to 2.10t.
+
+FsxId02ff04bab5ce01c7c::*> volume size -volume kafkafsxN4 -new-size +2TB
+vol size: Volume "svmkafkatest:kafkafsxN4" size set to 2.10t.
+
+FsxId02ff04bab5ce01c7c::*> volume size -volume kafkafsxN5 -new-size +2TB
+vol size: Volume "svmkafkatest:kafkafsxN5" size set to 2.10t.
+
+FsxId02ff04bab5ce01c7c::*> volume size -volume kafkafsxN6 -new-size +2TB
+vol size: Volume "svmkafkatest:kafkafsxN6" size set to 2.10t.
+
+FsxId02ff04bab5ce01c7c::*> volume show -vserver svmkafkatest -volume *
+Vserver   Volume       Aggregate    State      Type       Size  Available Used%
+--------- ------------ ------------ ---------- ---- ---------- ---------- -----
+svmkafkatest
+          kafkafsxN1   -            online     RW       2.10TB     1.99TB    0%
+svmkafkatest
+          kafkafsxN2   -            online     RW       2.10TB     1.99TB    0%
+svmkafkatest
+          kafkafsxN3   -            online     RW       2.10TB     1.99TB    0%
+svmkafkatest
+          kafkafsxN4   -            online     RW       2.10TB     1.99TB    0%
+svmkafkatest
+          kafkafsxN5   -            online     RW       2.10TB     1.99TB    0%
+svmkafkatest
+          kafkafsxN6   -            online     RW       2.10TB     1.99TB    0%
+svmkafkatest
+          svmkafkatest_root
+                       aggr1        online     RW          1GB    968.1MB    0%
+7 entries were displayed.
+
+FsxId02ff04bab5ce01c7c::*> volume mount -volume kafkafsxN1 -junction-path /kafkafsxN1
+
+FsxId02ff04bab5ce01c7c::*> volume mount -volume kafkafsxN2 -junction-path /kafkafsxN2
+
+FsxId02ff04bab5ce01c7c::*> volume mount -volume kafkafsxN3 -junction-path /kafkafsxN3
+
+FsxId02ff04bab5ce01c7c::*> volume mount -volume kafkafsxN4 -junction-path /kafkafsxN4
+
+FsxId02ff04bab5ce01c7c::*> volume mount -volume kafkafsxN5 -junction-path /kafkafsxN5
+
+FsxId02ff04bab5ce01c7c::*> volume mount -volume kafkafsxN6 -junction-path /kafkafsxN6
+....
++
+FSx ONTAP 에서는 볼륨을 씬 프로비저닝할 수 있습니다.  예시에서 총 확장 볼륨 용량이 총 파일 시스템 용량을 초과하므로 추가 프로비저닝 볼륨 용량을 잠금 해제하려면 총 파일 시스템 용량을 확장해야 합니다. 이는 다음 단계에서 보여드리겠습니다.
+
+. 다음으로, 추가적인 성능 및 용량을 위해 FSx ONTAP 처리량 용량을 2GB/초에서 4GB/초로, IOPS를 160000으로, 용량을 5TB로 확장합니다.
++
+....
+[root@ip-172-31-33-69 ~]# aws fsx update-file-system --region us-east-1  --storage-capacity 5120 --ontap-configuration 'ThroughputCapacity=4096,DiskIopsConfiguration={Mode=USER_PROVISIONED,Iops=160000}' --file-system-id fs-02ff04bab5ce01c7c
+....
++
+FSx "update-file-system"에 대한 자세한 명령줄 구문은 여기에서 확인할 수 있습니다.https://docs.aws.amazon.com/cli/latest/reference/fsx/update-file-system.html[]
+
+. FSx ONTAP 볼륨은 Kafka 브로커의 nconnect 및 기본 옵션으로 마운트됩니다.
++
+다음 그림은 FSx ONTAP 기반 Kafka 클러스터의 최종 아키텍처를 보여줍니다.
+
++
+image:aws-fsx-kafka-architecture.png["이 이미지는 FSx ONTAP 기반 Kafka 클러스터의 아키텍처를 보여줍니다."]
+
++
+** 계산하다.  우리는 전용 서버에서 실행되는 3노드 Zookeeper 앙상블과 함께 3노드 Kafka 클러스터를 사용했습니다.  각 브로커는 FSx ONTAP 인스턴스의 6개 볼륨에 대해 6개의 NFS 마운트 포인트를 갖고 있었습니다.
+** 모니터링.  우리는 Prometheus-Grafana 조합을 위해 두 개의 노드를 사용했습니다.  워크로드를 생성하기 위해 이 Kafka 클러스터에서 워크로드를 생성하고 소비할 수 있는 별도의 3노드 클러스터를 사용했습니다.
+** 저장.  우리는 6개의 2TB 볼륨이 마운트된 FSx ONTAP 사용했습니다.  그런 다음 볼륨은 NFS 마운트를 통해 Kafka 브로커로 내보내졌습니다. FSx ONTAP 볼륨은 16개의 nconnect 세션과 Kafka 브로커의 기본 옵션으로 마운트됩니다.
+
+
+
+
+
+
+==== OpenMessage 벤치마킹 구성.
+
+NetApp Cloud Volumes ONTAP 에 사용된 것과 동일한 구성을 사용했으며 자세한 내용은 여기에 있습니다. 링크:kafka-nfs-performance-overview-and-validation-in-aws.html#architectural-setup
+
+
+
+==== 테스트 방법론
+
+. 위에 설명된 사양에 따라 Terraform과 Ansible을 사용하여 Kafka 클러스터를 프로비저닝했습니다.  Terraform은 Kafka 클러스터용 AWS 인스턴스를 사용하여 인프라를 구축하는 데 사용되고, Ansible은 해당 인스턴스에 Kafka 클러스터를 구축합니다.
+. 위에 설명된 워크로드 구성과 Sync 드라이버를 사용하여 OMB 워크로드가 트리거되었습니다.
++
+....
+sudo bin/benchmark –drivers driver-kafka/kafka-sync.yaml workloads/1-topic-100-partitions-1kb.yaml
+....
+. 동일한 작업 부하 구성을 사용하는 Throughput 드라이버로 또 다른 작업 부하가 트리거되었습니다.
++
+....
+sudo bin/benchmark –drivers driver-kafka/kafka-throughput.yaml workloads/1-topic-100-partitions-1kb.yaml
+....
+
+
+
+
+==== 관찰
+
+NFS에서 실행되는 Kafka 인스턴스의 성능을 벤치마킹하기 위한 워크로드를 생성하기 위해 두 가지 유형의 드라이버가 사용되었습니다.  드라이버 간의 차이점은 로그 플러시 속성입니다.
+
+Kafka 복제 요소 1 및 FSx ONTAP 의 경우:
+
+* Sync 드라이버에서 지속적으로 생성된 총 처리량은 ~3218MBps이고 최대 성능은 ~3652MBps입니다.
+* Throughput 드라이버에서 지속적으로 생성된 총 처리량은 ~3679MBps이고 최대 성능은 ~3908MBps입니다.
+
+
+복제 계수 3과 FSx ONTAP 있는 Kafka의 경우:
+
+* Sync 드라이버에서 지속적으로 생성된 총 처리량은 ~1252MBps이고 최대 성능은 ~1382MBps입니다.
+* Throughput 드라이버에서 지속적으로 생성된 총 처리량은 ~1218MBps이고 최대 성능은 ~1328MBps입니다.
+
+
+Kafka 복제 요소 3에서는 읽기 및 쓰기 작업이 FSx ONTAP 에서 3번 발생했고, Kafka 복제 요소 1에서는 읽기 및 쓰기 작업이 FSx ONTAP 에서 한 번 발생했으므로 두 가지 검증에서 모두 최대 처리량인 4GB/초에 도달할 수 있었습니다.
+
+Sync 드라이버는 로그가 디스크에 즉시 플러시되므로 일관된 처리량을 생성할 수 있는 반면, Throughput 드라이버는 로그가 대량으로 디스크에 커밋되므로 처리량이 급증합니다.
+
+이러한 처리량 수치는 주어진 AWS 구성에 대해 생성됩니다.  더 높은 성능이 필요한 경우 인스턴스 유형을 확장하고 조정하여 처리량을 더욱 높일 수 있습니다.  총 처리량 또는 총 속도는 생산자 속도와 소비자 속도를 합친 것입니다.
+
+image:aws-fsxn-performance-rf-1-rf-3.png["이 이미지는 RF1과 RF3를 사용한 카프카의 성능을 보여줍니다."]
+
+아래 차트는 Kafka 복제 요소 3에 대한 2GB/초 FSx ONTAP 및 4GB/초 성능을 보여줍니다.  복제 요소 3은 FSx ONTAP 스토리지에서 읽기 및 쓰기 작업을 세 번 수행합니다.  처리량 드라이버의 총 속도는 881MB/초이고, 2GB/초 FSx ONTAP 파일 시스템에서 Kafka 작업을 읽고 쓰는 데 약 2.64GB/초가 소요됩니다. 처리량 드라이버의 총 속도는 1328MB/초이고, Kafka 작업을 읽고 쓰는 데 약 3.98GB/초가 소요됩니다.  Kafka 성능은 FSx ONTAP 처리량에 따라 선형적이고 확장 가능합니다.
+
+image:aws-fsxn-2gb-4gb-scale.png["이 이미지는 2GB/초와 4GB/초의 확장 성능을 보여줍니다."]
+
+아래 차트는 EC2 인스턴스와 FSx ONTAP (Kafka 복제 계수: 3) 간의 성능을 보여줍니다.
+
+image:aws-fsxn-ec2-fsxn-comparition.png["이 이미지는 RF3에서 EC2와 FSx ONTAP 의 성능을 비교한 것입니다."]

@@ -1,0 +1,34 @@
+---
+sidebar: sidebar 
+permalink: data-analytics/kafka-sc-performance.html 
+keywords: data graphs, kafka throughput, s3 tiering traffic, aff a900, resource utilization 
+summary: '우리는 하나의 AFF A900 HA 쌍 NetApp 스토리지 컨트롤러를 사용하여 생산-소비 워크로드 동안 5개 또는 8개의 브로커 노드로 계층형 스토리지 테스트를 수행했습니다.  테스트에 따르면, AFF A900 리소스 사용률이 100%에 도달할 때까지 완료 시간과 성능 결과는 브로커 노드 수에 따라 조정되었습니다.  ONTAP 스토리지 컨트롤러 설정에는 최소 1개의 HA 쌍이 필요했습니다.' 
+---
+= 생산-소비 워크로드 생성기를 사용한 성능 테스트
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+우리는 하나의 AFF A900 HA 쌍 NetApp 스토리지 컨트롤러를 사용하여 생산-소비 워크로드 동안 5개 또는 8개의 브로커 노드로 계층형 스토리지 테스트를 수행했습니다.  테스트에 따르면, AFF A900 리소스 사용률이 100%에 도달할 때까지 완료 시간과 성능 결과는 브로커 노드 수에 따라 조정되었습니다.  ONTAP 스토리지 컨트롤러 설정에는 최소 1개의 HA 쌍이 필요했습니다.
+
+S3 검색 작업의 성능은 Confluent 브로커 노드 수에 따라 선형적으로 증가했습니다.  ONTAP 스토리지 컨트롤러는 단일 배포에서 최대 12개의 HA 쌍을 지원합니다.
+
+다음 그래프는 5개 또는 8개의 브로커 노드가 있는 결합된 S3 계층화 트래픽을 보여줍니다.  우리는 AFF A900 단일 HA 쌍의 성능을 극대화했습니다.
+
+image:kafka-sc-009.png["이 데이터 그래프는 5개 또는 8개의 브로커 노드가 포함된 S3 계층화 트래픽을 결합한 것을 보여줍니다."]
+
+다음 그래프는 약 31.74GBps의 Kafka 처리량을 보여줍니다.
+
+image:kafka-sc-010.png["이 데이터 그래프는 카프카 처리량이 약 31.74GBps임을 보여줍니다."]
+
+또한 ONTAP 스토리지 컨트롤러에서도 유사한 처리량을 관찰했습니다. `perfstat` 보고서.
+
+....
+object_store_server:wle-mendocino-07-08:get_data:34080805907b/ s
+object_store_server:wle-mendocino-07-08:put_data:484236974b/ s
+....

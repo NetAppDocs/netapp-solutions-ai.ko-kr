@@ -1,0 +1,33 @@
+---
+sidebar: sidebar 
+permalink: data-analytics/stgr-splunkss-conclusion.html 
+keywords: conclusion, references 
+summary: Splunk Enterprise는 보안, IT, DevOps 팀 전반에 걸쳐 성과를 이끌어내는 시장 선도적인 SIEM 솔루션입니다. 
+---
+= 결론
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Splunk Enterprise는 보안, IT, DevOps 팀 전반에 걸쳐 성과를 이끌어내는 시장 선도적인 SIEM 솔루션입니다.  우리 고객의 조직 전반에서 Splunk 사용이 상당히 증가했습니다.  따라서 더 많은 데이터 소스를 추가하는 동시에 더 오랜 기간 동안 데이터를 보관해야 하며, 이로 인해 Splunk 인프라에 부담이 가해집니다.
+
+Splunk SmartStore와 NetApp StorageGRID 의 조합은 조직이 SmartStore와 StorageGRID 개체 스토리지를 통해 수집 성능을 개선하고 여러 지리적 지역에 걸쳐 Splunk 환경에 대한 확장성을 높일 수 있는 확장 가능한 아키텍처를 제공하도록 설계되었습니다.
+
+
+
+== 추가 정보를 찾을 수 있는 곳
+
+이 문서에 설명된 정보에 대해 자세히 알아보려면 다음 문서 및/또는 웹사이트를 검토하세요.
+
+* https://docs.netapp.com/us-en/storagegrid-family/["NetApp StorageGRID 문서 리소스"^]
+* https://docs.netapp.com["NetApp 제품 문서"^]
+* https://docs.splunk.com/Documentation/Splunk["Splunk Enterprise 문서"^]
+* https://docs.splunk.com/Documentation/Splunk/8.0.6/Indexer/AboutSmartStore["Splunk Enterprise SmartStore 정보"^]
+* https://docs.splunk.com/Documentation/Splunk/8.0.6/Deploy/Distributedoverview["Splunk Enterprise 분산 배포 매뉴얼"^]
+* https://docs.splunk.com/Documentation/Splunk/8.0.6/Indexer/Aboutindexesandindexers["Splunk Enterprise 인덱서 및 인덱서 클러스터 관리"^]
+

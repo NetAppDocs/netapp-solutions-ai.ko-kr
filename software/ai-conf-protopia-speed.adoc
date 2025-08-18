@@ -1,0 +1,19 @@
+---
+sidebar: sidebar 
+permalink: software/ai-conf-protopia-speed.html 
+keywords: speed, obfuscation, pytorch 
+summary: 이 검증을 위해 1920 x 1080 픽셀 이미지에 Protopia 난독화를 5번 적용하고 난독화 단계가 완료되는 데 걸리는 시간을 매번 측정했습니다. 
+---
+= 난독화 속도
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 검증을 위해 1920 x 1080 픽셀 이미지에 Protopia 난독화를 5번 적용하고 난독화 단계가 완료되는 데 걸리는 시간을 매번 측정했습니다.
+
+단일 NVIDIA V100 GPU에서 실행되는 PyTorch를 사용하여 난독화를 적용하고, 실행 사이에 GPU 캐시를 지웠습니다.  난독화 단계는 5번의 실행에 걸쳐 각각 5.47ms, 5.27ms, 4.54ms, 5.24ms, 4.84ms가 걸렸습니다.  평균 속도는 5.072ms였습니다.

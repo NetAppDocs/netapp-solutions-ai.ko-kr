@@ -1,0 +1,83 @@
+---
+sidebar: sidebar 
+permalink: software/ai-osmlops-jhub-dotk.html 
+keywords: AI, control plane, MLOps, JupyterHub 
+summary: NetApp 사용한 오픈 소스 MLOps - JupyterHub와 함께 NetApp DataOps 툴킷 사용 
+---
+= JupyterHub와 함께 NetApp DataOps Toolkit 사용
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+그만큼 https://github.com/NetApp/netapp-dataops-toolkit/tree/main/netapp_dataops_k8s["Kubernetes용 NetApp DataOps 툴킷"^] JupyterHub와 함께 사용할 수 있습니다.  JupyterHub와 함께 NetApp DataOps Toolkit을 사용하면 최종 사용자는 Jupyter Notebook 내에서 직접 작업 공간 백업 및/또는 데이터 세트-모델 추적을 위한 볼륨 스냅샷을 만들 수 있습니다.
+
+
+
+== 초기 설정
+
+JupyterHub에서 DataOps Toolkit을 사용하려면 먼저 JupyterHub가 개별 사용자 Jupyter Notebook Server 포드에 할당한 Kubernetes 서비스 계정에 적절한 권한을 부여해야 합니다.  JupyterHub는 다음에 의해 지정된 서비스 계정을 사용합니다. `singleuser.serviceAccountName` JupyterHub Helm 차트 구성 파일의 변수입니다.
+
+
+
+=== DataOps Toolkit에 대한 클러스터 역할 생성
+
+먼저, 볼륨 스냅샷을 만드는 데 필요한 Kubernetes API 권한이 있는 'netapp-dataops'라는 클러스터 역할을 만듭니다.
+
+[source]
+----
+$ vi clusterrole-netapp-dataops-snapshots.yaml
+---
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: netapp-dataops-snapshots
+rules:
+- apiGroups: [""]
+  resources: ["persistentvolumeclaims", "persistentvolumeclaims/status", "services"]
+  verbs: ["get", "list"]
+- apiGroups: ["snapshot.storage.k8s.io"]
+  resources: ["volumesnapshots", "volumesnapshots/status", "volumesnapshotcontents", "volumesnapshotcontents/status"]
+  verbs: ["get", "list", "create"]
+
+$ kubectl create -f clusterrole-netapp-dataops-snapshots.yaml
+clusterrole.rbac.authorization.k8s.io/netapp-dataops-snapshots created
+----
+
+
+=== Notebook Server 서비스 계정에 클러스터 역할 할당
+
+적절한 네임스페이스의 적절한 서비스 계정에 'netapp-dataops-snapshots' 클러스터 역할을 할당하는 역할 바인딩을 만듭니다.  예를 들어, 'jupyterhub' 네임스페이스에 JupyterHub를 설치하고 다음을 통해 '기본' 서비스 계정을 지정한 경우 `singleuser.serviceAccountName` 다음 예에서 보듯이 변수를 사용하면 'jupyterhub' 네임스페이스의 '기본' 서비스 계정에 'netapp-dataops-snapshots' 클러스터 역할을 할당할 수 있습니다.
+
+[source]
+----
+$ vi rolebinding-jupyterhub-netapp-dataops-snapshots.yaml
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: jupyterhub-netapp-dataops-snapshots
+  namespace: jupyterhub # Replace with you JupyterHub namespace
+subjects:
+- kind: ServiceAccount
+  name: default # Replace with your JupyterHub singleuser.serviceAccountName
+  namespace: jupyterhub # Replace with you JupyterHub namespace
+roleRef:
+  kind: ClusterRole
+  name: netapp-dataops-snapshots
+  apiGroup: rbac.authorization.k8s.io
+
+$ kubectl create -f ./rolebinding-jupyterhub-netapp-dataops-snapshots.yaml
+rolebinding.rbac.authorization.k8s.io/jupyterhub-netapp-dataops-snapshots created
+----
+
+
+== Jupyter Notebook 내에서 볼륨 스냅샷 만들기
+
+이제 JupyterHub 사용자는 다음 예에서 볼 수 있듯이 NetApp DataOps Toolkit을 사용하여 Jupyter Notebook 내에서 직접 볼륨 스냅샷을 만들 수 있습니다.
+
+image:aicp-jhub-dotk-nb.png["입력/출력 대화 상자 또는 서면 내용을 나타내는 그림"]

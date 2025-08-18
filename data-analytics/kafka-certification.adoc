@@ -1,0 +1,95 @@
+---
+sidebar: sidebar 
+permalink: data-analytics/kafka-certification.html 
+keywords: certification, setup, configuration, benchmark 
+summary: NetApp StorageGRID 의 계층형 스토리지를 위해 Kafka를 사용하여 Confluent Platform에 대한 인증을 수행했습니다. 
+---
+= Confluent 검증
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+NetApp StorageGRID 의 Confluent Platform 6.2 Tiered Storage를 사용하여 검증을 수행했습니다.  NetApp 과 Confluent 팀은 이 검증 작업을 함께 수행했으며 검증에 필요한 테스트 사례를 실행했습니다.
+
+
+
+== Confluent 플랫폼 설정
+
+우리는 검증을 위해 다음과 같은 설정을 사용했습니다.
+
+검증을 위해 3개의 동물원 관리자, 5개의 브로커, 5개의 테스트 스크립트 실행 서버, 256GB RAM과 16개의 CPU가 장착된 명명된 도구 서버를 사용했습니다.  NetApp 스토리지의 경우, 4개의 SGF6024를 탑재한 SG1000 로드 밸런서와 함께 StorageGRID 사용했습니다.  저장소와 브로커는 100GbE 연결을 통해 연결되었습니다.
+
+다음 그림은 Confluent 검증에 사용된 구성의 네트워크 토폴로지를 보여줍니다.
+
+image:confluent-kafka-007.png["입력/출력 대화 상자 또는 서면 내용을 나타내는 그림"]
+
+도구 서버는 Confluent 노드에 요청을 보내는 애플리케이션 클라이언트 역할을 합니다.
+
+
+
+== Confluent 계층형 스토리지 구성
+
+Kafka에서 계층형 스토리지 구성에는 다음 매개변수가 필요합니다.
+
+....
+Confluent.tier.archiver.num.threads=16
+confluent.tier.fetcher.num.threads=32
+confluent.tier.enable=true
+confluent.tier.feature=true
+confluent.tier.backend=S3
+confluent.tier.s3.bucket=kafkasgdbucket1-2
+confluent.tier.s3.region=us-west-2
+confluent.tier.s3.cred.file.path=/data/kafka/.ssh/credentials
+confluent.tier.s3.aws.endpoint.override=http://kafkasgd.rtpppe.netapp.com:10444/
+confluent.tier.s3.force.path.style.access=true
+....
+검증을 위해 HTTP 프로토콜을 사용하는 StorageGRID 사용했지만 HTTPS도 가능합니다.  액세스 키와 비밀 키는 제공된 파일 이름에 저장됩니다. `confluent.tier.s3.cred.file.path` 매개변수.
+
+
+
+== NetApp 객체 스토리지 - StorageGRID
+
+검증을 위해 StorageGRID 에서 단일 사이트 구성을 구성했습니다.
+
+image:confluent-kafka-008.png["입력/출력 대화 상자 또는 서면 내용을 나타내는 그림"]
+
+
+
+== 검증 테스트
+
+우리는 검증을 위해 다음의 5가지 테스트 사례를 완료했습니다.  이러한 테스트는 Trogdor 프레임워크에서 실행됩니다.  처음 두 가지는 기능 테스트였고 나머지 세 가지는 성능 테스트였습니다.
+
+
+
+=== 객체 저장소 정확성 테스트
+
+이 테스트는 계층형 스토리지의 요구 사항에 따라 객체 저장소 API의 모든 기본 작업(예: 가져오기/넣기/삭제)이 제대로 작동하는지 여부를 판별합니다.  이는 모든 객체 저장 서비스가 다음 테스트에 앞서 통과해야 하는 기본 테스트입니다.  합격 아니면 불합격이 결정되는 단정적 시험입니다.
+
+
+
+=== 계층화 기능 정확성 테스트
+
+이 테스트는 엔드투엔드 계층형 스토리지 기능이 통과하거나 실패하는 단정적 테스트를 통해 잘 작동하는지 확인합니다.  이 테스트는 기본적으로 계층화가 활성화되고 핫셋 크기가 크게 줄어든 테스트 주제를 생성합니다.  새로 생성된 테스트 주제에 대한 이벤트 스트림을 생성하고, 브로커가 세그먼트를 객체 저장소에 보관할 때까지 기다린 다음, 이벤트 스트림을 사용하여 사용된 스트림이 생성된 스트림과 일치하는지 확인합니다.  이벤트 스트림에 생성되는 메시지의 수는 구성 가능하므로 사용자는 테스트 요구 사항에 따라 충분히 큰 작업 부하를 생성할 수 있습니다.  핫셋 크기를 줄이면 활성 세그먼트 외부의 소비자 페치가 객체 저장소에서만 제공되도록 보장됩니다. 이는 읽기에 대한 객체 저장소의 정확성을 테스트하는 데 도움이 됩니다.  우리는 객체 저장소 오류 주입을 적용한 경우와 적용하지 않은 경우로 이 테스트를 수행했습니다.  StorageGRID 의 노드 중 하나에서 서비스 관리자 서비스를 중지하고 엔드투엔드 기능이 개체 스토리지에서 작동하는지 검증하여 노드 장애를 시뮬레이션했습니다.
+
+
+
+=== 티어 페치 벤치마크
+
+이 테스트는 계층형 개체 스토리지의 읽기 성능을 검증하고 벤치마크에서 생성된 세그먼트에서 높은 부하가 걸리는 범위 페치 읽기 요청을 확인했습니다.  이 벤치마크에서 Confluent는 계층별 페치 요청을 처리하기 위해 사용자 정의 클라이언트를 개발했습니다.
+
+
+
+=== 생산-소비 워크로드 벤치마크
+
+이 테스트는 세그먼트 보관을 통해 개체 저장소에 대한 쓰기 작업 부하를 간접적으로 생성했습니다.  소비자 그룹이 세그먼트를 가져올 때 개체 스토리지에서 읽기 작업 부하(세그먼트 읽기)가 생성되었습니다.  이 작업 부하는 테스트 스크립트에 의해 생성되었습니다.  이 테스트는 병렬 스레드에서 개체 스토리지의 읽기 및 쓰기 성능을 확인했습니다.  우리는 계층화 기능 정확성 테스트에서 했던 것처럼 객체 저장소 오류 주입을 적용한 경우와 적용하지 않은 경우를 테스트했습니다.
+
+
+
+=== 유지 관리 작업 벤치마크
+
+이 테스트는 주제 보존 작업 부하가 큰 상황에서 객체 저장소의 삭제 성능을 확인했습니다.  보존 작업 부하는 테스트 주제와 병렬로 많은 메시지를 생성하는 테스트 스크립트를 사용하여 생성되었습니다.  테스트 주제는 이벤트 스트림이 개체 저장소에서 지속적으로 제거되도록 하는 공격적인 크기 기반 및 시간 기반 보존 설정으로 구성되었습니다.  그런 다음 세그먼트는 보관되었습니다.  이로 인해 브로커에 의한 개체 저장소의 대량 삭제가 발생하고 개체 저장소 삭제 작업의 성능이 저하되었습니다.

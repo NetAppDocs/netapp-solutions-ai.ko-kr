@@ -1,0 +1,21 @@
+---
+sidebar: sidebar 
+permalink: infra/ai-eseries-spectrumscale.html 
+keywords:  
+summary:  
+---
+= TR-4859: NetApp E-Series 스토리지를 사용한 IBM Spectrum Scale 배포 - 설치 및 검증
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+크리스 세이러, NetApp
+
+[role="lead"]
+TR-4859는 IBM의 Spectrum Scale 소프트웨어 스택을 기반으로 전체 병렬 파일 시스템 솔루션을 배포하는 프로세스를 설명합니다.  TR-4859는 Spectrum Scale을 설치하는 방법, 인프라를 검증하는 방법, 구성을 관리하는 방법에 대한 세부 정보를 제공하도록 설계되었습니다.
+
+link:https://www.netapp.com/pdf.html?item=/media/22029-tr-4859.pdf["TR-4859: NetApp E-Series 스토리지를 사용한 IBM Spectrum Scale 배포 - 설치 및 검증"^]

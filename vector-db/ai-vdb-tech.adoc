@@ -1,0 +1,59 @@
+---
+sidebar: sidebar 
+permalink: vector-db/ai-vdb-tech.html 
+keywords: vector database 
+summary: 기술 요구 사항 - NetApp용 벡터 데이터베이스 솔루션 
+---
+= 기술 요구 사항
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 섹션에서는 NetApp 벡터 데이터베이스 솔루션에 대한 요구 사항에 대한 개요를 제공합니다.
+
+
+
+== 기술 요구 사항
+
+아래에 설명된 하드웨어 및 소프트웨어 구성은 성능을 제외하고 이 문서에서 수행된 대부분의 검증에 활용되었습니다.  이러한 구성은 환경을 설정하는 데 도움이 되는 지침으로 사용됩니다.  그러나 구체적인 구성 요소는 개별 고객 요구 사항에 따라 달라질 수 있습니다.
+
+
+
+== 하드웨어 요구 사항
+
+|===
+| 하드웨어 | 세부 
+
+
+| NetApp AFF 스토리지 어레이 HA 쌍 | * A800 * ONTAP 9.14.1 * 48 x 3.49TB SSD-NVM * 두 개의 유연한 그룹 볼륨: 메타데이터 및 데이터.  * 메타데이터 NFS 볼륨에는 250GB의 영구 볼륨이 12개 있습니다.  * 데이터는 ONTAP NAS S3 볼륨입니다. 
+
+
+| 후지쯔 프라이머지 RX2540 M4 6개 | * 64개 CPU * Intel(R) Xeon(R) Gold 6142 CPU @ 2.60GHz * 256 GM 물리적 메모리 * 1 x 100GbE 네트워크 포트 
+
+
+| 네트워킹 | 100GbE 
+
+
+| StorageGRID | * 1 x SG100, 3xSGF6024 * 3 x 24 x 7.68TB 
+|===
+
+
+== 소프트웨어 요구 사항
+
+|===
+| 소프트웨어 | 세부 
+
+
+| 밀부스 클러스터 | * 차트 - milvus-4.1.11.  * APP 버전 – 2.3.4 * Bookkeeper, Zookeeper, Pulsar, Etcd, Proxy, QueryNode, Worker와 같은 종속 번들 
+
+
+| 쿠버네티스 | * 5개 노드 K8s 클러스터 * 1개 마스터 노드 및 4개 워커 노드 * 버전 – 1.7.2 
+
+
+| 파이썬 | *3.10.12. 
+|===

@@ -1,0 +1,73 @@
+---
+sidebar: sidebar 
+permalink: infra/ai-lenovo-edge-config.html 
+keywords: test, configuration, network infrastructure, storage provisioning, SE350 server 
+summary: 이 섹션에서는 테스트된 구성, 네트워크 인프라, SE350 서버 및 스토리지 프로비저닝 세부 정보를 설명합니다. 
+---
+= 테스트 구성
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+다음 그림은 테스트 구성을 보여줍니다.  NetApp AFF C190 스토리지 시스템과 두 대의 Lenovo ThinkSystem SE350 서버(각각 NVIDIA T4 가속기 1개 장착)를 사용했습니다.  이러한 구성 요소는 10GbE 네트워크 스위치를 통해 연결됩니다.  네트워크 저장소에는 검증/테스트 데이터 세트와 사전 학습된 모델이 보관됩니다.  서버는 컴퓨팅 기능을 제공하고, 저장소는 NFS 프로토콜을 통해 접근합니다.
+
+이 섹션에서는 테스트된 구성, 네트워크 인프라, SE350 서버 및 스토리지 프로비저닝 세부 정보를 설명합니다.  다음 표에는 솔루션 아키텍처의 기본 구성 요소가 나열되어 있습니다.
+
+|===
+| 솔루션 구성 요소 | 세부 
+
+
+| 레노버 ThinkSystem 서버  a| 
+* 각각 NVIDIA T4 GPU 카드 1개가 장착된 2개의 SE350 서버
+
+
+
+
+|   a| 
+* 각 서버에는 2.20GHz에서 실행되는 4개의 물리적 코어와 128GB RAM을 갖춘 Intel Xeon D-2123IT CPU가 하나 포함되어 있습니다.
+
+
+
+
+| 엔트리 레벨 NetApp AFF 스토리지 시스템(HA 쌍)  a| 
+* NetApp ONTAP 9 소프트웨어
+* 24개의 960GB SSD
+* NFS 프로토콜
+* 컨트롤러당 하나의 인터페이스 그룹, 마운트 지점에 대한 4개의 논리적 IP 주소
+
+
+|===
+image:ai-edge-010.png["입력/출력 대화 상자 또는 서면 내용을 나타내는 그림"]
+
+다음 표는 스토리지 구성을 보여줍니다: 2RU, 24개 드라이브 슬롯이 있는 AFF C190 .
+
+|===
+| 제어 장치 | 골재 | FlexGroup 볼륨 | 집계 크기 | 볼륨 크기 | 운영 체제 마운트 지점 
+
+
+| Controller1 | Aggr1 | /넷애플노보_AI_fg | 8.42TiB | 15TB | /넷앱_레노버_fg 
+
+
+| Controller2 | Aggr2 |  | 8.42TiB |  |  
+|===
+/netappLenovo_AI_fg 폴더에는 모델 검증에 사용되는 데이터 세트가 포함되어 있습니다.
+
+아래 그림은 테스트 구성을 보여줍니다.  NetApp EF280 스토리지 시스템과 두 대의 Lenovo ThinkSystem SE350 서버(각각 NVIDIA T4 가속기 1개 장착)를 사용했습니다.  이러한 구성 요소는 10GbE 네트워크 스위치를 통해 연결됩니다.  네트워크 저장소에는 검증/테스트 데이터 세트와 사전 학습된 모델이 보관됩니다.  서버는 컴퓨팅 기능을 제공하고, 저장소는 NFS 프로토콜을 통해 접근합니다.
+
+다음 표는 EF280의 스토리지 구성을 나열합니다.
+
+|===
+| 제어 장치 | 볼륨 그룹 | 용량 | 볼륨 크기 | DDP 크기 | 연결 방법 
+
+
+| Controller1 | DDP1 | 제1권 | 8.42TiB | 16TB | SE350-1에서 iSCSI LUN 0으로 
+
+
+| Controller2 |  | 제2권 | 8.42TiB |  | SE350-2에서 iSCSI LUN 1로 
+|===
+image:ai-edge-011.png["입력/출력 대화 상자 또는 서면 내용을 나타내는 그림"]

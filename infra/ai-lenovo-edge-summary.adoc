@@ -1,0 +1,17 @@
+---
+sidebar: sidebar 
+permalink: infra/ai-lenovo-edge-summary.html 
+keywords:  
+summary:  
+---
+= 요약
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+첨단 운전자 보조 시스템(ADAS), 산업 4.0, 스마트 시티, 사물 인터넷(IoT)과 같은 여러 가지 새로운 애플리케이션 시나리오에서는 거의 0에 가까운 지연 시간으로 연속적인 데이터 스트림을 처리해야 합니다.  이 문서에서는 이러한 요구 사항을 충족하는 엣지 환경에서 NetApp 스토리지 컨트롤러와 Lenovo ThinkSystem 서버에 GPU 기반 인공 지능(AI) 추론을 배포하기 위한 컴퓨팅 및 스토리지 아키텍처를 설명합니다.  이 문서에서는 NVIDIA T4 GPU가 장착된 엣지 서버에서 다양한 추론 작업을 평가하는 업계 표준 MLPerf 추론 벤치마크에 대한 성능 데이터도 제공합니다.  오프라인, 단일 스트림, 다중 스트림 추론 시나리오의 성능을 조사하고, 비용 효율적인 공유 네트워크 스토리지 시스템을 갖춘 아키텍처가 매우 성능이 뛰어나고 여러 에지 서버의 데이터 및 모델 관리를 위한 중앙 지점을 제공한다는 것을 보여줍니다.

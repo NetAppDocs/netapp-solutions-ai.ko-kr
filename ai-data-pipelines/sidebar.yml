@@ -1,0 +1,153 @@
+---
+section: ai-data-pipelines
+title: MLOps 및 데이터 관리
+url: "/ai-data-pipelines/index.html"
+entries:
+- title: NetApp 사용한 오픈 소스 MLOps
+  pdf-filename: NetApp 사용한 오픈 소스 MLOps
+  entries:
+  - title: 소개
+    url: "/software/ai-osmlops-intro.html"
+  - title: 기술 개요
+    url: "/software/ai-osmlops-concepts.html"
+  - title: 아키텍처
+    url: "/software/ai-osmlops-architecture.html"
+  - title: NetApp Trident 구성
+    entries:
+    - title: AIPod 배포를 위한 Trident 백엔드
+      url: "/software/ai-osmlops-trident-backend.html"
+    - title: AIPod 배포를 위한 Kubernetes StorageClass
+      url: "/software/ai-osmlops-trident-sc.html"
+  - title: 아파치 에어플로우
+    entries:
+    - title: Apache Airflow 배포
+      url: "/software/ai-osmlops-airflow-deploy.html"
+    - title: Airflow와 함께 NetApp DataOps Toolkit 사용
+      url: "/software/ai-osmlops-airflow-dotk.html"
+  - title: 주피터허브
+    entries:
+    - title: JupyterHub 배포
+      url: "/software/ai-osmlops-jhub-deploy.html"
+    - title: JupyterHub와 함께 NetApp DataOps Toolkit 사용
+      url: "/software/ai-osmlops-jhub-dotk.html"
+    - title: NetApp SnapMirror 로 데이터 수집
+      url: "/software/ai-osmlops-jhub-ingest.html"
+  - title: ML플로우
+    entries:
+    - title: MLflow 배포
+      url: "/software/ai-osmlops-mlflow-deploy.html"
+    - title: NetApp 및 MLflow를 사용한 데이터 세트-모델 추적성
+      url: "/software/ai-osmlops-mlflow-trace.html"
+  - title: 쿠베플로우
+    entries:
+    - title: Kubeflow 배포
+      url: "/software/ai-osmlops-kubeflow-deploy.html"
+    - title: Jupyter Notebook 작업 공간 제공
+      url: "/software/ai-osmlops-kubeflow-notebook.html"
+    - title: Kubeflow와 함께 NetApp DataOps Toolkit 사용
+      url: "/software/ai-osmlops-kubeflow-dotk.html"
+    - title: 이미지 인식 모델 학습 - 예시 워크플로
+      url: "/software/ai-osmlops-kubeflow-train.html"
+  - title: Trident 작업 예시
+    url: "/software/ai-osmlops-trident-ops.html"
+  - title: AIPod 배포를 위한 고성능 작업 예시
+    entries:
+    - title: 단일 노드 AI 워크로드 실행
+      url: "/software/ai-osmlops-train-singlenode.html"
+    - title: 동기식 분산 AI 워크로드 실행
+      url: "/software/ai-osmlops-train-distributed.html"
+- title: Domino Data Lab 및 NetApp 사용한 하이브리드 MLOps
+  pdf-filename: Domino Data Lab 및 NetApp 활용한 하이브리드 멀티클라우드 MLOps
+  entries:
+  - title: 소개
+    url: "/software/ai-hybrid-ddlnexus-intro.html"
+  - title: 기술 개요
+    url: "/software/ai-hybrid-ddlnexus-tech.html"
+  - title: 아키텍처
+    url: "/software/ai-hybrid-ddlnexus-arch.html"
+  - title: 초기 설정
+    url: "/software/ai-hybrid-ddlnexus-setup.html"
+  - title: 기존 NetApp 볼륨을 Domino에 노출
+    url: "/software/ai-hybrid-ddlnexus-vols.html"
+  - title: 다양한 환경에서 동일한 데이터에 액세스
+    url: "/software/ai-hybrid-ddlnexus-data.html"
+  - title: 추가 정보
+    url: "/software/ai-hybrid-ddlnexus-addtl.html"
+- title: NetApp 및 VMware를 활용한 NVIDIA AI Enterprise
+  pdf-filename: NetApp 및 VMware를 활용한 NVIDIA AI Enterprise
+  entries:
+  - title: 소개
+    url: "/software/ai-nvaie-vmw-intro.html"
+  - title: 기술 개요
+    url: "/software/ai-nvaie-vmw-tech.html"
+  - title: 아키텍처
+    url: "/software/ai-nvaie-vmw-arch.html"
+  - title: 초기 설정
+    url: "/software/ai-nvaie-vmw-setup.html"
+  - title: NVIDIA NGC 소프트웨어를 사용하세요
+    entries:
+    - title: 설정
+      url: "/software/ai-nvaie-vmw-ngcsetup.html"
+    - title: 사용 사례 예시 - TensorFlow 학습 작업
+      url: "/software/ai-nvaie-vmw-tensorflow.html"
+  - title: 추가 정보
+    url: "/software/ai-nvaie-vmw-addtl.html"
+- title: MLOps를 위한 FSx ONTAP
+  pdf-filename: MLOps용 Amazon FSx for NetApp ONTAP (FSx ONTAP)
+  entries:
+  - title: 개요
+    url: "/cloud/ai-mlops-fsxn-intro.html"
+  - title: 1부 - Amazon FSx for NetApp ONTAP 프라이빗 S3 버킷으로 AWS SageMaker에 통합
+    url: "/cloud/ai-mlops-fsxn-s3.html"
+  - title: 2부 - SageMaker에서 모델 학습을 위한 데이터 소스로 Amazon FSx for NetApp ONTAP 활용
+    url: "/cloud/ai-mlops-fsxn-sagemaker.html"
+  - title: 3부 - 단순화된 MLOps 파이프라인 구축
+    url: "/cloud/ai-mlops-fsxn-cictcd.html"
+- title: 자율 주행을 위한 StorageGRID 데이터 레이크
+  pdf-filename: 자율 주행 워크로드를 위한 NetApp StorageGRID 데이터 레이크
+  url: "/infra/ai-storagegrid-datalake-adas.html"
+- title: NetApp DataOps 툴킷
+  url: "/software/dataops-toolkit.html"
+- title: NetApp 사용한 벡터 데이터베이스 솔루션
+  pdf-filename: NetApp 사용한 벡터 데이터베이스 솔루션
+  entries:
+  - title: 개요
+    url: "/vector-db/ai-vdb-solution-with-netapp.html"
+  - title: 소개
+    url: "/vector-db/ai-vdb-intro.html"
+  - title: 솔루션 개요
+    url: "/vector-db/ai-vdb-overview.html"
+  - title: 벡터 데이터베이스
+    url: "/vector-db/ai-vdb-landscape.html"
+  - title: 기술 요구 사항
+    url: "/vector-db/ai-vdb-tech.html"
+  - title: 배포 절차
+    url: "/vector-db/ai-vdb-deploy.html"
+  - title: 솔루션 검증
+    entries:
+    - title: 개요
+      url: "/vector-db/ai-vdb-verification.html"
+    - title: 온프레미스에서 Kubernetes를 사용한 Milvus 클러스터 설정
+      url: "/vector-db/ai-vdb-milvus-setup.html"
+    - title: NetApp ONTAP 용 Amazon FSx ONTAP 탑재한 Milvus – 파일 및 객체 이중성
+      url: "/vector-db/ai-vdb-milvus-fsxn.html"
+    - title: SnapCenter 사용한 벡터 데이터베이스 보호
+      url: "/vector-db/ai-vdb-dp-snapcenter.html"
+    - title: SnapMirror 사용한 재해 복구
+      url: "/vector-db/ai-vdb-dr-snapmirror.html"
+    - title: 성능 검증
+      url: "/vector-db/ai-vdb-perf-validation.html"
+  - title: 'PostGreSQL을 사용하는 Instaclustr의 벡터 데이터베이스: pgvector'
+    url: "/vector-db/ai-vdb-instaclustr-pgvector.html"
+  - title: 벡터 데이터베이스 사용 사례
+    url: "/vector-db/ai-vdb-usecases.html"
+  - title: 결론
+    url: "/vector-db/ai-vdb-conclusion.html"
+  - title: '부록 A: values.yaml'
+    url: "/vector-db/ai-vdb-values.html"
+  - title: '부록 B: prepare_data_netapp_new_py'
+    url: "/vector-db/ai-vdb-dataprep.html"
+  - title: '부록 C: verify_data_netapp.py'
+    url: "/vector-db/ai-vdb-verifydata.html"
+  - title: '부록 D: docker_compose.yml'
+    url: "/vector-db/ai-vdb-docker-compose.html"

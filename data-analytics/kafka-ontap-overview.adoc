@@ -1,0 +1,25 @@
+---
+sidebar: sidebar 
+permalink: data-analytics/kafka-ontap-overview.html 
+keywords: tr4941, 4941, introduction 
+summary: 이 문서에서는 계층형 스토리지 벤치마킹 키트를 사용하여 NetApp ONTAP 에서 Confluent 플랫폼의 성능 벤치마크를 설명합니다. 
+---
+= TR-4941: NetApp ONTAP 스토리지 컨트롤러와 Confluent
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+Karthikeyan Nagalingam, Joe Scott, NetApp Rankesh Kumar, Confluent
+
+[role="lead"]
+Confluent 플랫폼을 더 확장 가능하고 탄력적으로 만들려면 작업 부하를 매우 빠르게 확장하고 균형을 맞출 수 있어야 합니다.  계층형 스토리지를 사용하면 이러한 운영 부담을 줄여 Confluent에 엄청난 양의 데이터를 저장하는 것이 쉬워집니다.
+
+기본적인 아이디어는 데이터 저장과 데이터 처리를 분리하는 것인데, 이를 통해 각각을 독립적으로 확장하기가 훨씬 쉬워집니다.
+
+업계를 선도하는 혁신 기술이 탑재된 NetApp ONTAP 데이터 관리 소프트웨어는 데이터가 있는 곳 어디에서나 Confluent에 많은 이점을 제공합니다.
+
+이 문서에서는 계층형 스토리지 벤치마킹 키트를 사용하여 NetApp ONTAP 에서 Confluent 플랫폼의 성능 벤치마크를 설명합니다.

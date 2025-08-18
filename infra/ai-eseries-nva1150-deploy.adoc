@@ -1,0 +1,21 @@
+---
+sidebar: sidebar 
+permalink: infra/ai-eseries-nva1150-deploy.html 
+keywords:  
+summary:  
+---
+= NVA-1150-DEPLOY: NetApp E-Series 시스템을 사용한 Quantum StorNext 배포 가이드
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+Ryan Rodine, NetApp
+
+[role="lead"]
+이 문서에서는 NetApp E-Series 스토리지 시스템에 StorNext 병렬 파일 시스템 솔루션을 배포하는 방법에 대한 자세한 내용을 제공합니다.  이 솔루션은 NetApp EF280 올플래시 어레이, NetApp EF300 올플래시 NVMe 어레이, NetApp EF600 올플래시 NVMe 어레이 및 NetApp E5760 하이브리드 시스템을 포함합니다.  이 솔루션은 미디어 및 엔터테인먼트 산업에서 테스트에 널리 사용되는 도구인 Frametest 벤치마킹을 기반으로 성능 특성을 제공합니다.
+
+link:https://www.netapp.com/pdf.html?item=/media/19429-nva-1150-deploy.pdf["NVA-1150-DEPLOY: NetApp E-Series 시스템을 사용한 Quantum StorNext 배포 가이드"^]

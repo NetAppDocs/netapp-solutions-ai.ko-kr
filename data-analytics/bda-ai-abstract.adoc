@@ -1,0 +1,17 @@
+---
+sidebar: sidebar 
+permalink: data-analytics/bda-ai-abstract.html 
+keywords:  
+summary:  
+---
+= 개요
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 문서에서는 빅데이터 분석 및 고성능 컴퓨팅(HPC) 시스템에서 데이터를 이동하여 인공 지능(AI) 워크플로에 사용할 수 있는 방법을 설명합니다.  AI는 일반적으로 NFS 내보내기를 통해 NFS 데이터를 처리합니다.  하지만 AI 데이터는 빅데이터 분석 및 고성능 컴퓨팅(HPC) 플랫폼에 있을 수도 있습니다.  이는 Hadoop 분산 파일 시스템(HDFS), 바이너리 대형 객체(Blob), S3 스토리지 또는 IBM의 일반 병렬 파일 시스템(GPFS)일 수 있습니다.  이 문서에서는 Hadoop 기반 명령, NetApp In-Place Analytics Module(NIPAM), NetApp XCP를 사용하여 빅데이터 분석 플랫폼과 GPFS에서 NFS로 데이터를 이동하는 방법을 설명합니다.  이 문서에서는 빅데이터와 HPC에서 AI로 데이터를 옮기는 비즈니스 이점에 대해서도 설명합니다.

@@ -1,0 +1,75 @@
+---
+sidebar: sidebar 
+permalink: data-analytics/hdcs-sh-conclusion.html 
+keywords: conclusion, summary, data protection, hadoop, more information, Acknowledgements 
+summary: 이 섹션에서는 NetApp 다양한 Hadoop 데이터 보호 요구 사항을 충족하기 위해 제공하는 사용 사례와 솔루션을 요약하여 제공합니다. 
+---
+= 결론
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 섹션에서는 NetApp 다양한 Hadoop 데이터 보호 요구 사항을 충족하기 위해 제공하는 사용 사례와 솔루션을 요약하여 제공합니다.  NetApp 이 제공하는 데이터 패브릭을 사용하면 고객은 다음을 수행할 수 있습니다.
+
+* NetApp의 풍부한 데이터 관리 기능과 Hadoop 기본 워크플로우와의 통합을 활용하여 올바른 데이터 보호 솔루션을 선택할 수 있는 유연성을 확보하세요.
+* Hadoop 클러스터 백업 윈도우 시간을 약 70% 단축했습니다.
+* Hadoop 클러스터 백업으로 인해 발생하는 성능 영향을 제거합니다.
+* 다양한 클라우드 공급업체에서 동시에 단일 분석 데이터 소스로 멀티클라우드 데이터 보호 및 데이터 액세스를 제공합니다.
+* FlexClone 기술을 사용하여 빠르고 공간 효율적인 Hadoop 클러스터 복사본을 만듭니다.
+
+
+
+
+== 추가 정보를 찾을 수 있는 곳
+
+이 문서에 설명된 정보에 대해 자세히 알아보려면 다음 문서 및/또는 웹사이트를 참조하세요.
+
+* NetApp 빅데이터 분석 솔루션
++
+https://www.netapp.com/us/solutions/applications/big-data-analytics/index.aspx["https://www.netapp.com/us/solutions/applications/big-data-analytics/index.aspx"^]
+
+* NetApp 스토리지를 사용한 Apache Spark 워크로드
++
+https://www.netapp.com/pdf.html?item=/media/26877-nva-1157-deploy.pdf["https://www.netapp.com/pdf.html?item=/media/26877-nva-1157-deploy.pdf"^]
+
+* Apache Spark를 위한 NetApp 스토리지 솔루션
++
+https://www.netapp.com/media/16864-tr-4570.pdf["https://www.netapp.com/media/16864-tr-4570.pdf"^]
+
+* NetApp 이 지원하는 데이터 패브릭 기반 Apache Hadoop
++
+https://www.netapp.com/media/16877-tr-4529.pdf["https://www.netapp.com/media/16877-tr-4529.pdf"^]
+
+
+
+
+
+== 감사의 말
+
+* 폴 버랜드, ANZ 빅토리아 지구 영업 담당자, NetApp
+* Hoseb Dermanilian, NetApp 사업 개발 관리자
+* Lee Dorrier, NetApp MPSG 이사
+* David Thiessen, 시스템 엔지니어, ANZ Victoria District SE, NetApp
+
+
+
+
+== 버전 기록
+
+|===
+| 버전 | 날짜 | 문서 버전 기록 
+
+
+| 버전 1.0 | 2018년 1월 | 최초 출시 
+
+
+| 버전 2.0 | 2021년 10월 | 사용 사례 #5로 업데이트됨: 분석 작업 가속화 
+
+
+| 버전 3.0 | 2023년 11월 | NIPAM 세부 정보 제거됨 
+|===

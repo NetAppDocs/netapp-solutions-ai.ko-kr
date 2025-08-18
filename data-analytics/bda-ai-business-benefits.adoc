@@ -1,0 +1,26 @@
+---
+sidebar: sidebar 
+permalink: data-analytics/bda-ai-business-benefits.html 
+keywords: business, benefits 
+summary: 이 섹션에서는 이 솔루션의 비즈니스 이점에 대해 설명합니다. 
+---
+= 사업상의 이점
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+빅데이터 분석에서 AI로 데이터를 이동하면 다음과 같은 이점이 있습니다.
+
+* 다양한 Hadoop 파일 시스템과 GPFS에서 데이터를 추출하여 통합된 NFS 스토리지 시스템으로 구축하는 기능
+* Hadoop에 통합되고 자동화된 데이터 전송 방식
+* Hadoop 파일 시스템에서 데이터를 이동하기 위한 라이브러리 개발 비용 절감
+* NIPAM을 사용하여 단일 데이터 소스에서 여러 네트워크 인터페이스의 처리량을 집계하여 최대 성능을 구현합니다.
+* 데이터를 전송하기 위한 예약 및 주문형 방법
+* ONTAP 데이터 관리 소프트웨어를 사용하여 통합 NFS 데이터에 대한 스토리지 효율성 및 엔터프라이즈 관리 기능 제공
+* Hadoop 방식을 이용한 데이터 전송으로 데이터 이동 비용 없음
+

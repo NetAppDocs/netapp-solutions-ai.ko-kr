@@ -1,0 +1,17 @@
+---
+sidebar: sidebar 
+permalink: data-analytics/apache-spark-conclusion.html 
+keywords: conclusion 
+summary: 이 섹션에서는 Apache Spark용 NetApp 스토리지 솔루션과 관련된 문서를 요약합니다. 
+---
+= 결론
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 문서에서는 Apache Spark 아키텍처, 고객 사용 사례, 그리고 빅데이터, 최신 분석, AI, ML, DL과 관련된 NetApp 스토리지 포트폴리오에 대해 설명합니다.  업계 표준 벤치마킹 도구와 고객 수요에 따른 성능 검증 테스트에서 NetApp Spark 솔루션은 기본 Hadoop 시스템에 비해 뛰어난 성능을 보였습니다.  이 보고서에 제시된 고객 사용 사례와 성능 결과를 조합하면 배포에 적합한 Spark 솔루션을 선택하는 데 도움이 될 수 있습니다.

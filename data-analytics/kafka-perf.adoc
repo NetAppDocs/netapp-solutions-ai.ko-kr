@@ -1,0 +1,27 @@
+---
+sidebar: sidebar 
+permalink: data-analytics/kafka-perf.html 
+keywords: performance, tests, scalability 
+summary: NetApp StorageGRID 설정을 사용하여 생산 및 소비자 워크로드에 대한 3~4개 노드로 계층형 스토리지 테스트를 수행했습니다. 
+---
+= 확장성을 갖춘 성능 테스트
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+NetApp StorageGRID 설정을 사용하여 프로듀서 및 소비자 워크로드에 대한 3~4개 노드로 계층형 스토리지 테스트를 수행했습니다.  테스트에 따르면 완료 시간과 성능 결과는 StorageGRID 노드 수에 직접적으로 비례했습니다.  StorageGRID 설정에는 최소 3개의 노드가 필요했습니다.
+
+* 저장 노드 수가 증가함에 따라 생산 및 소비자 작업을 완료하는 데 걸리는 시간이 선형적으로 감소했습니다.
+
+
+image:confluent-kafka-009.png["입력/출력 대화 상자 또는 서면 내용을 나타내는 그림"]
+
+* s3 검색 작업의 성능은 StorageGRID 노드 수에 따라 선형적으로 증가했습니다.  StorageGRID 최대 200개의 StorgeGRID 노드를 지원합니다.
+
+
+image:confluent-kafka-010.png["입력/출력 대화 상자 또는 서면 내용을 나타내는 그림"]

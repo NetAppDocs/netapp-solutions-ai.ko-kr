@@ -1,0 +1,393 @@
+---
+sidebar: sidebar 
+permalink: infra/ai-aipod-nv-deploy.html 
+keywords: NetApp AI, AI, Artificial Intelligence, ML, Machine Learning, NVIDIA, NVIDIA AI Enterprise, NVIDIA BasePOD, NVIDIA DGX 
+summary: NVIDIA DGX 시스템을 탑재한 NetApp AIPod - 배포 
+---
+= NVIDIA DGX 시스템을 탑재한 NVA-1173 NetApp AIPod - 배포 세부 정보
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 섹션에서는 이 솔루션의 검증 과정에 사용된 배포 세부 정보를 설명합니다.  사용된 IP 주소는 예시이며 배포 환경에 따라 수정해야 합니다.  이 구성을 구현하는 데 사용된 특정 명령에 대한 자세한 내용은 해당 제품 설명서를 참조하세요.
+
+아래 다이어그램은 1개의 DGX H100 시스템과 1개의 HA 쌍의 AFF A90 컨트롤러에 대한 자세한 네트워크 및 연결 정보를 보여줍니다.  다음 섹션의 배포 지침은 이 다이어그램의 세부 정보를 기반으로 합니다.
+
+_NetApp AIpod 네트워크 구성_
+
+image:aipod-nv-a90-netdetail.png["입력/출력 대화 상자 또는 서면 내용을 나타내는 그림"]
+
+다음 표는 최대 16개의 DGX 시스템과 2개의 AFF A90 HA 쌍에 대한 케이블 할당의 예를 보여줍니다.
+
+|===
+| 스위치 및 포트 | 장치 | 장치 포트 
+
+
+| switch1 포트 1-16 | DGX-H100-01부터 -16까지 | enp170s0f0np0, 슬롯1 포트 1 
+
+
+| switch1 포트 17-32 | DGX-H100-01부터 -16까지 | enp170s0f1np1, 슬롯1 포트 2 
+
+
+| switch1 포트 33-36 | AFF-A90-01부터 -04까지 | 포트 e6a 
+
+
+| switch1 포트 37-40 | AFF-A90-01부터 -04까지 | 포트 e11a 
+
+
+| switch1 포트 41-44 | AFF-A90-01부터 -04까지 | 포트 e2a 
+
+
+| switch1 포트 57-64 | ISL에서 switch2로 | 포트 57-64 
+
+
+|  |  |  
+
+
+| 스위치2 포트 1-16 | DGX-H100-01부터 -16까지 | enp41s0f0np0, 슬롯 2 포트 1 
+
+
+| 스위치2 포트 17-32 | DGX-H100-01부터 -16까지 | enp41s0f1np1, 슬롯 2 포트 2 
+
+
+| 스위치2 포트 33-36 | AFF-A90-01부터 -04까지 | 포트 e6b 
+
+
+| 스위치2 포트 37-40 | AFF-A90-01부터 -04까지 | 포트 e11b 
+
+
+| 스위치2 포트 41-44 | AFF-A90-01부터 -04까지 | 포트 e2b 
+
+
+| 스위치2 포트 57-64 | ISL에서 switch1로 | 포트 57-64 
+|===
+다음 표는 이 검증에 사용된 다양한 구성 요소의 소프트웨어 버전을 보여줍니다.
+
+|===
+| 장치 | 소프트웨어 버전 
+
+
+| NVIDIA SN4600 스위치 | 큐물러스 리눅스 v5.9.1 
+
+
+| NVIDIA DGX 시스템 | DGX OS v6.2.1(우분투 22.04 LTS) 
+
+
+| 멜라녹스 OFED | 24.01 
+
+
+| NetApp AFF A90 | NetApp ONTAP 9.14.1 
+|===
+
+
+== 스토리지 네트워크 구성
+
+이 섹션에서는 이더넷 저장 네트워크 구성에 대한 주요 세부 정보를 설명합니다.  InfiniBand 컴퓨팅 네트워크 구성에 대한 정보는 다음을 참조하세요.link:https://nvdam.widen.net/s/nfnjflmzlj/nvidia-dgx-basepod-reference-architecture["NVIDIA BasePOD 문서"] .  스위치 구성에 대한 자세한 내용은 다음을 참조하세요.link:https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-59/["NVIDIA Cumulus Linux 문서"] .
+
+SN4600 스위치를 구성하는 데 사용되는 기본 단계는 아래와 같습니다.  이 프로세스에서는 케이블 연결과 기본 스위치 설정(관리 IP 주소, 라이선싱 등)이 완료되었다고 가정합니다.
+
+. 스위치 간 ISL 본드를 구성하여 다중 링크 집계(MLAG) 및 장애 조치 트래픽을 활성화합니다.
++
+** 이 검증에서는 테스트 중인 스토리지 구성에 충분한 대역폭을 제공하기 위해 8개의 링크를 사용했습니다.
+** MLAG 활성화에 대한 구체적인 지침은 Cumulus Linux 문서를 참조하세요.
+
+
+. 두 스위치의 각 클라이언트 포트와 스토리지 포트 쌍에 대해 LACP MLAG를 구성합니다.
++
+** DGX-H100-01의 경우 각 스위치에 포트 swp17(enp170s0f1np1 및 enp41s0f1np1), DGX-H100-02의 경우 포트 swp18 등(bond1-16)
+** AFF-A90-01(e2a 및 e2b)의 경우 각 스위치에 포트 swp41, AFF-A90-02의 경우 포트 swp42 등(bond17-20)
+** nv set interface bondX bond member swpX
+** nv set interface bondx bond mlag id X
+
+
+. 모든 포트와 MLAG 본드를 기본 브리지 도메인에 추가합니다.
++
+** nv set int swp1-16,33-40 브리지 도메인 br_default
+** nv set int bond1-20 브리지 도메인 br_default
+
+
+. 각 스위치에서 RoCE 활성화
++
+** nv 세트 로체 모드 무손실
+
+
+. VLAN 구성 - 클라이언트 포트용 2개, 스토리지 포트용 2개, 관리용 1개, L3 스위치 간 스위치용 1개
++
+** 스위치 1-
++
+*** 클라이언트 NIC 장애 발생 시 L3 스위치 간 라우팅을 위한 VLAN 3
+*** 각 DGX 시스템의 스토리지 포트 1에 대한 VLAN 101(enp170s0f0np0, slot1 포트 1)
+*** 각 AFF A90 스토리지 컨트롤러의 포트 e6a 및 e11a에 대한 VLAN 102
+*** 각 DGX 시스템 및 스토리지 컨트롤러에 대한 MLAG 인터페이스를 사용하여 관리하기 위한 VLAN 301
+
+
+** 스위치 2-
++
+*** 클라이언트 NIC 장애 발생 시 L3 스위치 간 라우팅을 위한 VLAN 3
+*** 각 DGX 시스템의 스토리지 포트 2에 대한 VLAN 201(enp41s0f0np0, slot2 포트 1)
+*** 각 AFF A90 스토리지 컨트롤러의 포트 e6b 및 e11b에 대한 VLAN 202
+*** 각 DGX 시스템 및 스토리지 컨트롤러에 대한 MLAG 인터페이스를 사용하여 관리하기 위한 VLAN 301
+
+
+
+
+. 클라이언트 VLAN의 클라이언트 포트, 스토리지 VLAN의 스토리지 포트 등 각 VLAN에 적절한 물리적 포트를 할당합니다.
++
+** nv set int <swpX> 브리지 도메인 br_default 액세스 <vlan id>
+** 필요에 따라 본딩된 인터페이스를 통해 여러 VLAN을 활성화하기 위해 MLAG 포트는 트렁크 포트로 유지되어야 합니다.
+
+
+. 각 VLAN에 SVI(스위치 가상 인터페이스)를 구성하여 게이트웨이 역할을 하고 L3 라우팅을 활성화합니다.
++
+** 스위치 1-
++
+*** nv set int vlan3 ip 주소 100.127.0.0/31
+*** nv set int vlan101 ip 주소 100.127.101.1/24
+*** nv set int vlan102 ip 주소 100.127.102.1/24
+
+
+** 스위치 2-
++
+*** nv set int vlan3 ip 주소 100.127.0.1/31
+*** nv set int vlan201 ip 주소 100.127.201.1/24
+*** nv set int vlan202 ip 주소 100.127.202.1/24
+
+
+
+
+. 정적 경로 생성
++
+** 동일한 스위치의 서브넷에 대해 정적 경로가 자동으로 생성됩니다.
+** 클라이언트 링크 장애 발생 시 스위치 간 라우팅을 위해 추가 정적 경로가 필요합니다.
++
+*** 스위치 1-
++
+**** nv set vrf 기본 라우터 정적 100.127.128.0/17 via 100.127.0.1
+
+
+*** 스위치 2-
++
+**** nv set vrf 기본 라우터 정적 100.127.0.0/17 via 100.127.0.0
+
+
+
+
+
+
+
+
+
+
+== 스토리지 시스템 구성
+
+이 섹션에서는 이 솔루션을 위한 A90 스토리지 시스템 구성에 대한 주요 세부 정보를 설명합니다.  ONTAP 시스템 구성에 대한 자세한 내용은 다음을 참조하세요.link:https://docs.netapp.com/us-en/ontap/index.html["ONTAP 문서"] .  아래 다이어그램은 저장 시스템의 논리적 구성을 보여줍니다.
+
+_NetApp A90 스토리지 클러스터 논리적 구성_
+
+image:aipod-nv-a90-logical.png["입력/출력 대화 상자 또는 서면 내용을 나타내는 그림"]
+
+저장 시스템을 구성하는 데 사용되는 기본 단계는 아래와 같습니다.  이 프로세스에서는 기본 스토리지 클러스터 설치가 완료되었다고 가정합니다.
+
+. 사용 가능한 모든 파티션에서 1개의 예비 파티션을 뺀 각 컨트롤러에 1개의 집계를 구성합니다.
++
+** aggr create -node <노드> -aggregate <노드>_data01 -diskcount <47>
+
+
+. 각 컨트롤러에서 ifgrps 구성
++
+** net port ifgrp create -node <노드> -ifgrp a1a -mode multimode_lacp -distr-function port
+** net port ifgrp add-port -node <노드> -ifgrp <ifgrp> -ports <노드>:e2a,<노드>:e2b
+
+
+. 각 컨트롤러의 ifgrp에서 mgmt vlan 포트를 구성합니다.
++
+** 넷 포트 VLAN 생성 -노드 aff-a90-01 -포트 a1a -vlan-id 31
+** 넷 포트 VLAN 생성 -노드 aff-a90-02 -포트 a1a -vlan-id 31
+** 넷 포트 VLAN 생성 -노드 aff-a90-03 -포트 a1a -vlan-id 31
+** 넷 포트 VLAN 생성 -노드 aff-a90-04 -포트 a1a -vlan-id 31
+
+
+. 브로드캐스트 도메인 생성
++
+** 브로드캐스트 도메인 생성 -브로드캐스트 도메인 vlan21 -mtu 9000 -포트 aff-a90-01:e6a, aff-a90-01:e11a, aff-a90-02:e6a, aff-a90-02:e11a, aff-a90-03:e6a, aff-a90-03:e11a, aff-a90-04:e6a, aff-a90-04:e11a
+** 브로드캐스트 도메인 생성 -브로드캐스트 도메인 vlan22 -mtu 9000 -포트 aaff-a90-01:e6b, aff-a90-01:e11b, aff-a90-02:e6b, aff-a90-02:e11b, aff-a90-03:e6b, aff-a90-03:e11b, aff-a90-04:e6b, aff-a90-04:e11b
+** 브로드캐스트 도메인 생성 -브로드캐스트 도메인 vlan31 -mtu 9000 -포트 aff-a90-01:a1a-31,aff-a90-02:a1a-31,aff-a90-03:a1a-31,aff-a90-04:a1a-31
+
+
+. 관리 SVM 생성 *
+. 관리 SVM 구성
++
+** LIF 생성
++
+*** net int create -vserver basepod-mgmt -lif vlan31-01 -home-node aff-a90-01 -home-port a1a-31 -address 192.168.31.X -netmask 255.255.255.0
+
+
+** FlexGroup 볼륨 생성-
++
+*** vol create -vserver basepod-mgmt -volume home -size 10T -auto-provision-as flexgroup -junction-path /home
+*** vol create -vserver basepod-mgmt -volume cm -size 10T -auto-provision-as flexgroup -junction-path /cm
+
+
+** 수출 정책 생성
++
+*** export-policy 규칙 생성 -vserver basepod-mgmt -policy default -client-match 192.168.31.0/24 -rorule sys -rwrule sys -superuser sys
+
+
+
+
+. 데이터 SVM 생성 *
+. 데이터 SVM 구성
++
+** RDMA 지원을 위한 SVM 구성
++
+*** vserver nfs 수정 -vserver basepod-data -rdma 활성화
+
+
+** LIF를 생성하다
++
+*** net int create -vserver basepod-data -lif c1-6a-lif1 -home-node aff-a90-01 -home-port e6a -address 100.127.102.101 -netmask 255.255.255.0
+*** net int create -vserver basepod-data -lif c1-6a-lif2 -home-node aff-a90-01 -home-port e6a -address 100.127.102.102 -netmask 255.255.255.0
+*** net int create -vserver basepod-data -lif c1-6b-lif1 -home-node aff-a90-01 -home-port e6b -address 100.127.202.101 -netmask 255.255.255.0
+*** net int create -vserver basepod-data -lif c1-6b-lif2 -home-node aff-a90-01 -home-port e6b -address 100.127.202.102 -netmask 255.255.255.0
+*** net int create -vserver basepod-data -lif c1-11a-lif1 -home-node aff-a90-01 -home-port e11a -address 100.127.102.103 -netmask 255.255.255.0
+*** net int create -vserver basepod-data -lif c1-11a-lif2 -home-node aff-a90-01 -home-port e11a -address 100.127.102.104 -netmask 255.255.255.0
+*** net int create -vserver basepod-data -lif c1-11b-lif1 -home-node aff-a90-01 -home-port e11b -address 100.127.202.103 -netmask 255.255.255.0
+*** net int create -vserver basepod-data -lif c1-11b-lif2 -home-node aff-a90-01 -home-port e11b -address 100.127.202.104 -netmask 255.255.255.0
+*** net int create -vserver basepod-data -lif c2-6a-lif1 -home-node aff-a90-02 -home-port e6a -address 100.127.102.105 -netmask 255.255.255.0
+*** net int create -vserver basepod-data -lif c2-6a-lif2 -home-node aff-a90-02 -home-port e6a -address 100.127.102.106 -netmask 255.255.255.0
+*** net int create -vserver basepod-data -lif c2-6b-lif1 -home-node aff-a90-02 -home-port e6b -address 100.127.202.105 -netmask 255.255.255.0
+*** net int create -vserver basepod-data -lif c2-6b-lif2 -home-node aff-a90-02 -home-port e6b -address 100.127.202.106 -netmask 255.255.255.0
+*** net int create -vserver basepod-data -lif c2-11a-lif1 -home-node aff-a90-02 -home-port e11a -address 100.127.102.107 -netmask 255.255.255.0
+*** net int create -vserver basepod-data -lif c2-11a-lif2 -home-node aff-a90-02 -home-port e11a -address 100.127.102.108 -netmask 255.255.255.0
+*** net int create -vserver basepod-data -lif c2-11b-lif1 -home-node aff-a90-02 -home-port e11b -address 100.127.202.107 -netmask 255.255.255.0
+*** net int create -vserver basepod-data -lif c2-11b-lif2 -home-node aff-a90-02 -home-port e11b -address 100.127.202.108 -netmask 255.255.255.0
+
+
+
+
+. RDMA 액세스를 위한 LIF 구성
++
+** ONTAP 9.15.1을 배포하는 경우 물리적 정보에 대한 RoCE QoS 구성에는 ONTAP CLI에서 사용할 수 없는 OS 수준 명령이 필요합니다.  RoCE 지원을 위한 포트 구성과 관련된 도움이 필요하면 NetApp 지원팀에 문의하세요.  RDMA를 통한 NFS는 문제없이 작동합니다.
+** ONTAP 9.16.1부터 물리적 인터페이스는 엔드투엔드 RoCE 지원을 위한 적절한 설정으로 자동으로 구성됩니다.
+** net int 수정 -vserver basepod-data -lif * -rdma-protocols roce
+
+
+. 데이터 SVM에서 NFS 매개변수 구성
++
+** nfs 수정 -vserver basepod-data -v4.1 활성화 -v4.1-pnfs 활성화 -v4.1-trunking 활성화 -tcp-max-transfer-size 262144
+
+
+. FlexGroup 볼륨 생성-
++
+** vol create -vserver basepod-data -volume data -size 100T -auto-provision-as flexgroup -junction-path /data
+
+
+. 수출 정책 생성
++
+** export-policy 규칙 생성 -vserver basepod-data -policy default -client-match 100.127.101.0/24 -rorule sys -rwrule sys -superuser sys
+** export-policy 규칙 생성 -vserver basepod-data -policy default -client-match 100.127.201.0/24 -rorule sys -rwrule sys -superuser sys
+
+
+. 경로 생성
++
+** 경로 추가 -vserver basepod_data -대상 100.127.0.0/17 -게이트웨이 100.127.102.1 메트릭 20
+** 경로 추가 -vserver basepod_data -대상 100.127.0.0/17 -게이트웨이 100.127.202.1 메트릭 30
+** 경로 추가 -vserver basepod_data -대상 100.127.128.0/17 -게이트웨이 100.127.202.1 메트릭 20
+** 경로 추가 -vserver basepod_data -대상 100.127.128.0/17 -게이트웨이 100.127.102.1 메트릭 30
+
+
+
+
+
+
+=== RoCE 스토리지 액세스를 위한 DGX H100 구성
+
+이 섹션에서는 DGX H100 시스템 구성에 대한 주요 세부 정보를 설명합니다.  이러한 구성 항목 중 다수는 DGX 시스템에 배포된 OS 이미지에 포함되거나 부팅 시 Base Command Manager에서 구현될 수 있습니다.  BCM에서 노드 및 소프트웨어 이미지 구성에 대한 자세한 내용은 참조용으로 여기에 나열되어 있습니다.link:https://docs.nvidia.com/base-command-manager/index.html#overview["BCM 문서"] .
+
+. 추가 패키지 설치
++
+** 아이피미툴
+** 파이썬3-pip
+
+
+. Python 패키지 설치
++
+** 파라미코
+** 맷플롯립
+
+
+. 패키지 설치 후 dpkg 재구성
++
+** dpkg --configure -a
+
+
+. MOFED 설치
+. 성능 튜닝을 위한 mst 값 설정
++
+** mstconfig -y -d <aa:00.0,29:00.0> ADVANCED_PCI_SETTINGS=1 NUM_OF_VFS=0 MAX_ACC_OUT_READ=44로 설정
+
+
+. 설정 수정 후 어댑터 재설정
++
+** mlxfwreset -d <aa:00.0,29:00.0> -y 재설정
+
+
+. PCI 장치에 MaxReadReq 설정
++
+** setpci -s <aa:00.0,29:00.0> 68.W=5957
+
+
+. RX 및 TX 링 버퍼 크기 설정
++
+** ethtool -G <enp170s0f0np0,enp41s0f0np0> rx 8192 tx 8192
+
+
+. mlnx_qos를 사용하여 PFC 및 DSCP 설정
++
+** mlnx_qos -i <enp170s0f0np0,enp41s0f0np0> --pfc 0,0,0,1,0,0,0,0 --trust=dscp --케이블_길이=3
+
+
+. 네트워크 포트의 RoCE 트래픽에 대한 ToS 설정
++
+** 에코 106 > /sys/class/infiniband/<mlx5_7,mlx5_1>/tc/1/트래픽_클래스
+
+
+. 적절한 서브넷의 IP 주소로 각 스토리지 NIC를 구성합니다.
++
+** 저장용 NIC 1의 경우 100.127.101.0/24
+** 저장용 NIC 2의 경우 100.127.201.0/24
+
+
+. LACP 본딩을 위한 인밴드 네트워크 포트 구성(enp170s0f1np1, enp41s0f1np1)
+. 각 스토리지 서브넷에 대한 기본 및 보조 경로에 대한 정적 경로를 구성합니다.
++
+** 경로 추가 –net 100.127.0.0/17 gw 100.127.101.1 메트릭 20
+** 경로 추가 –net 100.127.0.0/17 gw 100.127.201.1 메트릭 30
+** 경로 추가 –net 100.127.128.0/17 gw 100.127.201.1 메트릭 20
+** 경로 추가 –net 100.127.128.0/17 gw 100.127.101.1 메트릭 30
+
+
+. 마운트 /home 볼륨
++
+** mount -o vers=3,nconnect=16,rsize=262144,wsize=262144 192.168.31.X:/home /home
+
+
+. /데이터 볼륨 마운트
++
+** 데이터 볼륨을 마운트할 때 다음 마운트 옵션이 사용되었습니다.
++
+*** vers=4.1 # 여러 스토리지 노드에 대한 병렬 액세스를 위해 pNFS를 활성화합니다.
+*** proto=rdma # 기본 TCP 대신 RDMA로 전송 프로토콜을 설정합니다.
+*** max_connect=16 # NFS 세션 트렁킹을 활성화하여 스토리지 포트 대역폭을 집계합니다.
+*** write=eager # 버퍼링된 쓰기의 쓰기 성능을 향상시킵니다.
+*** rsize=262144,wsize=262144 # I/O 전송 크기를 256k로 설정합니다.
+
+
+
+
+

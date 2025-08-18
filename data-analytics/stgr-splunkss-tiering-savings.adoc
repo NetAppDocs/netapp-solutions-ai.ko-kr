@@ -1,0 +1,25 @@
+---
+sidebar: sidebar 
+permalink: data-analytics/stgr-splunkss-tiering-savings.html 
+keywords: tiering, scaling, data-access patterns 
+summary: 고객들은 Splunk 데이터 분석의 강력함과 편리함을 깨닫고, 자연스럽게 점점 더 많은 양의 데이터를 인덱싱하고자 합니다.  데이터 양이 증가함에 따라 이를 처리하는 데 필요한 컴퓨팅 및 스토리지 인프라도 함께 증가합니다. 
+---
+= 지능형 계층화 및 비용 절감
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+고객들은 Splunk 데이터 분석의 강력함과 편리함을 깨닫고, 자연스럽게 점점 더 많은 양의 데이터를 인덱싱하고자 합니다.  데이터 양이 증가함에 따라 이를 처리하는 데 필요한 컴퓨팅 및 스토리지 인프라도 함께 증가합니다.  오래된 데이터는 참조 빈도가 낮아지기 때문에 동일한 양의 컴퓨팅 리소스를 투입하고 값비싼 기본 저장소를 사용하는 것은 점점 더 비효율적이 됩니다.  대규모로 운영하기 위해 고객은 따뜻한 데이터를 더 비용 효율적인 계층으로 이동하여 컴퓨팅과 기본 스토리지를 뜨거운 데이터에 사용할 수 있는 이점을 얻습니다.
+
+StorageGRID 탑재된 Splunk SmartStore는 조직에 확장 가능하고 성능이 뛰어나며 비용 효율적인 솔루션을 제공합니다.  SmartStore는 데이터를 인식하므로 데이터 액세스 패턴을 자동으로 평가하여 실시간 분석을 위해 액세스해야 하는 데이터(핫 데이터)와 비용이 적게 드는 장기 저장소에 저장해야 하는 데이터(웜 데이터)를 판별합니다.  SmartStore는 업계 표준인 AWS S3 API를 동적이고 지능적으로 사용하여 StorageGRID 제공하는 S3 스토리지에 데이터를 저장합니다.  StorageGRID 의 유연한 확장형 아키텍처를 통해 필요에 따라 웜 데이터 계층을 비용 효율적으로 확장할 수 있습니다.  StorageGRID 의 노드 기반 아키텍처는 성능 및 비용 요구 사항이 최적으로 충족되도록 보장합니다.
+
+다음 이미지는 Splunk와 StorageGRID 계층화를 보여줍니다.
+
+image:stgr-splunkss-002.png["입력/출력 대화 상자 또는 서면 내용을 나타내는 그림"]
+
+Splunk SmartStore와 NetApp StorageGRID 의 업계 최고 조합은 풀스택 솔루션을 통해 분리된 아키텍처의 이점을 제공합니다.

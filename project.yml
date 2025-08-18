@@ -1,0 +1,34 @@
+---
+settings:
+  name: NetApp artificial intelligence solutions
+  internal:
+    pdf_enabled: true
+    lipi_enabled: true
+  prod:
+    pdf_enabled: true
+    lipi_enabled: true
+    harmony_enabled: false
+  pdf:
+    gen-type: named-only
+    zip-level: 1
+    zip-filename: netapp-solutions-ai.zip
+  langs: ko-kr,us-en,de-de,es-es,fr-fr,it-it,pt-br,ja-jp,zh-cn,zh-tw
+sidebar:
+  entries:
+  - title: 인공지능 솔루션
+    url: "/index.html"
+  - title: 새로운 소식
+    url: "/whats-new.html"
+  - section: ai-infrastructures
+  - section: ai-data-pipelines
+  - section: ai-use-cases
+  - section: data-analytics
+  - title: 비디오
+    url: "/videos/ai-ml-videos.html"
+  - title: 블로그
+    url: "/blogs.html"
+  - title: 법적 고지 사항
+    url: "/legal-notices.html"
+product-family:
+  name: NetApp solutions
+  repo: netapp-solutions-family

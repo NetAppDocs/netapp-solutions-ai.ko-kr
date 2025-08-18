@@ -1,0 +1,70 @@
+---
+indexpage:
+  title: NetApp 인공지능 솔루션
+  summary: NetApp 엔터프라이즈급 데이터 관리, 검증된 참조 아키텍처, 전략적 파트너십을 결합한 포괄적인 AI 솔루션을 제공하여 AI
+    이니셔티브를 가속화하고 중요한 비즈니스 성과를 지원합니다.  인프라 구축부터 MLOps 자동화까지, 당사의 솔루션은 엣지, 데이터 센터, 하이브리드
+    클라우드 환경 전반에서 원활하게 확장됩니다.
+  lead: NetApp 엔터프라이즈급 데이터 관리, 검증된 참조 아키텍처, 전략적 파트너십을 결합한 포괄적인 AI 솔루션을 제공하여 AI 이니셔티브를
+    가속화하고 중요한 비즈니스 성과를 지원합니다.  인프라 구축부터 MLOps 자동화까지, 당사의 솔루션은 엣지, 데이터 센터, 하이브리드 클라우드
+    환경 전반에서 원활하게 확장됩니다.
+  tiles:
+  - title: 시작하기
+    links:
+    - title: 새로운 소식
+      url: "/whats-new.html"
+    - title: 블로그
+      url: "/blogs.html"
+    - title: 비디오 및 데모
+      url: "/videos/ai-ml-videos.html"
+  - title: AI 인프라 및 융합 시스템
+    links:
+    - title: NVIDIA DGX 시스템을 탑재한 NetApp AIPod
+      url: "/infra/ai-aipod-nv-intro.html"
+    - title: EF 시리즈가 탑재된 NVIDIA DGX SuperPOD
+      url: "/infra/ai-eseries-superpod.html"
+    - title: NVIDIA OVX를 위한 Lenovo와 NetApp AIPod
+      url: "/infra/ai-aipod-lenovo-nva1172.html"
+    - title: E-Series를 탑재한 BeeGFS 병렬 파일 시스템
+      url: "/infra/ai-eseries-beegfs.html"
+  - title: AI 사용 사례 및 응용 프로그램
+    links:
+    - title: RAG 추론을 위한 AIPod Mini
+      url: "/infra/ai-minipod.html"
+    - title: 엣지에서의 AI 추론
+      url: "/infra/ai-lenovo-edge-intro.html"
+    - title: 벡터 데이터베이스 솔루션
+      url: "/vector-db/ai-vdb-solution-with-netapp.html"
+    - title: 자율 주행 작업 부하
+      url: "/infra/ai-storagegrid-datalake-adas.html"
+    - title: E-시리즈를 탑재한 Quantum StorNext
+      url: "/infra/ai-eseries-nva1150-design.html"
+  - title: MLOps 및 데이터 관리
+    links:
+    - title: NetApp 사용한 오픈 소스 MLOps
+      url: "/software/ai-osmlops-intro.html"
+    - title: Domino Data Lab을 활용한 하이브리드 멀티클라우드 MLOps
+      url: "/software/ai-hybrid-ddlnexus-intro.html"
+    - title: MLOps를 위한 FSx ONTAP
+      url: "/cloud/ai-mlops-fsxn-intro.html"
+    - title: NetApp DataOps 툴킷
+      url: "/software/dataops-toolkit.html"
+  - title: 빅데이터 및 하이브리드 클라우드 AI 솔루션
+    links:
+    - title: 하이브리드 클라우드 데이터 솔루션
+      url: "/data-analytics/hdcs-sh-solution-overview.html"
+    - title: Apache Spark 솔루션
+      url: "/data-analytics/apache-spark-solution-overview.html"
+    - title: NetApp ONTAP 스토리지를 갖춘 Confluent Kafka
+      url: "/data-analytics/kafka-ontap-overview.html"
+    - title: Splunk SmartStore가 포함된 NetApp StorageGRID
+      url: "/data-analytics/stgr-splunkss-introduction.html"
+    - title: NetApp 스토리지를 갖춘 Dremio 레이크하우스
+      url: "/data-analytics/dremio-lakehouse-introduction.html"
+  - title: 솔루션 요청 및 피드백
+    links:
+    - title: 요청 자동화
+      url: https://github.com/NetAppDocs/netapp-solutions/issues/new?body=[Request%20Automation]%0d%0a%0d%0aSolution%20Name:%20%0d%0aRequest%20Title:%20%0d%0aDescription:%0d%0aSuggestions:&title=Request%20Automation%20-%20%3Crequest_title%3E
+    - title: 새로운 솔루션을 제안하다
+      url: https://github.com/NetAppDocs/netapp-solutions/issues/new?body=[Request%20Solution]%0d%0a%0d%0aSolution%20Use%20Case:%20%0d%0aSolution%20Description:%20%0d%0aAdditional%20Comments:&title=Request%20Solution%20-%20%3Csolution%3E
+    - title: 솔루션 피드백 제공
+      url: https://github.com/NetAppDocs/netapp-solutions/issues/new?body=[Solution%20Feedback]%0d%0a%0d%0aSolution%20Name:%20%0d%0aSolution%20Feedback:%20%0d%0aAdditional%20Comments:&title=Solution%20Feedback%20-%20%3Csolution%3E

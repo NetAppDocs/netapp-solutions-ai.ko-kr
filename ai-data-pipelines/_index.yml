@@ -1,0 +1,74 @@
+---
+indexpage:
+  title: NetApp MLOps 및 데이터 관리 솔루션
+  summary: NetApp의 포괄적인 MLOps 및 데이터 관리 솔루션으로 AI/ML 워크플로를 간소화하세요.  오픈소스 플랫폼부터 엔터프라이즈급
+    도구까지, 당사의 솔루션은 데이터 일관성과 성능을 보장하는 동시에 하이브리드 클라우드 환경에서 효율적인 모델 개발, 배포 및 확장을 가능하게
+    합니다.
+  lead: NetApp의 포괄적인 MLOps 및 데이터 관리 솔루션으로 AI/ML 워크플로를 간소화하세요.  오픈소스 플랫폼부터 엔터프라이즈급
+    도구까지, 당사의 솔루션은 데이터 일관성과 성능을 보장하는 동시에 하이브리드 클라우드 환경에서 효율적인 모델 개발, 배포 및 확장을 가능하게
+    합니다.
+  tiles:
+  - title: 오픈소스 MLOps 플랫폼
+    links:
+    - title: NetApp 사용한 오픈 소스 MLOps
+      url: "../software/ai-osmlops-intro.html"
+    - title: AIPod 용 NetApp Trident 구성
+      url: "../software/ai-osmlops-trident-backend.html"
+    - title: Apache Airflow 배포 및 통합
+      url: "../software/ai-osmlops-airflow-deploy.html"
+    - title: JupyterHub 배포 및 데이터 작업
+      url: "../software/ai-osmlops-jhub-deploy.html"
+    - title: MLflow 배포 및 추적성
+      url: "../software/ai-osmlops-mlflow-deploy.html"
+  - title: 고급 MLOps 워크플로
+    links:
+    - title: Kubeflow 배포 및 노트북
+      url: "../software/ai-osmlops-kubeflow-deploy.html"
+    - title: Kubeflow를 사용하여 이미지 인식 모델 학습
+      url: "../software/ai-osmlops-kubeflow-train.html"
+    - title: 단일 노드 AI 워크로드 실행
+      url: "../software/ai-osmlops-train-singlenode.html"
+    - title: 분산형 AI 워크로드 실행
+      url: "../software/ai-osmlops-train-distributed.html"
+    - title: SnapMirror 사용한 데이터 수집
+      url: "../software/ai-osmlops-jhub-ingest.html"
+  - title: 엔터프라이즈 MLOps 솔루션
+    links:
+    - title: Domino Data Lab을 활용한 하이브리드 MLOps
+      url: "../software/ai-hybrid-ddlnexus-intro.html"
+    - title: Domino를 사용한 교차 환경 데이터 액세스
+      url: "../software/ai-hybrid-ddlnexus-data.html"
+    - title: NetApp 및 VMware를 활용한 NVIDIA AI Enterprise
+      url: "../software/ai-nvaie-vmw-intro.html"
+    - title: NVIDIA NGC 소프트웨어 통합
+      url: "../software/ai-nvaie-vmw-ngcsetup.html"
+  - title: 클라우드 MLOps와 AWS 통합
+    links:
+    - title: ONTAP MLOps용 Amazon FSx
+      url: "../cloud/ai-mlops-fsxn-intro.html"
+    - title: SageMaker에서 FSx ONTAP 개인 S3로 통합
+      url: "../cloud/ai-mlops-fsxn-s3.html"
+    - title: SageMaker 모델 학습을 위한 FSx ONTAP
+      url: "../cloud/ai-mlops-fsxn-sagemaker.html"
+    - title: FSx를 사용하여 간소화된 MLOps 파이프라인 구축
+      url: "../cloud/ai-mlops-fsxn-cictcd.html"
+  - title: 벡터 데이터베이스 및 AI 애플리케이션
+    links:
+    - title: NetApp 사용한 벡터 데이터베이스 솔루션
+      url: "../vector-db/ai-vdb-solution-with-netapp.html"
+    - title: Kubernetes를 사용한 Milvus 클러스터 설정
+      url: "../vector-db/ai-vdb-milvus-setup.html"
+    - title: SnapCenter 사용한 벡터 데이터베이스 보호
+      url: "../vector-db/ai-vdb-dp-snapcenter.html"
+    - title: 벡터 데이터베이스 성능 검증
+      url: "../vector-db/ai-vdb-perf-validation.html"
+    - title: 벡터 데이터베이스 사용 사례
+      url: "../vector-db/ai-vdb-usecases.html"
+  - title: 데이터 관리 도구 및 스토리지
+    links:
+    - title: NetApp DataOps 툴킷
+      url: "../software/dataops-toolkit.html"
+    - title: 자율 주행을 위한 StorageGRID 데이터 레이크
+      url: "../infra/ai-storagegrid-datalake-adas.html"
+    - title: SnapMirror 사용한 재해 복구
+      url: "../vector-db/ai-vdb-dr-snapmirror.html"

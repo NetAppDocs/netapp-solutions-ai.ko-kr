@@ -1,0 +1,23 @@
+---
+sidebar: sidebar 
+permalink: vector-db/ai-vdb-instaclustr-pgvector.html 
+keywords: vector database 
+summary: pgvector를 활용한 instaclustr - NetApp용 벡터 데이터베이스 솔루션 
+---
+= PostgreSQL을 사용하는 Instaclustr의 벡터 데이터베이스: pgvector
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 섹션에서는 instaclustr 제품이 NetApp 의 벡터 데이터베이스 솔루션에서 pgvector 기능과 postgreSQL을 통합하는 방법에 대한 세부 사항을 설명합니다.
+
+
+
+== PostgreSQL을 사용하는 Instaclustr의 벡터 데이터베이스: pgvector
+
+이 섹션에서는 instaclustr 제품이 pgvector 기능을 통해 postgreSQL과 어떻게 통합되는지 자세히 살펴보겠습니다.  "PGVector와 PostgreSQL을 사용하여 LLM 정확도와 성능을 개선하는 방법: 임베딩 소개 및 PGVector의 역할"에 대한 예가 있습니다.  확인해 주세요link:https://www.instaclustr.com/blog/how-to-improve-your-llm-accuracy-and-performance-with-pgvector-and-postgresql-introduction-to-embeddings-and-the-role-of-pgvector/["블로그"] 더 많은 정보를 얻으려면.

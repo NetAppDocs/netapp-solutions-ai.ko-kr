@@ -1,0 +1,21 @@
+---
+sidebar: sidebar 
+permalink: data-analytics/tr-4623.html 
+keywords:  
+summary:  
+---
+= TR-4623: NetApp E-Series E5700 및 Splunk Enterprise
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+미치 블랙번, NetApp
+
+[role="lead"]
+TR-4623은 NetApp E-Series와 Splunk 디자인의 통합 아키텍처를 설명합니다.  노드 스토리지 균형, 안정성, 성능, 스토리지 용량 및 밀도에 최적화된 이 디자인은 더 높은 확장성과 더 낮은 TCO를 제공하는 Splunk 클러스터형 인덱스 노드 모델을 채택합니다.  스토리지와 컴퓨팅을 분리하면 각각을 별도로 확장할 수 있으므로 한쪽을 과도하게 프로비저닝하는 데 드는 비용을 절감할 수 있습니다.  또한, 이 문서에서는 Splunk 머신 로그 이벤트 시뮬레이션 도구에서 얻은 성능 테스트 결과를 요약합니다.
+
+link:https://www.netapp.com/pdf.html?item=/media/16851-tr-4623pdf.pdf["TR-4623: NetApp E-Series E5700 및 Splunk Enterprise"^]

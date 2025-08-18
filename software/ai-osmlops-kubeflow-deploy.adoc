@@ -1,0 +1,64 @@
+---
+sidebar: sidebar 
+permalink: software/ai-osmlops-kubeflow-deploy.html 
+keywords: Kubeflow, Prerequisites, Kubernetes, cluster 
+summary: NetApp 활용한 오픈소스 MLOps - Kubeflow 배포 
+---
+= Kubeflow 배포
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 섹션에서는 Kubernetes 클러스터에 Kubeflow를 배포하기 위해 완료해야 하는 작업을 설명합니다.
+
+
+
+== 필수 조건
+
+이 섹션에 설명된 배포 연습을 수행하기 전에 다음 작업을 이미 수행했다고 가정합니다.
+
+. 이미 작동하는 Kubernetes 클러스터가 있으며, 배포하려는 Kubeflow 버전에서 지원하는 Kubernetes 버전을 실행하고 있습니다.  지원되는 Kubernetes 버전 목록은 Kubeflow 버전에 대한 종속성을 참조하세요.link:https://www.kubeflow.org/docs/releases/["공식 Kubeflow 문서"^] .
+. Kubernetes 클러스터에 NetApp Trident 이미 설치하고 구성했습니다.  Trident 에 대한 자세한 내용은 다음을 참조하세요.link:https://docs.netapp.com/us-en/trident/index.html["Trident 문서"] .
+
+
+
+
+== 기본 Kubernetes StorageClass 설정
+
+Kubeflow를 배포하기 전에 Kubernetes 클러스터 내에서 기본 StorageClass를 지정하는 것이 좋습니다.  Kubeflow 배포 프로세스는 기본 StorageClass를 사용하여 새로운 영구 볼륨을 프로비저닝하려고 시도할 수 있습니다.  StorageClass가 기본 StorageClass로 지정되지 않으면 배포가 실패할 수 있습니다.  클러스터 내에서 기본 StorageClass를 지정하려면 배포 점프 호스트에서 다음 작업을 수행하세요.  클러스터 내에서 기본 StorageClass를 이미 지정한 경우 이 단계를 건너뛸 수 있습니다.
+
+. 기존 StorageClass 중 하나를 기본 StorageClass로 지정합니다.  다음 예제 명령은 StorageClass라는 이름의 지정을 보여줍니다. `ontap-ai-flexvols-retain` 기본 StorageClass로.
+
+
+
+NOTE: 그만큼 `ontap-nas-flexgroup` Trident 백엔드 유형은 최소 PVC 크기가 상당히 큽니다.  기본적으로 Kubeflow는 크기가 몇 GB에 불과한 PVC를 프로비저닝하려고 시도합니다.  따라서 StorageClass를 사용하는 StorageClass를 지정해서는 안 됩니다. `ontap-nas-flexgroup` Kubeflow 배포를 위해 기본 StorageClass로 백엔드 유형을 지정합니다.
+
+....
+$ kubectl get sc
+NAME                                PROVISIONER             AGE
+ontap-ai-flexgroups-retain          csi.trident.netapp.io   25h
+ontap-ai-flexgroups-retain-iface1   csi.trident.netapp.io   25h
+ontap-ai-flexgroups-retain-iface2   csi.trident.netapp.io   25h
+ontap-ai-flexvols-retain            csi.trident.netapp.io   3s
+$ kubectl patch storageclass ontap-ai-flexvols-retain -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
+storageclass.storage.k8s.io/ontap-ai-flexvols-retain patched
+$ kubectl get sc
+NAME                                 PROVISIONER             AGE
+ontap-ai-flexgroups-retain           csi.trident.netapp.io   25h
+ontap-ai-flexgroups-retain-iface1    csi.trident.netapp.io   25h
+ontap-ai-flexgroups-retain-iface2    csi.trident.netapp.io   25h
+ontap-ai-flexvols-retain (default)   csi.trident.netapp.io   54s
+....
+
+
+== Kubeflow 배포 옵션
+
+Kubeflow를 배포하는 데에는 다양한 옵션이 있습니다.  를 참조하세요link:https://www.kubeflow.org/docs/started/installing-kubeflow/["공식 Kubeflow 문서"] 배포 옵션 목록을 확인하고, 귀하의 요구 사항에 가장 적합한 옵션을 선택하세요.
+
+
+NOTE: 검증 목적으로 Kubeflow 1.7을 배포했습니다.link:https://www.deploykf.org["배포KF"] 0.1.1.

@@ -1,0 +1,34 @@
+---
+sidebar: sidebar 
+permalink: software/ai-nvaie-vmw-arch.html 
+keywords: NetApp AI, AI, Artificial Intelligence, ML, Machine Learning, NVIDIA, NVIDIA AI Enterprise, NVAIE, VMware 
+summary: NetApp 및 VMware를 탑재한 NVIDIA AI Enterprise - 아키텍처 
+---
+= 아키텍처
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 솔루션은 NetApp, VMware, NVIDIA 인증 시스템을 갖춘 검증되고 친숙한 아키텍처를 기반으로 구축되었습니다.  자세한 내용은 다음 표를 참조하세요.
+
+|===
+| 요소 | 세부 
+
+
+| AI 및 데이터 분석 소프트웨어 | link:https://www.nvidia.com/en-us/data-center/products/ai-enterprise/vmware/["VMware용 NVIDIA AI Enterprise"] 
+
+
+| 가상화 플랫폼 | link:https://www.vmware.com/products/vsphere.html["VMware vSphere"] 
+
+
+| 컴퓨팅 플랫폼 | link:https://www.nvidia.com/en-us/data-center/products/certified-systems/["NVIDIA 인증 시스템"] 
+
+
+| 데이터 관리 플랫폼 | link:https://www.netapp.com/data-management/ontap-data-management-software/["NetApp ONTAP"] 
+|===
+image:nvaie-002.png["입력/출력 대화 상자 또는 서면 내용을 나타내는 그림"]

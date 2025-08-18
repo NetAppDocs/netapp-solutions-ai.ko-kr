@@ -1,0 +1,66 @@
+---
+sidebar: sidebar 
+permalink: infra/ai-lenovo-train-details.html 
+keywords: data, graphs, image recognition, training, resnet, data read speed, 
+summary: 이 섹션에서는 자세한 테스트 절차 결과를 설명합니다. 
+---
+= 테스트 절차 및 자세한 결과
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 섹션에서는 자세한 테스트 절차 결과를 설명합니다.
+
+
+
+== ONTAP 에서 ResNet을 활용한 이미지 인식 훈련
+
+우리는 1대와 2대의 SR670 V2 서버를 사용하여 ResNet50 벤치마크를 실행했습니다.  이 테스트에서는 MXNet 22.04-py3 NGC 컨테이너를 사용하여 학습을 실행했습니다.
+
+이 검증에서는 다음과 같은 테스트 절차를 사용했습니다.
+
+. 스크립트를 실행하기 전에 호스트 캐시를 지워 데이터가 이미 캐시되지 않았는지 확인했습니다.
++
+....
+sync ; sudo /sbin/sysctl vm.drop_caches=3
+....
+. 우리는 서버 스토리지(로컬 SSD 스토리지)와 NetApp AFF 스토리지 시스템에서 ImageNet 데이터 세트를 사용하여 벤치마크 스크립트를 실행했습니다.
+. 우리는 다음을 사용하여 네트워크 및 로컬 스토리지 성능을 검증했습니다. `dd` 명령.
+. 단일 노드 실행의 경우 다음 명령을 사용했습니다.
++
+....
+python train_imagenet.py --gpus 0,1,2,3,4,5,6,7 --batch-size 408 --kv-store horovod --lr 10.5 --mom 0.9 --lr-step-epochs pow2 --lars-eta 0.001 --label-smoothing 0.1 --wd 5.0e-05 --warmup-epochs 2 --eval-period 4 --eval-offset 2 --optimizer sgdwfastlars --network resnet-v1b-stats-fl --num-layers 50 --num-epochs 37 --accuracy-threshold 0.759 --seed 27081 --dtype float16 --disp-batches 20 --image-shape 4,224,224 --fuse-bn-relu 1 --fuse-bn-add-relu 1 --bn-group 1 --min-random-area 0.05 --max-random-area 1.0 --conv-algo 1 --force-tensor-core 1 --input-layout NHWC --conv-layout NHWC --batchnorm-layout NHWC --pooling-layout NHWC --batchnorm-mom 0.9 --batchnorm-eps 1e-5 --data-train /data/train.rec --data-train-idx /data/train.idx --data-val /data/val.rec --data-val-idx /data/val.idx --dali-dont-use-mmap 0 --dali-hw-decoder-load 0 --dali-prefetch-queue 5 --dali-nvjpeg-memory-padding 256 --input-batch-multiplier 1 --dali- threads 6 --dali-cache-size 0 --dali-roi-decode 1 --dali-preallocate-width 5980 --dali-preallocate-height 6430 --dali-tmp-buffer-hint 355568328 --dali-decoder-buffer-hint 1315942 --dali-crop-buffer-hint 165581 --dali-normalize-buffer-hint 441549 --profile 0 --e2e-cuda-graphs 0 --use-dali
+....
+. 분산 실행의 경우 매개변수 서버의 병렬화 모델을 사용했습니다.  노드당 두 개의 매개변수 서버를 사용했고, 단일 노드 실행과 동일하게 에포크 수를 설정했습니다.  이렇게 한 이유는 분산 학습이 프로세스 간 동기화가 불완전해 더 많은 에포크가 필요한 경우가 많기 때문입니다.  에포크의 수가 다르면 단일 노드와 분산 케이스 간의 비교가 왜곡될 수 있습니다.
+
+
+
+
+== 데이터 읽기 속도: 로컬 스토리지 대 네트워크 스토리지
+
+읽기 속도는 다음을 사용하여 테스트되었습니다. `dd` ImageNet 데이터 세트의 파일 중 하나에 명령을 실행합니다.  구체적으로, 로컬 데이터와 네트워크 데이터 모두에 대해 다음 명령을 실행했습니다.
+
+....
+sync ; sudo /sbin/sysctl vm.drop_caches=3dd if=/a400-100g/netapp-ra/resnet/data/preprocessed_data/train.rec of=/dev/null bs=512k count=2048Results (average of 5 runs):
+Local storage: 1.7 GB/s Network storage: 1.5 GB/s.
+....
+두 값이 비슷하여 네트워크 스토리지가 로컬 스토리지와 비슷한 속도로 데이터를 전송할 수 있음을 보여줍니다.
+
+
+
+== 공유 사용 사례: 여러 개의 독립적이고 동시적인 작업
+
+이 테스트에서는 이 솔루션에 대한 예상 사용 사례, 즉 다중 작업, 다중 사용자 AI 교육을 시뮬레이션했습니다.  각 노드는 공유 네트워크 스토리지를 사용하면서 자체적인 교육을 실행했습니다.  결과는 다음 그림에 표시되어 있으며, 솔루션 케이스가 모든 작업이 개별 작업과 본질적으로 동일한 속도로 실행되어 뛰어난 성능을 제공했음을 보여줍니다.  총 처리량은 노드 수에 따라 선형적으로 증가합니다.
+
+image:a400-thinksystem-008.png["이 그림은 초당 집계된 이미지를 보여줍니다."]
+
+image:a400-thinksystem-009.png["이 그림은 런타임을 분 단위로 보여줍니다."]
+
+이 그래프는 100GbE 클라이언트 네트워킹에서 각 서버의 GPU 8개를 사용한 컴퓨팅 노드에 대한 분 단위 런타임과 초당 집계 이미지를 나타내며, 동시 학습 모델과 단일 학습 모델을 모두 결합한 것입니다.  학습 모델의 평균 런타임은 35분 9초였습니다.  개별 런타임은 34분 32초, 36분 21초, 34분 37초, 35분 25초, 그리고 34분 31초였습니다.  훈련 모델의 초당 평균 이미지는 22,573개였고, 개별 이미지는 초당 21,764개, 23,438개, 22,556개, 22,564개, 22,547개였습니다.
+
+당사의 검증에 따르면 NetApp 데이터 런타임을 사용한 하나의 독립적인 교육 모델은 22,231개의 이미지/초로 34분 54초가 소요되었습니다.  로컬 데이터(DAS) 런타임을 갖춘 독립적인 훈련 모델 하나는 22,102개의 이미지/초로 34분 21초가 걸렸습니다.  nvidia-smi에서 관찰한 바에 따르면, 해당 실행 중에 평균 GPU 사용률은 96%였습니다.  이 평균에는 GPU를 사용하지 않은 테스트 단계가 포함되어 있으며, mpstat으로 측정한 결과 CPU 사용률은 40%였습니다.  이는 각각의 경우 데이터 전송 속도가 충분하다는 것을 보여줍니다.

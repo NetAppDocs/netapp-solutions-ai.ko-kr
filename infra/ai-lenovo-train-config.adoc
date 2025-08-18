@@ -1,0 +1,71 @@
+---
+sidebar: sidebar 
+permalink: infra/ai-lenovo-train-config.html 
+keywords: solution architecture, storage controller 
+summary: 이 섹션에서는 테스트된 구성, 네트워크 인프라, SR670 V2 서버 및 스토리지 프로비저닝 세부 정보를 설명합니다. 
+---
+= 테스트 구성
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 섹션에서는 테스트된 구성, 네트워크 인프라, SR670 V2 서버 및 NetApp 스토리지 프로비저닝 세부 정보를 설명합니다.
+
+
+
+== 솔루션 아키텍처
+
+이 검증을 위해 다음 표에 나열된 솔루션 구성 요소를 사용했습니다.
+
+|===
+| 솔루션 구성 요소 | 세부 
+
+
+| 레노버 ThinkSystem 서버  a| 
+* 각각 8개의 NVIDIA A100 80GB GPU 카드가 장착된 2개의 SR670 V2 서버
+* 각 서버에는 2개의 Intel Xeon Platinum 8360Y CPU(28개의 물리적 코어)와 1TB RAM이 포함되어 있습니다.
+
+
+
+
+| Linux(Ubuntu – CUDA 11.8이 설치된 20.04) |  
+
+
+| NetApp AFF 스토리지 시스템(HA 쌍)  a| 
+* NetApp ONTAP 9.10.1 소프트웨어
+* 24개의 960GB SSD
+* NFS 프로토콜
+* 컨트롤러당 1개의 인터페이스 그룹(ifgrp), 마운트 지점에 대한 4개의 논리적 IP 주소
+
+
+|===
+이 검증에서는 MLPerf v2.0에서 지정한 ImageNet 기반 집합을 사용하는 ResNet v2.0을 사용했습니다.  데이터 세트는 NFS 프로토콜을 사용하는 NetApp AFF 스토리지 시스템에 저장됩니다.  SR670은 100GbE 스위치를 통해 NetApp AFF A400 스토리지 시스템에 연결되었습니다.
+
+ImageNet은 자주 사용되는 이미지 데이터 세트입니다.  여기에는 약 130만 개의 이미지가 포함되어 있으며 총 크기는 144GB입니다.  평균 이미지 크기는 108KB입니다.
+
+다음 그림은 테스트된 구성의 네트워크 토폴로지를 보여줍니다.
+
+image:a400-thinksystem-007.png["이 그래픽은 컴퓨팅 계층(Lenovo ThinkSystem SR670 V2), 네트워크 계층(Lenovo 이더넷 스위치), 스토리지 계층( NetApp AFF A400 스토리지 컨트롤러)을 보여줍니다.  모든 네트워크 연결이 포함되어 있습니다."]
+
+
+
+== 스토리지 컨트롤러
+
+다음 표에는 저장소 구성이 나열되어 있습니다.
+
+|===
+| 제어 장치 | 골재 | FlexGroup 볼륨 | 총 크기 | 볼륨 크기 | 운영 체제 마운트 지점 
+
+
+| Controller1 | Aggr1 | /a400-100g | 9.9TB | 19TB | /a400-100g 
+
+
+| Controller2 | Aggr2 | /a400-100g | 9.9TB |  | /a400-100g 
+|===
+
+NOTE: /a400-100g 폴더에는 ResNet 검증에 사용되는 데이터 세트가 들어 있습니다.

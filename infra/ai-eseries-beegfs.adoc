@@ -1,0 +1,19 @@
+---
+sidebar: sidebar 
+permalink: infra/ai-eseries-beegfs.html 
+keywords:  
+summary:  
+---
+= E-Series 스토리지를 갖춘 NetApp 의 BeeGFS
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+E-Series 스토리지가 탑재된 NetApp 의 BeeGFS는 간단하고, 안정적이며, 확장 가능하고, 비용 효율적인 HPC 인프라를 갖춘 검증된 통합 솔루션으로, 가장 극한의 작업 부하에도 대응할 수 있습니다.
+
+link:https://docs.netapp.com/us-en/beegfs/index.html["E-Series 스토리지를 갖춘 NetApp 의 BeeGFS"^]

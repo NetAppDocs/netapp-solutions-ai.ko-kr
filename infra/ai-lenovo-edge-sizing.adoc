@@ -1,0 +1,31 @@
+---
+sidebar: sidebar 
+permalink: infra/ai-lenovo-edge-sizing.html 
+keywords: architecture, sizing, computer server, shared storage 
+summary: 다른 사용 사례에 맞게 검증에 사용된 설정을 조정할 수 있습니다. 
+---
+= 아키텍처 크기 조정 옵션
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+다른 사용 사례에 맞게 검증에 사용된 설정을 조정할 수 있습니다.
+
+
+
+== 컴퓨팅 서버
+
+SE350에서 지원하는 가장 낮은 수준의 CPU인 Intel Xeon D-2123IT CPU를 사용했습니다. 이 CPU는 물리적 코어가 4개이고 TDP가 60W입니다.  이 서버는 CPU 교체를 지원하지 않지만, 더 강력한 CPU를 주문할 수는 있습니다.  지원되는 최고 CPU는 2.20GHz에서 실행되는 16코어, 100W의 Intel Xeon D-2183IT입니다.  이를 통해 CPU의 계산 능력이 상당히 향상됩니다.  CPU는 추론 작업 자체를 실행하는 데 병목 현상이 아니지만 데이터 처리 및 추론과 관련된 기타 작업에는 도움이 됩니다.  현재 NVIDIA T4는 엣지 사용 사례에 사용할 수 있는 유일한 GPU입니다. 따라서 현재로서는 GPU를 업그레이드하거나 다운그레이드할 수 없습니다.
+
+
+
+== 공유 스토리지
+
+이 문서의 목적상 테스트 및 검증을 위해 NetApp AFF C190 시스템이 사용되었습니다. 이 시스템은 최대 저장 용량이 50.5TB이고, 순차 읽기 처리량이 4.4GBps이며, 소규모 랜덤 읽기 처리량이 230K IOPS입니다. 이 시스템은 에지 추론 워크로드에 적합한 것으로 입증되었습니다.
+
+하지만 더 많은 저장 용량이나 더 빠른 네트워킹 속도가 필요한 경우 NetApp AFF A220 또는 NetApp AFF A250 스토리지 시스템을 사용해야 합니다.  또한, 최대 용량이 1.5PB이고 대역폭이 10GBps인 NetApp EF280 시스템도 이 솔루션 검증 목적으로 사용되었습니다.  더 높은 대역폭으로 더 많은 저장 용량을 원하시면, https://www.netapp.com/pdf.html?item=/media/19339-DS-4082.pdf&v=2021691654["NetApp EF300"^] 사용할 수 있습니다.

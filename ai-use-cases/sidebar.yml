@@ -1,0 +1,50 @@
+---
+section: ai-use-cases
+title: AI 사용 사례
+url: "/ai-use-cases/index.html"
+entries:
+- title: 기업 RAG를 위한 NetApp AIPod Mini
+  pdf-filename: RAG 추론을 위한 NetApp AIPod Mini
+  url: "/infra/ai-minipod.html"
+- title: Protopia 이미지 변환을 통한 책임 있는 AI
+  pdf-filename: 책임 있는 AI와 기밀 추론 - Protopia 이미지 변환을 갖춘 NetApp AI
+  entries:
+  - title: 개요
+    url: "/software/ai-conf-protopia-overview.html"
+  - title: 솔루션 영역
+    url: "/software/ai-conf-protopia-usecases.html"
+  - title: 기술 개요
+    url: "/software/ai-conf-protopia-tech.html"
+  - title: 테스트 및 검증 계획
+    url: "/software/ai-conf-protopia-plan.html"
+  - title: 테스트 구성
+    url: "/software/ai-conf-protopia-config.html"
+  - title: 테스트 절차
+    url: "/software/ai-conf-protopia-procedure.html"
+  - title: 추론 정확도 비교
+    url: "/software/ai-conf-protopia-accuracy.html"
+  - title: 난독화 속도
+    url: "/software/ai-conf-protopia-speed.html"
+  - title: 결론
+    url: "/software/ai-conf-protopia-conclusion.html"
+  - title: 추가 정보
+    url: "/software/ai-conf-protopia-addtl.html"
+- title: 빅데이터 분석에서 AI로의 마이그레이션
+  pdf-filename: 빅데이터 환경에서 AI 환경으로 데이터 이동
+  url: "/data-analytics/bda-ai-introduction.html"
+- title: NetApp 및 Lenovo를 통한 Edge AI 추론
+  pdf-filename: 엣지에서의 AI 추론 - NetApp 과 Lenovo ThinkSystem - 솔루션 설계
+  entries:
+  - title: 소개
+    url: "/infra/ai-lenovo-edge-intro.html"
+  - title: 결론
+    url: "/infra/ai-lenovo-edge-conclusion.html"
+- title: 생성적 AI와 NetApp 가치
+  pdf-filename: 생성적 AI와 NetApp 가치
+  url: "/gen-ai/ai-wp-genai.html"
+- title: E-Series 시스템을 사용한 Quantum StorNext 설계
+  pdf-filename: NetApp E-Series 시스템을 사용한 Quantum StorNext 설계 가이드
+  url: "/infra/ai-eseries-nva1150-design.html"
+- title: E-Series 시스템에 Quantum StorNext 배포
+  pdf-filename: NetApp E-Series 시스템을 사용한 Quantum StorNext 배포 가이드
+  url: "/infra/ai-eseries-nva1150-deploy.html"

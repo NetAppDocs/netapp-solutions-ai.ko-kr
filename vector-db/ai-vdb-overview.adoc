@@ -1,0 +1,33 @@
+---
+sidebar: sidebar 
+permalink: vector-db/ai-vdb-overview.html 
+keywords: Solution Overview vector database 
+summary: NetApp용 벡터 데이터베이스 솔루션 개요 
+---
+= 솔루션 개요
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 섹션에서는 NetApp 벡터 데이터베이스 솔루션에 대한 개요를 제공합니다.
+
+
+
+== 솔루션 개요
+
+이 솔루션은 NetApp 이 벡터 데이터베이스 고객이 겪는 과제를 해결하기 위해 제공하는 독특한 이점과 기능을 보여줍니다.  NetApp ONTAP, StorageGRID, NetApp의 클라우드 솔루션 및 SnapCenter 활용함으로써 고객은 비즈니스 운영에 상당한 가치를 더할 수 있습니다.  이러한 도구는 기존 문제를 해결할 뿐만 아니라 효율성과 생산성을 높여 전반적인 비즈니스 성장에 기여합니다.
+
+
+
+=== 왜 NetApp 인가?
+
+* ONTAP 및 StorageGRID 와 같은 NetApp의 제품을 사용하면 스토리지와 컴퓨팅을 분리하여 특정 요구 사항에 따라 최적의 리소스 활용이 가능합니다.  이러한 유연성 덕분에 고객은 NetApp 스토리지 솔루션을 사용하여 스토리지를 독립적으로 확장할 수 있습니다.
+* NetApp의 스토리지 컨트롤러를 활용하면 고객은 NFS 및 S3 프로토콜을 사용하여 벡터 데이터베이스에 효율적으로 데이터를 제공할 수 있습니다.  이러한 프로토콜은 고객 데이터 저장을 용이하게 하고 벡터 데이터베이스 인덱스를 관리하며, 파일 및 객체 메서드를 통해 액세스하는 여러 데이터 사본의 필요성을 제거합니다.
+* NetApp ONTAP AWS, Azure, Google Cloud 등 주요 클라우드 서비스 공급업체에서 NAS 및 개체 스토리지에 대한 기본 지원을 제공합니다.  이러한 광범위한 호환성은 원활한 통합을 보장하여 고객 데이터 이동성, 글로벌 접근성, 재해 복구, 동적 확장성 및 고성능을 구현합니다.
+* NetApp의 강력한 데이터 관리 기능을 통해 고객은 자신의 데이터가 잠재적 위험과 위협으로부터 잘 보호된다는 확신을 가질 수 있습니다.  NetApp 데이터 보안을 우선시하여 고객에게 귀중한 정보의 안전성과 무결성에 대한 안심을 제공합니다.
+

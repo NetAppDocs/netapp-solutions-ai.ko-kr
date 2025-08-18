@@ -1,0 +1,37 @@
+---
+section: ai-infrastructures
+title: AI 융합 인프라
+url: "/ai-infrastructures/index.html"
+entries:
+- title: NVIDIA DGX 시스템을 탑재한 NetApp AIPod
+  pdf-filename: NVIDIA DGX 시스템을 탑재한 NVA-1173 NetApp AIPod
+  entries:
+  - title: 소개
+    url: "/infra/ai-aipod-nv-intro.html"
+  - title: 하드웨어 구성 요소
+    url: "/infra/ai-aipod-nv-hw.html"
+  - title: 소프트웨어 구성 요소
+    url: "/infra/ai-aipod-nv-sw.html"
+  - title: 아키텍처
+    url: "/infra/ai-aipod-nv-architecture.html"
+  - title: 배포 세부 정보 예시
+    url: "/infra/ai-aipod-nv-deploy.html"
+  - title: 검증 및 크기 조정 지침
+    url: "/infra/ai-aipod-nv-validation.html"
+  - title: 결론 및 추가 정보
+    url: "/infra/ai-aipod-nv-conclusion.html"
+- title: NVIDIA OVX를 위한 Lenovo와 NetApp AIPod
+  pdf-filename: 'NVA-1172-DESIGN: NVIDIA OVX를 위한 Lenovo가 포함된 NetApp AIPod'
+  url: "/infra/ai-aipod-lenovo-nva1172.html"
+- title: EF 시리즈가 탑재된 NVIDIA DGX SuperPOD
+  pdf-filename: NetApp EF 시리즈를 탑재한 NVIDIA DGX SuperPOD
+  url: "/infra/ai-eseries-superpod.html"
+- title: E-Series 스토리지를 갖춘 NetApp 의 BeeGFS
+  pdf-filename: E-Series 스토리지를 갖춘 NetApp 의 BeeGFS
+  url: "/infra/ai-eseries-beegfs.html"
+- title: E-Series 스토리지를 사용하여 IBM Spectrum Scale 배포
+  pdf-filename: E-Series 스토리지를 사용하여 IBM Spectrum Scale 배포
+  url: "/infra/ai-eseries-spectrumscale.html"
+- title: AI를 위한 ONTAP 및 Lenovo ThinkSystem
+  pdf-filename: AI를 위한 NetApp ONTAP 및 Lenovo ThinkSystem SR670
+  url: "/infra/ai-lenovo-train-intro.html"

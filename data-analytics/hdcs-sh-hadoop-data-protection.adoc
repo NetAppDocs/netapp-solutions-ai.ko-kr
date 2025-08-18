@@ -1,0 +1,21 @@
+---
+sidebar: sidebar 
+permalink: data-analytics/hdcs-sh-hadoop-data-protection.html 
+keywords: distcp, copy, backup workflow, hdfs, mapreduce 
+summary: Hadoop DistCp는 대규모 클러스터 간 및 클러스터 내 복사에 사용되는 기본 도구입니다.  Hadoop DistCp 기본 프로세스는 MapReduce와 같은 Hadoop 기본 도구를 사용하여 HDFS 소스에서 해당 대상으로 Hadoop 데이터를 복사하는 일반적인 백업 워크플로입니다. 
+---
+= Hadoop 데이터 보호 및 NetApp
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Hadoop DistCp는 대규모 클러스터 간 및 클러스터 내 복사에 사용되는 기본 도구입니다.  아래 그림에 표시된 Hadoop DistCp 기본 프로세스는 MapReduce와 같은 Hadoop 기본 도구를 사용하여 HDFS 소스에서 해당 대상으로 Hadoop 데이터를 복사하는 일반적인 백업 워크플로입니다.
+
+NetApp NFS 직접 액세스를 통해 고객은 Hadoop DistCp 도구의 대상 위치를 NFS로 설정하여 MapReduce를 통해 HDFS 소스의 데이터를 NFS 공유로 복사할 수 있습니다.  NetApp NFS 직접 액세스는 DistCp 도구에 대한 NFS 드라이버 역할을 합니다.
+
+image:hdcs-sh-004.png["입력/출력 대화 상자 또는 서면 내용을 나타내는 그림"]

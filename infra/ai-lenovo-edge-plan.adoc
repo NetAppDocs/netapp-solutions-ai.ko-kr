@@ -1,0 +1,63 @@
+---
+sidebar: sidebar 
+permalink: infra/ai-lenovo-edge-plan.html 
+keywords: test, plan, mlperf, inference, benchmarks 
+summary: 이 문서는 MLPerf Inference v0.7 코드, MLPerf Inference v1.1 코드와 규칙을 따릅니다.  이 섹션에 제시된 표에 정의된 대로 에지에서의 추론을 위해 설계된 벤치마크를 실행했습니다. 
+---
+= 테스트 계획
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 문서는 MLPerf Inference v0.7을 따릅니다. https://github.com/mlperf/inference_results_v0.7/tree/master/closed/Lenovo["암호"^] , MLPerf 추론 v1.1 https://github.com/mlcommons/inference_results_v1.1/tree/main/closed/Lenovo["암호"^] , 그리고 https://github.com/mlcommons/inference_policies/blob/master/inference_rules.adoc["규칙"^] .  다음 표에 정의된 대로 에지에서의 추론을 위해 설계된 MLPerf 벤치마크를 실행했습니다.
+
+|===
+| 영역 | 일 | 모델 | 데이터 세트 | QSL 크기 | 품질 | 멀티스트림 지연 제약 
+
+
+| 비전 | 이미지 분류 | Resnet50v1.5 | 이미지넷(224x224) | 1024 | FP32의 99% | 50ms 
+
+
+| 비전 | 객체 감지(대형) | SSD- ResNet34 | 코코 (1200x1200) | 64 | FP32의 99% | 66ms 
+
+
+| 비전 | 객체 감지(소형) | SSD- 모바일넷스v1 | 코코(300x300) | 256 | FP32의 99% | 50ms 
+
+
+| 비전 | 의료 영상 분할 | 3D 유넷 | 브라TS 2019 (224x224x160) | 16 | FP32의 99% 및 99.9% | 해당 없음 
+
+
+| 연설 | 음성-텍스트 변환 | RNNT | Librispeech 개발 정리 | 2513 | FP32의 99% | 해당 없음 
+
+
+| 언어 | 언어 처리 | 버트 | SQuAD v1.1 | 10833 | FP32의 99% | 해당 없음 
+|===
+다음 표는 Edge 벤치마크 시나리오를 보여줍니다.
+
+|===
+| 영역 | 일 | 시나리오 
+
+
+| 비전 | 이미지 분류 | 단일 스트림, 오프라인, 멀티스트림 
+
+
+| 비전 | 객체 감지(대형) | 단일 스트림, 오프라인, 멀티스트림 
+
+
+| 비전 | 객체 감지(소형) | 단일 스트림, 오프라인, 멀티스트림 
+
+
+| 비전 | 의료 영상 분할 | 단일 스트림, 오프라인 
+
+
+| 연설 | 음성-텍스트 변환 | 단일 스트림, 오프라인 
+
+
+| 언어 | 언어 처리 | 단일 스트림, 오프라인 
+|===
+이 검증 과정에서 개발된 네트워크 스토리지 아키텍처를 사용하여 이러한 벤치마크를 수행했으며, MLPerf에 이전에 제출된 엣지 서버에서 로컬로 실행한 결과와 결과를 비교했습니다.  비교의 목적은 공유 스토리지가 추론 성능에 얼마나 많은 영향을 미치는지 확인하는 것입니다.
