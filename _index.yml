@@ -26,6 +26,10 @@ indexpage:
       url: "/infra/ai-aipod-lenovo-nva1172.html"
     - title: E-Series를 탑재한 BeeGFS 병렬 파일 시스템
       url: "/infra/ai-eseries-beegfs.html"
+    - title: NVIDIA DGX SuperPOD 탑재한 NetApp AFF A90 스토리지 시스템 - 설계
+      url: "/infra/ai-dgx-superpod-nva1175-design.html"
+    - title: NVIDIA DGX SuperPOD 탑재한 NetApp AFF A90 스토리지 시스템 - 배포
+      url: "/infra/ai-dgx-superpod-nva1175-deploy.html"
   - title: AI 사용 사례 및 응용 프로그램
     links:
     - title: RAG 추론을 위한 AIPod Mini

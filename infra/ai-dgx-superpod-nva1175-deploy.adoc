@@ -1,0 +1,765 @@
+---
+sidebar: sidebar 
+permalink: infra/ai-dgx-superpod-nva1175-deploy.html 
+keywords: NetApp AI, AI, Artificial Intelligence, ML, Machine Learning, NVIDIA, NVIDIA AI Enterprise, NVIDIA SuperPOD, NVIDIA DGX 
+summary: NetApp AFF A90 탑재한 NVIDIA DGX SuperPOD 
+---
+= NVIDIA DGX SuperPOD 탑재한 NetApp AFF A90 스토리지 시스템
+:allow-uri-read: 
+
+
+
+
+== NVA 배치
+
+[role="lead"]
+NetApp AFF A90 스토리지 시스템을 탑재한 NVIDIA DGX SuperPOD NVIDIA DGX 시스템의 세계적 수준의 컴퓨팅 성능과 NetApp 클라우드 연결 스토리지 시스템을 결합하여 머신 러닝(ML), 인공 지능(AI) 및 고성능 기술 컴퓨팅(HPC)을 위한 데이터 기반 워크플로를 지원합니다.  이 문서에서는 AFF A90 스토리지 시스템을 DGX SuperPOD 아키텍처에 통합하기 위한 구성 및 배포 세부 정보를 설명합니다.
+
+image:nvidialogo.png["엔비디아 로고"]
+
+데이비드 아넷, NetApp
+
+
+
+== 프로그램 요약
+
+NVIDIA DGX SuperPOD™는 기업을 위한 턴키 방식의 AI 데이터 센터 솔루션을 제공하여 세계적 수준의 컴퓨팅, 소프트웨어 도구, 전문 지식 및 지속적인 혁신을 원활하게 제공합니다.  DGX SuperPOD는 고객이 최소한의 설정 시간과 최대의 생산성으로 AI/ML 및 HPC 워크로드를 배포하는 데 필요한 모든 것을 제공합니다.  그림 1은 DGX SuperPOD의 상위 수준 구성 요소를 보여줍니다.
+
+그림 1) NetApp AFF A90 스토리지 시스템을 탑재한 NVIDIA DGX SuperPOD .
+
+image:ai-superpod-a90-005.png["600,600"]
+
+DGX SuperPOD는 다음과 같은 이점을 제공합니다.
+
+* AI/ML 및 HPC 워크로드에 대한 검증된 성능
+* 인프라 관리 및 모니터링부터 사전 구축된 딥 러닝 모델 및 도구까지 통합된 하드웨어 및 소프트웨어 스택입니다.
+* 설치 및 인프라 관리부터 워크로드 확장, 프로덕션 AI 간소화까지 전담 서비스를 제공합니다.
+
+
+
+
+== 솔루션 개요
+
+기업들이 인공지능(AI)과 머신러닝(ML) 이니셔티브를 수용함에 따라, 견고하고 확장 가능하며 효율적인 인프라 솔루션에 대한 수요가 그 어느 때보다 커졌습니다.  이러한 이니셔티브의 핵심은 데이터 보안, 접근성, 리소스 최적화를 보장하는 동시에 점점 더 복잡해지는 AI 모델을 관리하고 교육하는 과제에 있습니다. 
+
+이 솔루션은 다음과 같은 주요 이점을 제공합니다.
+
+* *확장성*
+* *데이터 관리 및 접근*
+* *보안*
+
+
+
+
+=== 솔루션 기술
+
+NVIDIA DGX SuperPOD 에는 까다로운 AI 워크로드에 대해 검증된 성능을 제공하는 데 필요한 서버, 네트워킹 및 스토리지가 포함되어 있습니다.  NVIDIA DGX™ H200 및 B200 시스템은 세계적 수준의 컴퓨팅 성능을 제공하고 NVIDIA Quantum InfiniBand 및 Spectrum™ 이더넷 네트워크 스위치는 매우 낮은 지연 시간과 업계 최고의 네트워크 성능을 제공합니다.  NetApp ONTAP 스토리지의 업계 최고 수준의 데이터 관리 및 성능 기능을 추가하면 고객은 AI/ML 이니셔티브를 더 빠르게 구현하고 데이터 마이그레이션과 관리 오버헤드를 줄일 수 있습니다.  이 솔루션의 특정 구성 요소에 대한 자세한 내용은 다음을 참조하세요.https://www.netapp.com/pdf.html?item=/media/125003-nva-1175-design-superpod-a90.pdf["NVA-1175 설계 가이드"] 그리고 https://docs.nvidia.com/dgx-superpod/reference-architecture-scalable-infrastructure-b200/latest/index.html["+++ NVIDIA DGX SuperPOD 참조 아키텍처+++"] 선적 서류 비치.
+
+
+
+=== 사용 사례 요약
+
+NVIDIA DGX SuperPOD 가장 까다로운 워크로드의 성능 및 확장성 요구 사항을 충족하도록 설계되었습니다.
+
+이 솔루션은 다음과 같은 사용 사례에 적용됩니다.
+
+* 기존 분석 도구를 사용하여 대규모로 머신 러닝을 수행합니다.
+* 대규모 언어 모델, 컴퓨터 비전/이미지 분류, 사기 감지 및 기타 수많은 사용 사례를 위한 인공 지능 모델 학습.
+* 지진 분석, 계산 유체 역학, 대규모 시각화와 같은 고성능 컴퓨팅.
+
+
+
+
+== 기술 요구 사항
+
+DGX SuperPOD는 필요한 연결성과 성능을 제공하고 인프라의 병목 현상을 제거하는 데 필요한 모든 구성 요소를 포함하는 확장 가능 단위(SU) 개념을 기반으로 합니다.  고객은 하나 또는 여러 개의 SU로 시작하여 요구 사항을 충족하는 데 필요한 대로 추가 SU를 추가할 수 있습니다.  자세한 내용은 다음을 참조하세요. https://docs.nvidia.com/dgx-superpod/reference-architecture-scalable-infrastructure-b200/latest/index.html["+++ NVIDIA DGX SuperPOD 참조 아키텍처+++"] .  이 문서에서는 단일 SU에 대한 스토리지 구성 요소와 구성을 설명합니다.
+
+
+
+=== 하드웨어 요구 사항
+
+표 1은 1SU의 저장 구성요소를 구현하는 데 필요한 하드웨어 구성요소를 나열합니다.  1~4개 확장 가능 단위에 대한 구체적인 부품 및 수량은 부록 A를 참조하세요.
+
+표 1) 하드웨어 요구 사항
+
+[cols="50%,50%"]
+|===
+| 하드웨어 | 수량 
+
+
+| NetApp AFF A90 스토리지 시스템 | 4 
+
+
+| NetApp 스토리지 클러스터 상호 연결 스위치 | 2 
+
+
+| NVIDIA 800GB -> 4x 200Gb 스플리터 케이블 | 12 
+|===
+
+
+=== 소프트웨어 요구 사항
+
+표 2는 AFF A90 스토리지 시스템을 DGX SuperPOD와 통합하는 데 필요한 최소 소프트웨어 구성 요소와 버전을 나열합니다.  DGX SuperPOD에는 여기에 나열되지 않은 다른 소프트웨어 구성 요소도 포함됩니다.  참고해주세요https://docs.nvidia.com/dgx-superpod/release-notes/latest/10-24-11.html["+++DGX SuperPOD 릴리스 노트+++"] 자세한 내용은 다음을 참조하세요.
+
+표 2) 소프트웨어 요구 사항
+
+[cols="50%,50%"]
+|===
+| 소프트웨어 | 버전 
+
+
+| NetApp ONTAP | 9.16.1 이상 
+
+
+| NVIDIA BaseCommand 관리자 | 10.24.11 이상 
+
+
+| NVIDIA DGX OS | 6.3.1 이상 
+
+
+| NVIDIA OFED 드라이버 | MLNX_OFED_LINUX-23.10.3.2.0 LTS 이상 
+
+
+| NVIDIA 큐물러스 OS | 5.10 이상 
+|===
+
+
+== 배포 절차
+
+NetApp ONTAP 스토리지를 DGX SuperPOD와 통합하려면 다음 작업이 필요합니다.
+
+* RoCE를 사용한 NetApp AFF A90 스토리지 시스템에 대한 네트워크 구성
+* 저장 시스템 설치 및 구성
+* NVIDIA Base Command™ Manager를 사용한 DGX 클라이언트 구성
+
+
+
+
+=== 저장 시스템 설치 및 구성
+
+
+
+==== 현장 준비 및 기본 설치
+
+AFF A90 스토리지 클러스터의 현장 준비 및 기본 설치는 NetApp Professional Services에서 표준 배포 서비스의 일부로 모든 DGX SuperPOD 배포에 대해 수행합니다.  NetApp PS에서는 현장 조건이 설치에 적합한지 확인하고 지정된 랙에 하드웨어를 설치합니다.  또한 고객이 제공한 네트워크 정보를 사용하여 OOB 네트워크 연결을 연결하고 기본 클러스터 설정을 완료합니다.  부록 A – 부품 목록 및 랙 높이에는 참조용 표준 랙 높이가 포함되어 있습니다.  A90 설치에 대한 자세한 내용은 다음을 참조하세요. https://docs.netapp.com/us-en/ontap-systems/a70-90/install-overview.html["+++ AFF A90 하드웨어 설치 설명서+++"] .
+
+표준 배포가 완료되면 NetApp PS는 아래 절차에 따라 스토리지 솔루션의 고급 구성을 완료합니다. 여기에는 클라이언트 연결 및 튜닝을 위한 Base Command Manager와의 통합이 포함됩니다.
+
+
+
+==== 스토리지 시스템을 DGX SuperPOD 스토리지 패브릭에 케이블로 연결
+
+AFF A90 스토리지 시스템은 컨트롤러당 4개의 200Gb 이더넷 포트를 사용하여 스토리지 패브릭 리프 스위치에 연결되며, 각 스위치에 2개의 연결이 있습니다.  NVIDIA Spectrum SN5600 스위치의 800Gb 스위치 포트는 부록 A에 나열된 적절한 DAC 또는 광 분배기 구성을 사용하여 4개의 200Gb 포트로 나뉩니다. 각 스위치 포트의 개별 포트는 스토리지 컨트롤러에 분산되어 단일 장애 지점을 제거합니다.  아래 그림 2는 스토리지 패브릭 연결을 위한 케이블을 보여줍니다.
+
+그림 2) 저장 네트워크 케이블링.
+
+image:ai-superpod-a90-006.png["600,600"]
+
+
+
+==== 스토리지 시스템을 DGX SuperPOD 인밴드 네트워크에 케이블로 연결
+
+NetApp ONTAP 에는 DGX SuperPOD 아키텍처의 고성능 스토리지 시스템으로 작동하고 홈 디렉토리, 그룹 파일 공유 및 Base Command Manager 클러스터 아티팩트를 지원할 수 있는 업계 최고의 멀티 테넌시 기능이 포함되어 있습니다.  인밴드 네트워크에서 사용하기 위해 각 AFF A90 컨트롤러는 컨트롤러당 200Gb 이더넷 연결 1개로 인밴드 네트워크 스위치에 연결되고 포트는 LACP MLAG 구성으로 구성됩니다.  아래 그림 3은 스토리지 시스템을 인밴드 및 OOB 네트워크에 연결하는 케이블 연결을 보여줍니다.
+
+그림 3) 인밴드 및 OOB 네트워크 케이블링.
+
+image:ai-superpod-a90-007.png["600,600"]
+
+
+
+==== DGX SuperPOD에 대한 ONTAP 구성
+
+이 솔루션은 여러 개의 스토리지 가상 머신(SVM)을 활용하여 고성능 스토리지 액세스와 사용자 홈 디렉토리 및 기타 클러스터 아티팩트에 대한 볼륨을 관리 SVM에서 호스팅합니다.  각 SVM은 스토리지 또는 인밴드 네트워크의 네트워크 인터페이스와 데이터 스토리지를 위한 FlexGroup 볼륨으로 구성됩니다.  데이터 SVM의 성능을 보장하기 위해 스토리지 QoS 정책이 구현됩니다.  FlexGroups, Storage Virtual Machines 및 ONTAP QoS 기능에 대한 자세한 내용은 다음을 참조하세요. https://docs.netapp.com/us-en/ontap/index.html["+++ ONTAP 문서 +++"] .
+
+
+
+===== 기본 저장소 구성
+
+
+
+====== 각 컨트롤러에 단일 집계를 구성합니다.
+
+[source, cli]
+----
+aggr create -node <node> -aggregate <node>_data01 -diskcount <47> -maxraidsize 24
+----
+클러스터의 각 노드에 대해 위의 단계를 반복합니다.
+
+
+
+====== 대역 내 네트워크에 대해 각 컨트롤러에서 ifgrps 구성
+
+[source, cli]
+----
+net port ifgrp create -node <node> -ifgrp a1a -mode multimode
+-distr-function port
+
+net port ifgrp add-port -node <node> -ifgrp a1a -ports
+<node>:e2a,<node>:e2b
+----
+클러스터의 각 노드에 대해 위의 단계를 반복합니다.
+
+
+
+====== RoCE를 위한 물리적 포트 구성
+
+RDMA를 통한 NFS를 활성화하려면 클라이언트와 서버 모두에서 네트워크 트래픽이 적절하게 태그 지정되고 RoCE(RDMA over Converged Ethernet)를 사용하여 네트워크에서 적절하게 처리되도록 구성해야 합니다.  여기에는 PFC(우선순위 흐름 제어) 구성과 사용할 PFC CoS 대기열 구성이 포함됩니다.  아래 명령을 실행하면 NetApp ONTAP 은 네트워크 QoS 구성에 맞춰 DSCP 코드 26을 자동으로 구성합니다.
+
+[source, cli]
+----
+network port modify -node * -port e6* -flowcontrol-admin pfc
+-pfc-queues-admin 3
+
+network port modify -node * -port e11* -flowcontrol-admin pfc
+-pfc-queues-admin 3
+----
+
+
+====== 브로드캐스트 도메인 생성
+
+[source, cli]
+----
+broadcast-domain create -broadcast-domain in-band -mtu 9000 -ports
+ntapa90_spod-01:a1a,ntapa90_spod-02:a1a,ntapa90_spod-03:a1a,ntapa90_spod-04:a1a,ntapa90_spod-05:a1a,
+ntapa90_spod-06:a1a,ntapa90_spod-07:a1a,ntapa90_spod-08:a1a
+
+broadcast-domain create -broadcast-domain vlan401 -mtu 9000 -ports
+ntapa90_spod-01:e6a,ntapa90_spod-01:e6b,ntapa90_spod-02:e6a,ntapa90_spod-02:e6b,ntapa90_spod-03:e6a,ntapa90_spod-03:e6b,ntapa90_spod-04:e6a,ntapa90_spod-04:e6b,ntapa90_spod-05:e6a,ntapa90_spod-05:e6b,ntapa90_spod-06:e6a,ntapa90_spod-06:e6b,ntapa90_spod-07:e6a,ntapa90_spod-07:e6b,ntapa90_spod-08:e6a,ntapa90_spod-08:e6b
+
+broadcast-domain create -broadcast-domain vlan402 -mtu 9000 -ports
+ntapa90_spod-01:e11a,ntapa90_spod-01:e11b,ntapa90_spod-02:e11a,ntapa90_spod-02:e11b,ntapa90_spod-03:e11a,ntapa90_spod-03:e11b,ntapa90_spod-04:e11a,ntapa90_spod-04:e11b,ntapa90_spod-05:e11a,ntapa90_spod-05:e11b,ntapa90_spod-06:e11a,ntapa90_spod-06:e11b,ntapa90_spod-07:e11a,ntapa90_spod-07:e11b,ntapa90_spod-08:e11a,ntapa90_spod-08:e11b
+
+----
+
+
+===== 관리 SVM 생성
+
+
+
+====== 관리 SVM 생성 및 구성
+
+[source, cli]
+----
+vserver create -vserver spod_mgmt
+
+vserver modify -vserver spod_mgmt -aggr-list
+ntapa90_spod-01_data01,ntapa90_spod-02_data01,
+ntapa90_spod-03_data01,ntapa90_spod-04_data01,
+ntapa90_spod-05_data01,ntapa90_spod-06_data01,
+ntapa90_spod-07_data01,ntapa90_spod-08_data01
+----
+
+
+====== 관리 SVM에서 NFS 서비스 구성
+
+[source, cli]
+----
+nfs create -vserver spod_mgmt -v3 enabled -v4.1 enabled -v4.1-pnfs
+enabled -tcp-max-xfer-size 262144 -v4.1-trunking enabled
+
+set advanced
+
+nfs modify -vserver spod_mgmt -v3-64bit-identifiers enabled
+-v4.x-session-num-slots 1024
+----
+
+
+====== 인밴드 네트워크 인터페이스에 대한 IP 서브넷 생성
+
+[source, cli]
+----
+network subnet create -subnet-name inband -broadcast-domain in-band
+-subnet xxx.xxx.xxx.0/24 -gateway xxx.xxx.xxx.x -ip-ranges
+xxx.xxx.xxx.xx-xxx.xxx.xxx.xxx
+----
+*참고:* IP 서브넷 정보는 기존 고객 네트워크에 통합하기 위해 배포 시점에 고객이 제공해야 합니다.
+
+
+
+====== In-Band SVM을 위해 각 노드에 네트워크 인터페이스를 생성합니다.
+
+[source, cli]
+----
+net int create -vserver spod_mgmt -lif inband_lif1 -home-node
+ntapa90_spod-01 -home-port a1a -subnet_name inband
+----
+클러스터의 각 노드에 대해 위의 단계를 반복합니다.
+
+
+
+====== 관리 SVM을 위한 FlexGroup 볼륨 생성
+
+[source, cli]
+----
+vol create -vserver spod_mgmt -volume home -size 10T -auto-provision-as
+flexgroup -junction-path /home
+
+vol create -vserver spod_mgmt -volume cm -size 10T -auto-provision-as
+flexgroup -junction-path /cm
+
+----
+
+
+====== 관리 SVM에 대한 내보내기 정책 만들기
+
+[source, cli]
+----
+export-policy rule create -vserver spod_mgmt -policy default
+-client-match XXX.XXX.XXX.XXX -rorule sys -rwrule sys -superuser sys
+----
+*참고:* IP 서브넷 정보는 기존 고객 네트워크에 통합하기 위해 배포 시점에 고객이 제공해야 합니다.
+
+
+
+===== 데이터 SVM 생성
+
+
+
+====== 데이터 SVM 생성 및 구성
+
+[source, cli]
+----
+vserver create -vserver spod_data
+vserver modify -vserver spod_data -aggr-list
+ntapa90_spod-01_data01,ntapa90_spod-02_data01,
+ntapa90_spod-03_data01,ntapa90_spod-04_data01,
+ntapa90_spod-05_data01,ntapa90_spod-06_data01,
+ntapa90_spod-07_data01,ntapa90_spod-08_data01
+----
+
+
+====== RDMA가 활성화된 Data SVM에서 NFS 서비스 구성
+
+[source, cli]
+----
+nfs create -vserver spod_data -v3 enabled -v4.1 enabled -v4.1-pnfs
+enabled -tcp-max-xfer-size 262144 -v4.1-trunking enabled -rdma enabled
+
+set advanced
+
+nfs modify -vserver spod_data -v3-64bit-identifiers enabled
+-v4.x-session-num-slots 1024
+----
+
+
+====== Data SVM 네트워크 인터페이스에 대한 IP 서브넷 생성
+
+[source, cli]
+----
+network subnet create -subnet-name vlan401 -broadcast-domain vlan401
+-subnet 100.127.124.0/24 -ip-ranges 100.127.124.4-100.127.124.254
+
+network subnet create -subnet-name vlan402 -broadcast-domain vlan402
+-subnet 100.127.252.0/24 -ip-ranges 100.127.252.4-100.127.252.254
+----
+
+
+====== Data SVM을 위해 각 노드에 네트워크 인터페이스를 생성합니다.
+
+[source, cli]
+----
+net int create -vserver spod_data -lif data_lif1 -home-node
+ntapa90_spod-01 -home-port e6a -subnet_name vlan401 -failover-policy
+sfo-partner-only
+
+net int create -vserver spod_data -lif data_lif2 -home-node
+ntapa90_spod-01 -home-port e6b -subnet_name vlan401
+
+net int create -vserver spod_data -lif data_lif3 -home-node
+ntapa90_spod-01 -home-port e11a -subnet_name vlan402
+
+net int create -vserver spod_data -lif data_lif4 -home-node
+ntapa90_spod-01 -home-port e11b -subnet_name vlan402
+
+----
+클러스터의 각 노드에 대해 위의 단계를 반복합니다.
+
+
+
+====== RDMA를 위한 Data SVM 네트워크 인터페이스 구성
+
+[source, cli]
+----
+net int modify -vserver spod_data -lif * -rdma-protocols roce
+----
+
+
+====== SVM 데이터에 대한 내보내기 정책 생성
+
+[source, cli]
+----
+export-policy rule create -vserver spod_data -policy default
+-client-match 100.127.0.0/16 -rorule sys -rwrule sys -superuser sys
+----
+
+
+====== 데이터 SVM에 정적 경로 생성
+
+[source, cli]
+----
+route add -vserver spod_data -destination 100.127.0.0/17 -gateway
+100.127.124.1 -metric 20
+
+route add -vserver spod_data -destination 100.127.0.0/17 -gateway
+100.127.252.1 -metric 30
+
+route add -vserver spod_data -destination 100.127.128.0/17 -gateway
+100.127.252.1 -metric 20
+
+route add -vserver spod_data -destination 100.127.128.0/17 -gateway
+100.127.124.1 -metric 30
+----
+
+
+====== GDD를 사용하여 Data SVM을 위한 FlexGroup 볼륨 생성
+
+GDD(Granular Data Distribution)를 사용하면 대용량 데이터 파일을 여러 FlexGroup 구성 볼륨과 컨트롤러에 분산시켜 단일 파일 작업 부하에서 최대 성능을 구현할 수 있습니다.  NetApp 모든 DGX SuperPOD 배포에 대해 데이터 볼륨에서 GDD를 활성화할 것을 권장합니다.
+
+[source, cli]
+----
+set adv
+
+vol create -vserver spod-data -volume spod_data -size 100T -aggr-list
+ntapa90_spod-01_data01,ntapa90_spod-02_data01,
+ntapa90_spod-03_data01,ntapa90_spod-04_data01,
+ntapa90_spod-05_data01,ntapa90_spod-06_data01,
+ntapa90_spod-07_data01,ntapa90_spod-08_data01 -aggr-multiplier 16
+-granular-data advanced -junction-path /spod_data  
+----
+
+
+====== 기본 데이터 볼륨에 대한 저장 효율성 비활성화
+
+볼륨 효율성 끄기 -vserver spod_data -volume spod_data
+
+
+
+====== 데이터 SVM에 대한 QoS 최소 정책 생성
+
+[source, cli]
+----
+qos policy-group create -policy-group spod_qos -vserver spod_data
+-min-throughput 62GB/s -is-shared true
+----
+
+
+====== 데이터 SVM에 QoS 정책 적용
+
+[source, cli]
+----
+Volume modify -vserver spod_data -volume spod_data -qos-policy-group
+spod_qos
+----
+
+
+=== NVIDIA Base Command Manager를 사용한 DGX 서버 구성
+
+DGX 클라이언트가 AFF A90 스토리지 시스템을 사용하도록 준비하려면 다음 작업을 완료하세요.  이 프로세스에서는 DGX 시스템 노드에 스토리지 패브릭의 네트워크 인터페이스와 정적 경로가 이미 구성되어 있다고 가정합니다.  다음 작업은 NetApp Professional Services에서 고급 구성 프로세스의 일부로 완료됩니다.
+
+
+
+==== 필수 커널 매개변수 및 기타 설정으로 DGX 서버 이미지 구성
+
+NetApp ONTAP 업계 표준 NFS 프로토콜을 사용하므로 DGX 시스템에 추가 소프트웨어를 설치할 필요가 없습니다.  클라이언트 시스템에서 최적의 성능을 제공하려면 DGX 시스템 이미지에 대한 몇 가지 수정이 필요합니다.  다음 두 단계는 모두 아래 명령을 사용하여 BCM 이미지 chroot 모드로 들어간 후에 수행됩니다.
+
+[source, cli]
+----
+cm-chroot-sw-img /cm/images/<image>
+----
+
+
+===== /etc/sysctl.conf에서 시스템 가상 메모리 설정을 구성합니다.
+
+기본 Linux 시스템 구성은 최적의 성능을 제공하지 못할 수 있는 가상 메모리 설정을 제공합니다.  2TB RAM이 장착된 DGX B200 시스템의 경우, 기본 설정에서는 40GB의 버퍼 공간이 허용되며 이로 인해 일관되지 않은 I/O 패턴이 생성되고 클라이언트가 버퍼를 플러시할 때 스토리지 시스템에 과부하가 걸릴 수 있습니다.  아래 설정은 클라이언트 버퍼 공간을 5GB로 제한하고 스토리지 시스템에 과부하가 걸리지 않는 일관된 I/O 스트림을 생성하기 위해 더 자주 플러싱을 강제합니다.
+
+이미지 chroot 모드로 들어간 후 /etc/sysctl.s/90-cm-sysctl.conf 파일을 편집하여 다음 줄을 추가합니다.
+
+[source, cli]
+----
+vm.dirty_ratio=0 #controls max host RAM used for buffering as a
+percentage of total RAM, when this limit is reached all applications
+must flush buffers to continue
+
+vm.dirty_background_ratio=0 #controls low-watermark threshold to start
+background flushing as a percentage of total RAM
+
+vm.dirty_bytes=5368709120 #controls max host RAM used for buffering as
+an absolute value (note _ratio above only accepts integers and the value
+we need is <1% of total RAM (2TB))
+
+vm.dirty_background_bytes=2147483648 #controls low-watermark threshold
+to start background flushing as an absolute value
+
+vm.dirty_expire_centisecs = 300 #controls how long data remains in
+buffer pages before being marked dirty
+
+vm.dirty_writeback_centisecs = 100 #controls how frequently the flushing
+process wakes up to flush dirty buffers
+----
+/etc/sysctl.conf 파일을 저장하고 닫습니다.
+
+
+
+===== 재부팅 후 실행되는 스크립트로 다른 시스템 설정 구성
+
+일부 설정은 실행하려면 OS가 완전히 온라인 상태여야 하며 재부팅 후에는 유지되지 않습니다.  Base Command Manager 환경에서 이러한 설정을 수행하려면 /root/ntap_dgx_config.sh 파일을 만들고 다음 줄을 입력합니다.
+
+[source, cli]
+----
+#!/bin/bash
+
+##The commands below are platform-specific based.
+
+##For H100/H200 systems use the following variables
+
+## NIC1_ethname= enp170s0f0np0
+
+## NIC1_pciname=aa:00.0
+
+## NCI1_mlxname=mlx5_7
+
+## NIC1_ethname= enp41s0f0np0
+
+## NIC1_pciname=29:00.0
+
+## NCI1_mlxname=mlx5_1
+
+##For B200 systems use the following variables
+
+NIC1_ethname=enp170s0f0np0
+
+NIC1_pciname=aa:00.0
+
+NCI1_mlxname=mlx5_11
+
+NIC2_ethname=enp41s0f0np0
+
+NIC2_pciname=29:00.0
+
+NCI2_mlxname=mlx5_5
+
+mstconfig -y -d $\{NIC1_pciname} set ADVANCED_PCI_SETTINGS=1
+NUM_OF_VFS=0
+
+mstconfig -y -d $\{NIC2_pciname} set ADVANCED_PCI_SETTINGS=1
+NUM_OF_VFS=0
+
+setpci -s $\{NIC1_pciname} 68.W=5957
+
+setpci -s $\{NIC2_pciname} 68.W=5957
+
+ethtool -G $\{NIC1_ethname} rx 8192 tx 8192
+
+ethtool -G $\{NIC2_ethname} rx 8192 tx 8192
+
+mlnx_qos -i $\{NIC1_ethname} --pfc 0,0,0,1,0,0,0,0 --trust=dscp
+
+mlnx_qos -i $\{NIC2_ethname} --pfc 0,0,0,1,0,0,0,0 --trust=dscp
+
+echo 106 > /sys/class/infiniband/$\{NIC1_mlxname}/tc/1/traffic_class
+
+echo 106 > /sys/class/infiniband/$\{NIC2_mlxname}/tc/1/traffic_class
+----
+*파일을 저장하고 닫습니다.  해당 파일의 실행 가능 여부를 확인하려면 권한을 변경하세요.*
+
+[source, cli]
+----
+chmod 755 /root/ntap_dgx_config.sh
+----
+다음 줄을 편집하여 부팅 시 root가 실행하는 cron 작업을 만듭니다.
+
+[source, cli]
+----
+@reboot /root/ntap_dgx_config.sh
+----
+아래의 crontab 파일 예를 참조하세요.
+
+[source, cli]
+----
+# Edit this file to introduce tasks to be run by cron.
+
+#
+
+# Each task to run has to be defined through a single line
+
+# indicating with different fields when the task will be run
+
+# and what command to run for the task
+
+#
+
+# To define the time you can provide concrete values for
+
+# minute (m), hour (h), day of month (dom), month (mon),
+
+# and day of week (dow) or use '*' in these fields (for 'any').
+
+#
+
+# Notice that tasks will be started based on the cron's system
+
+# daemon's notion of time and timezones.
+
+#
+
+# Output of the crontab jobs (including errors) is sent through
+
+# email to the user the crontab file belongs to (unless redirected).
+
+#
+
+# For example, you can run a backup of all your user accounts
+
+# at 5 a.m every week with:
+
+# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+
+#
+
+# For more information see the manual pages of crontab(5) and cron(8)
+
+#
+
+# m h dom mon dow command
+
+@reboot /home/ntap_dgx_config.sh
+----
+exit 또는 Ctrl-D를 입력하여 BCM 이미지 chroot 모드를 종료합니다.
+
+
+
+==== 클라이언트 마운트 지점에 대한 BaseCommand Manager DGX 범주 구성
+
+DGX 클라이언트가 AFF A90 스토리지 시스템을 마운트하도록 구성하려면 DGX 시스템에서 사용하는 BCM 클라이언트 범주를 수정하여 관련 정보와 옵션을 포함해야 합니다.  아래 단계에서는 NFS 마운트 지점을 구성하는 방법을 설명합니다.
+
+[source, cli]
+----
+cmsh
+
+category ; use category <category>; fsmounts
+
+add superpod
+
+set device 100.127.124.4:/superpod
+
+set mountpoint /mnt/superpod
+
+set filesystem nfs
+
+set mountoptions
+vers=4.1,proto=rdma,max_connect=16,write=eager,rsize=262144,wsize=262144
+
+commit
+----
+
+
+== 결론
+
+NetApp * AFF A90 스토리지 시스템*을 탑재한 NVIDIA DGX SuperPOD AI 인프라 솔루션 분야에서 상당한 발전을 나타냅니다.  보안, 데이터 관리, 리소스 활용, 확장성과 관련된 주요 과제를 해결함으로써 조직은 운영 효율성, 데이터 보호, 협업을 유지하면서 AI 이니셔티브를 가속화할 수 있습니다.  이 솔루션의 통합적 접근 방식은 AI 개발 파이프라인에서 흔히 발생하는 병목 현상을 제거하여 데이터 과학자와 엔지니어가 인프라 관리가 아닌 혁신에 집중할 수 있도록 합니다.
+
+
+
+== 추가 정보를 찾을 수 있는 곳
+
+이 문서에 설명된 정보에 대해 자세히 알아보려면 다음 문서 및/또는 웹사이트를 검토하세요.
+
+* https://www.netapp.com/pdf.html?item=/media/125003-nva-1175-design-superpod-a90.pdf["NetApp AFF A90 스토리지 시스템 설계 가이드를 탑재한 NVA-1175 NVIDIA DGX SuperPOD"]
+* https://docs.nvidia.com/dgx-superpod/reference-architecture-scalable-infrastructure-b200/latest/index.html["NVIDIA DGX B200 SuperPOD 참조 아키텍처"]
+* https://docs.nvidia.com/dgx-superpod/reference-architecture/scalable-infrastructure-h200/latest/index.html["+++ NVIDIA DGX H200 SuperPOD 참조 아키텍처+++"]
+* https://docs.nvidia.com/base-command-manager/index.html#product-manuals["+++ NVIDIA BaseCommand 소프트웨어+++"]
+* https://nvdam.widen.net/s/mmvbnpk8qk/networking-ethernet-switches-sn5000-datasheet-us["+++ NVIDIA Spectrum SN5600 이더넷 스위치+++"]
+* https://docs.nvidia.com/dgx-superpod/release-notes/latest/10-24-11.html["+++ NVIDIA DGX SuperPOD 릴리스 노트+++"]
+* https://docs.netapp.com/us-en/ontap-systems/a70-90/install-overview.html["+++ NetApp AFF A90 설치+++"]
+* https://docs.netapp.com/us-en/netapp-solutions/ai/index.html["+++ NetApp AI 솔루션 문서+++"]
+* https://docs.netapp.com/us-en/ontap/index.html["+++ NetApp ONTAP 소프트웨어+++"]
+* https://docs.netapp.com/us-en/ontap-systems/aff-aseries/index.html["+++ NetApp AFF 스토리지 시스템 설치 및 유지 관리 +++"]
+* https://docs.netapp.com/us-en/ontap/nfs-rdma/index.html["RDMA를 통한 NFS"]
+* https://www.netapp.com/media/19761-tr-4063.pdf["+++pNFS란 무엇인가요?+++"](훌륭한 pNFS 정보가 담긴 오래된 문서)
+
+
+
+
+== 부록 A: 재료 목록 및 랙 높이
+
+
+
+=== 재료 목록
+
+표 3은 1개, 2개, 3개, 4개의 확장 가능한 장치에 대한 스토리지를 배포하는 데 필요한 NetApp 구성 요소의 부품 번호와 수량을 보여줍니다.
+
+표 3) 1, 2, 3, 4 SU에 대한 NetApp BOM.
+
+[cols="20%,32%,12%,12%,12%,12%"]
+|===
+| 부분 # | 목 | 1SU 수량 | 2SU 수량 | 3SU 수량 | 4SU 수량 
+
+
+| AFF-A90A-100-C | AFF A90 스토리지 시스템 | 4 | 8 | 12 | 16 
+
+
+| X4025A-2-A-C | 2x7.6TB 드라이브 팩 | 48 | 96 | 144 | 192 
+
+
+| X50131A-C | IO 모듈, 2PT, 100/200/400GbE | 24 | 48 | 96 | 128 
+
+
+| X50130A-C | IO 모듈, 2PT, 100GbE | 16 | 32 | 48 | 64 
+
+
+| X-02659-00 | 키트, 4-포스트, 정사각형 또는 원형 구멍, 24"-32" 레일 | 4 | 8 | 12 | 16 
+
+
+| X1558A-R6 | 전원 코드, 캐비닛 내부, 48인치, + C13-C14, 10A/250V | 20 | 40 | 60 | 80 
+
+
+| X190200-CS | 클러스터 스위치, N9336C 36Pt PTSX10/25/40/100G | 2 | 4 | 6 | 8 
+
+
+| X66211A-2 | 케이블, 100GbE, QSFP28-QSFP28, Cu, 2m | 16 | 32 | 48 | 64 
+
+
+| X66211A-05 | 케이블, 100GbE, QSFP28-QSFP28, Cu, 0.5m | 4 | 8 | 12 | 16 
+
+
+| X6561-R6 | 케이블, 이더넷, CAT6, RJ45, 5m | 18 | 34 | 50 | 66 
+|===
+표 4는 고성능 스토리지 및 인밴드 네트워크에서 AFF A90 스토리지 시스템을 SN5600 스위치에 연결하는 데 필요한 NVIDIA 케이블의 부품 번호와 수량을 보여줍니다.
+
+표 4) 고성능 스토리지 및 인밴드 네트워크에서 AFF A90 스토리지 시스템을 SN5600 스위치에 연결하는 데 필요한 NVIDIA 케이블.
+
+[cols="20%,32%,12%,12%,12%,12%"]
+|===
+| 부분 # | 목 | 1SU 수량 | 2SU 수량 | 3SU 수량 | 4SU 수량 
+
+
+| MCP7Y40-N003 | DAC 3m 26ga 2x400G~4x200G OSFP~4xQSFP112 | 12 | 24 | 36 | 48 
+
+
+| 또는 |  |  |  |  |  
+
+
+| MMS4X00-NS | 트윈 포트 OSFP 2x400G 2xSR4 멀티모드 트랜시버 듀얼 MPO-12/APC | 12 | 24 | 36 | 48 
+
+
+| MFP7E20-N0XX | 멀티모드 파이버 스플리터 400G-> 2x200G XX = 03, 05, 07, 10, 15, 20, 30, 40, 50) 미터 | 24 | 48 | 96 | 128 
+
+
+| MMA1Z00-NS400 | 단일 포트 400G SR4 멀티모드 QSFP112트랜시버 단일 MPO-12/APC | 48 | 96 | 144 | 192 
+|===
+
+
+=== 랙 높이
+
+그림 4-6은 1-4 SU에 대한 랙 높이의 예를 보여줍니다.
+
+그림 4) 1 SU 및 2 SU의 랙 높이.
+
+image:ai-superpod-a90-008.png["600,600"]
+
+그림 5) 3개 SU의 랙 높이.
+
+image:ai-superpod-a90-009.png["600,600"]
+
+그림 6) 4 SU의 랙 높이.
+
+image:ai-superpod-a90-010.png["600,600"]
