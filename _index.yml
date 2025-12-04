@@ -52,6 +52,8 @@ indexpage:
       url: "/cloud/ai-mlops-fsxn-intro.html"
     - title: NetApp DataOps 툴킷
       url: "/software/dataops-toolkit.html"
+    - title: 'NetApp + Union.ai: 하이브리드 AI 교육 기술 가이드'
+      url: "/software/ai-hybrid-union.html"
   - title: 빅데이터 및 하이브리드 클라우드 AI 솔루션
     links:
     - title: 하이브리드 클라우드 데이터 솔루션

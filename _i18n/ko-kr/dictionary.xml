@@ -2501,7 +2501,6 @@
   <block id="40ed4c797a14998a489b495cd8c9a5e0" category="paragraph">많은 조직에서 생성적 AI를 사용하여 새로운 제품 기능을 구축하고, 엔지니어링 생산성을 개선하고, 더 나은 결과와 고객 경험을 제공하는 AI 기반 애플리케이션의 프로토타입을 개발하고 있습니다.  GPT(Generative Pre-trained Transformers)와 같은 생성적 AI는 신경망을 사용하여 텍스트, 오디오, 비디오 등 다양한 새로운 콘텐츠를 생성합니다.  대규모 언어 모델(LLM)과 관련된 극단적인 규모와 엄청난 양의 데이터 세트를 고려할 때, 기업이 AI 솔루션을 설계하기 전에 온프레미스, 하이브리드 및 멀티클라우드 배포 옵션의 매력적인 데이터 저장 기능을 활용하고 데이터 이동성, 데이터 보호 및 거버넌스와 관련된 위험을 줄이는 강력한 AI 인프라를 구축하는 것이 중요합니다.  이 논문에서는 이러한 고려 사항과 학습, 재학습, 미세 조정 및 생성 AI 모델 추론을 위한 AI 데이터 파이프라인 전반의 원활한 데이터 관리 및 데이터 이동을 가능하게 하는 해당 NetApp AI 기능에 대해 설명합니다.</block>
   <block id="a573d92b77d430af7e424879baf78e94" category="section-title">요약</block>
   <block id="3fed37bedb6b36d52c0c5b3aa0089bfe" category="paragraph">가장 최근에는 2022년 11월 GPT-3의 분사 기업인 ChatGPT가 출시된 이후, 사용자 프롬프트에 따라 텍스트, 코드, 이미지, 심지어 치료용 단백질까지 생성하는 데 사용되는 새로운 AI 도구가 상당한 명성을 얻었습니다.  이는 사용자가 자연어를 사용하여 요청을 하면 AI가 사용자 요청을 반영하는 뉴스 기사나 제품 설명과 같은 텍스트를 해석하고 생성하거나, 이미 존재하는 데이터로 훈련된 알고리즘을 사용하여 코드, 음악, 음성, 시각 효과, 3D 자산을 생성한다는 것을 의미합니다.  그 결과, 안정적 확산, 환각, 신속한 엔지니어링, 가치 정렬과 같은 문구가 AI 시스템 설계에 빠르게 등장하고 있습니다.  이러한 자기 지도 또는 반지도 머신 러닝(ML) 모델은 클라우드 서비스 공급업체와 기타 AI 회사 공급업체를 통해 사전 학습된 기반 모델(FM)로 널리 제공되고 있으며, 다양한 산업 전반의 기업에서 광범위한 다운스트림 NLP(자연어 처리) 작업에 채택되고 있습니다.  맥킨지와 같은 연구 분석 회사가 주장한 것처럼 "생성적 AI가 생산성에 미치는 영향은 글로벌 경제에 수조 달러의 가치를 더할 수 있습니다."  기업들이 AI를 인간의 사고 파트너로 재구성하고, FM이 기업과 기관이 생성적 AI를 통해 할 수 있는 일을 확대하는 동시에, 엄청난 양의 데이터를 관리할 수 있는 기회도 계속해서 늘어날 것입니다.  이 문서에서는 온프레미스와 하이브리드 또는 멀티클라우드 환경 모두에서 NetApp 고객에게 가치를 제공하는 NetApp 기능과 관련된 생성적 AI 및 설계 개념에 대한 소개 정보를 제공합니다.</block>
-  <block id="8bcfe22a3d7c5edf904444893704a8de" category="paragraph">*그렇다면 고객이 AI 환경에서 NetApp 사용하면 어떤 이점이 있을까요?*  NetApp 조직이 급속한 데이터 및 클라우드 성장, 멀티 클라우드 관리, AI와 같은 차세대 기술 도입으로 인해 발생하는 복잡성을 해결할 수 있도록 지원합니다.  NetApp 다양한 기능을 지능형 데이터 관리 소프트웨어와 스토리지 인프라로 결합했으며, 이는 AI 워크로드에 최적화된 고성능과 균형을 이루고 있습니다.  LLM과 같은 생성적 AI 솔루션은 지능을 강화하기 위해 저장소에서 소스 데이터 세트를 여러 번 읽어 메모리로 처리해야 합니다.  NetApp 엣지에서 코어, 클라우드에 이르는 생태계 전반에 걸쳐 데이터 이동성, 데이터 거버넌스 및 데이터 보안 기술을 선도해 왔으며, 기업 고객에게 대규모 AI 솔루션을 구축할 수 있는 서비스를 제공합니다.  강력한 파트너 네트워크를 갖춘 NetApp 은 최고 데이터 책임자, AI 엔지니어, 엔터프라이즈 아키텍트, 데이터 과학자가 AI 모델 학습 및 추론에 대한 데이터 준비, 데이터 보호, 전략적 데이터 관리 책임을 위한 자유로운 데이터 파이프라인을 설계하고 AI/ML 수명 주기의 성능과 확장성을 최적화하도록 지원해 왔습니다.  NetApp ONTAP AI ( 딥 러닝 데이터 파이프라인), NetApp SnapMirror( 스토리지 엔드포인트 간에 데이터를 원활하고 효율적으로 전송), NetApp FlexCache( 배치에서 실시간으로 데이터 흐름이 전환되고 데이터 엔지니어링이 신속하게 수행될 때 실시간 렌더링)와 같은 NetApp 데이터 기술과 기능은 실시간 생성 AI 모델 배포에 가치를 더해줍니다.  모든 유형의 기업이 새로운 AI 도구를 도입함에 따라 엣지에서 데이터 센터, 클라우드에 이르기까지 확장 가능하고 책임감 있으며 설명 가능한 AI 솔루션을 요구하는 데이터 과제에 직면하게 됩니다.  하이브리드 및 멀티 클라우드 분야의 데이터 기관으로서 NetApp 생성적 AI 모델 학습(사전 학습), 미세 조정, 컨텍스트 기반 추론 및 LLM의 모델 붕괴 모니터링을 위한 데이터 파이프라인 및 데이터 레이크 구축의 모든 측면을 지원할 수 있는 파트너 및 공동 솔루션 네트워크를 구축하는 데 전념하고 있습니다.</block>
   <block id="ba4c46fa4f06702b4667d0b3a6b2bdfe" category="section-title">생성적 AI란 무엇인가?</block>
   <block id="11703c9edbc2bf714a8c4be38891fc77" category="paragraph">생성적 AI는 콘텐츠를 만드는 방식, 새로운 디자인 컨셉을 창출하는 방식, 참신한 구성을 탐구하는 방식을 바꾸고 있습니다.  여기에는 텍스트, 코드, 이미지, 오디오, 비디오 및 합성 데이터와 같은 새로운 콘텐츠를 생성할 수 있는 GAN(Generative Adversarial Network), VAE(Variational Autoencoders), GPT(Generative Pre-Trained Transformers)와 같은 신경망 프레임워크가 설명되어 있습니다.  OpenAI의 Chat-GPT, Google의 Bard, Hugging Face의 BLOOM, Meta의 LLaMA와 같은 트랜스포머 기반 모델은 대규모 언어 모델의 많은 발전을 뒷받침하는 기반 기술로 떠올랐습니다.  마찬가지로 OpenAI의 Dall-E, Meta의 CM3leon, Google의 Imagen은 텍스트-이미지 확산 모델의 예입니다. 이러한 모델은 고객에게 데이터 세트 증강 및 텍스트-이미지 합성을 사용하여 텍스트와 시각적 의미를 연결하여 고품질의 상황 인식 이미지를 생성하거나 기존 이미지를 편집하여 새롭고 복잡한 이미지를 처음부터 만들 수 있는 전례 없는 수준의 포토리얼리즘을 제공합니다.  디지털 아티스트는 NeRF(Neural Radiance Field)와 같은 렌더링 기술과 생성 AI를 결합하여 정적인 2D 이미지를 몰입형 3D 장면으로 변환하기 시작했습니다.  일반적으로 LLM은 크게 4가지 매개변수로 특징지어집니다. (1) 모델 크기(일반적으로 수십억 개의 매개변수), (2) 학습 데이터 세트 크기, (3) 학습 비용, (4) 학습 후 모델 성능.  LLM도 주로 3가지 변압기 아키텍처로 분류됩니다.  (i) 인코더 전용 모델.  예: BERT(Google, 2018); (ii) 인코더-디코더 예: BART(Meta, 2020) 및 (iii) 디코더 전용 모델.  예를 들어 LLaMA(Meta, 2023), PaLM-E(Google, 2023).  비즈니스 요구 사항에 따라, 회사가 어떤 아키텍처를 선택하든 일반적으로 학습 데이터 세트의 모델 매개변수 수(N)와 토큰 수(D)에 따라 LLM 학습(사전 학습) 또는 미세 조정의 기준 비용이 결정됩니다.</block>
   <block id="d1ddcb04dcb447b3f05fa54e9ab492d0" category="section-title">엔터프라이즈 사용 사례 및 다운스트림 NLP 작업</block>
@@ -2524,7 +2523,6 @@
   <block id="212ec66e09b7b19d2e397c5c04e8543d" category="paragraph">기초 모델(FM)은 기본 모델이라고도 하며, 대규모의 레이블이 지정되지 않은 데이터로 학습된 대규모 AI 모델(LLM)로, 대규모 자체 감독을 사용하여 일반적으로 광범위한 다운스트림 NLP 작업에 맞게 조정됩니다.  훈련 데이터에 사람이 레이블을 지정하지 않으므로 모델이 명시적으로 인코딩된 것이 아니라 자연스럽게 나타납니다.  즉, 모델은 명시적으로 프로그래밍되지 않고도 자체적으로 스토리나 내러티브를 생성할 수 있습니다.  따라서 FM의 중요한 특징은 동질화인데, 이는 많은 영역에서 동일한 방법이 사용된다는 것을 의미합니다.  하지만 개인화와 미세 조정 기술을 통해 요즘 출시되는 제품에 통합된 FM은 텍스트 생성, 텍스트-이미지 변환, 텍스트-코드 변환에만 유용한 것이 아니라 도메인별 작업을 설명하거나 코드를 디버깅하는 데도 유용합니다.  예를 들어, OpenAI의 Codex나 Meta의 Code Llama와 같은 FM은 프로그래밍 작업에 대한 자연어 설명을 기반으로 여러 프로그래밍 언어로 코드를 생성할 수 있습니다.  이러한 모델은 Python, C#, JavaScript, Perl, Ruby, SQL을 포함한 12개 이상의 프로그래밍 언어에 능숙합니다.  그들은 사용자의 의도를 이해하고 소프트웨어 개발, 코드 최적화, 프로그래밍 작업 자동화에 유용한 원하는 작업을 수행하는 특정 코드를 생성합니다.</block>
   <block id="09505640cb74de4ed6c0043b4fd83b62" category="section-title">미세 조정, 도메인 특이성 및 재교육</block>
   <block id="d70061bb0ac24d99b6a01f537dfc5836" category="inline-link-macro">메타의 라마 2</block>
-  <block id="3983fea9bc2f220141201994aa6cf9de" category="paragraph">데이터 준비 및 데이터 전처리 후 LLM 배포와 관련된 일반적인 관행 중 하나는 대규모의 다양한 데이터 세트에서 학습된 사전 학습된 모델을 선택하는 것입니다.  미세 조정의 맥락에서 이는 다음과 같은 오픈 소스 대규모 언어 모델이 될 수 있습니다.<block ref="40c631914d673c775e5813606a4c652a" category="inline-link-macro-rx"></block> 700억 개의 매개변수와 2조 개의 토큰을 통해 학습되었습니다.  사전 학습된 모델을 선택하면 다음 단계는 도메인별 데이터에 맞춰 세부적으로 조정하는 것입니다.  여기에는 모델의 매개변수를 조정하고 새로운 데이터로 모델을 훈련하여 특정 도메인과 작업에 적응시키는 작업이 포함됩니다.  예를 들어, BloombergGPT는 금융 산업에 서비스를 제공하는 광범위한 금융 데이터에 대한 교육을 받은 독점 LLM입니다.  특정 작업을 위해 설계되고 훈련된 도메인별 모델은 일반적으로 해당 범위 내에서 정확도와 성능이 더 높지만, 다른 작업이나 도메인으로의 이전 가능성이 낮습니다.  비즈니스 환경과 데이터가 일정 기간 동안 변경되면 FM의 예측 정확도는 테스트 시의 성능에 비해 떨어지기 시작할 수 있습니다.  모델을 재교육하거나 미세 조정하는 것이 중요해지는 시점입니다.  기존 AI/ML에서 모델 재교육은 배포된 ML 모델을 새로운 데이터로 업데이트하는 것을 말하며, 일반적으로 발생하는 두 가지 유형의 드리프트를 제거하기 위해 수행됩니다.  (1) 개념 드리프트 - 입력 변수와 대상 변수 간의 연결이 시간이 지남에 따라 변경되면 예측하려는 내용에 대한 설명이 변경되므로 모델이 부정확한 예측을 생성할 수 있습니다.  (2) 데이터 드리프트 - 입력 데이터의 특성이 변경될 때 발생합니다. 예를 들어 시간이 지남에 따라 고객 습관이나 행동이 변경되어 모델이 이러한 변경에 대응할 수 없게 되는 경우입니다.  비슷한 방식으로 재교육은 FM/LLM에도 적용되지만 비용이 훨씬 많이 들 수 있으므로(수백만 달러) 대부분의 조직에서는 고려하지 않는 사항입니다.  이는 활발하게 연구 중이며, LLMOps 분야에서는 아직 새로운 분야로 떠오르고 있습니다.  따라서 미세 조정된 FM에서 모델 쇠퇴가 발생하면 기업은 재교육을 하는 대신 새로운 데이터 세트를 사용하여 다시 미세 조정을 (훨씬 저렴하게) 선택할 수 있습니다.  비용 관점에서 볼 때, 아래는 Azure-OpenAI 서비스의 모델 가격표 예입니다.  각 작업 범주에 대해 고객은 특정 데이터 세트에 대한 모델을 미세 조정하고 평가할 수 있습니다.</block>
   <block id="95d06c21390dc25827c0fd489dc141e4" category="paragraph">출처: Microsoft Azure</block>
   <block id="56307bc010f6f11cf695a4f4a8868ec2" category="paragraph"><block ref="56307bc010f6f11cf695a4f4a8868ec2" category="inline-image-macro-rx" type="image"></block></block>
   <block id="157d80dbb8ad88a26dfd59594b88e11c" category="section-title">신속한 엔지니어링 및 추론</block>
@@ -5407,4 +5405,175 @@
   <block id="51af5c28c5aeade3eeee8efe1cf0c265" category="list-text"><block ref="0b4edeca10dea88e1e3ff87f6aece04a" category="inline-link-rx"></block>(훌륭한 pNFS 정보가 담긴 오래된 문서)</block>
   <block id="e84f1067b5e0c62707fee9cec31ec6e6" category="sidebar">NVIDIA DGX SuperPOD 탑재한 NetApp AFF A90 스토리지 시스템 - 설계</block>
   <block id="ebe830dbdb267fd10b3f4000455f19f2" category="sidebar">NVIDIA DGX SuperPOD 탑재한 NetApp AFF A90 스토리지 시스템 - 배포</block>
+  <block id="596cf4cc4d5e162a19a0826844899146" category="section-title">*그렇다면 고객이 AI 환경에서 NetApp 사용하면 어떤 이점이 있을까요?*</block>
+  <block id="54cba921a12475f0e93be541d67490f1" category="paragraph">NetApp 조직이 급속한 데이터 및 클라우드 성장, 멀티 클라우드 관리, AI와 같은 차세대 기술 도입으로 인해 발생하는 복잡성을 해결할 수 있도록 지원합니다. NetApp 다양한 기능을 지능형 데이터 관리 소프트웨어와 스토리지 인프라로 결합했으며, 이는 AI 워크로드에 최적화된 고성능과 균형을 이루고 있습니다. LLM과 같은 생성적 AI 솔루션은 지능을 강화하기 위해 저장소에서 소스 데이터 세트를 여러 번 읽어 메모리로 처리해야 합니다.</block>
+  <block id="7089718bb01d102d3ca66b75e734cc70" category="paragraph">NetApp 엣지에서 코어, 클라우드에 이르는 생태계 전반에 걸쳐 데이터 이동성, 데이터 거버넌스 및 데이터 보안 기술을 선도해 왔으며, 기업 고객에게 대규모 AI 솔루션을 구축할 수 있는 서비스를 제공합니다. 강력한 파트너 네트워크를 갖춘 NetApp 은 최고 데이터 책임자, AI 엔지니어, 엔터프라이즈 아키텍트, 데이터 과학자가 AI 모델 학습 및 추론에 대한 데이터 준비, 데이터 보호, 전략적 데이터 관리 책임을 위한 자유로운 데이터 파이프라인을 설계하고 AI/ML 수명 주기의 성능과 확장성을 최적화하도록 지원해 왔습니다. NetApp ONTAP AI ( 딥 러닝 데이터 파이프라인), NetApp SnapMirror( 스토리지 엔드포인트 간에 데이터를 원활하고 효율적으로 전송), NetApp FlexCache( 배치에서 실시간으로 데이터 흐름이 전환되고 데이터 엔지니어링이 신속하게 수행될 때 실시간 렌더링)와 같은 NetApp 데이터 기술과 기능은 실시간 생성 AI 모델 배포에 가치를 더해줍니다. 모든 유형의 기업이 새로운 AI 도구를 도입함에 따라 엣지에서 데이터 센터, 클라우드에 이르기까지 확장 가능하고 책임감 있으며 설명 가능한 AI 솔루션을 요구하는 데이터 과제에 직면하게 됩니다.</block>
+  <block id="9772b4cc8e96c8e8f4206d250991b4de" category="paragraph">하이브리드 및 멀티 클라우드 분야의 데이터 기관으로서 NetApp 생성적 AI 모델 학습(사전 학습), 미세 조정, 컨텍스트 기반 추론 및 LLM의 모델 붕괴 모니터링을 위한 데이터 파이프라인 및 데이터 레이크 구축의 모든 측면을 지원할 수 있는 파트너 및 공동 솔루션 네트워크를 구축하는 데 전념하고 있습니다.</block>
+  <block id="1bdb9ad9a5ef7e6cc423c9885d4d8739" category="paragraph">데이터 준비 및 데이터 전처리 후 LLM 배포와 관련된 일반적인 관행 중 하나는 대규모의 다양한 데이터 세트에서 학습된 사전 학습된 모델을 선택하는 것입니다. 미세 조정의 맥락에서 이는 다음과 같은 오픈 소스 대규모 언어 모델이 될 수 있습니다.<block ref="40c631914d673c775e5813606a4c652a" category="inline-link-macro-rx"></block> 700억 개의 매개변수와 2조 개의 토큰을 통해 학습되었습니다. 사전 학습된 모델을 선택하면 다음 단계는 도메인별 데이터에 맞춰 세부적으로 조정하는 것입니다. 여기에는 모델의 매개변수를 조정하고 새로운 데이터로 모델을 훈련하여 특정 도메인과 작업에 적응시키는 작업이 포함됩니다. 예를 들어, BloombergGPT는 금융 산업에 서비스를 제공하는 광범위한 금융 데이터에 대한 교육을 받은 독점 LLM입니다.</block>
+  <block id="fab051e778dea3863166cf91444b5bcf" category="paragraph">특정 작업을 위해 설계되고 훈련된 도메인별 모델은 일반적으로 해당 범위 내에서 정확도와 성능이 더 높지만, 다른 작업이나 도메인으로의 이전 가능성이 낮습니다. 비즈니스 환경과 데이터가 일정 기간 동안 변경되면 FM의 예측 정확도는 테스트 시의 성능에 비해 떨어지기 시작할 수 있습니다. 모델을 재교육하거나 미세 조정하는 것이 중요해지는 시점입니다.</block>
+  <block id="4ce18a58c4206acbac965ee866687247" category="paragraph">기존 AI/ML에서 모델 재교육은 배포된 ML 모델을 새로운 데이터로 업데이트하는 것을 말하며, 일반적으로 발생하는 두 가지 유형의 드리프트를 제거하기 위해 수행됩니다. (1) 개념 드리프트 - 입력 변수와 대상 변수 간의 연결이 시간이 지남에 따라 변경되면 예측하려는 내용에 대한 설명이 변경되므로 모델이 부정확한 예측을 생성할 수 있습니다. (2) 데이터 드리프트 - 입력 데이터의 특성이 변경될 때 발생합니다. 예를 들어 시간이 지남에 따라 고객 습관이나 행동이 변경되어 모델이 이러한 변경에 대응할 수 없게 되는 경우입니다.</block>
+  <block id="602c876f12d2508496dc8bd8575b4ff1" category="paragraph">비슷한 방식으로 재교육은 FM/LLM에도 적용되지만 비용이 훨씬 많이 들 수 있으므로(수백만 달러) 대부분의 조직에서는 고려하지 않는 사항입니다. 이는 활발하게 연구 중이며, LLMOps 분야에서는 아직 새로운 분야로 떠오르고 있습니다. 따라서 미세 조정된 FM에서 모델 쇠퇴가 발생하면 기업은 재교육을 하는 대신 새로운 데이터 세트를 사용하여 다시 미세 조정을 (훨씬 저렴하게) 선택할 수 있습니다. 비용 관점에서 볼 때, 아래는 Azure-OpenAI 서비스의 모델 가격표 예입니다. 각 작업 범주에 대해 고객은 특정 데이터 세트에 대한 모델을 미세 조정하고 평가할 수 있습니다.</block>
+  <block id="71176ac8a95086c3af18e14dbe844fb0" category="summary">Union.ai 오케스트레이션과 NetApp FlexCache 를 사용하여 하이브리드 AI 교육 환경을 구축하면 클라우드 기반 GPU 교육 워크로드가 온프레미스 데이터에 효율적이고 안전하게 액세스할 수 있습니다.</block>
+  <block id="ebe4896d0cefdc11a7145e4ba24679b4" category="doc">Union.ai와 NetApp FlexCache 사용하여 하이브리드 AI 교육 배포</block>
+  <block id="aeb0127b1fad213a793e443cc4c034e1" category="paragraph">Union.ai 오케스트레이션과 NetApp FlexCache 및 Trident 사용하여 Kubernetes 스토리지 프로비저닝을 통해 하이브리드 AI 교육 환경을 구축하는 방법을 알아보세요.</block>
+  <block id="0db9f14d36280e385cafd4a8e173ba9c" category="paragraph">David Espejo, Union.ai Sathish Thyagarajan, NetApp</block>
+  <block id="236b0367f9d4648bcd56117f6b73c2c5" category="paragraph">Union.ai의 하이브리드 오케스트레이션 플랫폼은 NetApp ONTAP 및 FlexCache 와 완벽하게 통합되어 AI/ML 교육 워크플로를 가속화합니다.  이 솔루션을 사용하면 클라우드 기반 GPU 컴퓨팅을 AI 학습 워크로드에 활용하는 동시에 데이터를 온프레미스에 안전하게 보관할 수 있습니다.  NetApp FlexCache 필요한 데이터만 클라우드에 캐시되도록 하여 효율적이고 안전하며 확장 가능한 하이브리드 AI/ML 파이프라인을 구현합니다.</block>
+  <block id="f237a6da02589b7944ad58fcc8dcf636" category="section-title">고객 사용 사례: 하이브리드 클라우드 AI 교육</block>
+  <block id="e2c5205f6d8d8dc0fab0d0bce1569d9f" category="list-text">온프레미스 데이터: 규정 준수 및 보안을 위해 NetApp ONTAP 에 저장됩니다.</block>
+  <block id="1801ce3ced3cc951feb620652dc6d4b1" category="list-text">클라우드 컴퓨팅: EKS/GKE/AKS에서 확장 가능한 GPU 학습.</block>
+  <block id="10295e9d8bfdac4bb00b04c0bc0b0aed" category="list-text">AI/ML 오케스트레이션: Union.ai는 여러 환경에서 데이터 처리와 교육을 조정합니다.</block>
+  <block id="21e9bccf6843ac1890de68780a7f2d40" category="list-text">스토리지 프로비저닝: NetApp Trident PVC/PV 프로비저닝을 자동화합니다.</block>
+  <block id="9abac747d764180a5fe55920e00e887d" category="section-title">고객 가치</block>
+  <block id="036bc3c4ad78a1ce748913d0e7508b1a" category="list-text">NetApp ONTAP의 확장 기능을 사용하여 방대한 데이터 세트에서 AI 워크로드를 실행하세요.</block>
+  <block id="1f7c5f457095fe04da60f8ba120a65e4" category="list-text">NetApp의 하이브리드 클라우드 기능을 사용하여 온프레미스와 클라우드 간에 데이터를 이동하고 동기화하세요.</block>
+  <block id="3bdc2120e1312d582041096be647b9bb" category="list-text">FlexCache 사용하여 온프레미스 데이터를 클라우드에 빠르게 캐시하세요.</block>
+  <block id="feb2a9775b0ab9fb076eee862b34a0bf" category="list-text">Union.ai는 버전 관리, 계보 추적, 아티팩트 관리를 통해 여러 환경 간의 오케스트레이션을 간소화합니다.</block>
+  <block id="1a5a25d256a64f75ffbb6c69a682f597" category="list-text">민감한 데이터는 온프레미스에 보관한 채 클라우드에서 교육을 실행합니다.</block>
+  <block id="3cb632ece883ce8e1d1738b69db115ce" category="section-title">플러그인 활성화 – 필수 구성 요소</block>
+  <block id="ec185b8a3ae00d2dc7bc400a8dd3c006" category="cell">*요구 사항*</block>
+  <block id="dc98ae2c28f9de9e5b906a8f45c3c581" category="cell">*세부*</block>
+  <block id="e8467e9b509c4924668c01eb7ab2adde" category="cell">ONTAP 버전</block>
+  <block id="19438dd3f06122a6b56a2b87636a35a0" category="cell">ONTAP 9.7+ (FlexCache 라이선스 필요 없음)</block>
+  <block id="50174c074d05aa14191d913ea21e3e51" category="cell">FlexCache 라이선스</block>
+  <block id="774b9f24682d83dfc0b7a6d9acd6a45e" category="cell">ONTAP 9.6 이하 버전에 필요함</block>
+  <block id="11b36d38ea31e3e3f39211d4c9ff85e9" category="cell">온프레미스 및 클라우드 클러스터(EKS/GKE/AKS)</block>
+  <block id="f13ee4a03ec985915aaeb699fd3d5314" category="cell">온프레미스와 클라우드 클러스터 모두에 설치됨</block>
+  <block id="23b2341bc1ff8a41de6140e2e728ade5" category="cell">유니온.ai</block>
+  <block id="407d73d776263be9ef5a593de9cc8960" category="cell">제어 평면 배포(Union Cloud 또는 자체 호스팅)</block>
+  <block id="79629c9f5d632fe153b79bae51230230" category="cell">클러스터 간 연결( ONTAP 클러스터가 분리된 경우)</block>
+  <block id="d08ccf52b4cdd08e41cfb99ec42e0b29" category="cell">권한</block>
+  <block id="34a1c6a28726559a79202e58b5b1676b" category="paragraph">ONTAP 및 Kubernetes 클러스터에 대한 관리자 액세스.</block>
+  <block id="aa7462aeb4d0cda09f1955bc4ad68471" category="paragraph">✅올바른 ONTAP 자격 증명(예: vsadmin)을 사용하세요.</block>
+  <block id="796fc083420089e3cd35a14b9bc38682" category="cell">Union.ai를 처음 사용하시나요?</block>
+  <block id="0a99c5455b15fcf14acd747ff433961a" category="cell">이 문서의 끝에 있는 동반 가이드를 참조하세요.</block>
+  <block id="4ee2bcec265f41a5c011850eb9ea191a" category="section-title">참조 아키텍처</block>
+  <block id="63bb16834a3d897a73bbb3b676f4681f" category="paragraph">다음 그림은 하이브리드 AI 교육을 위해 NetApp 스토리지와 통합된 Union.ai 제어 평면을 보여줍니다.</block>
+  <block id="f3ff7d4cb08d662ccb22a7e0d198e7bc" category="image-alt">Union.ai와 NetApp 활용한 하이브리드 AI 교육 아키텍처</block>
+  <block id="5b9cebc88c7af20d41a8fb5d5a5ec740" category="list-text">Union.ai 제어 평면: 워크플로를 조율하고, 데이터 이동을 관리하며, NetApp API와 통합합니다.</block>
+  <block id="62d1d515610a83be5bf46c2f24528f24" category="list-text">NetApp ONTAP + FlexCache: 온프레미스에서 클라우드로 효율적인 데이터 캐싱을 제공합니다.</block>
+  <block id="bd86e4a74b09f477abb8e01446ebb353" category="list-text">하이브리드 교육 클러스터: 교육 작업은 온프레미스에서 캐시된 데이터를 사용하여 클라우드 K8s 클러스터(예: EKS)에서 실행됩니다.</block>
+  <block id="20b2d2f7ff3d10f09ee1a0cfa5fdc77b" category="section-title">_1단계: FlexCache 볼륨 생성_</block>
+  <block id="c320f12fadd143f86e468c946747b19d" category="paragraph">ONTAP 시스템 관리자 사용</block>
+  <block id="fbf67ba3555eeca4fc432c43b8b07927" category="list-text">저장소 &gt; 볼륨으로 이동합니다.</block>
+  <block id="1bb250fbf1946dd1bd7ad228032f8803" category="list-text">추가를 클릭하세요.</block>
+  <block id="fa3a36a2d48d60ddb9b70c0c6908764b" category="list-text">추가 옵션을 선택하세요.</block>
+  <block id="3afffa15dbb0847459b5d61d6c2f2aa9" category="list-text">원격 볼륨에 대한 캐시로 추가를 활성화합니다.</block>
+  <block id="953d07b2f3feae837ecfbd619c90b443" category="list-text">소스(온프레미스)와 대상(클라우드) 볼륨을 선택하세요.</block>
+  <block id="f71e6890a321cf5e86880fed490c270d" category="list-text">QoS 또는 성능 수준을 정의합니다(선택 사항).</block>
+  <block id="f6831112fc67960a16905d831665e29f" category="list-text">만들기를 클릭합니다.</block>
+  <block id="c3eb411bcb9e224abacb05a02a4af9c4" category="paragraph">💡권한 또는 집계 문제로 인해 NetApp DataOps Toolkit이 작동하지 않는 경우 ONTAP System Manager나 CLI를 사용하여 FlexCache 볼륨을 직접 생성하세요.</block>
+  <block id="6eac7b0a5cfc938d19f189c4a925ae85" category="section-title">_2단계: Trident 구성_</block>
+  <block id="56c52a0dabd55220d0a00db845f7eb1f" category="paragraph">두 클러스터에 Trident 설치합니다.</block>
+  <block id="45d2098b426afc9ab859375c1adbe887" category="inline-link">+++ Trident 설치 가이드+++</block>
+  <block id="d250649bce56841bd7a8ae7e4a825154" category="paragraph">🔗 <block ref="d4fe2bbcee5aa3fc712cc2604ddb189d" category="inline-link-rx"></block></block>
+  <block id="ce18e85a5244ef1099f883c207b32d36" category="paragraph">Trident 백엔드 만들기</block>
+  <block id="1d505b9bfd6afef0b98758bef1cef23c" category="paragraph">401 권한 없음 오류가 발생하면 ONTAP 사용자에게 충분한 API 권한이 있는지, 올바른 사용자 이름(vsadmin)과 비밀번호가 사용되었는지 확인하세요.</block>
+  <block id="e5250cf37b377ddb3586661f3e7bdc3e" category="paragraph">StorageClass 정의</block>
+  <block id="7e383433631a99b62111f529c2e90f6e" category="section-title">_3단계: Union.ai 워크플로 배포_</block>
+  <block id="543a5300ad04692c61ad12509f36dfee" category="paragraph">Union은 PVC를 사용하여 FlexCache 볼륨을 교육 작업에 마운트합니다.</block>
+  <block id="e3651dc228e2bf15038a1eeea69840e1" category="paragraph">PodTemplate 예시</block>
+  <block id="ef12d0a79902f644c4f92af29b9c7091" category="paragraph">워크플로우 예시</block>
+  <block id="4066afa3aee701e50ae5ec4c8f86ca6e" category="paragraph">Union 가져오기 작업, 워크플로</block>
+  <block id="12113988d854d53153ebe56debcfc262" category="section-title">PVC에서 데이터를 로드하고 학습합니다.</block>
+  <block id="2f8434215e66e235733bbc8f7aa6c922" category="paragraph">노동조합 운영자는 다음을 수행합니다.</block>
+  <block id="a305c8fb2137d8a4a767905590079e89" category="list-text">PVC를 만듭니다</block>
+  <block id="1c35c5b70ea278327b331fdc5e5e8027" category="list-text">FlexCache 볼륨을 마운트합니다.</block>
+  <block id="193acff0cdc88eae36fe646b68a073bd" category="list-text">클라우드 K8s 클러스터에서 작업 일정을 예약합니다.</block>
+  <block id="8ed435a788d105467da83bc0bcc93aa7" category="section-title">4단계: 통합 검증</block>
+  <block id="e5476676d28ebe3a7f7e5540ca5f4675" category="cell">*일*</block>
+  <block id="933aacf34a8192a52d32c97fadebd54a" category="cell">*확인*</block>
+  <block id="2c4159f4648782debbeab1c320c6eb36" category="cell">PVC 마운트</block>
+  <block id="f5e0baa9773049fb0fdfad4b1037b128" category="cell">트레이닝 포드는 /data/flexcache를 성공적으로 마운트해야 합니다.</block>
+  <block id="bcaba27319b0be3d4476ebc564abbebe" category="cell">교육 작업은 FlexCache 에서 읽고 쓸 수 있습니다.</block>
+  <block id="0452805cb606d459124bcdb40e21d774" category="cell">캐시 동작</block>
+  <block id="4ccd4153d261ab04aea61d1689d17c9c" category="cell">ONTAP 에서 캐시 적중/미적중을 모니터링합니다.  집계가 FlexCache 지원하는지 확인하세요.</block>
+  <block id="f77ae91c297c4af9b7c0df16428dfecb" category="cell">훈련 워크로드에 대한 대기 시간 및 처리량 검증</block>
+  <block id="c4ce6fec594676e7db8a8772df23cea3" category="paragraph">NetApp BlueXP 또는 ONTAP CLI를 사용하여 성능을 모니터링합니다.</block>
+  <block id="fe62647cc35dde214e0df1ae1fe9d0ab" category="section-title">보안 고려 사항</block>
+  <block id="1127e459f9563cd44a49304486317d03" category="list-text">FSx for NetApp ONTAP 에 VPC 엔드포인트 사용</block>
+  <block id="aac467f7d3593eab984d0df820db3683" category="list-text">전송 중 및 저장 중 암호화 활성화</block>
+  <block id="fb6241aa3cd02fb81bc14120b0a0a835" category="list-text">ONTAP 액세스를 위해 RBAC/IAM 적용</block>
+  <block id="36b4de85d3df62f02a9c4618f7393d5f" category="list-text">Union.ai는 고객 데이터에 접근하거나 저장하지 않습니다.</block>
+  <block id="77f95f9630cb5091cd2402072a3a11bf" category="section-title">모니터링 및 최적화</block>
+  <block id="f8d8425485c22136939de6dcb7d3356a" category="cell">*도구*</block>
+  <block id="1463a95efc33a52765f03569e1e39a10" category="cell">*목적*</block>
+  <block id="b5edf5031e4afa6b0a76f28594c49ddd" category="cell">FlexCache 사용량 및 성능 모니터링</block>
+  <block id="db06b456ce0e60d6d6cac92921fbb8d0" category="cell">Union.ai UI</block>
+  <block id="b3f63fd65c8f5f7c899c10d3d4a4d5ff" category="cell">파이프라인 상태 및 메트릭 추적</block>
+  <block id="046574dd59654b8d55254dd4939767ea" category="cell">Trident 로그</block>
+  <block id="7712a94ff94a189bd7789174ddb85aa3" category="cell">PVC 또는 백엔드 문제 디버그</block>
+  <block id="8f9f469b79a29bfaadaab8eaa7bf1636" category="paragraph">*선택적 향상*</block>
+  <block id="ce4081657a64c83e483fc3ade088d080" category="list-text">BlueXP API를 사용하여 FlexCache 생성 자동화</block>
+  <block id="b0e97389c5c2b645585f1a4ed42f4062" category="list-text">Union SDK를 사용하여 훈련 전에 캐시를 예열합니다.</block>
+  <block id="a138a4f582ee5e74b8a702fd75b12caf" category="list-text">훈련 후 배치 추론 또는 모델 제공 파이프라인 추가</block>
+  <block id="15e720f9a639ae01b45177587e8ccbde" category="list-text">DataOps Toolkit이 실패하면 System Manager를 통해 수동 FlexCache 생성으로 돌아갑니다.</block>
+  <block id="1199d4564ed2d91a9aaa1b96702c1582" category="paragraph">*문제 해결*</block>
+  <block id="932191b39be7b845f279d774204fa0c7" category="cell">_문제_</block>
+  <block id="04389d6334aedcb0de87e1a666e3c947" category="cell">_해결_</block>
+  <block id="b9f0ff9ef465f92292d9c7714cf0446b" category="cell">PVC가 보류 중입니다</block>
+  <block id="7d55337975fd5793d327f0da49970ce3" category="cell">Trident 로그 및 백엔드 구성 확인</block>
+  <block id="4c3472db990ec75b3639c13a00908586" category="cell">ONTAP API에서 401 권한이 없음</block>
+  <block id="8f85964854ee5b9cb1a25336f9286a74" category="cell">vsadmin을 사용하여 권한을 확인하세요</block>
+  <block id="2ee8b0581475d5ce36df44f0c44eab51" category="cell">작업 실패: 적합한 저장소가 없습니다.</block>
+  <block id="c9928a026f07daff3baa1cd570f13e02" category="cell">ONTAP 집계가 FlexCache/ FabricPool 지원하는지 확인하세요.</block>
+  <block id="06d6b9c5788c506f6f2f8d3f67d8df51" category="cell">느린 훈련 성능</block>
+  <block id="d03995cc9f7ad650494a9b56c2d58a9c" category="cell">캐시 적중률과 네트워크 지연 시간을 확인하세요</block>
+  <block id="bccf1526ca148033777fd0bd06e8f7ee" category="cell">데이터가 동기화되지 않음</block>
+  <block id="0e8d0a990b73463291ce4bfcba615908" category="cell">ONTAP 에서 FlexCache 관계 상태 검증</block>
+  <block id="e78b6e86c7e00b15c6dd9fdca8a5bdcc" category="paragraph">*다음 단계*</block>
+  <block id="dee0fee1df57aa918047c0cfb20ad55c" category="list-text">테스트 데이터로 FlexCache 검증</block>
+  <block id="2e4e08d271df2d2f43b686f4854cb7dc" category="list-text">Union.ai 교육 파이프라인 배포</block>
+  <block id="321c5de7cdf5e00eb0fdaca2b788e1ec" category="list-text">성능 모니터링 및 최적화</block>
+  <block id="036c0cdd445e04bc18011ee63fe79f6b" category="list-text">고객별 설정 문서화</block>
+  <block id="f8ec0f3aa329ebfedf13a79184b7867e" category="section-title">관련 링크</block>
+  <block id="40f1a76b84471f69f9e1889172b29883" category="inline-link">+++Union.ai 문서+++</block>
+  <block id="c91fc7e0181d836eb58c9b44f305b351" category="list-text"><block ref="c91fc7e0181d836eb58c9b44f305b351" category="inline-link-rx"></block></block>
+  <block id="84d18427d4b09cf2972d9a3f3257769b" category="inline-link">+++ NetApp FlexCache 개요+++</block>
+  <block id="1a605359e56e1853280e4dee015e7108" category="list-text"><block ref="1a605359e56e1853280e4dee015e7108" category="inline-link-rx"></block></block>
+  <block id="da3e81cca1d4f971a54e502e43db83be" category="inline-link">+++ Trident CSI 드라이버+++</block>
+  <block id="23454a58dd19bdaab14ee6b38f7085c2" category="list-text"><block ref="23454a58dd19bdaab14ee6b38f7085c2" category="inline-link-rx"></block></block>
+  <block id="703deb112695d2f3ddd729660eda475e" category="inline-link">+++ NetApp ONTAP용 FSx+++</block>
+  <block id="5c3ccbe0598da1ccd0f27d66924f35a0" category="list-text"><block ref="5c3ccbe0598da1ccd0f27d66924f35a0" category="inline-link-rx"></block></block>
+  <block id="b88b18835512f2759d991ef53ab162b9" category="paragraph">이제 Union.ai와 NetApp FlexCache 사용하여 검증된 하이브리드 AI 교육 환경이 구축되었습니다.  전체 데이터 세트를 복제하거나 거버넌스를 손상시키지 않고도 온프레미스 데이터에 안전하고 효율적으로 액세스하면서 클라우드에서 교육 작업을 실행할 수 있습니다.</block>
+  <block id="ad33b54a429301c01188c2215540b441" category="section-title">*Union.ai - 동반 가이드*</block>
+  <block id="8dddc2c8fe2555559a91e764d9235d6d" category="section-title">*1단계: 배포 모델 선택*</block>
+  <block id="108439501b55d62870c68f24142fe2a5" category="paragraph">*옵션 A: Union Cloud*</block>
+  <block id="976f05b0299c51890060c29d6f4f45b3" category="inline-link">+++콘솔.유니온.ai+++</block>
+  <block id="609ccd1033d19392f6d6c02b595bb318" category="list-text">방문하다:<block ref="83d678893a166e9c0f58ce02ef080fcc" category="inline-link-rx"></block></block>
+  <block id="f08d2a267c4238d5dedd3060c425bea8" category="list-text">조직 생성 → 프로젝트 생성</block>
+  <block id="8666a7638fa800278c371ca2f1820986" category="paragraph">*옵션 B: 셀프 호스팅*</block>
+  <block id="5078bc27c5748b853e709e2b526e1082" category="inline-link">+++셀프 호스팅 가이드+++</block>
+  <block id="6df4df2571296ce37f0e789ec56f04a9" category="list-text">따르다:<block ref="4be3c30c75fcef2d9efc975adc8528d7" category="inline-link-rx"></block></block>
+  <block id="f545b6872fa4adefba8899ca2fc74491" category="list-text">Helm을 통해 배포:</block>
+  <block id="e473adcd16935db4753279dc28f9e821" category="paragraph">헬름 저장소에 unionai 추가<block ref="84236ba1097180095905520179dbd184" category="inline-link-rx"></block></block>
+  <block id="00f612d5f2f9c5739afe7c75d82fb745" category="paragraph">helm install union unionai/union -n union-system -f values.yaml</block>
+  <block id="d8a959014bb50434b6e09b8d7827f70c" category="section-title">*2단계: Union Operator 설치*</block>
+  <block id="7443eefd01ea12bf0e7f5acf24ead38f" category="paragraph">****kubectl 적용 -f<block ref="4919c1363aa43016b9853a86a6d26868" category="inline-link-rx"></block></block>
+  <block id="9f2047b5710eb7331780470de4e2fca6" category="paragraph">kubectl get pods -n union-system</block>
+  <block id="5c2133f8c5522052f26480f953cedc78" category="paragraph"></block>
+  <block id="8edcef410da7878bbc80fbf71d8d4ca1" category="section-title">*3단계: Union CLI 설치*</block>
+  <block id="096327f6db51928112a49641fed0f8cd" category="paragraph">****pip 설치 unionai</block>
+  <block id="bbc7802cd83c61c2822be7e61e76bb58" category="paragraph">노조 로그인</block>
+  <block id="36be1709489e578c13ff9335dc7eb7f4" category="section-title">*4단계: 등록 워크플로*</block>
+  <block id="770338800a5338d40910785b3f81deca" category="paragraph">****유니온 프로젝트, 하이브리드 AI 구축</block>
+  <block id="d51c04424d78429df18e885a2925e1c1" category="paragraph">유니온 레지스터 training_pipeline.py --프로젝트 하이브리드 AI</block>
+  <block id="7708565358c9d989222e9b05b65d3086" category="section-title">*5단계: 실행 및 모니터링*</block>
+  <block id="5293ce724d74996d1c0f39a743b87ca3" category="paragraph">****union run training_pipeline --project hybrid-ai</block>
+  <block id="77d86bed8e4a63dae84e1b440af13a17" category="paragraph">유니언 워치 훈련 파이프라인</block>
+  <block id="1bcbb746e8103dcfa7f40479a1fc2611" category="inline-link">+++유니언 UI+++</block>
+  <block id="fe70d0bdbb730c20766cb067c9162ca2" category="paragraph">로그 보기<block ref="5d901f07ac55ec91a8fb1758272f874b" category="inline-link-rx"></block></block>
+  <block id="aa5cc28d71177bdfabbd066c40556228" category="section-title">*6단계: 컴퓨팅 클러스터 등록(선택 사항)*</block>
+  <block id="8a850c847294bf4d916aa4d9595fbeab" category="paragraph">****union 클러스터 레지스터 --name cloud-k8s --kubeconfig ~/.kube/config</block>
+  <block id="4f79c95b459644bc0e692dde2dd46094" category="section-title">*7단계: 유물 및 혈통 추적*</block>
+  <block id="91130ed55ade71de6d2e55d497681f4f" category="paragraph">Union은 다음을 자동으로 추적합니다.</block>
+  <block id="701e52a8aaee5a831d2070361229690f" category="list-text">입력/출력 매개변수</block>
+  <block id="cf5f81b1cd733c89e4b42fe6671710eb" category="list-text">데이터 버전</block>
+  <block id="6cb9ece998b6962dfad48664cca107df" category="list-text">로그 및 메트릭</block>
+  <block id="d97bb7d4317729f1d0601989dc9a0eb0" category="list-text">실행 계보</block>
+  <block id="1c99161556cba115d3a4b0cf426f65fc" category="section-title">2025년 12월 3일</block>
+  <block id="0fb14243c78c122f3acd551576ee673d" category="paragraph">새로운 솔루션:<block ref="06b6b8e975dd9eb86a80852e60ea5c25" category="inline-link-macro-rx"></block></block>
+  <block id="cae14f8b661aea219fdaf3f4f0af08db" category="paragraph">Union.ai 오케스트레이션을 NetApp FlexCache 와 함께 사용하면 민감한 데이터는 온프레미스에 유지하면서 클라우드 GPU에서 AI 교육 워크로드를 실행할 수 있습니다.  FlexCache 효율적이고 안전한 하이브리드 교육을 위해 필요한 데이터만 클라우드에 캐시합니다.</block>
+  <block id="d156278e3dbb2cd83d1a870d6704c9b8" category="sidebar">NetApp + Union.ai: 하이브리드 AI 교육 기술 가이드</block>
+  <block id="ddf52cdc15133d3a9cb02a51bde98630" category="sidebar">NetApp 과 Union.ai를 활용한 하이브리드 AI 교육</block>
+  <block id="9c1377c97790bfb53de65e24276a1216" category="sidebar">Union.ai를 활용한 하이브리드 AI 훈련</block>
 </blocks>
