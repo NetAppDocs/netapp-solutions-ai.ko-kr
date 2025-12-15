@@ -31,6 +31,8 @@ Apache Kafka는 하루에 수조 개의 이벤트를 처리할 수 있는 커뮤
 
 Confluent는 특히 빅데이터, 분석 및 스트리밍 워크로드를 위한 다양한 애플리케이션의 기본 실시간 스트리밍 플랫폼이 되었습니다.  계층형 스토리지를 사용하면 사용자가 Confluent 플랫폼에서 컴퓨팅과 스토리지를 분리할 수 있습니다.  이를 통해 데이터 저장의 비용 효율성이 높아지고, 사실상 무한한 양의 데이터를 저장하고 필요에 따라 작업 부하를 확장(또는 축소)할 수 있으며, 데이터 및 테넌트 재조정과 같은 관리 작업이 더 쉬워집니다.  S3 호환 스토리지 시스템은 이러한 모든 기능을 활용하여 모든 이벤트를 한곳에서 관리함으로써 데이터를 민주화하고 복잡한 데이터 엔지니어링의 필요성을 없앨 수 있습니다.  Kafka에 계층형 스토리지를 사용해야 하는 이유에 대한 자세한 내용은 다음을 확인하세요.link:https://docs.confluent.io/platform/current/kafka/tiered-storage.html#netapp-object-storage["Confluent의 이 기사"^] .
 
+NetApp instaclustr는 3.8.1 버전부터 계층형 스토리지를 사용하는 Kafka도 지원합니다. 자세한 내용은 여기를 확인하세요. link:https://www.instaclustr.com/support/documentation/kafka-add-ons/using-kafka-tiered-storage/["Kafka 계층형 스토리지를 사용하는 Instaclust"]
+
 
 
 == 계층형 스토리지에 NetApp StorageGRID 사용해야 하는 이유는 무엇인가요?
