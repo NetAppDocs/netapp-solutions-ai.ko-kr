@@ -18,13 +18,13 @@ summary: 본 논문에서는 Intel Xeon 6 프로세서와 NetApp 데이터 관�
 
 image:aipod-mini-001.png["인텔 로고"]
 
-Sathish Thyagarajan, Michael Oglesby, NetApp
+Sathish Thyagarajan, Michael Oglesby, Arpita Mahajan, NetApp
 
 
 
 == 요약
 
-점점 더 많은 조직에서 사용자 프롬프트를 해석하고 응답을 생성하기 위해 검색 증강 생성(RAG) 애플리케이션과 대규모 언어 모델(LLM)을 활용하여 생산성과 비즈니스 가치를 높이고 있습니다.  이러한 프롬프트와 응답에는 조직의 내부 지식 기반, 데이터 레이크, 코드 저장소, 문서 저장소에서 검색한 텍스트, 코드, 이미지 또는 치료용 단백질 구조가 포함될 수 있습니다.  이 논문에서는 Intel Xeon 6 프로세서가 탑재된 NetApp AFF 스토리지와 서버로 구성된 NetApp AIPod Mini 솔루션의 참조 설계를 다룹니다.  여기에는 Intel Advanced Matrix Extensions(Intel AMX)와 결합된 NetApp ONTAP 데이터 관리 소프트웨어와 OPEA(Open Platform for Enterprise AI)를 기반으로 구축된 Intel AI for Enterprise Retrieval-augmented Generation(RAG) 소프트웨어가 포함됩니다.  기업용 RAG를 위한 NetApp AIPod Mini를 사용하면 조직에서 공개 LLM을 비공개 생성 AI(GenAI) 추론 솔루션으로 확장할 수 있습니다.  이 솔루션은 기업 규모에서 효율적이고 비용 효율적인 RAG 추론을 보여주며, 신뢰성을 향상시키고 독점 정보에 대한 더 나은 제어력을 제공하도록 설계되었습니다.
+점점 더 많은 조직들이 생산성과 비즈니스 가치를 높이기 위해 검색 증강 생성(RAG) 애플리케이션과 대규모 언어 모델(LLM)을 활용하여 사용자 프롬프트를 해석하고 응답을 생성하고 있습니다. 이러한 프롬프트와 응답에는 텍스트, 코드, 이미지, 심지어 조직의 내부 지식 기반, 데이터 레이크, 코드 저장소, 문서 저장소에서 검색된 치료용 단백질 구조까지 포함될 수 있습니다. 본 문서에서는 NetApp AFF 스토리지와 Intel Xeon 6 프로세서가 탑재된 서버로 구성된 NetApp AIPod Mini 솔루션의 참조 설계를 다룹니다. 이 솔루션에는 Intel Advanced Matrix Extensions(Intel AMX)와 결합된 NetApp ONTAP 데이터 관리 소프트웨어, 그리고 Open Platform for Enterprise AI(OPEA) 기반의 Intel® AI for Enterprise RAG 소프트웨어가 포함됩니다. 엔터프라이즈 RAG용 NetApp AIPod Mini를 통해 조직은 퍼블릭 LLM을 프라이빗 생성형 AI(GenAI) 추론 솔루션으로 확장할 수 있습니다. 이 솔루션은 기업 규모에서 효율적이고 비용 효율적인 RAG 추론을 제공하며, 신뢰성을 향상시키고 독점 정보에 대한 더 나은 제어 권한을 제공하도록 설계되었습니다.
 
 
 
@@ -36,7 +36,7 @@ Intel Xeon 6 프로세서로 구동되는 서버는 최대 성능을 위해 Inte
 
 == NetApp 으로 RAG 시스템을 실행하는 이점
 
-RAG 애플리케이션은 PDF, 텍스트, CSV, Excel 또는 지식 그래프와 같은 다양한 유형의 회사 문서 저장소에서 지식을 검색하는 것을 포함합니다.  이러한 데이터는 일반적으로 데이터 소스인 S3 개체 스토리지나 온프레미스 NFS와 같은 솔루션에 저장됩니다.  NetApp 엣지, 데이터 센터, 클라우드 생태계 전반에서 데이터 관리, 데이터 이동성, 데이터 거버넌스, 데이터 보안 기술 분야를 선도해 왔습니다.  NetApp ONTAP 데이터 관리 솔루션은 일괄 및 실시간 추론을 포함한 다양한 유형의 AI 워크로드를 지원하는 엔터프라이즈급 스토리지를 제공하며 다음과 같은 이점을 제공합니다.
+RAG 애플리케이션은 PDF, 텍스트, CSV 또는 Excel과 같은 다양한 형식의 기업 문서 저장소에서 지식을 검색하는 작업을 포함합니다. 이러한 데이터는 일반적으로 S3 객체 스토리지 또는 온프레미스 NFS와 같은 솔루션에 데이터 소스로 저장됩니다. NetApp은 엣지, 데이터 센터 및 클라우드 생태계 전반에 걸쳐 데이터 관리, 데이터 이동성, 데이터 거버넌스 및 데이터 보안 기술 분야의 선두 주자입니다. NetApp ONTAP 데이터 관리는 배치 및 실시간 추론을 포함한 다양한 유형의 AI 워크로드를 지원하는 엔터프라이즈급 스토리지를 제공하며 다음과 같은 이점을 제공합니다:
 
 * 속도와 확장성.  독립적으로 성능과 용량을 확장할 수 있는 기능을 통해 버전 관리를 위해 대용량 데이터 세트를 고속으로 처리할 수 있습니다.
 * 데이터 접근.  다중 프로토콜 지원을 통해 클라이언트 애플리케이션은 S3, NFS, SMB 파일 공유 프로토콜을 사용하여 데이터를 읽을 수 있습니다.  ONTAP S3 NAS 버킷은 다중 모드 LLM 추론 시나리오에서 데이터 액세스를 용이하게 할 수 있습니다.
@@ -59,7 +59,7 @@ RAG 애플리케이션은 PDF, 텍스트, CSV, Excel 또는 지식 그래프와 
 
 
 
-==== 인텔 AI 기술
+==== Intel® AI 기술
 
 호스트 CPU로 Xeon 6을 사용하면 가속 시스템은 높은 단일 스레드 성능, 더 높은 메모리 대역폭, 향상된 안정성, 가용성, 서비스 용이성(RAS) 및 더 많은 I/O 레인의 이점을 누릴 수 있습니다.  Intel AMX는 INT8 및 BF16에 대한 추론을 가속화하고 FP16으로 훈련된 모델을 지원하며, INT8의 경우 코어당 사이클당 최대 2,048개의 부동 소수점 연산, BF16/FP16의 경우 코어당 사이클당 최대 1,024개의 부동 소수점 연산을 지원합니다.  Xeon 6 프로세서를 사용하여 RAG 솔루션을 배포하려면 일반적으로 최소 250GB의 RAM과 500GB의 디스크 공간이 권장됩니다.  하지만 이는 LLM 모델 크기에 크게 좌우됩니다.  자세한 내용은 Intel을 참조하세요. https://www.intel.com/content/dam/www/central-libraries/us/en/documents/2024-05/intel-xeon-6-product-brief.pdf["제온 6 프로세서"^] 제품 개요.
 
@@ -77,7 +77,7 @@ RAG 애플리케이션은 PDF, 텍스트, CSV, Excel 또는 지식 그래프와 
 | *하드웨어* | *수량* | *논평* 
 
 
-| Intel Xeon 6 기반 서버 | 2 | RAG 추론 노드는 듀얼 소켓 Intel Xeon 6900 시리즈 또는 Intel Xeon 6700 시리즈 프로세서와 DDR5(6400MHz) 또는 MRDIMM(8800MHz)을 갖춘 250GB~3TB RAM을 탑재하고 있습니다.  2U 서버. 
+| Intel Xeon 6세대(Granite Rapids) | 2 | RAG 추론 노드—듀얼 소켓 Intel Xeon 6900-series(96코어) 또는 Intel Xeon 6700-series(64코어) 프로세서와 DDR5(6400MHz) 또는 MRDIMM(8800MHz)를 사용하는 250GB~3TB RAM. 2U 서버. 
 
 
 | Intel 프로세서가 탑재된 제어 평면 서버 | 1 | 쿠버네티스 제어 평면/1U 서버. 
@@ -89,6 +89,8 @@ RAG 애플리케이션은 PDF, 텍스트, CSV, Excel 또는 지식 그래프와 
 | NetApp AFF A20(또는 AFF A30; AFF A50) | 1 | 최대 저장 용량: 9.3PB.  참고: 네트워킹: 10/25/100GbE 포트. 
 |===
 이 참조 설계의 검증을 위해 Supermicro(222HA-TN-OTO-37)의 Intel Xeon 6 프로세서가 장착된 서버와 Arista(7280R3A)의 100GbE 스위치가 사용되었습니다.
+
+그림 3 - AIPod Mini 배포 아키텍처 image:aipod-mini-012.png["300,300"]
 
 
 
@@ -110,11 +112,11 @@ OPEA의 핵심은 두 가지 핵심 구성 요소로 구성됩니다.
 
 
 
-==== OPEA가 지원하는 엔터프라이즈 추론용 Intel AI
+==== OPEA 기반 Intel® AI for Enterprise RAG
 
-Intel AI for Enterprise RAG의 OPEA는 기업 데이터를 실행 가능한 통찰력으로 전환하는 과정을 간소화합니다.  Intel Xeon 프로세서를 기반으로, 업계 파트너의 구성 요소를 통합하여 엔터프라이즈 솔루션 배포에 대한 간소화된 접근 방식을 제공합니다.  검증된 오케스트레이션 프레임워크를 통해 원활하게 확장되므로 기업에 필요한 유연성과 선택권을 제공합니다.
+OPEA for Intel® AI for Enterprise RAG는 기업 데이터를 실행 가능한 인사이트로 변환하는 과정을 간소화합니다. Intel Xeon 프로세서 기반의 OPEA는 업계 파트너사의 구성 요소를 통합하여 기업 솔루션 배포를 위한 효율적인 접근 방식을 제공합니다. 검증된 오케스트레이션 프레임워크를 통해 원활하게 확장되며, 기업에 필요한 유연성과 선택권을 제공합니다.
 
-OPEA의 기반을 바탕으로, Intel AI for Enterprise RAG는 확장성, 보안 및 사용자 경험을 향상시키는 주요 기능으로 이러한 기반을 확장합니다.  이러한 기능에는 최신 서비스 기반 아키텍처와의 원활한 통합을 위한 서비스 메시 기능, 파이프라인 안정성을 위한 프로덕션 준비 검증, 서비스로서의 RAG를 위한 기능이 풍부한 UI가 포함되어 워크플로를 쉽게 관리하고 모니터링할 수 있습니다.  또한, 인텔과 파트너 지원을 통해 안전하고 규정을 준수하는 운영을 위한 UI 및 애플리케이션과 통합된 ID 및 액세스 관리(IAM)와 결합된 광범위한 솔루션 생태계에 대한 액세스를 제공합니다.  프로그래밍 가능한 가드레일은 파이프라인 동작에 대한 세부적인 제어를 제공하여 사용자 정의된 보안 및 규정 준수 설정을 가능하게 합니다.
+OPEA를 기반으로 구축된 Intel® AI for Enterprise RAG는 확장성, 보안 및 사용자 경험을 향상시키는 주요 기능을 추가하여 이 기반을 확장합니다. 이러한 기능에는 최신 서비스 기반 아키텍처와의 원활한 통합을 위한 서비스 메시 기능, 파이프라인 안정성을 위한 프로덕션 환경 수준의 검증 기능, 워크플로우의 손쉬운 관리 및 모니터링을 지원하는 서비스형 RAG를 위한 풍부한 기능을 갖춘 UI가 포함됩니다. 또한 Intel 및 파트너 지원을 통해 광범위한 솔루션 에코시스템을 이용할 수 있으며, 통합된 ID 및 액세스 관리(IAM) 기능과 UI 및 애플리케이션을 통해 안전하고 규정을 준수하는 운영을 지원합니다. 프로그래밍 가능한 가드레일을 통해 파이프라인 동작을 세밀하게 제어하고 맞춤형 보안 및 규정 준수 설정을 구현할 수 있습니다.
 
 
 
@@ -132,19 +134,19 @@ NetApp Trident 소프트웨어는 Red Hat OpenShift를 포함하여 컨테이너
 | *소프트웨어* | *버전* | *논평* 
 
 
-| Enterprise RAG용 Intel AI용 OPEA | 1.1.2 | OPEA 마이크로서비스 기반 엔터프라이즈 RAG 플랫폼 
+| OPEA - 엔터프라이즈 RAG용 Intel® AI | 2.0 | OPEA 마이크로서비스 기반 엔터프라이즈 RAG 플랫폼 
 
 
-| 컨테이너 스토리지 인터페이스(CSI 드라이버) | NetApp Trident 25.02 | 동적 프로비저닝, NetApp 스냅샷 복사본 및 볼륨을 활성화합니다. 
+| 컨테이너 스토리지 인터페이스(CSI 드라이버) | NetApp Trident 25.10 | 동적 프로비저닝, NetApp 스냅샷 복사본 및 볼륨을 활성화합니다. 
 
 
-| 우분투 | 22.04.5 | 2노드 클러스터의 OS 
+| 우분투 | 22.04.5 | 2노드 클러스터의 OS. 
 
 
-| 컨테이너 오케스트레이션 | 쿠버네티스 1.31.4 | RAG 프레임워크를 실행하기 위한 환경 
+| 컨테이너 오케스트레이션 | Kubernetes 1.31.9(Enterprise RAG 인프라 플레이북으로 설치됨) | RAG 프레임워크를 실행하기 위한 환경 
 
 
-| ONTAP | ONTAP 9.16.1P4 | AFF A20의 저장 OS.  Vscan과 ARP가 특징입니다. 
+| ONTAP | ONTAP 9.16.1P4 이상 | AFF A20의 스토리지 OS. 
 |===
 
 
@@ -189,7 +191,7 @@ ONTAP System Manager를 사용하여 SVM을 생성하려면 스토리지 > 스�
 
 다음 스크린샷은 ONTAP 시스템 관리자를 사용하여 SVM을 만드는 방법을 보여줍니다.  사용자의 환경에 맞게 세부 정보를 수정하세요.
 
-그림 4 - ONTAP 시스템 관리자를 사용한 SVM 생성.image:aipod-mini-005.png["600,600"] image:aipod-mini-006.png["600,600"]
+그림 5 - ONTAP System Manager를 사용한 SVM 생성.image:aipod-mini-005.png["600,600"] image:aipod-mini-006.png["600,600"]
 
 
 
@@ -197,11 +199,11 @@ ONTAP System Manager를 사용하여 SVM을 생성하려면 스토리지 > 스�
 
 이전 단계에서 생성한 SVM에 대한 S3 사용자/그룹 설정을 구성합니다.  해당 SVM에 대한 모든 S3 API 작업에 대한 전체 액세스 권한이 있는 사용자가 있는지 확인하세요.  자세한 내용은 ONTAP S3 문서를 참조하세요.
 
-참고: 이 사용자는 Intel AI for Enterprise RAG 애플리케이션의 데이터 수집 서비스에 필요합니다.  ONTAP System Manager를 사용하여 SVM을 생성한 경우 System Manager는 자동으로 다음과 같은 사용자를 생성합니다. `sm_s3_user` 그리고 정책이라는 이름 `FullAccess` SVM을 생성했을 때 권한이 할당되지 않았습니다. `sm_s3_user` .
+참고: 이 사용자는 Intel® AI for Enterprise RAG 애플리케이션의 데이터 수집 서비스에 필요합니다. ONTAP System Manager를 사용하여 SVM을 생성한 경우 System Manager는 SVM 생성 시 `sm_s3_user`라는 사용자와 `FullAccess`라는 정책을 자동으로 생성하지만 `sm_s3_user`에는 권한이 할당되지 않습니다.
 
 이 사용자의 권한을 편집하려면 저장소 > 저장소 VM으로 이동한 후 이전 단계에서 만든 SVM의 이름을 클릭하고 설정을 클릭한 다음 "S3" 옆에 있는 연필 아이콘을 클릭합니다.  주다 `sm_s3_user` 모든 S3 API 작업에 대한 전체 액세스, 연결하는 새 그룹 생성 `sm_s3_user` 와 함께 `FullAccess` 다음 스크린샷에 표시된 대로 정책입니다.
 
-그림 5 - S3 권한.
+그림 6 - S3 권한
 
 image:aipod-mini-007.png["600,600"]
 
@@ -213,7 +215,7 @@ image:aipod-mini-007.png["600,600"]
 
 다음 스크린샷은 ONTAP System Manager를 사용하여 S3 버킷을 생성하는 방법을 보여줍니다.
 
-그림 6 - S3 버킷을 생성합니다.image:aipod-mini-008.png["600,600"]
+그림 7 - S3 버킷 생성image:aipod-mini-008.png["600,600"]
 
 
 
@@ -225,7 +227,7 @@ ONTAP System Manager를 사용하여 S3 버킷 권한을 편집하려면 저장�
 
 다음 스크린샷은 ONTAP 시스템 관리자에서 필요한 버킷 권한을 보여줍니다.
 
-그림 7 - S3 버킷 권한.image:aipod-mini-009.png["600,600"]
+그림 8 - S3 버킷 권한image:aipod-mini-009.png["600,600"]
 
 
 
@@ -237,7 +239,7 @@ ONTAP CLI를 사용하여 이전 단계에서 만든 버킷에 대한 버킷 COR
 ----
 ontap::> bucket cors-rule create -vserver erag -bucket erag-data -allowed-origins *erag.com -allowed-methods GET,HEAD,PUT,DELETE,POST -allowed-headers *
 ----
-이 규칙은 Intel AI for Enterprise RAG 웹 애플리케이션의 OPEA가 웹 브라우저 내에서 버킷과 상호 작용할 수 있도록 허용합니다.
+이 규칙을 사용하면 Intel® AI for Enterprise RAG 웹 애플리케이션용 OPEA가 웹 브라우저 내에서 버킷과 상호 작용할 수 있습니다.
 
 
 
@@ -251,128 +253,17 @@ ontap::> bucket cors-rule create -vserver erag -bucket erag-data -allowed-origin
 ----
 
 
-==== 쿠버네티스 설치
+==== Enterprise RAG 2.0 배포
 
-Kubespray를 사용하여 서버에 Kubernetes를 설치합니다.  를 참조하세요 https://kubespray.io/["Kubespray 문서"^] 자세한 내용은.
-
-
-
-==== Trident CSI 드라이버 설치
-
-Kubernetes 클러스터에 NetApp Trident CSI 드라이버를 설치합니다.  를 참조하세요 https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html["Trident 설치 문서"^] 자세한 내용은.
+전체 단계별 배포 워크플로는 다음 문서를 참조하십시오. xref:ai-aipod-mini-deployment-steps.html[NetApp AIPod Mini for ERAG - 배포 단계] 모든 사전 요구 사항, 인프라 준비, 구성 매개변수 및 배포 절차는 위의 배포 가이드에 설명되어 있습니다.
 
 
 
-==== Trident 백엔드 만들기
+==== Enterprise RAG UI용 Intel® AI용 OPEA 액세스
 
-이전에 만든 SVM에 대한 Trident 백엔드를 만듭니다.  백엔드를 생성할 때 다음을 사용하세요. `ontap-nas` 운전사.  를 참조하세요 https://docs.netapp.com/us-en/trident/trident-use/ontap-nas.html["Trident 백엔드 문서"^] 자세한 내용은.
+Intel® AI for Enterprise RAG UI용 OPEA에 액세스하세요. 자세한 내용은  https://github.com/opea-project/Enterprise-RAG/blob/release-2.0.0/deployment/README.md#interact-with-the-deployed-pipeline["Intel® AI for Enterprise RAG 배포 설명서"^]을(를) 참조하십시오.
 
-
-
-==== 스토리지 클래스 생성
-
-이전 단계에서 만든 Trident 백엔드에 해당하는 Kubernetes 스토리지 클래스를 만듭니다.  자세한 내용은 Trident 스토리지 클래스 문서를 참조하세요.
-
-
-
-==== Enterprise RAG용 Intel AI용 OPEA
-
-Kubernetes 클러스터에 Intel AI for Enterprise RAG용 OPEA를 설치합니다.  를 참조하세요 https://github.com/opea-project/Enterprise-RAG/blob/release-1.2.0/deployment/README.md["엔터프라이즈 RAG 배포를 위한 Intel AI"^] 자세한 내용은 문서를 참조하세요.  이 문서의 뒷부분에서 설명하는 필수 구성 파일 수정 사항을 꼭 기록해 두세요.  Intel AI for Enterprise RAG 애플리케이션이 ONTAP 스토리지 시스템에서 올바르게 작동하려면 설치 플레이북을 실행하기 전에 이러한 수정 작업을 해야 합니다.
-
-
-
-=== ONTAP S3 사용 활성화
-
-Intel AI for Enterprise RAG에 OPEA를 설치할 때, ONTAP S3를 소스 데이터 저장소로 사용할 수 있도록 기본 구성 파일을 편집합니다.
-
-ONTAP S3 사용을 활성화하려면 다음 값을 설정하세요. `edp` 부분.
-
-참고: 기본적으로 Intel AI for Enterprise RAG 애플리케이션은 SVM의 모든 기존 버킷에서 데이터를 수집합니다.  SVM에 여러 버킷이 있는 경우 다음을 수정할 수 있습니다. `bucketNameRegexFilter` 특정 버킷에서만 데이터가 수집되도록 필드를 설정합니다.
-
-[source, cli]
-----
-edp:
-  enabled: true
-  namespace: edp
-  dpGuard:
-    enabled: false
-  storageType: s3compatible
-  s3compatible:
-    region: "us-east-1"
-    accessKeyId: "<your_access_key>"
-    secretAccessKey: "<your_secret_key>"
-    internalUrl: "https://<your_ONTAP_S3_interface>"
-    externalUrl: "https://<your_ONTAP_S3_interface>"
-    bucketNameRegexFilter: ".*"
-----
-
-
-=== 예약된 동기화 설정 구성
-
-Intel AI for Enterprise RAG 애플리케이션에 OPEA를 설치할 때 다음을 활성화하세요. `scheduledSync` 그러면 애플리케이션이 S3 버킷에서 새 파일이나 업데이트된 파일을 자동으로 수집합니다.
-
-언제 `scheduledSync` 이 기능이 활성화되면 애플리케이션이 자동으로 소스 S3 버킷에 새 파일이나 업데이트된 파일이 있는지 확인합니다.  이 동기화 프로세스의 일부로 발견된 새 파일이나 업데이트된 파일은 자동으로 수집되어 RAG 지식 기반에 추가됩니다.  이 애플리케이션은 미리 설정된 시간 간격에 따라 소스 버킷을 확인합니다.  기본 시간 간격은 60초입니다. 즉, 애플리케이션은 60초마다 변경 사항을 확인합니다.  귀하의 특정 요구 사항에 맞게 이 간격을 변경할 수도 있습니다.
-
-활성화하려면 `scheduledSync` 그리고 동기화 간격을 설정하고 다음 값을 설정하세요. `deployment/components/edp/values.yaml:`
-
-[source, cli]
-----
-celery:
-  config:
-    scheduledSync:
-      enabled: true
-      syncPeriodSeconds: "60"
-----
-
-
-=== 볼륨 액세스 모드 변경
-
-~ 안에 `deployment/components/gmc/microservices-connector/helm/values.yaml` , 각 볼륨에 대해 `pvc` 목록, 변경 `accessMode` 에게 `ReadWriteMany` .
-
-[source, cli]
-----
-pvc:
-  modelLlm:
-    name: model-volume-llm
-    accessMode: ReadWriteMany
-    storage: 100Gi
-  modelEmbedding:
-    name: model-volume-embedding
-    accessMode: ReadWriteMany
-    storage: 20Gi
-  modelReranker:
-    name: model-volume-reranker
-    accessMode: ReadWriteMany
-    storage: 10Gi
-  vectorStore:
-    name: vector-store-data
-    accessMode: ReadWriteMany
-    storage: 20Gi
-----
-
-
-=== (선택 사항) SSL 인증서 확인 비활성화
-
-SVM에 대한 S3 액세스를 활성화할 때 자체 서명 인증서를 사용한 경우 SSL 인증서 검증을 비활성화해야 합니다.  공개적으로 신뢰할 수 있는 CA에서 서명한 인증서를 사용한 경우 이 단계를 건너뛸 수 있습니다.
-
-SSL 인증서 검증을 비활성화하려면 다음 값을 설정하세요. `deployment/components/edp/values.yaml:`
-
-[source, cli]
-----
-edpExternalUrl: "https://s3.erag.com"
-edpExternalSecure: "true"
-edpExternalCertVerify: "false"
-edpInternalUrl: "edp-minio:9000"
-edpInternalSecure: "true"
-edpInternalCertVerify: "false"
-----
-
-
-==== Enterprise RAG UI용 Intel AI용 OPEA에 액세스하세요.
-
-Enterprise RAG UI를 위한 Intel AI의 OPEA에 접속하세요.  를 참조하세요 https://github.com/opea-project/Enterprise-RAG/blob/release-1.1.2/deployment/README.md#interact-with-chatqna["Enterprise RAG 배포 문서용 Intel AI"^] 자세한 내용은.
-
-그림 8 - Enterprise RAG UI용 Intel AI용 OPEA.image:aipod-mini-010.png["600,600"]
+그림 9 - Intel® AI for Enterprise RAG UI용 OPEA. image:aipod-mini-013.png["600,600"]
 
 
 
@@ -380,23 +271,23 @@ Enterprise RAG UI를 위한 Intel AI의 OPEA에 접속하세요.  를 참조하�
 
 이제 RAG 기반 쿼리 증강에 포함할 파일을 수집할 수 있습니다.  파일을 수집하는 데에는 여러 가지 옵션이 있습니다.  귀하의 필요에 맞는 적절한 옵션을 선택하세요.
 
-참고: 파일이 수집된 후, Intel AI for Enterprise RAG 애플리케이션의 OPEA는 자동으로 파일 업데이트를 확인하고 그에 따라 업데이트를 수집합니다.
+참고: 파일이 수집된 후 Intel® AI for Enterprise RAG 애플리케이션용 OPEA는 파일 업데이트를 자동으로 확인하고 그에 따라 업데이트를 수집합니다.
 
-*옵션 1: S3 버킷에 직접 업로드 여러 파일을 한 번에 수집하려면 선택한 S3 클라이언트를 사용하여 S3 버킷(앞서 만든 버킷)에 파일을 업로드하는 것이 좋습니다.  인기 있는 S3 클라이언트로는 AWS CLI, Amazon SDK for Python(Boto3), s3cmd, S3 Browser, Cyberduck, Commander One 등이 있습니다.  파일이 지원되는 유형인 경우 S3 버킷에 업로드하는 모든 파일은 Intel AI for Enterprise RAG 애플리케이션용 OPEA에 의해 자동으로 수집됩니다.
+*옵션 1: S3 버킷에 직접 업로드하기 여러 파일을 한 번에 수집하려면 원하는 S3 클라이언트를 사용하여 이전에 생성한 S3 버킷에 파일을 업로드하는 것이 좋습니다. 널리 사용되는 S3 클라이언트로는 AWS CLI, Amazon SDK for Python(Boto3), s3cmd, S3 Browser, Cyberduck, Commander One 등이 있습니다. 파일 형식이 지원되는 경우, S3 버킷에 업로드된 모든 파일은 OPEA for Intel® AI for Enterprise RAG 애플리케이션에 자동으로 수집됩니다.
 
-참고: 이 글을 쓰는 시점에서 지원되는 파일 형식은 다음과 같습니다: PDF, HTML, TXT, DOC, DOCX, PPT, PPTX, MD, XML, JSON, JSONL, YAML, XLS, XLSX, CSV, TIFF, JPG, JPEG, PNG, SVG.
+참고: 이 글을 작성하는 시점에서 지원되는 파일 형식은 PDF, HTML, TXT, DOC, DOCX, ADOC, PPT, PPTX, MD, XML, JSON, JSONL, YAML, XLS, XLSX, CSV, TIFF, JPG, JPEG, PNG 및 SVG입니다.
 
-Intel AI for Enterprise RAG UI의 OPEA를 사용하면 파일이 제대로 수집되었는지 확인할 수 있습니다.  자세한 내용은 Intel AI for Enterprise RAG UI 문서를 참조하세요.  애플리케이션이 많은 수의 파일을 수집하는 데 시간이 걸릴 수 있습니다.
+OPEA for Intel® AI for Enterprise RAG UI를 사용하여 파일이 제대로 수집되었는지 확인할 수 있습니다. 자세한 내용은 Intel® AI for Enterprise RAG UI 설명서를 참조하십시오. 대량의 파일을 수집하는 데 다소 시간이 걸릴 수 있습니다.
 
-*옵션 2: UI를 사용하여 업로드 적은 수의 파일만 수집해야 하는 경우 OPEA for Intel AI for Enterprise RAG UI를 사용하여 수집할 수 있습니다.  자세한 내용은 Intel AI for Enterprise RAG UI 문서를 참조하세요.
+*옵션 2: UI를 사용한 업로드 소수의 파일만 수집해야 하는 경우 OPEA for Intel® AI for Enterprise RAG UI를 사용하여 파일을 수집할 수 있습니다. 자세한 내용은 Intel® AI for Enterprise RAG UI 설명서를 참조하십시오.
 
-그림 9 - 데이터 수집 UI.image:aipod-mini-011.png["600,600"]
+그림 10 - 데이터 수집 UI. image:aipod-mini-011.png["600,600"]
 
 
 
 ==== 채팅 쿼리 실행
 
-이제 포함된 채팅 UI를 사용하여 Intel AI for Enterprise RAG 애플리케이션의 OPEA와 "채팅"할 수 있습니다.  귀하의 질의에 응답할 때, 해당 애플리케이션은 귀하가 수집한 파일을 사용하여 RAG를 수행합니다.  즉, 해당 애플리케이션은 수집된 파일에서 관련 정보를 자동으로 검색하고 사용자의 질의에 응답할 때 이 정보를 통합합니다.
+이제 포함된 채팅 UI를 사용하여 Intel® AI for Enterprise RAG 애플리케이션용 OPEA와 "채팅"할 수 있습니다. 애플리케이션은 사용자의 질문에 응답할 때 수집된 파일을 사용하여 RAG를 수행합니다. 즉, 애플리케이션이 수집된 파일에서 관련 정보를 자동으로 검색하고 해당 정보를 질문에 대한 응답에 통합합니다.
 
 
 
@@ -419,19 +310,19 @@ Intel AI for Enterprise RAG UI의 OPEA를 사용하면 파일이 제대로 수�
 
 | 동시 사용자 | 32 | "동시 사용자"란 동시에 쿼리를 제출하는 프롬프트 요청을 말합니다. 
 |===
-_참고: 위에 제시된 크기 지침은 96개 코어가 있는 Intel Xeon 6 프로세서를 사용하여 수집된 성능 검증 및 테스트 결과를 기반으로 합니다.  유사한 I/O 토큰과 모델 크기 요구 사항을 가진 고객의 경우 96개 또는 128개 코어가 있는 Xeon 6 프로세서가 장착된 서버를 사용하는 것이 좋습니다.
+_참고: 위에 제시된 사이징 지침은 96개의 코어가 있는 Intel Xeon 6 프로세서를 사용하여 수집한 성능 검증 및 테스트 결과를 기반으로 합니다. 유사한 I/O 토큰 및 모델 크기 요구 사항이 있는 고객의 경우 96개의 코어가 있는 Xeon 6 프로세서가 장착된 서버를 사용하는 것이 좋습니다. 사이징 가이드에 대한 자세한 내용은 link:https://community.intel.com/t5/Blogs/Tech-Innovation/Artificial-Intelligence-AI/Scaling-Intel-AI-for-Enterprise-RAG-Performance-64-Core-vs-96/post/1723234["Intel® AI for Enterprise RAG 사이징 가이드"]을(를) 참조하십시오.
 
 
 
 == 결론
 
-기업 RAG 시스템과 LLM은 조직이 정확하고 상황에 맞는 응답을 제공할 수 있도록 돕는 기술로 함께 작동합니다.  이러한 대응에는 방대한 양의 개인 및 기업 내부 데이터를 기반으로 한 정보 검색이 포함됩니다.  RAG, API, 벡터 임베딩 및 고성능 저장 시스템을 사용하여 회사 데이터가 포함된 문서 저장소를 쿼리하면 데이터가 더 빠르고 안전하게 처리됩니다.  NetApp AIPod Mini는 NetApp의 지능형 데이터 인프라와 ONTAP 데이터 관리 기능, Intel Xeon 6 프로세서, Intel AI for Enterprise RAG, OPEA 소프트웨어 스택을 결합하여 고성능 RAG 애플리케이션을 배포하고 조직이 AI 리더십을 구축할 수 있도록 지원합니다.
+엔터프라이즈 RAG 시스템과 LLM은 조직이 정확하고 상황에 맞는 응답을 제공할 수 있도록 함께 작동하는 기술입니다. 이러한 응답에는 방대한 양의 비공개 및 내부 기업 데이터를 기반으로 한 정보 검색이 포함됩니다. RAG, API, 벡터 임베딩 및 고성능 스토리지 시스템을 사용하여 회사 데이터가 포함된 문서 저장소를 쿼리함으로써 데이터를 더 빠르고 안전하게 처리할 수 있습니다. NetApp AIPod Mini는 NetApp의 지능형 데이터 인프라와 ONTAP 데이터 관리 기능, Intel Xeon 6 프로세서, Intel® AI for Enterprise RAG 및 OPEA 소프트웨어 스택을 결합하여 고성능 RAG 애플리케이션을 배포하고 조직이 AI 리더십을 확보할 수 있도록 지원합니다.
 
 
 
 == 승인
 
-이 문서는 NetApp Solutions Engineering 팀의 멤버인 Sathish Thyagarajan과 Michael Ogelsby가 작성했습니다.  저자는 또한 Intel의 Enterprise AI 제품 팀인 Ajay Mungara, Mikolaj Zyczynski, Igor Konopko, Ramakrishna Karamsetty, Michal Prostko, Shreejan Mistry, Ned Fiori와 NetApp 의 다른 팀원인 Lawrence Bunka, Bobby Oommen, Jeff Liborio에게 이 솔루션의 검증 기간 동안 지속적인 지원과 도움에 감사드리고 싶습니다.
+이 문서는 NetApp 솔루션 엔지니어링 팀의 Sathish Thyagarajan, Michael Oglesby, Arpita Mahajan이 작성했습니다. 또한, 솔루션 검증 과정에서 지속적인 지원과 도움을 주신 Intel의 엔터프라이즈 AI 제품 팀(Ajay Mungara, Mikolaj Zyczynski, Igor Konopko, Ramakrishna Karamsetty, Michal Prostko, Anna Alberska, Maciej Cichocki, Shreejan Mistry, Nicholas Rago, Ned Fiori)과 NetApp(Lawrence Bunka, Bobby Oommen, Jeff Liborio)에게 감사를 표합니다.
 
 
 
@@ -448,7 +339,7 @@ _참고: 위에 제시된 크기 지침은 96개 코어가 있는 Intel Xeon 6 �
 | 222HA-TN-OTO-37 | 하이퍼 슈퍼서버 SYS-222HA-TN /2U | 2 
 
 
-| P4X-GNR6980P-SRPL2-UCC | 인텔 제온 6980P 2P 128C 2G 504M 500W SGX512 | 4 
+| P4X-GNR6972P-SRPL2-UC | Intel® Xeon® 6972P 프로세서 96코어 2.40GHz 480MB 캐시(500W) | 4 
 
 
 | 숫양 | MEM-DR564MC-ER64(x16)64GB DDR5-6400 2RX4(16Gb) ECC RDIMM | 32 
@@ -527,12 +418,30 @@ NetApp AFF 스토리지:
 |===
 
 
+== 인프라 준비 상태 점검표
+
+자세한 내용은 xref:ai-aipod-mini-infra-readiness.html[NetApp AIPod Mini - 인프라 준비 상태]를 참조하십시오.
+
+
+
 == 추가 정보를 찾을 수 있는 곳
 
 이 문서에 설명된 정보에 대해 자세히 알아보려면 다음 문서 및/또는 웹사이트를 검토하세요.
 
-https://www.netapp.com/support-and-training/documentation/ONTAP%20S3%20configuration%20workflow/["NetApp 제품 설명서"^]
+https://docs.netapp.com/["NetApp 제품 설명서"^]
 
 link:https://github.com/opea-project/Enterprise-RAG/tree/main["OPEA 프로젝트"]
 
-https://github.com/opea-project/Enterprise-RAG/tree/main/deployment/playbooks["OPEA Enterprise RAG 배포 플레이북"^]
+https://github.com/opea-project/Enterprise-RAG/tree/main/docs["Intel® AI ERAG 문서"]
+
+https://github.com/opea-project/Enterprise-RAG/tree/main/deployment/playbooks["OPEA Enterprise RAG 배포 플레이북"^] == 버전 기록
+
+|===
+| *버전* | *날짜* | *문서 버전 기록* 
+
+
+| 버전 1.0 | 2025년 9월 | 초기 릴리스 
+
+
+| 버전 2.0 | 2026년 2월 | OPEA-Intel® AI for Enterprise RAG 2.0으로 업데이트되었습니다. 
+|===

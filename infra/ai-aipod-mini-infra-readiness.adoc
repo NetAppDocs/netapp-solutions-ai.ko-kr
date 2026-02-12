@@ -1,0 +1,83 @@
+---
+sidebar: sidebar 
+permalink: infra/ai-aipod-mini-infra-readiness.html 
+keywords: netapp, aipod, RAG, ai solution, design, infrastructure, FAQs 
+summary: 이 문서는 NetApp AIPod Mini for Enterprise RAG의 포괄적인 인프라 준비 체크리스트를 설명하며, 배포 전 참고 자료로 활용할 수 있습니다. 
+---
+= NetApp AIPod Mini for ERAG - 인프라 준비 체크리스트
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 문서는 NetApp AIPod Mini for Enterprise RAG의 포괄적인 인프라 준비 체크리스트를 설명하며, 배포 전 참고 자료로 활용할 수 있습니다.
+
+
+
+== 비즈니스 및 사용 사례 준비 상태
+
+* 해당 솔루션은 사업 부문별 성과(예: 생산성, 고객 서비스, 법률, 의료, 제조, 공공 부문)와 부합합니까?
+* LLM 워크로드에 필요한 첫 토큰 획득 시간(TTFT) 및 지연 시간을 예측하셨습니까?
+* 예상 동시성/사용자 부하를 알고 계십니까(예: RAG의 경우 2-워커 노드당 32명의 동시 사용자)?
+* 주요 AI/GenAI 워크로드(RAG, 추론, 미세 조정, 부서별 LLM, 벡터 DB 통합)를 파악하셨습니까?
+* 비용/성능 균형을 위해 CPU 기반 AI 옵션(OPEA, Intel Xeon)과 GPU 대안을 평가하고 계십니까?
+
+
+
+
+== 기술 및 인프라 요구사항
+
+* 데이터 파이프라인(데이터 준비, ETL, 벡터 DB로의 안전한 수집)이 준비되었습니까?
+* 고가용성, 이중화 또는 DR 기능이 필요하십니까?
+* Ubuntu Linux / Kubernetes / Red Hat OpenShift AI 스택 지원을 활용하고 계십니까?
+* 네트워크 성능(워크로드에 따라 25~100GbE)을 검증하셨습니까?
+* Kubernetes 영구 저장소를 위해 NetApp ONTAP + Trident CSI 드라이버로 스토리지가 프로비저닝되었습니까?
+* 최소 3개의 컴퓨팅 노드(워커 2개, 컨트롤 플레인 1개)의 크기가 올바르게 지정되었습니까?
+
+
+
+
+== 소프트웨어 및 에코시스템 정렬
+
+* 컨테이너화된 앱이 제공된 Kubernetes 및 Helm 차트와 호환됩니까?
+* 배포 예정인 벡터 데이터베이스는 무엇입니까(예: Milvus, pgvector)?
+* 검색 증강 생성(RAG)을 위해 OPEA(Open Platform for Enterprise AI) 사전 통합이 필요하신가요?
+* 하이브리드 클라우드 옵션(Cloud Volumes ONTAP, FSxN, Anthos, Azure Arc)을 활용하고 계십니까?
+* 파트너 ISV 통합(ESRI, 의료 PACS, 금융/법률 ISV)이 필요하십니까?
+
+
+
+
+== 데이터 거버넌스 및 보안
+
+* Kubernetes에서 역할 기반 액세스 제어(RBAC)를 활성화하셨습니까?
+* 데이터 보호 및 백업 계획(SnapMirror, SnapCenter, 랜섬웨어 방지)이 있습니까?
+* 데이터 규정 준수 요구 사항(HIPAA, GDPR, FedRAMP, CJIS)을 파악하셨습니까?
+* 프라이빗 AI 배포(에어갭, 온프레미스, 보안 영역)가 필요하십니까?
+
+
+
+
+== 운영 및 지원 고려 사항
+
+* 관리자는 Kubernetes, Trident CSI 및 OPEA 스택 배포에 대한 교육을 받았거나 사용할 수 있습니까?
+* 멀티 테넌시(multi-tenancy)(부서, SLED 기관, 사업부)에 대한 지원이 필요하십니까?
+* ONTAP System Manager, Cloud Insights, Prometheus/Grafana 등을 활용한 모니터링 및 관찰 가능성 확보 계획이 있습니까?
+* 2일차 운영은 누가 담당하게 될까요(고객 IT, 파트너, 관리 서비스 제공업체)?
+
+
+
+
+== 상업 및 GTM 정렬
+
+* 부서별 AI 도입부터 전사적 AI 확장까지 단계별 로드맵이 있습니까?
+* 다년간 예상 재무제표(TCO, ARR, 마진 상승률)를 보유하고 계신가요?
+* 라이선스 업리프트 시나리오(벡터 DB, ISV 소프트웨어, AI ops 툴)가 명확합니까?
+* 파트너 인센티브(총판 마진, OEM/Intel 공동 투자)를 검토해 보셨습니까?
+* 구매가 예산 주기(CapEx vs OpEx, 소비 모델)와 일치합니까?
+* 사이징 및 구축을 위한 서비스 파트너(Arrow, WWT, Presidio 등)가 있습니까?
+

@@ -6,6 +6,12 @@ entries:
 - title: 기업 RAG를 위한 NetApp AIPod Mini
   pdf-filename: RAG 추론을 위한 NetApp AIPod Mini
   url: "/infra/ai-minipod.html"
+- title: NetApp AIPod Mini for ERAG - 인프라 준비 체크리스트
+  pdf-filename: NetApp AIPod Mini for ERAG - 인프라 준비 체크리스트
+  url: "/infra/ai-aipod-mini-infra-readiness.html"
+- title: NetApp AIPod Mini for ERAG - 배포 단계
+  pdf-filename: NetApp AIPod Mini for ERAG - 배포 단계
+  url: "/infra/ai-aipod-mini-deployment-steps.html"
 - title: Protopia 이미지 변환을 통한 책임 있는 AI
   pdf-filename: 책임 있는 AI와 기밀 추론 - Protopia 이미지 변환을 갖춘 NetApp AI
   entries:
