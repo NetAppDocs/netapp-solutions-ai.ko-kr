@@ -29,12 +29,14 @@ summary: Domino Data Lab 및 NetApp 통한 하이브리드 멀티클라우드 ML
 |===
 
 
+[[option-1-create-a-cache-of-a-volume-that-resides-in-a-different-data-plane]]
 == 옵션 1 - 다른 데이터 플레인에 있는 볼륨의 캐시 생성
 
 와 함께link:https://docs.netapp.com/us-en/ontap/flexcache/accelerate-data-access-concept.html["NetApp FlexCache 기술"] 다른 데이터 평면에 있는 NetApp 볼륨의 캐시를 만들 수 있습니다.  예를 들어, 온프레미스 데이터 플레인에 NetApp 볼륨이 있고 AWS 데이터 플레인에서 해당 볼륨에 액세스해야 하는 경우 AWS에서 해당 볼륨의 캐시를 생성할 수 있습니다.  이 섹션에서는 다른 데이터 플레인에 있는 NetApp 볼륨의 캐시를 생성하기 위해 수행해야 하는 작업을 간략하게 설명합니다.
 
 
 
+[[create-flexcache-volume-in-destination-environment]]
 === 대상 환경에서 FlexCache 볼륨 생성
 
 
@@ -53,6 +55,7 @@ NOTE: Amazon FSx ONTAP 에서는 System Manager를 사용할 수 없습니다.
 
 
 
+[[expose-flexcache-volume-to-domino]]
 === Domino에 FlexCache 볼륨 노출
 
 다음으로, FlexCache 볼륨을 Domino MLOps 플랫폼에 노출해야 합니다.  Domino에 FlexCache 볼륨을 노출하려면 ' Trident 에서 프로비저닝되지 않은 기존 NFS 볼륨 노출' 하위 섹션에 설명된 지침을 따르세요.link:ai-hybrid-ddlnexus-vols.html["'기존 NetApp 볼륨을 Domino에 노출' 섹션"] 이 솔루션의.
@@ -73,12 +76,14 @@ image:ddlnexus-005.png["입력/출력 대화 상자 또는 서면 내용을 나�
 
 
 
+[[option-2-replicate-a-volume-that-resides-in-a-different-data-plane]]
 == 옵션 2 - 다른 데이터 플레인에 있는 볼륨 복제
 
 와 함께link:https://www.netapp.com/cyber-resilience/data-protection/data-backup-recovery/snapmirror-data-replication/["NetApp SnapMirror 데이터 복제 기술"] 다른 데이터 평면에 있는 NetApp 볼륨의 복사본을 만들 수 있습니다.  예를 들어, 온프레미스 데이터 플레인에 NetApp 볼륨이 있고 AWS 데이터 플레인에서 해당 볼륨에 액세스해야 하는 경우 AWS에서 볼륨 복사본을 만들 수 있습니다.  이 섹션에서는 다른 데이터 플레인에 있는 NetApp 볼륨의 복사본을 만들기 위해 수행해야 하는 작업을 간략하게 설명합니다.
 
 
 
+[[create-snapmirror-relationship]]
 === SnapMirror 관계 생성
 
 먼저, 대상 환경에서 소스 볼륨과 새 대상 볼륨 간에 SnapMirror 관계를 만들어야 합니다.  대상 볼륨은 SnapMirror 관계를 만드는 과정의 일부로 생성됩니다.
@@ -94,6 +99,7 @@ NOTE: Amazon FSx ONTAP 에서는 System Manager를 사용할 수 없습니다.
 
 
 
+[[break-snapmirror-relationship]]
 === SnapMirror 관계 끊기
 
 다음으로, 데이터 액세스를 위해 대상 볼륨을 활성화하려면 SnapMirror 관계를 해제해야 합니다.  이 단계를 수행하기 전에 초기 복제가 완료될 때까지 기다리세요.
@@ -109,6 +115,7 @@ BlueXP 사용하지 않으려면 ONTAP System Manager나 ONTAP CLI를 사용하�
 
 
 
+[[expose-destination-volume-to-domino]]
 === Domino에 대상 볼륨 노출
 
 다음으로, 대상 볼륨을 Domino MLOps 플랫폼에 노출해야 합니다.  Domino에 대상 볼륨을 노출하려면 ' Trident 에서 프로비저닝되지 않은 기존 NFS 볼륨 노출' 하위 섹션에 설명된 지침을 따르세요.link:ai-hybrid-ddlnexus-vols.html["'기존 NetApp 볼륨을 Domino에 노출' 섹션"] 이 솔루션의.

@@ -85,6 +85,7 @@ image:aipod-nv-a90-netdetail.png["입력/출력 대화 상자 또는 서면 내�
 |===
 
 
+[[storage-network-configuration]]
 == 스토리지 네트워크 구성
 
 이 섹션에서는 이더넷 저장 네트워크 구성에 대한 주요 세부 정보를 설명합니다.  InfiniBand 컴퓨팅 네트워크 구성에 대한 정보는 다음을 참조하세요.link:https://nvdam.widen.net/s/nfnjflmzlj/nvidia-dgx-basepod-reference-architecture["NVIDIA BasePOD 문서"] .  스위치 구성에 대한 자세한 내용은 다음을 참조하세요.link:https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-59/["NVIDIA Cumulus Linux 문서"] .
@@ -183,6 +184,7 @@ SN4600 스위치를 구성하는 데 사용되는 기본 단계는 아래와 같
 
 
 
+[[storage-system-configuration]]
 == 스토리지 시스템 구성
 
 이 섹션에서는 이 솔루션을 위한 A90 스토리지 시스템 구성에 대한 주요 세부 정보를 설명합니다.  ONTAP 시스템 구성에 대한 자세한 내용은 다음을 참조하세요.link:https://docs.netapp.com/us-en/ontap/index.html["ONTAP 문서"] .  아래 다이어그램은 저장 시스템의 논리적 구성을 보여줍니다.
@@ -305,6 +307,7 @@ image:aipod-nv-a90-logical.png["입력/출력 대화 상자 또는 서면 내용
 
 
 
+[[dgx-h100-configuration-for-roce-storage-access]]
 === RoCE 스토리지 액세스를 위한 DGX H100 구성
 
 이 섹션에서는 DGX H100 시스템 구성에 대한 주요 세부 정보를 설명합니다.  이러한 구성 항목 중 다수는 DGX 시스템에 배포된 OS 이미지에 포함되거나 부팅 시 Base Command Manager에서 구현될 수 있습니다.  BCM에서 노드 및 소프트웨어 이미지 구성에 대한 자세한 내용은 참조용으로 여기에 나열되어 있습니다.link:https://docs.nvidia.com/base-command-manager/index.html#overview["BCM 문서"] .

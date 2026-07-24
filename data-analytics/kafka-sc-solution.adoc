@@ -20,6 +20,7 @@ image:kafka-sc-003.png["솔루션 개요를 묘사한 이미지입니다."]
 
 
 
+[[solution-architecture-details]]
 == 솔루션 아키텍처 세부 정보
 
 이 섹션에서는 계층형 스토리지를 위한 NetApp ONTAP 사용하여 Confluent Platform을 구축할 때 성능 검증에 사용되는 하드웨어와 소프트웨어에 대해 설명합니다.  다음 표에서는 솔루션 아키텍처와 기본 구성 요소를 설명합니다.

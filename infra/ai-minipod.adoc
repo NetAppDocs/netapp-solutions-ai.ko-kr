@@ -22,18 +22,21 @@ Sathish Thyagarajan, Michael Oglesby, Arpita Mahajan, NetApp
 
 
 
+[[executive-summary]]
 == 요약
 
 점점 더 많은 조직들이 생산성과 비즈니스 가치를 높이기 위해 검색 증강 생성(RAG) 애플리케이션과 대규모 언어 모델(LLM)을 활용하여 사용자 프롬프트를 해석하고 응답을 생성하고 있습니다. 이러한 프롬프트와 응답에는 텍스트, 코드, 이미지, 심지어 조직의 내부 지식 기반, 데이터 레이크, 코드 저장소, 문서 저장소에서 검색된 치료용 단백질 구조까지 포함될 수 있습니다. 본 문서에서는 NetApp AFF 스토리지와 Intel Xeon 6 프로세서가 탑재된 서버로 구성된 NetApp AIPod Mini 솔루션의 참조 설계를 다룹니다. 이 솔루션에는 Intel Advanced Matrix Extensions(Intel AMX)와 결합된 NetApp ONTAP 데이터 관리 소프트웨어, 그리고 Open Platform for Enterprise AI(OPEA) 기반의 Intel® AI for Enterprise RAG 소프트웨어가 포함됩니다. 엔터프라이즈 RAG용 NetApp AIPod Mini를 통해 조직은 퍼블릭 LLM을 프라이빗 생성형 AI(GenAI) 추론 솔루션으로 확장할 수 있습니다. 이 솔루션은 기업 규모에서 효율적이고 비용 효율적인 RAG 추론을 제공하며, 신뢰성을 향상시키고 독점 정보에 대한 더 나은 제어 권한을 제공하도록 설계되었습니다.
 
 
 
+[[intel-storage-partner-validation]]
 == 인텔 스토리지 파트너 검증
 
 Intel Xeon 6 프로세서로 구동되는 서버는 최대 성능을 위해 Intel AMX를 사용하여 까다로운 AI 추론 워크로드를 처리하도록 제작되었습니다.  최적의 스토리지 성능과 확장성을 구현하기 위해 NetApp ONTAP 사용하여 솔루션의 검증이 성공적으로 완료되었으며, 이를 통해 기업은 RAG 애플리케이션의 요구 사항을 충족할 수 있습니다.  이 검증은 Intel Xeon 6 프로세서가 장착된 서버에서 수행되었습니다.  Intel과 NetApp 최적화되고 확장 가능하며 고객 비즈니스 요구 사항에 맞는 AI 솔루션을 제공하는 데 중점을 둔 강력한 파트너십을 맺고 있습니다.
 
 
 
+[[advantages-of-running-rag-systems-with-netapp]]
 == NetApp 으로 RAG 시스템을 실행하는 이점
 
 RAG 애플리케이션은 PDF, 텍스트, CSV 또는 Excel과 같은 다양한 형식의 기업 문서 저장소에서 지식을 검색하는 작업을 포함합니다. 이러한 데이터는 일반적으로 S3 객체 스토리지 또는 온프레미스 NFS와 같은 솔루션에 데이터 소스로 저장됩니다. NetApp은 엣지, 데이터 센터 및 클라우드 생태계 전반에 걸쳐 데이터 관리, 데이터 이동성, 데이터 거버넌스 및 데이터 보안 기술 분야의 선두 주자입니다. NetApp ONTAP 데이터 관리는 배치 및 실시간 추론을 포함한 다양한 유형의 AI 워크로드를 지원하는 엔터프라이즈급 스토리지를 제공하며 다음과 같은 이점을 제공합니다:
@@ -45,16 +48,19 @@ RAG 애플리케이션은 PDF, 텍스트, CSV 또는 Excel과 같은 다양한 �
 
 
 
+[[target-audience]]
 == 타겟 고객층
 
 이 문서는 엔터프라이즈 RAG 및 GenAI 솔루션을 제공하기 위해 구축된 인프라를 활용하고자 하는 AI 의사결정권자, 데이터 엔지니어, 비즈니스 리더 및 부서 임원을 대상으로 합니다.  AI 추론, LLM, Kubernetes, 네트워킹 및 구성 요소에 대한 사전 지식이 있으면 구현 단계에 도움이 됩니다.
 
 
 
+[[technology-requirements]]
 == 기술 요구 사항
 
 
 
+[[hardware]]
 === 하드웨어
 
 
@@ -94,6 +100,7 @@ RAG 애플리케이션은 PDF, 텍스트, CSV 또는 Excel과 같은 다양한 �
 
 
 
+[[software]]
 === 소프트웨어
 
 
@@ -150,10 +157,12 @@ NetApp Trident 소프트웨어는 Red Hat OpenShift를 포함하여 컨테이너
 |===
 
 
+[[solution-deployment]]
 == 솔루션 구축
 
 
 
+[[software-stack]]
 === 소프트웨어 스택
 
 이 솔루션은 Intel Xeon 기반 앱 노드로 구성된 Kubernetes 클러스터에 배포됩니다.  Kubernetes 제어 평면의 기본적인 고가용성을 구현하려면 최소 3개의 노드가 필요합니다.  다음 클러스터 레이아웃을 사용하여 솔루션을 검증했습니다.
@@ -173,6 +182,7 @@ NetApp Trident 소프트웨어는 Red Hat OpenShift를 포함하여 컨테이너
 
 
 
+[[deployment-steps]]
 === 배포 단계
 
 
@@ -291,6 +301,7 @@ OPEA for Intel® AI for Enterprise RAG UI를 사용하여 파일이 제대로 �
 
 
 
+[[sizing-guidance]]
 == 사이즈 가이드
 
 검증 노력의 일환으로 우리는 인텔과 협력하여 성능 테스트를 실시했습니다.  이 테스트를 통해 다음 표에 설명된 크기 지침이 도출되었습니다.
@@ -314,18 +325,21 @@ _참고: 위에 제시된 사이징 지침은 96개의 코어가 있는 Intel Xe
 
 
 
+[[conclusion]]
 == 결론
 
 엔터프라이즈 RAG 시스템과 LLM은 조직이 정확하고 상황에 맞는 응답을 제공할 수 있도록 함께 작동하는 기술입니다. 이러한 응답에는 방대한 양의 비공개 및 내부 기업 데이터를 기반으로 한 정보 검색이 포함됩니다. RAG, API, 벡터 임베딩 및 고성능 스토리지 시스템을 사용하여 회사 데이터가 포함된 문서 저장소를 쿼리함으로써 데이터를 더 빠르고 안전하게 처리할 수 있습니다. NetApp AIPod Mini는 NetApp의 지능형 데이터 인프라와 ONTAP 데이터 관리 기능, Intel Xeon 6 프로세서, Intel® AI for Enterprise RAG 및 OPEA 소프트웨어 스택을 결합하여 고성능 RAG 애플리케이션을 배포하고 조직이 AI 리더십을 확보할 수 있도록 지원합니다.
 
 
 
+[[acknowledgment]]
 == 승인
 
 이 문서는 NetApp 솔루션 엔지니어링 팀의 Sathish Thyagarajan, Michael Oglesby, Arpita Mahajan이 작성했습니다. 또한, 솔루션 검증 과정에서 지속적인 지원과 도움을 주신 Intel의 엔터프라이즈 AI 제품 팀(Ajay Mungara, Mikolaj Zyczynski, Igor Konopko, Ramakrishna Karamsetty, Michal Prostko, Anna Alberska, Maciej Cichocki, Shreejan Mistry, Nicholas Rago, Ned Fiori)과 NetApp(Lawrence Bunka, Bobby Oommen, Jeff Liborio)에게 감사를 표합니다.
 
 
 
+[[bill-of-materials]]
 == 재료 목록
 
 다음은 이 솔루션의 기능 검증에 사용된 BOM이며 참조로 사용할 수 있습니다.  다음 구성에 맞는 모든 서버나 네트워킹 구성 요소(또는 기존 네트워크(대역폭이 100GbE인 경우))를 사용할 수 있습니다.
@@ -418,12 +432,14 @@ NetApp AFF 스토리지:
 |===
 
 
+[[infra-readiness-checklist]]
 == 인프라 준비 상태 점검표
 
 자세한 내용은 xref:ai-aipod-mini-infra-readiness.html[NetApp AIPod Mini - 인프라 준비 상태]를 참조하십시오.
 
 
 
+[[where-to-find-additional-information]]
 == 추가 정보를 찾을 수 있는 곳
 
 이 문서에 설명된 정보에 대해 자세히 알아보려면 다음 문서 및/또는 웹사이트를 검토하세요.

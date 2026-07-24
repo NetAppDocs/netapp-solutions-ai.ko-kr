@@ -18,6 +18,7 @@ summary: NetApp 사용한 오픈 소스 MLOps - Trident Operations 예시
 
 
 
+[[import-an-existing-volume]]
 == 기존 볼륨 가져오기
 
 Kubernetes 클러스터 내의 컨테이너에 마운트하려는 NetApp 스토리지 시스템/플랫폼에 기존 볼륨이 있지만 해당 볼륨이 클러스터의 PVC에 연결되지 않은 경우 해당 볼륨을 가져와야 합니다.  Trident 볼륨 가져오기 기능을 사용하면 이러한 볼륨을 가져올 수 있습니다.
@@ -56,12 +57,14 @@ pb-fg-all-iface1     Bound    default-pb-fg-all-iface1-7d9f1     10995116277760 
 ....
 
 
+[[provision-a-new-volume]]
 == 새 볼륨 제공
 
 Trident 사용하면 NetApp 스토리지 시스템이나 플랫폼에 새 볼륨을 프로비저닝할 수 있습니다.
 
 
 
+[[provision-a-new-volume-using-kubectl]]
 === kubectl을 사용하여 새 볼륨 프로비저닝
 
 다음 예제 명령은 kubectl을 사용하여 새로운 FlexVol volume 프로비저닝하는 방법을 보여줍니다.
@@ -91,6 +94,7 @@ tensorflow-results                Bound     default-tensorflow-results-2fd60   1
 ....
 
 
+[[provision-a-new-volume-using-the-netapp-dataops-toolkit]]
 === NetApp DataOps 툴킷을 사용하여 새 볼륨 프로비저닝
 
 Kubernetes용 NetApp DataOps Toolkit을 사용하여 NetApp 스토리지 시스템이나 플랫폼에 새 볼륨을 프로비저닝할 수도 있습니다.  Kubernetes용 NetApp DataOps Toolkit은 Trident 사용하여 볼륨을 프로비저닝하지만 사용자를 위해 프로세스를 간소화합니다.  를 참조하세요link:https://github.com/NetApp/netapp-dataops-toolkit/blob/main/netapp_dataops_k8s/docs/volume_management.md["선적 서류 비치"] 자세한 내용은.

@@ -18,6 +18,7 @@ summary: 이 섹션에서는 이 AI 솔루션의 기술적 기반을 설명합�
 
 
 
+[[netapp-aff-systems]]
 == NetApp AFF 시스템
 
 최첨단 NetApp AFF 스토리지 시스템은 업계 최고의 성능, 탁월한 유연성, 클라우드 통합, 동급 최고의 데이터 관리 기능을 통해 기업의 스토리지 요구 사항을 충족하는 에지에서의 AI 추론 배포를 지원합니다.  플래시에 맞춰 특별히 설계된 NetApp AFF 시스템은 비즈니스에 중요한 데이터를 가속화하고 관리하며 보호하는 데 도움이 됩니다.
@@ -46,6 +47,7 @@ NOTE: NAS 워크로드의 경우, 단일 엔트리 레벨 AFF C190 시스템은 
 
 
 
+[[netapp-aff-a220]]
 == NetApp AFF A220
 
 NetApp 또한 대규모 배포에 더 높은 성능과 확장성을 제공하는 다른 보급형 스토리지 시스템도 제공합니다.  NAS 워크로드의 경우 단일 엔트리 레벨 AFF A220 시스템은 다음을 지원합니다.
@@ -58,6 +60,7 @@ NetApp 또한 대규모 배포에 더 높은 성능과 확장성을 제공하는
 
 
 
+[[netapp-aff-a250]]
 == NetApp AFF A250
 
 * 최대 유효 용량은 2~24개 노드(12개 HA 쌍)로 확장 가능한 최대 35PB입니다.
@@ -69,6 +72,7 @@ NetApp 또한 대규모 배포에 더 높은 성능과 확장성을 제공하는
 
 
 
+[[netapp-e-series-ef-systems]]
 == NetApp E-시리즈 EF 시스템
 
 EF 시리즈는 NetApp SANtricity 소프트웨어를 사용하여 데이터에 대한 액세스를 가속화하고 더 빠르게 데이터에서 가치를 창출할 수 있도록 지원하는 엔트리 레벨 및 미드레인지 올플래시 SAN 스토리지 어레이 제품군입니다.  이 시스템은 SAS와 NVMe 플래시 스토리지를 모두 제공하고 저렴한 가격부터 극한의 IOPS, 100마이크로초 미만의 응답 시간, 최대 44GBps의 대역폭을 제공하므로 AI 추론 및 고성능 컴퓨팅(HPC)과 같은 혼합 워크로드와 까다로운 애플리케이션에 이상적입니다.
@@ -79,6 +83,7 @@ image:ai-edge-007.png["입력/출력 대화 상자 또는 서면 내용을 나�
 
 
 
+[[netapp-ef280]]
 == NetApp EF280
 
 * 32Gb/16Gb FC, 25Gb/10Gb iSCSI 및 12Gb SAS 지원
@@ -90,6 +95,7 @@ image:ai-edge-007.png["입력/출력 대화 상자 또는 서면 내용을 나�
 
 
 
+[[netapp-ef300]]
 == NetApp EF300
 
 * 총 용량 367TB를 위한 24개의 NVMe SSD 드라이브
@@ -106,12 +112,14 @@ NOTE: 자세한 내용은 다음을 참조하세요. https://www.netapp.com/pdf.
 
 
 
+[[netapp-ontap-9]]
 == NetApp ONTAP 9
 
 NetApp 의 최신 스토리지 관리 소프트웨어인 ONTAP 9.8.1을 사용하면 기업이 인프라를 현대화하고 클라우드 지원 데이터 센터로 전환할 수 있습니다.  ONTAP 업계 최고의 데이터 관리 역량을 활용하여 데이터가 어디에 있든 단일 도구 세트를 사용하여 데이터를 관리하고 보호할 수 있도록 지원합니다.  또한 필요한 곳, 즉 엣지, 코어, 클라우드로 데이터를 자유롭게 이동할 수 있습니다.  ONTAP 9.8.1에는 데이터 관리를 간소화하고, 중요 데이터를 가속화하고 보호하며, 하이브리드 클라우드 아키텍처 전반에서 차세대 인프라 기능을 지원하는 다양한 기능이 포함되어 있습니다.
 
 
 
+[[simplify-data-management]]
 === 데이터 관리 간소화
 
 적절한 리소스가 애플리케이션과 데이터 세트에 사용되도록 하려면 기업 IT 운영에 데이터 관리가 필수적입니다.  ONTAP 에는 다음과 같은 기능이 포함되어 있어 운영을 간소화하고 단순화하며 총 운영 비용을 절감할 수 있습니다.
@@ -123,6 +131,7 @@ NetApp 의 최신 스토리지 관리 소프트웨어인 ONTAP 9.8.1을 사용�
 
 
 
+[[accelerate-and-protect-data]]
 === 데이터 가속화 및 보호
 
 ONTAP 9는 뛰어난 수준의 성능과 데이터 보호 기능을 제공하며 다음과 같은 방식으로 이러한 기능을 확장합니다.
@@ -135,6 +144,7 @@ ONTAP 9는 뛰어난 수준의 성능과 데이터 보호 기능을 제공하며
 
 
 
+[[future-proof-infrastructure]]
 === 미래 지향적 인프라
 
 ONTAP 9는 다음과 같은 기능을 통해 까다롭고 끊임없이 변화하는 비즈니스 요구 사항을 충족하는 데 도움이 됩니다.
@@ -146,42 +156,49 @@ ONTAP 9는 다음과 같은 기능을 통해 까다롭고 끊임없이 변화하
 
 
 
+[[netapp-santricity]]
 == NetApp SANtricity
 
 NetApp SANtricity E-시리즈 하이브리드 플래시 및 EF-시리즈 올플래시 어레이에 업계 최고의 성능, 안정성 및 단순성을 제공하도록 설계되었습니다.  데이터 분석, 비디오 감시, 백업 및 복구를 포함한 고부하 작업 애플리케이션을 위해 E-시리즈 하이브리드 플래시 및 EF-시리즈 올플래시 어레이의 최대 성능과 활용도를 달성하세요.  SANtricity 사용하면 스토리지가 온라인 상태를 유지하는 동안 구성 조정, 유지 관리, 용량 확장 및 기타 작업을 완료할 수 있습니다.  SANtricity 뛰어난 데이터 보호, 사전 모니터링, 인증된 보안 기능을 제공하며, 이 모든 기능은 사용하기 쉬운 온박스 시스템 관리자 인터페이스를 통해 이용할 수 있습니다.  자세한 내용은 다음을 참조하세요. https://www.netapp.com/pdf.html?item=/media/7676-ds-3891.pdf["NetApp E-시리즈 SANtricity 소프트웨어 데이터시트"^] .
 
 
 
+[[performance-optimized]]
 === 성능 최적화
 
 성능에 최적화된 SANtricity 소프트웨어는 높은 IOP, 높은 처리량, 낮은 지연 시간으로 모든 데이터 분석, 비디오 감시 및 백업 앱에 데이터를 제공합니다.  높은 IOPS, 낮은 지연 시간의 애플리케이션과 높은 대역폭, 높은 처리량의 애플리케이션에 대한 성능을 가속화합니다.
 
 
 
+[[maximize-uptime]]
 === 가동 시간 극대화
 
 스토리지가 온라인 상태를 유지하는 동안 모든 관리 작업을 완료하세요.  I/O를 중단하지 않고 구성을 조정하고, 유지 관리를 수행하고, 용량을 확장하세요.  자동화된 기능, 온라인 구성, 최첨단 동적 디스크 풀(DPP) 기술 등을 통해 동급 최고의 안정성을 실현하세요.
 
 
 
+[[rest-easy]]
 === 편히 쉬세요
 
 SANtricity 소프트웨어는 사용하기 쉬운 온박스 시스템 관리자 인터페이스를 통해 뛰어난 데이터 보호, 사전 예방적 모니터링, 인증된 보안을 제공합니다.  저장소 관리 작업을 간소화합니다.  모든 E-시리즈 스토리지 시스템의 고급 튜닝에 필요한 유연성을 확보하세요.  언제 어디서나 NetApp E-Series 시스템을 관리하세요.  당사의 온박스 웹 기반 인터페이스는 관리 워크플로를 간소화합니다.
 
 
 
+[[netapp-trident]]
 == NetApp Trident
 
 https://netapp.io/persistent-storage-provisioner-for-kubernetes/["Trident"^]NetApp 의 Docker와 Kubernetes를 위한 오픈소스 동적 스토리지 오케스트레이터로, 영구 스토리지의 생성, 관리 및 사용을 간소화합니다.  Kubernetes 기본 애플리케이션인 Trident 는 Kubernetes 클러스터 내에서 직접 실행됩니다.  Trident 사용하면 고객이 DL 컨테이너 이미지를 NetApp 스토리지에 원활하게 배포할 수 있으며 AI 컨테이너 배포를 위한 엔터프라이즈급 환경을 제공합니다.  Kubernetes 사용자(예: ML 개발자 및 데이터 과학자)는 NetApp 기술을 기반으로 하는 NetApp 고급 데이터 관리 기능을 활용하여 오케스트레이션 및 복제를 생성, 관리 및 자동화할 수 있습니다.
 
 
 
+[[netapp-bluexp-copy-and-sync]]
 == NetApp BlueXP 복사 및 동기화
 
 https://docs.netapp.com/us-en/occm/concept_cloud_sync.html["BlueXP 복사 및 동기화"^]빠르고 안전한 데이터 동기화를 위한 NetApp 서비스입니다.  온프레미스 NFS 또는 SMB 파일 공유, NetApp StorageGRID, NetApp ONTAP S3, Google Cloud NetApp Volumes, Azure NetApp Files, Amazon Simple Storage Service(Amazon S3), Amazon Elastic File System(Amazon EFS), Azure Blob, Google Cloud Storage 또는 IBM Cloud Object Storage 간에 파일을 전송해야 하는 경우 BlueXP Copy and Sync를 사용하면 파일을 필요한 곳으로 빠르고 안전하게 이동할 수 있습니다.  데이터가 전송되면 소스와 타겟 모두에서 자유롭게 사용할 수 있습니다.  BlueXP Copy and Sync는 사전 정의된 일정에 따라 데이터를 지속적으로 동기화하고 델타만 이동하므로 데이터 복제에 소요되는 시간과 비용이 최소화됩니다.  BlueXP Copy and Sync는 설정과 사용이 매우 간단한 SaaS(Software as a Service) 도구입니다.  BlueXP Copy and Sync에 의해 트리거되는 데이터 전송은 데이터 브로커를 통해 수행됩니다.  AWS, Azure, Google Cloud Platform 또는 온프레미스에 BlueXP 복사 및 동기화 데이터 브로커를 배포할 수 있습니다.
 
 
 
+[[lenovo-thinksystem-servers]]
 === 레노버 ThinkSystem 서버
 
 Lenovo ThinkSystem 서버는 오늘날 고객이 직면한 과제를 해결하는 혁신적인 하드웨어, 소프트웨어 및 서비스를 갖추고 있으며, 미래의 과제를 해결하기 위해 진화적이고 목적에 맞는 모듈식 설계 방식을 제공합니다.  이러한 서버는 업계 표준의 최고 기술과 차별화된 Lenovo 혁신 기술을 결합하여 x86 서버에서 가능한 가장 큰 유연성을 제공합니다.
@@ -197,6 +214,7 @@ AI 분야에서 Lenovo는 기업이 자사 워크로드에 ML과 AI의 이점을
 
 
 
+[[lenovo-thinksystem-se350-edge-server]]
 === 레노버 ThinkSystem SE350 엣지 서버
 
 엣지 컴퓨팅을 사용하면 IoT 기기의 데이터를 데이터 센터나 클라우드로 전송하기 전에 네트워크 엣지에서 분석할 수 있습니다.  아래 그림에 표시된 Lenovo ThinkSystem SE350은 엣지에서의 배포에 대한 고유한 요구 사항에 맞게 설계되었으며, 컴팩트하고 견고하며 환경 친화적인 폼 팩터에서 유연성, 연결성, 보안 및 원격 관리에 중점을 두었습니다.

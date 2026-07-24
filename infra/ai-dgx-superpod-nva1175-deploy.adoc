@@ -10,6 +10,7 @@ summary: NetApp AFF A90 탑재한 NVIDIA DGX SuperPOD
 
 
 
+[[nva-deployment]]
 == NVA 배치
 
 [role="lead"]
@@ -21,6 +22,7 @@ image:nvidialogo.png["엔비디아 로고"]
 
 
 
+[[program-summary]]
 == 프로그램 요약
 
 NVIDIA DGX SuperPOD™는 기업을 위한 턴키 방식의 AI 데이터 센터 솔루션을 제공하여 세계적 수준의 컴퓨팅, 소프트웨어 도구, 전문 지식 및 지속적인 혁신을 원활하게 제공합니다.  DGX SuperPOD는 고객이 최소한의 설정 시간과 최대의 생산성으로 AI/ML 및 HPC 워크로드를 배포하는 데 필요한 모든 것을 제공합니다.  그림 1은 DGX SuperPOD의 상위 수준 구성 요소를 보여줍니다.
@@ -38,6 +40,7 @@ DGX SuperPOD는 다음과 같은 이점을 제공합니다.
 
 
 
+[[solution-overview]]
 == 솔루션 개요
 
 기업들이 인공지능(AI)과 머신러닝(ML) 이니셔티브를 수용함에 따라, 견고하고 확장 가능하며 효율적인 인프라 솔루션에 대한 수요가 그 어느 때보다 커졌습니다.  이러한 이니셔티브의 핵심은 데이터 보안, 접근성, 리소스 최적화를 보장하는 동시에 점점 더 복잡해지는 AI 모델을 관리하고 교육하는 과제에 있습니다. 
@@ -51,12 +54,14 @@ DGX SuperPOD는 다음과 같은 이점을 제공합니다.
 
 
 
+[[solution-technology]]
 === 솔루션 기술
 
 NVIDIA DGX SuperPOD 에는 까다로운 AI 워크로드에 대해 검증된 성능을 제공하는 데 필요한 서버, 네트워킹 및 스토리지가 포함되어 있습니다.  NVIDIA DGX™ H200 및 B200 시스템은 세계적 수준의 컴퓨팅 성능을 제공하고 NVIDIA Quantum InfiniBand 및 Spectrum™ 이더넷 네트워크 스위치는 매우 낮은 지연 시간과 업계 최고의 네트워크 성능을 제공합니다.  NetApp ONTAP 스토리지의 업계 최고 수준의 데이터 관리 및 성능 기능을 추가하면 고객은 AI/ML 이니셔티브를 더 빠르게 구현하고 데이터 마이그레이션과 관리 오버헤드를 줄일 수 있습니다.  이 솔루션의 특정 구성 요소에 대한 자세한 내용은 다음을 참조하세요.https://www.netapp.com/pdf.html?item=/media/125003-nva-1175-design-superpod-a90.pdf["NVA-1175 설계 가이드"] 그리고 https://docs.nvidia.com/dgx-superpod/reference-architecture-scalable-infrastructure-b200/latest/index.html["+++ NVIDIA DGX SuperPOD 참조 아키텍처+++"] 선적 서류 비치.
 
 
 
+[[use-case-summary]]
 === 사용 사례 요약
 
 NVIDIA DGX SuperPOD 가장 까다로운 워크로드의 성능 및 확장성 요구 사항을 충족하도록 설계되었습니다.
@@ -70,12 +75,14 @@ NVIDIA DGX SuperPOD 가장 까다로운 워크로드의 성능 및 확장성 요
 
 
 
+[[technology-requirements]]
 == 기술 요구 사항
 
 DGX SuperPOD는 필요한 연결성과 성능을 제공하고 인프라의 병목 현상을 제거하는 데 필요한 모든 구성 요소를 포함하는 확장 가능 단위(SU) 개념을 기반으로 합니다.  고객은 하나 또는 여러 개의 SU로 시작하여 요구 사항을 충족하는 데 필요한 대로 추가 SU를 추가할 수 있습니다.  자세한 내용은 다음을 참조하세요. https://docs.nvidia.com/dgx-superpod/reference-architecture-scalable-infrastructure-b200/latest/index.html["+++ NVIDIA DGX SuperPOD 참조 아키텍처+++"] .  이 문서에서는 단일 SU에 대한 스토리지 구성 요소와 구성을 설명합니다.
 
 
 
+[[hardware-requirements]]
 === 하드웨어 요구 사항
 
 표 1은 1SU의 저장 구성요소를 구현하는 데 필요한 하드웨어 구성요소를 나열합니다.  1~4개 확장 가능 단위에 대한 구체적인 부품 및 수량은 부록 A를 참조하세요.
@@ -97,6 +104,7 @@ DGX SuperPOD는 필요한 연결성과 성능을 제공하고 인프라의 병�
 |===
 
 
+[[software-requirements]]
 === 소프트웨어 요구 사항
 
 표 2는 AFF A90 스토리지 시스템을 DGX SuperPOD와 통합하는 데 필요한 최소 소프트웨어 구성 요소와 버전을 나열합니다.  DGX SuperPOD에는 여기에 나열되지 않은 다른 소프트웨어 구성 요소도 포함됩니다.  참고해주세요https://docs.nvidia.com/dgx-superpod/release-notes/latest/10-24-11.html["+++DGX SuperPOD 릴리스 노트+++"] 자세한 내용은 다음을 참조하세요.
@@ -124,6 +132,7 @@ DGX SuperPOD는 필요한 연결성과 성능을 제공하고 인프라의 병�
 |===
 
 
+[[deployment-procedures]]
 == 배포 절차
 
 NetApp ONTAP 스토리지를 DGX SuperPOD와 통합하려면 다음 작업이 필요합니다.
@@ -135,6 +144,7 @@ NetApp ONTAP 스토리지를 DGX SuperPOD와 통합하려면 다음 작업이 �
 
 
 
+[[storage-system-installation-and-configuration]]
 === 저장 시스템 설치 및 구성
 
 
@@ -452,6 +462,7 @@ spod_qos
 ----
 
 
+[[dgx-server-configuration-with-nvidia-base-command-manager]]
 === NVIDIA Base Command Manager를 사용한 DGX 서버 구성
 
 DGX 클라이언트가 AFF A90 스토리지 시스템을 사용하도록 준비하려면 다음 작업을 완료하세요.  이 프로세스에서는 DGX 시스템 노드에 스토리지 패브릭의 네트워크 인터페이스와 정적 경로가 이미 구성되어 있다고 가정합니다.  다음 작업은 NetApp Professional Services에서 고급 구성 프로세스의 일부로 완료됩니다.
@@ -653,12 +664,14 @@ commit
 ----
 
 
+[[conclusion]]
 == 결론
 
 NetApp * AFF A90 스토리지 시스템*을 탑재한 NVIDIA DGX SuperPOD AI 인프라 솔루션 분야에서 상당한 발전을 나타냅니다.  보안, 데이터 관리, 리소스 활용, 확장성과 관련된 주요 과제를 해결함으로써 조직은 운영 효율성, 데이터 보호, 협업을 유지하면서 AI 이니셔티브를 가속화할 수 있습니다.  이 솔루션의 통합적 접근 방식은 AI 개발 파이프라인에서 흔히 발생하는 병목 현상을 제거하여 데이터 과학자와 엔지니어가 인프라 관리가 아닌 혁신에 집중할 수 있도록 합니다.
 
 
 
+[[where-to-find-additional-information]]
 == 추가 정보를 찾을 수 있는 곳
 
 이 문서에 설명된 정보에 대해 자세히 알아보려면 다음 문서 및/또는 웹사이트를 검토하세요.
@@ -679,10 +692,12 @@ NetApp * AFF A90 스토리지 시스템*을 탑재한 NVIDIA DGX SuperPOD AI 인
 
 
 
+[[appendix-a-bill-of-materials-and-rack-elevations]]
 == 부록 A: 재료 목록 및 랙 높이
 
 
 
+[[bill-of-materials]]
 === 재료 목록
 
 표 3은 1개, 2개, 3개, 4개의 확장 가능한 장치에 대한 스토리지를 배포하는 데 필요한 NetApp 구성 요소의 부품 번호와 수량을 보여줍니다.
@@ -748,6 +763,7 @@ NetApp * AFF A90 스토리지 시스템*을 탑재한 NVIDIA DGX SuperPOD AI 인
 |===
 
 
+[[rack-elevations]]
 === 랙 높이
 
 그림 4-6은 1-4 SU에 대한 랙 높이의 예를 보여줍니다.

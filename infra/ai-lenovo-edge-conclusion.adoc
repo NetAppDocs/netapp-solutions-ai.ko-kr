@@ -26,6 +26,7 @@ NetApp 스토리지 시스템은 로컬 SSD 스토리지와 동일하거나 더 
 
 
 
+[[acknowledgments]]
 == 감사의 말
 
 * 제이제이  Falkanger, Lenovo HPC 및 AI 솔루션 수석 관리자
@@ -36,6 +37,7 @@ NetApp 스토리지 시스템은 로컬 SSD 스토리지와 동일하거나 더 
 
 
 
+[[where-to-find-additional-information]]
 == 추가 정보를 찾을 수 있는 곳
 
 이 문서에 설명된 정보에 대해 자세히 알아보려면 다음 문서 및/또는 웹사이트를 참조하세요.

@@ -18,6 +18,7 @@ summary: NetApp SnapMirror 사용한 재해 복구 - NetApp용 벡터 데이터�
 
 
 
+[[disaster-recovery-using-netapp-snapmirror]]
 == NetApp SnapMirror 사용한 재해 복구
 
 image:vector-database-dr-fsxn-gcnv.png["입력/출력 대화 상자 또는 서면 내용을 나타내는 그림"]

@@ -18,6 +18,7 @@ summary: 기능적 검증을 위해, 저장소로 NFSv3를 마운트한 Kafka �
 
 
 
+[[validation-setup]]
 == 검증 설정
 
 설정은 AWS에서 실행됩니다.  다음 표는 검증에 사용된 다양한 플랫폼 구성 요소와 환경 구성을 보여줍니다.
@@ -47,6 +48,7 @@ image:kafka-nfs-001.png["이 이미지는 각각 프로듀서 스웜, 카프카 
 
 
 
+[[architectural-flow]]
 == 건축 흐름
 
 * *계산합니다.*  우리는 전용 서버에서 실행되는 3노드 Zookeeper 앙상블과 함께 4노드 Kafka 클러스터를 사용했습니다.
@@ -59,6 +61,7 @@ image:kafka-nfs-001.png["이 이미지는 각각 프로듀서 스웜, 카프카 
 
 
 
+[[methodology-of-testing]]
 == 테스트 방법론
 
 . 업데이트 `-is-preserve-unlink-enabled true` 카프카 볼륨에 다음과 같이 표시됩니다.

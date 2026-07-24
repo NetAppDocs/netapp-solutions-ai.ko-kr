@@ -18,6 +18,7 @@ summary: 이 섹션에서는 검증을 완료하는 데 필요한 작업을 설�
 
 
 
+[[prerequisites]]
 == 필수 조건
 
 이 섹션에 설명된 작업을 실행하려면 다음 도구가 설치 및 구성된 Linux 또는 macOS 호스트에 액세스할 수 있어야 합니다.
@@ -36,6 +37,7 @@ summary: 이 섹션에서는 검증을 완료하는 데 필요한 작업을 설�
 
 
 
+[[scenario-1-on-demand-inferencing-in-jupyterlab]]
 == 시나리오 1 – JupyterLab에서의 주문형 추론
 
 . AI/ML 추론 워크로드를 위한 Kubernetes 네임스페이스를 만듭니다.
@@ -105,6 +107,7 @@ image:ai-protopia-009.png["입력/출력 대화 상자 또는 서면 내용을 �
 
 
 
+[[scenario-2-batch-inferencing-on-kubernetes]]
 == 시나리오 2 – Kubernetes에서의 일괄 추론
 
 . AI/ML 추론 워크로드를 위한 Kubernetes 네임스페이스를 만듭니다.
@@ -253,6 +256,7 @@ mAP: 0.8841195749171925
 
 
 
+[[scenario-3-nvidia-triton-inference-server]]
 == 시나리오 3 – NVIDIA Triton 추론 서버
 
 . AI/ML 추론 워크로드를 위한 Kubernetes 네임스페이스를 만듭니다.

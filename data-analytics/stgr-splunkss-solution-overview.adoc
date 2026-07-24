@@ -18,6 +18,7 @@ summary: 이 페이지에서는 NetApp StorageGRID, Splunk Enterprise, Splunk Sm
 
 
 
+[[netapp-storagegrid]]
 == NetApp StorageGRID
 
 NetApp StorageGRID 는 고성능이고 비용 효율적인 객체 스토리지 플랫폼입니다.  분산형 노드 기반 그리드 아키텍처를 사용하여 지능적이고 정책 기반의 글로벌 데이터 관리를 제공합니다.  유비쿼터스 글로벌 객체 네임스페이스와 정교한 데이터 관리 기능을 결합하여 페타바이트 규모의 비정형 데이터와 수십억 개의 객체를 간편하게 관리할 수 있습니다.  단일 호출 객체 액세스는 여러 사이트로 확장되어 고가용성 아키텍처를 단순화하는 동시에 사이트나 인프라 중단에 관계없이 지속적인 객체 액세스를 보장합니다.
@@ -28,6 +29,7 @@ SmartStore는 원격 스토리지 계층으로 StorageGRID 활용하고 고객�
 
 
 
+[[splunk-enterprise]]
 == 스플렁크 엔터프라이즈
 
 기계에서 생성된 데이터의 수집 및 분석 분야를 선도하는 Splunk는 운영 분석 기능을 통해 IT를 간소화하고 현대화하는 데 도움을 줍니다.  또한 비즈니스 분석, 보안, IoT 사용 사례로 확장됩니다.  스토리지는 Splunk 소프트웨어를 성공적으로 배포하는 데 중요한 요소입니다.
@@ -36,6 +38,7 @@ SmartStore는 원격 스토리지 계층으로 StorageGRID 활용하고 고객�
 
 
 
+[[splunk-smartstore]]
 == 스플렁크 스마트스토어
 
 Splunk SmartStore는 StorageGRID 와 같은 개체 스토리지(원격 스토리지 또는 원격 스토리지 계층이라고도 함)를 사용하여 S3 프로토콜을 사용하여 웜 데이터를 저장하는 인덱서 기능입니다.

@@ -18,6 +18,7 @@ summary: 이 페이지에서는 주요 AI, ML, DL 사용 사례와 아키텍처�
 
 
 
+[[spark-nlp-pipelines-and-tensorflow-distributed-inferencing]]
 == Spark NLP 파이프라인 및 TensorFlow 분산 추론
 
 다음 목록은 다양한 개발 수준에서 데이터 과학 커뮤니티에서 채택된 가장 인기 있는 오픈소스 NLP 라이브러리를 포함합니다.
@@ -40,6 +41,7 @@ Spark NLP의 기반이 되는 딥 러닝 엔진은 TensorFlow입니다. TensorFl
 
 
 
+[[horovod-distributed-training]]
 == Horovod 분산 훈련
 
 MapReduce 관련 성능에 대한 핵심 Hadoop 검증은 TeraGen, TeraSort, TeraValidate 및 DFSIO(읽기 및 쓰기)를 사용하여 수행됩니다.  TeraGen 및 TeraSort 검증 결과는 다음과 같습니다. https://www.netapp.com/pdf.html?item=/media/16420-tr-3969pdf.pdf["Hadoop을 위한 NetApp E-Series 솔루션"] AFF 의 "스토리지 계층화" 섹션에 있습니다.
@@ -61,6 +63,7 @@ Spark에서 Horovod를 실행하기 위한 두 가지 API가 있습니다. 상�
 
 
 
+[[multi-worker-deep-learning-using-keras-for-ctr-prediction]]
 == CTR 예측을 위한 Keras를 사용한 멀티 워커 딥 러닝
 
 최근 ML 플랫폼과 애플리케이션이 발전함에 따라 대규모 학습에 많은 관심이 쏠리고 있습니다.  클릭률(CTR)은 온라인 광고 노출 100회당 평균 클릭 수(백분율로 표시)로 정의됩니다.  이는 디지털 마케팅, 소매, 전자상거래, 서비스 제공업체를 포함한 다양한 산업 분야와 사용 사례에서 핵심 지표로 널리 채택되고 있습니다.  CTR 및 분산형 교육 성능 결과의 적용에 대한 자세한 내용은 다음을 참조하세요.link:apache-spark-testing-results.html#deep-learning-models-for-ctr-prediction-performance["CTR 예측 성능을 위한 딥러닝 모델"] 부분.
@@ -89,6 +92,7 @@ DCN 외에도 CTR 예측을 위한 다른 인기 있는 딥러닝 모델도 테�
 
 
 
+[[architectures-used-for-validation]]
 == 검증에 사용되는 아키텍처
 
 이러한 검증을 위해 우리는 AFF-A800 HA 쌍을 갖춘 4개의 워커 노드와 1개의 마스터 노드를 사용했습니다.  모든 클러스터 구성원은 10GbE 네트워크 스위치를 통해 연결되었습니다.

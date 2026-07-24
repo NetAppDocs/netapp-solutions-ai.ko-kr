@@ -18,6 +18,7 @@ NetApp SnapMirror 는 NetApp 스토리지 시스템 간에 데이터를 복제�
 
 
 
+[[example-worklfow-and-demo]]
 == 예제 워크플로 및 데모
 
 참조하다link:https://community.netapp.com/t5/Tech-ONTAP-Blogs/Accelerating-Data-Ingestion-and-AI-ML-Experimentation-with-NetApp-SnapMirror-and/ba-p/457814["이 Tech ONTAP 블로그 게시물"] NetApp SnapMirror 사용하여 JupyterHub에 데이터를 수집하는 방법에 대한 자세한 예제 워크플로와 데모를 확인하세요.

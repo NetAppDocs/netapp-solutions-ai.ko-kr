@@ -20,12 +20,14 @@ image:hdcs-sh-009.png["입력/출력 대화 상자 또는 서면 내용을 나�
 
 
 
+[[scenario]]
 == 대본
 
 이 시나리오에서는 IoT 센서 데이터가 클라우드로 수집되어 AWS 내의 오픈 소스 Apache Spark 클러스터를 사용하여 분석됩니다.  필요한 것은 클라우드에서 처리된 데이터를 온프레미스로 백업하는 것입니다.
 
 
 
+[[requirements-and-challenges]]
 == 요구 사항 및 과제
 
 이 사용 사례에 대한 주요 요구 사항과 과제는 다음과 같습니다.
@@ -37,6 +39,7 @@ image:hdcs-sh-009.png["입력/출력 대화 상자 또는 서면 내용을 나�
 
 
 
+[[solution]]
 == 해결책
 
 고객은 Spark 클러스터 HDFS 스토리지로 AWS Elastic Block Store(EBS)를 사용하여 Kafka를 통해 원격 센서로부터 데이터를 수신하고 수집합니다.  따라서 HDFS 저장소는 백업 데이터의 소스 역할을 합니다.

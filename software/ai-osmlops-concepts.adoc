@@ -18,6 +18,7 @@ summary: NetApp 활용한 오픈소스 MLOps - 기술 개요
 
 
 
+[[artificial-intelligence]]
 == 인공지능
 
 AI는 컴퓨터가 인간 정신의 인지 기능을 모방하도록 훈련되는 컴퓨터 과학 분야입니다.  AI 개발자는 컴퓨터가 인간과 비슷하거나 더 나은 방식으로 학습하고 문제를 해결하도록 훈련시킵니다.  딥러닝과 머신러닝은 AI의 하위 분야입니다.  점점 더 많은 기업이 중요한 비즈니스 요구 사항을 지원하기 위해 AI, ML, DL을 도입하고 있습니다.  몇 가지 예는 다음과 같습니다.
@@ -31,6 +32,7 @@ AI는 컴퓨터가 인간 정신의 인지 기능을 모방하도록 훈련되�
 
 
 
+[[containers]]
 == 컨테이너
 
 컨테이너는 공유 호스트 운영 체제 커널 위에서 실행되는 격리된 사용자 공간 인스턴스입니다.  컨테이너의 도입이 급속히 증가하고 있습니다.  컨테이너는 가상 머신(VM)이 제공하는 것과 동일한 애플리케이션 샌드박싱 이점을 많이 제공합니다.  하지만 VM이 의존하는 하이퍼바이저와 게스트 운영 체제 계층이 제거되었기 때문에 컨테이너는 훨씬 더 가볍습니다.  다음 그림은 가상 머신과 컨테이너를 시각화하여 보여줍니다.
@@ -41,18 +43,21 @@ image:aicp-002.png["입력/출력 대화 상자 또는 서면 내용을 나타�
 
 
 
+[[kubernetes]]
 == 쿠버네티스
 
 쿠버네티스는 원래 Google에서 설계한 오픈 소스, 분산형 컨테이너 오케스트레이션 플랫폼으로, 현재는 Cloud Native Computing Foundation(CNCF)에서 관리하고 있습니다.  쿠버네티스는 컨테이너화된 애플리케이션의 배포, 관리 및 확장 기능을 자동화할 수 있습니다.  최근 몇 년 동안 쿠버네티스는 지배적인 컨테이너 오케스트레이션 플랫폼으로 떠올랐습니다.  자세한 내용은 다음을 방문하세요. https://kubernetes.io["쿠버네티스 웹사이트"^] .
 
 
 
+[[netapp-trident]]
 == NetApp Trident
 
 link:https://docs.netapp.com/us-en/trident/index.html["Trident"^]ONTAP (AFF, FAS, Select, Cloud, Amazon FSx ONTAP), Azure NetApp Files 서비스, Google Cloud NetApp Volumes 포함하여 퍼블릭 클라우드 또는 온프레미스에서 모든 인기 있는 NetApp 스토리지 플랫폼에서 스토리지 리소스를 사용하고 관리할 수 있도록 지원합니다.  Trident 는 Kubernetes와 기본적으로 통합되는 컨테이너 스토리지 인터페이스(CSI) 호환 동적 스토리지 오케스트레이터입니다.
 
 
 
+[[netapp-dataops-toolkit]]
 == NetApp DataOps 툴킷
 
 그만큼link:https://github.com/NetApp/netapp-dataops-toolkit["NetApp DataOps 툴킷"^] 고성능, 확장형 NetApp 스토리지에 의해 지원되는 개발/교육 작업 공간과 추론 서버의 관리를 간소화하는 Python 기반 도구입니다.  주요 기능은 다음과 같습니다.
@@ -65,72 +70,84 @@ link:https://docs.netapp.com/us-en/trident/index.html["Trident"^]ONTAP (AFF, FAS
 
 
 
+[[apache-airflow]]
 == 아파치 에어플로우
 
 Apache Airflow는 복잡한 엔터프라이즈 워크플로에 대한 프로그래밍 방식 작성, 일정 예약 및 모니터링을 지원하는 오픈 소스 워크플로 관리 플랫폼입니다.  ETL 및 데이터 파이프라인 워크플로를 자동화하는 데 자주 사용되지만 이러한 유형의 워크플로에만 국한되지는 않습니다.  Airflow 프로젝트는 Airbnb에서 시작되었지만 그 이후로 업계에서 큰 인기를 얻었으며 현재는 Apache 소프트웨어 재단의 후원을 받고 있습니다.  Airflow는 Python으로 작성되었으며, Airflow 워크플로는 Python 스크립트를 통해 생성되고, Airflow는 "코드로 구성"이라는 원칙에 따라 설계되었습니다.  많은 기업 Airflow 사용자는 이제 Kubernetes를 기반으로 Airflow를 실행합니다.
 
 
 
+[[directed-acyclic-graphs-dags]]
 === 방향성 비순환 그래프(DAG)
 
 Airflow에서는 워크플로를 DAG(Directed Acycle Graphs)라고 합니다.  DAG는 DAG 정의에 따라 순차적으로, 병렬로 또는 두 가지를 조합하여 실행되는 작업으로 구성됩니다.  Airflow 스케줄러는 DAG 정의에 지정된 작업 수준 종속성을 준수하여 일련의 작업자에서 개별 작업을 실행합니다.  DAG는 Python 스크립트를 통해 정의되고 생성됩니다.
 
 
 
+[[jupyter-notebook]]
 == 주피터 노트북
 
 Jupyter Notebook은 실시간 코드와 설명 텍스트를 포함하는 위키와 유사한 문서입니다.  Jupyter Notebooks는 AI 및 ML 커뮤니티에서 AI 및 ML 프로젝트를 문서화하고, 저장하고, 공유하는 수단으로 널리 사용됩니다.  Jupyter Notebooks에 대한 자세한 내용은 다음을 방문하세요. http://www.jupyter.org/["주피터 웹사이트"^] .
 
 
 
+[[jupyter-notebook-server]]
 === Jupyter Notebook 서버
 
 Jupyter Notebook Server는 사용자가 Jupyter Notebook을 만들 수 있는 오픈 소스 웹 애플리케이션입니다.
 
 
 
+[[jupyterhub]]
 == 주피터허브
 
 JupyterHub는 개별 사용자가 자신의 Jupyter Notebook 서버를 프로비저닝하고 액세스할 수 있도록 하는 다중 사용자 애플리케이션입니다.  JupyterHub에 대한 자세한 내용은 다음을 방문하세요. https://jupyter.org/hub["JupyterHub 웹사이트"^] .
 
 
 
+[[mlflow]]
 == ML플로우
 
 MLflow는 인기 있는 오픈소스 AI 라이프사이클 관리 플랫폼입니다.  MLflow의 주요 기능으로는 AI/ML 실험 추적 및 AI/ML 모델 저장소가 있습니다.  MLflow에 대한 자세한 내용은 다음을 방문하세요. https://www.mlflow.org/["MLflow 웹사이트"^] .
 
 
 
+[[kubeflow]]
 == 쿠베플로우
 
 Kubeflow는 원래 Google에서 개발한 Kubernetes용 오픈소스 AI 및 ML 툴킷입니다.  Kubeflow 프로젝트는 Kubernetes에서 AI 및 ML 워크플로를 간편하고, 이식 가능하며, 확장 가능하게 배포할 수 있도록 해줍니다.  Kubeflow는 Kubernetes의 복잡한 부분을 추상화하여 데이터 과학자가 자신이 가장 잘 아는 분야인 데이터 과학에 집중할 수 있도록 해줍니다.  다음 그림을 통해 시각화를 살펴보세요.  Kubeflow는 올인원 MLOps 플랫폼을 선호하는 조직에 적합한 오픈소스 옵션입니다.  자세한 내용은 다음을 방문하세요. http://www.kubeflow.org/["Kubeflow 웹사이트"^] .
 
 
 
+[[kubeflow-pipelines]]
 === Kubeflow 파이프라인
 
 Kubeflow 파이프라인은 Kubeflow의 핵심 구성 요소입니다.  Kubeflow Pipelines는 이식 가능하고 확장 가능한 AI 및 ML 워크플로를 정의하고 배포하기 위한 플랫폼이자 표준입니다. 자세한 내용은 다음을 참조하세요. https://www.kubeflow.org/docs/components/pipelines/["공식 Kubeflow 문서"^] .
 
 
 
+[[kubeflow-notebooks]]
 === Kubeflow 노트북
 
 Kubeflow는 Kubernetes에서 Jupyter Notebook 서버의 프로비저닝과 배포를 간소화합니다.  Kubeflow 컨텍스트 내에서 Jupyter Notebooks에 대한 자세한 내용은 다음을 참조하세요. https://www.kubeflow.org/docs/components/notebooks/overview/["공식 Kubeflow 문서"^] .
 
 
 
+[[katib]]
 === 카티브
 
 Katib은 자동화된 머신 러닝(AutoML)을 위한 Kubernetes 기반 프로젝트입니다.  Katib은 하이퍼파라미터 튜닝, 조기 중단 및 NAS(신경망 구조 탐색)를 지원합니다.  Katib은 머신 러닝(ML) 프레임워크에 구애받지 않는 프로젝트입니다.  사용자가 선택한 언어로 작성된 애플리케이션의 하이퍼파라미터를 조정할 수 있으며 TensorFlow, MXNet, PyTorch, XGBoost 등 다양한 ML 프레임워크를 기본적으로 지원합니다.  Katib은 베이지안 최적화, 파젠 추정 트리, 무작위 탐색, 공분산 행렬 적응 진화 전략, 하이퍼밴드, 효율적 신경 구조 탐색, 미분 가능 구조 탐색 등 다양한 AutoML 알고리즘을 지원합니다.  Kubeflow 컨텍스트 내에서 Jupyter Notebooks에 대한 자세한 내용은 다음을 참조하세요. https://www.kubeflow.org/docs/components/katib/overview/["공식 Kubeflow 문서"^] .
 
 
 
+[[netapp-ontap]]
 == NetApp ONTAP
 
 NetApp 의 최신 스토리지 관리 소프트웨어인 ONTAP 9를 사용하면 기업이 인프라를 현대화하고 클라우드 지원 데이터 센터로 전환할 수 있습니다.  ONTAP 업계 최고의 데이터 관리 역량을 활용하여 데이터가 어디에 있든 단일 도구 세트를 사용하여 데이터를 관리하고 보호할 수 있도록 지원합니다.  또한 필요한 곳, 즉 엣지, 코어, 클라우드로 데이터를 자유롭게 이동할 수 있습니다.  ONTAP 9에는 데이터 관리를 간소화하고, 중요 데이터를 가속화하고 보호하며, 하이브리드 클라우드 아키텍처 전반에서 차세대 인프라 기능을 구현하는 다양한 기능이 포함되어 있습니다.
 
 
 
+[[simplify-data-management]]
 === 데이터 관리 간소화
 
 적절한 리소스가 AI 애플리케이션과 AI/ML 데이터 세트 교육에 사용될 수 있도록 기업 IT 운영과 데이터 과학자에게 데이터 관리가 매우 중요합니다.  NetApp 기술에 대한 다음 추가 정보는 이 검증 범위를 벗어나지만 배포에 따라 관련이 있을 수 있습니다.
@@ -144,6 +161,7 @@ ONTAP 데이터 관리 소프트웨어에는 다음과 같은 기능이 포함�
 
 
 
+[[accelerate-and-protect-data]]
 === 데이터 가속화 및 보호
 
 ONTAP 뛰어난 수준의 성능과 데이터 보호 기능을 제공하며 다음과 같은 방식으로 이러한 기능을 확장합니다.
@@ -156,6 +174,7 @@ ONTAP 뛰어난 수준의 성능과 데이터 보호 기능을 제공하며 다�
 
 
 
+[[future-proof-infrastructure]]
 === 미래 지향적 인프라
 
 ONTAP 다음과 같은 기능을 통해 까다롭고 끊임없이 변화하는 비즈니스 요구 사항을 충족하는 데 도움이 됩니다.
@@ -167,6 +186,7 @@ ONTAP 다음과 같은 기능을 통해 까다롭고 끊임없이 변화하는 �
 
 
 
+[[netapp-snapshot-copies]]
 == NetApp 스냅샷 복사본
 
 NetApp 스냅샷 복사본은 볼륨의 읽기 전용 특정 시점 이미지입니다.  다음 그림에서 볼 수 있듯이 이미지는 최소한의 저장 공간을 사용하고 마지막 스냅샷 복사본이 만들어진 이후에 생성된 파일의 변경 사항만 기록하므로 성능 오버헤드가 무시할 수 있을 정도입니다.
@@ -179,6 +199,7 @@ image:aicp-004.png["입력/출력 대화 상자 또는 서면 내용을 나타�
 
 
 
+[[netapp-flexclone-technology]]
 == NetApp FlexClone 기술
 
 NetApp FlexClone 기술은 스냅샷 메타데이터를 참조하여 볼륨의 쓰기 가능한 특정 시점 복사본을 생성합니다.  다음 그림에서 볼 수 있듯이 복사본은 부모와 데이터 블록을 공유하며, 복사본에 변경 사항이 기록될 때까지 메타데이터에 필요한 것을 제외하고는 저장 공간을 사용하지 않습니다.  기존 복사 작업에는 몇 분 또는 몇 시간이 걸릴 수 있지만, FlexClone 소프트웨어를 사용하면 가장 큰 데이터 세트도 거의 즉시 복사할 수 있습니다.  따라서 동일한 데이터 세트의 여러 사본이 필요한 상황(예: 개발 작업 공간)이나 데이터 세트의 임시 사본(예: 프로덕션 데이터 세트에 대한 애플리케이션 테스트)이 필요한 경우에 이상적입니다.
@@ -187,6 +208,7 @@ image:aicp-005.png["입력/출력 대화 상자 또는 서면 내용을 나타�
 
 
 
+[[netapp-snapmirror-data-replication-technology]]
 == NetApp SnapMirror 데이터 복제 기술
 
 NetApp SnapMirror 소프트웨어는 데이터 패브릭 전반에 걸친 비용 효율적이고 사용하기 쉬운 통합 복제 솔루션입니다.  LAN이나 WAN을 통해 고속으로 데이터를 복제합니다.  이 솔루션은 가상 및 기존 환경 모두에서 비즈니스에 중요한 애플리케이션을 포함하여 모든 유형의 애플리케이션에 대해 높은 데이터 가용성과 빠른 데이터 복제 기능을 제공합니다.  하나 이상의 NetApp 스토리지 시스템에 데이터를 복제하고 보조 데이터를 지속적으로 업데이트하면 데이터가 최신 상태로 유지되고 필요할 때마다 사용할 수 있습니다.  외부 복제 서버가 필요하지 않습니다.  SnapMirror 기술을 활용하는 아키텍처의 예는 다음 그림을 참조하세요.
@@ -195,6 +217,7 @@ SnapMirror 소프트웨어는 변경된 블록만 네트워크를 통해 전송�
 
 
 
+[[netapp-bluexp-copy-and-sync]]
 == NetApp BlueXP 복사 및 동기화
 
 link:https://bluexp.netapp.com/cloud-sync-service["BlueXP 복사 및 동기화"^]빠르고 안전한 데이터 동기화를 위한 NetApp 서비스입니다.  온프레미스 NFS 또는 SMB 파일 공유, NetApp StorageGRID, NetApp ONTAP S3, Google Cloud NetApp Volumes, Azure NetApp Files, AWS S3, AWS EFS, Azure Blob, Google Cloud Storage 또는 IBM Cloud Object Storage 간에 파일을 전송해야 하는 경우 BlueXP Copy and Sync를 사용하면 파일을 필요한 곳으로 빠르고 안전하게 이동할 수 있습니다.
@@ -205,12 +228,14 @@ BlueXP Copy and Sync는 설정과 사용이 매우 간단한 SaaS(Software as a 
 
 
 
+[[netapp-xcp]]
 == NetApp XCP
 
 link:https://xcp.netapp.com/["NetApp XCP"^]모든 NetApp 및 NetApp NetApp 데이터 마이그레이션과 파일 시스템 통찰력을 위한 클라이언트 기반 소프트웨어입니다.  XCP는 사용 가능한 모든 시스템 리소스를 활용해 대용량 데이터 세트와 고성능 마이그레이션을 처리함으로써 확장성을 높이고 최대 성능을 달성하도록 설계되었습니다.  XCP는 보고서 생성 옵션을 통해 파일 시스템에 대한 완전한 가시성을 확보하는 데 도움이 됩니다.
 
 
 
+[[netapp-ontap-flexgroup-volumes]]
 == NetApp ONTAP FlexGroup 볼륨
 
 훈련 데이터 세트는 잠재적으로 수십억 개의 파일 모음이 될 수 있습니다.  파일에는 텍스트, 오디오, 비디오 및 기타 형태의 비정형 데이터가 포함될 수 있으며, 이러한 데이터는 병렬로 읽을 수 있도록 저장하고 처리해야 합니다.  저장 시스템은 많은 수의 작은 파일을 저장해야 하며, 순차적이고 무작위적인 I/O를 위해 해당 파일을 병렬로 읽어야 합니다.

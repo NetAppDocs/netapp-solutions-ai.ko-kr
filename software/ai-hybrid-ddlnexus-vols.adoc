@@ -18,6 +18,7 @@ summary: Domino Data Lab 및 NetApp 활용한 하이브리드 멀티클라우드
 
 
 
+[[why-expose-netapp-ontap-volumes-to-domino]]
 == NetApp ONTAP 볼륨을 Domino에 노출하는 이유는 무엇입니까?
 
 Domino와 함께 NetApp 볼륨을 사용하면 다음과 같은 이점이 있습니다.
@@ -30,12 +31,14 @@ Domino와 함께 NetApp 볼륨을 사용하면 다음과 같은 이점이 있습
 
 
 
+[[expose-existing-nfs-volumes-that-were-not-provisioned-by-trident]]
 == Trident 에서 프로비저닝되지 않은 기존 NFS 볼륨 노출
 
 기존 NetApp ONTAP NFS 볼륨이 Trident 에서 프로비저닝되지 않은 경우 이 하위 섹션에 설명된 단계를 따르세요.
 
 
 
+[[create-pv-and-pvc-in-kubernetes]]
 === Kubernetes에서 PV 및 PVC 생성
 
 
@@ -45,6 +48,7 @@ NOTE: 온프레미스 볼륨의 경우 온프레미스 Kubernetes 클러스터�
 
 
 
+[[register-external-data-volume-in-domino]]
 === Domino에 외부 데이터 볼륨 등록
 
 다음으로, Domino에 외부 데이터 볼륨을 등록해야 합니다.  외부 데이터 볼륨을 등록하려면 다음을 참조하세요.link:https://docs.dominodatalab.com/en/latest/admin_guide/9c3564/register-external-data-volumes/["지침"] Domino 관리자 가이드에서.  볼륨을 등록할 때 '볼륨 유형' 드롭다운 메뉴에서 'NFS'를 선택하세요.  "NFS"를 선택하면 '사용 가능한 볼륨' 목록에 PVC가 표시됩니다.
@@ -53,12 +57,14 @@ image:ddlnexus-003.png["입력/출력 대화 상자 또는 서면 내용을 나�
 
 
 
+[[expose-existing-volumes-that-were-provisioned-by-trident]]
 == Trident 에서 프로비저닝된 기존 볼륨 노출
 
 기존 볼륨이 Trident 에서 프로비저닝된 경우 이 하위 섹션에 설명된 단계를 따르세요.
 
 
 
+[[edit-existing-pvc]]
 === 기존 PVC 편집
 
 볼륨이 Trident 에서 프로비저닝된 경우 볼륨에 해당하는 영구 볼륨 클레임(PVC)이 이미 있습니다.  이 볼륨을 Domino에 노출하려면 PVC를 편집하고 다음 레이블을 레이블 목록에 추가해야 합니다. `metadata.labels` 필드:
@@ -68,6 +74,7 @@ image:ddlnexus-003.png["입력/출력 대화 상자 또는 서면 내용을 나�
 ....
 
 
+[[register-external-data-volume-in-domino]]
 === Domino에 외부 데이터 볼륨 등록
 
 다음으로, Domino에 외부 데이터 볼륨을 등록해야 합니다.  외부 데이터 볼륨을 등록하려면 다음을 참조하세요.link:https://docs.dominodatalab.com/en/latest/admin_guide/9c3564/register-external-data-volumes/["지침"] Domino 관리자 가이드에서.  볼륨을 등록할 때 '볼륨 유형' 드롭다운 메뉴에서 '일반'을 선택하세요.  "일반"을 선택하면 '사용 가능한 볼륨' 목록에 PVC가 표시됩니다.

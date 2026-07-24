@@ -18,10 +18,12 @@ summary: NVIDIA DGX 시스템을 탑재한 NetApp AIPod - 소프트웨어 구성
 
 
 
+[[nvidia-software]]
 == NVIDIA 소프트웨어
 
 
 
+[[nvidia-base-command]]
 === NVIDIA 베이스 명령
 
 NVIDIA Base Command&#8482;는 모든 DGX BasePOD를 구동하여 조직이 NVIDIA 소프트웨어 혁신의 장점을 최대한 활용할 수 있도록 지원합니다.  기업은 엔터프라이즈급 오케스트레이션 및 클러스터 관리, 컴퓨팅, 스토리지 및 네트워크 인프라를 가속화하는 라이브러리, AI 워크로드에 최적화된 운영 체제(OS)를 포함하는 검증된 플랫폼을 통해 투자의 잠재력을 최대한 발휘할 수 있습니다.
@@ -32,6 +34,7 @@ image:aipod-nv-basecommand-new.png["입력/출력 대화 상자 또는 서면 �
 
 
 
+[[nvidia-gpu-cloud-ngc]]
 === NVIDIA GPU 클라우드(NGC)
 
 NVIDIA NGC는 다양한 수준의 AI 전문 지식을 갖춘 데이터 과학자, 개발자, 연구자의 요구를 충족하는 소프트웨어를 제공합니다.  NGC에 호스팅된 소프트웨어는 공통적인 취약성 및 노출(CVE), 암호 및 개인 키의 집계된 집합에 대한 검사를 거칩니다.  DGX 시스템은 여러 GPU에 확장 가능하고, 많은 경우 다중 노드에 확장 가능하도록 테스트 및 설계되어 사용자가 DGX 시스템에 대한 투자를 극대화할 수 있도록 보장합니다.
@@ -42,16 +45,19 @@ image:aipod-nv-ngc.png["입력/출력 대화 상자 또는 서면 내용을 나�
 
 
 
+[[nvidia-ai-enterprise]]
 === NVIDIA AI 엔터프라이즈
 
 NVIDIA AI Enterprise는 모든 기업이 생성적 AI를 활용할 수 있도록 하는 엔드 투 엔드 소프트웨어 플랫폼으로, NVIDIA DGX 플랫폼에서 실행되도록 최적화된 생성적 AI 기반 모델을 위한 가장 빠르고 효율적인 런타임을 제공합니다.  프로덕션 수준의 보안, 안정성, 관리 용이성을 갖춰 생성적 AI 솔루션 개발을 간소화합니다.  NVIDIA AI Enterprise는 DGX BasePOD에 포함되어 기업 개발자가 사전 학습된 모델, 최적화된 프레임워크, 마이크로서비스, 가속 라이브러리 및 기업 지원에 액세스할 수 있도록 합니다.
 
 
 
+[[netapp-software]]
 == NetApp 소프트웨어
 
 
 
+[[netapp-ontap]]
 === NetApp ONTAP
 
 NetApp 의 최신 스토리지 관리 소프트웨어인 ONTAP 9를 사용하면 기업이 인프라를 현대화하고 클라우드 지원 데이터 센터로 전환할 수 있습니다.  ONTAP 업계 최고의 데이터 관리 역량을 활용하여 데이터가 어디에 있든 단일 도구 세트를 사용하여 데이터를 관리하고 보호할 수 있도록 지원합니다.  또한 필요한 곳, 즉 엣지, 코어, 클라우드로 데이터를 자유롭게 이동할 수 있습니다.  ONTAP 9에는 데이터 관리를 간소화하고, 중요 데이터를 가속화하고 보호하며, 하이브리드 클라우드 아키텍처 전반에서 차세대 인프라 기능을 구현하는 다양한 기능이 포함되어 있습니다.
@@ -98,6 +104,7 @@ ONTAP 다음과 같은 기능을 통해 까다롭고 끊임없이 변화하는 �
 
 
 
+[[netapp-dataops-toolkit]]
 === NetApp DataOps 툴킷
 
 NetApp DataOps Toolkit은 고성능, 확장형 NetApp 스토리지에 의해 지원되는 개발/교육 작업 공간과 추론 서버의 관리를 간소화하는 Python 기반 도구입니다.  DataOps Toolkit은 독립형 유틸리티로 작동할 수 있으며 NetApp Trident 활용하여 스토리지 작업을 자동화하는 Kubernetes 환경에서 더욱 효과적입니다.  주요 기능은 다음과 같습니다.
@@ -111,6 +118,7 @@ NetApp DataOps Toolkit은 고성능, 확장형 NetApp 스토리지에 의해 지
 
 
 
+[[netapp-trident]]
 === NetApp Trident
 
 Trident Anthos를 포함한 컨테이너와 Kubernetes 배포판을 위한 완벽하게 지원되는 오픈 소스 스토리지 오케스트레이터입니다. Trident NetApp ONTAP 포함한 전체 NetApp 스토리지 포트폴리오와 호환되며 NFS, NVMe/TCP 및 iSCSI 연결도 지원합니다. Trident 최종 사용자가 스토리지 관리자의 개입 없이 NetApp 스토리지 시스템에서 스토리지를 프로비저닝하고 관리할 수 있도록 하여 DevOps 워크플로를 가속화합니다.

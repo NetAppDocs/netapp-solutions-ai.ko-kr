@@ -18,12 +18,14 @@ summary: 데이터는 NFS에서 사용할 수 있으며 AWS SageMaker의 S3에�
 
 
 
+[[technology-requirements]]
 == 기술 요구 사항
 
 데이터 이중성 사용 사례에는 NetApp BlueXP, NetApp Cloud Volumes ONTAP 및 AWS SageMaker Notebooks가 필요합니다.
 
 
 
+[[software-requirements]]
 === 소프트웨어 요구 사항
 
 다음 표는 사용 사례를 구현하는 데 필요한 소프트웨어 구성 요소를 나열합니다.
@@ -42,6 +44,7 @@ summary: 데이터는 NFS에서 사용할 수 있으며 AWS SageMaker의 S3에�
 |===
 
 
+[[deployment-procedures]]
 == 배포 절차
 
 데이터 이중성 솔루션을 배포하려면 다음 작업이 필요합니다.
@@ -55,6 +58,7 @@ summary: 데이터는 NFS에서 사용할 수 있으며 AWS SageMaker의 S3에�
 
 
 
+[[bluexp-connector]]
 === BlueXP 커넥터
 
 이 검증에서는 AWS를 사용했습니다.  Azure와 Google Cloud에도 적용할 수 있습니다.  AWS에서 BlueXP 커넥터를 생성하려면 다음 단계를 완료하세요.
@@ -71,6 +75,7 @@ summary: 데이터는 NFS에서 사용할 수 있으며 AWS SageMaker의 S3에�
 
 
 
+[[netapp-cloud-volumes-ontap]]
 === NetApp Cloud Volumes ONTAP
 
 BlueXP 에서 Cloud Volumes ONTAP 인스턴스를 생성하려면 다음 단계를 완료하세요.
@@ -244,6 +249,7 @@ sagemaker_cvo_sn1::*>
 
 
 
+[[aws-sagemaker]]
 === AWS 세이지메이커
 
 AWS SageMaker에서 AWS Notebook을 만들려면 다음 단계를 완료하세요.
@@ -318,6 +324,7 @@ sh-4.2$
 
 
 
+[[data-for-machine-learning]]
 === 머신러닝을 위한 데이터
 
 이 검증 과정에서 우리는 크라우드 소싱 커뮤니티 활동인 DBpedia의 데이터 세트를 사용하여 다양한 위키미디어 프로젝트에서 생성된 정보로부터 구조화된 콘텐츠를 추출했습니다.
@@ -443,6 +450,7 @@ sh-4.2$
 
 
 
+[[validate-machine-learning-from-jupyter-notebooks]]
 == Jupyter Notebooks에서 머신 러닝 검증
 
 다음 검증은 아래의 SageMaker BlazingText 예제를 사용하여 텍스트 분류를 통해 머신 러닝 모델을 빌드, 학습 및 배포하는 방법을 제공합니다.

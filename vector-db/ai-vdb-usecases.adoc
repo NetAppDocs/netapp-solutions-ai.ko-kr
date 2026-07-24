@@ -18,12 +18,14 @@ summary: 사용 사례 - NetApp용 벡터 데이터베이스 솔루션
 
 
 
+[[vector-database-use-cases]]
 == 벡터 데이터베이스 사용 사례
 
 이 섹션에서는 대규모 언어 모델을 사용한 검색 증강 생성 및 NetApp IT 챗봇과 같은 두 가지 사용 사례에 대해 설명합니다.
 
 
 
+[[retrieval-augmented-generation-rag-with-large-language-models-llms]]
 === 대규모 언어 모델(LLM)을 사용한 검색 증강 생성(RAG)
 
 ....
@@ -40,6 +42,7 @@ image:rag-nvidia-nemo.png["입력/출력 대화 상자 또는 서면 내용을 �
 
 
 
+[[netapp-it-chatbot-use-case]]
 === NetApp IT 챗봇 사용 사례
 
 NetApp의 챗봇은 벡터 데이터베이스의 또 다른 실시간 사용 사례로 활용됩니다.  이 경우 NetApp Private OpenAI Sandbox는 NetApp 내부 사용자의 쿼리를 관리하기 위한 효과적이고 안전하며 효율적인 플랫폼을 제공합니다.  엄격한 보안 프로토콜, 효율적인 데이터 관리 시스템, 정교한 AI 처리 기능을 통합하여 SSO 인증을 통해 조직 내 사용자의 역할과 책임에 따라 고품질의 정확한 응답을 보장합니다.  이 아키텍처는 고급 기술을 통합하여 사용자 중심의 지능형 시스템을 만드는 잠재력을 강조합니다.

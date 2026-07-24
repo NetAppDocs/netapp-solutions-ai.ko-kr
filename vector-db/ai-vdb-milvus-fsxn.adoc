@@ -18,6 +18,7 @@ summary: Amazon FSx ONTAP for NetApp ONTAP 을 사용한 milvus - NetApp용 벡�
 
 
 
+[[milvus-with-amazon-fsx-ontap-for-netapp-ontap-file-and-object-duality]]
 == NetApp ONTAP 용 Amazon FSx ONTAP 탑재한 Milvus – 파일 및 객체 이중성
 
 이 섹션에서는 왜 클라우드에 벡터 데이터베이스를 배포해야 하는지, 그리고 Docker 컨테이너 내 NetApp ONTAP 용 Amazon FSx ONTAP 에 벡터 데이터베이스(milvus standalone)를 배포하는 단계를 알아봅니다.

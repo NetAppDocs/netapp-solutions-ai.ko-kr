@@ -26,6 +26,7 @@ NetApp 스토리지는 로컬 SSD 스토리지와 동일하거나 더 나은 성
 
 
 
+[[acknowledgments]]
 == 감사의 말
 
 * Karthikeyan Nagalingam, 기술 마케팅 엔지니어, NetApp
@@ -34,6 +35,7 @@ NetApp 스토리지는 로컬 SSD 스토리지와 동일하거나 더 나은 성
 
 
 
+[[where-to-find-additional-information]]
 == 추가 정보를 찾을 수 있는 곳
 
 이 문서에 설명된 정보에 대해 자세히 알아보려면 다음 문서 및/또는 웹사이트를 참조하세요.

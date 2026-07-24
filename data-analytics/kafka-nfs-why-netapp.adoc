@@ -25,12 +25,14 @@ summary: 이제 Kafka를 사용하여 NFS 스토리지의 어리석은 이름 �
 
 
 
+[[reduced-cpu-utilization-on-kafka-broker]]
 == Kafka 브로커의 CPU 사용률 감소
 
 기술 사양은 동일하지만 저장 기술이 다른 두 개의 별도의 Kafka 클러스터에서 유사한 작업 부하를 실행했을 때, 전반적인 CPU 사용률이 DAS 대응 제품보다 낮다는 것을 발견했습니다.  Kafka 클러스터가 ONTAP 스토리지를 사용하면 전반적인 CPU 사용률이 낮을 뿐만 아니라 CPU 사용률의 증가 폭도 DAS 기반 Kafka 클러스터보다 완만했습니다.
 
 
 
+[[architectural-setup]]
 === 건축적 설정
 
 다음 표는 CPU 사용률을 낮추는 데 사용된 환경 구성을 보여줍니다.
@@ -55,6 +57,7 @@ summary: 이제 Kafka를 사용하여 NFS 스토리지의 어리석은 이름 �
 |===
 
 
+[[benchmarking-tool]]
 === 벤치마킹 도구
 
 이 테스트 케이스에서 사용된 벤치마킹 도구는 다음과 같습니다. https://openmessaging.cloud/["오픈메시징"^] 뼈대.  OpenMessaging은 공급업체와 언어에 구애받지 않습니다. 금융, 전자상거래, IoT, 빅데이터에 대한 산업 가이드라인을 제공하며, 이기종 시스템과 플랫폼에서 메시징 및 스트리밍 애플리케이션을 개발하는 데 도움이 됩니다.  다음 그림은 OpenMessaging 클라이언트와 Kafka 클러스터의 상호작용을 보여줍니다.
@@ -80,6 +83,7 @@ image:kafka-nfs-010.png["이 이미지는 OpenMessaging 벤치마크 워크로�
 
 
 
+[[methodology-of-testing]]
 === 테스트 방법론
 
 . 두 개의 유사한 클러스터가 생성되었으며, 각각 고유한 벤치마킹 클러스터 군집이 있습니다.
@@ -105,6 +109,7 @@ sudo bin/benchmark --drivers driver-kafka/kafka-group-all.yaml workloads/1-topic
 
 
 
+[[observation]]
 === 관찰
 
 Kafka와 함께 NetApp NFS 스토리지를 사용하면 두 가지 주요 이점이 있습니다.
@@ -125,12 +130,14 @@ image:kafka-nfs-014.png["이 그래프는 100,000개의 메시지에서 NFS 기�
 
 
 
+[[faster-broker-recovery]]
 == 더 빠른 브로커 회복
 
 Kafka 브로커가 공유 NetApp NFS 스토리지를 사용할 경우 복구 속도가 더 빨라진다는 것을 발견했습니다.  Kafka 클러스터에서 브로커가 충돌하는 경우, 이 브로커는 동일한 브로커 ID를 가진 정상적인 브로커로 교체될 수 있습니다.  이 테스트 사례를 수행한 결과, DAS 기반 Kafka 클러스터의 경우 클러스터가 새로 추가된 정상적인 브로커에서 데이터를 다시 구축하는데, 이는 시간이 많이 소요되는 작업이라는 것을 발견했습니다.  NetApp NFS 기반 Kafka 클러스터의 경우, 교체 브로커는 이전 로그 디렉토리에서 데이터를 계속 읽고 훨씬 빠르게 복구합니다.
 
 
 
+[[architectural-setup]]
 === 건축적 설정
 
 다음 표는 NAS를 사용하는 Kafka 클러스터의 환경 구성을 보여줍니다.
@@ -168,6 +175,7 @@ image:kafka-nfs-015.png["이 이미지는 카프카 브로커에 대해 선택�
 
 
 
+[[methodology-of-testing]]
 === 테스트 방법론
 
 . 두 개의 유사한 클러스터가 생성되었습니다.
@@ -199,6 +207,7 @@ image:kafka-nfs-016.png["이 이미지는 두 개의 터미널 화면을 보여�
 
 
 
+[[observation]]
 === 관찰
 
 카프카 브로커 복구가 거의 9배 더 빨랐습니다.  Kafka 클러스터에서 DAS SSD를 사용하는 것보다 NetApp NFS 공유 스토리지를 사용하면 실패한 브로커 노드를 복구하는 데 걸리는 시간이 훨씬 빠른 것으로 나타났습니다.  1TB의 주제 데이터에 대해 DAS 기반 클러스터의 복구 시간은 48분이었고, NetApp-NFS 기반 Kafka 클러스터의 경우 5분 미만이었습니다.
@@ -245,12 +254,14 @@ image:kafka-nfs-021.png["이 그래프는 DAS 기반 클러스터 또는 NFS 기
 
 
 
+[[storage-efficiency]]
 == 스토리지 효율성
 
 Kafka 클러스터의 스토리지 계층은 NetApp ONTAP 통해 프로비저닝되었기 때문에 ONTAP 의 모든 스토리지 효율성 기능을 얻을 수 있었습니다.  이는 Cloud Volumes ONTAP 에 프로비저닝된 NFS 스토리지를 사용하여 Kafka 클러스터에서 상당한 양의 데이터를 생성하여 테스트되었습니다.  ONTAP 기능으로 인해 상당한 공간 감소가 발생했음을 알 수 있었습니다.
 
 
 
+[[architectural-setup]]
 === 건축적 설정
 
 다음 표는 NAS를 사용하는 Kafka 클러스터의 환경 구성을 보여줍니다.
@@ -287,6 +298,7 @@ image:kafka-nfs-008.png["이 그림은 NAS 기반 Kafka 클러스터의 아키�
 
 
 
+[[methodology-of-testing]]
 === 테스트 방법론
 
 . 카프카 클러스터는 위에 언급된 사양에 따라 제공되었습니다.
@@ -296,6 +308,7 @@ image:kafka-nfs-008.png["이 그림은 NAS 기반 Kafka 클러스터의 아키�
 
 
 
+[[observation]]
 === 관찰
 
 OMB 도구를 사용하여 생성된 데이터의 경우 저장 효율성 비율이 1.70:1로 약 33%의 공간 절약 효과를 보였습니다.  다음 그림에서 볼 수 있듯이, 생성된 데이터가 사용하는 논리적 공간은 420.3GB이고, 데이터를 보관하는 데 사용된 물리적 공간은 281.7GB였습니다.

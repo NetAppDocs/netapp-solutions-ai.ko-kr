@@ -18,6 +18,7 @@ summary: 이 섹션에서는 이 솔루션에 사용된 기술에 대해 설명�
 
 
 
+[[netapp-storagegrid]]
 == NetApp StorageGRID
 
 NetApp StorageGRID 는 고성능, 비용 효율적인 객체 스토리지 플랫폼입니다.  계층형 스토리지를 사용하면 브로커의 로컬 스토리지나 SAN 스토리지에 저장된 Confluent Kafka의 대부분 데이터가 원격 개체 저장소로 오프로드됩니다.  이 구성은 클러스터를 재조정, 확장 또는 축소하거나 실패한 브로커를 교체하는 데 드는 시간과 비용을 줄여 운영을 크게 개선합니다.  개체 스토리지는 개체 스토리지 계층에 있는 데이터를 관리하는 데 중요한 역할을 하므로 올바른 개체 스토리지를 선택하는 것이 중요합니다.
@@ -28,6 +29,7 @@ StorageGRID 분산된 노드 기반 그리드 아키텍처를 사용하여 지�
 
 
 
+[[simple-management-with-grid-manager]]
 === Grid Manager를 통한 간편한 관리
 
 StorageGRID Grid Manager는 브라우저 기반 그래픽 인터페이스로, 단일 창에서 전 세계에 분산된 위치에 있는 StorageGRID 시스템을 구성, 관리 및 모니터링할 수 있습니다.
@@ -44,18 +46,21 @@ StorageGRID Grid Manager 인터페이스를 사용하여 다음 작업을 수행
 
 
 
+[[information-lifecycle-management-policies]]
 === 정보 수명 주기 관리 정책
 
 StorageGRID 개체의 복제본을 보관하고 2+1, 4+2 등과 같은 EC(삭제 코딩) 방식을 사용하여 특정 성능 및 데이터 보호 요구 사항에 따라 개체를 저장하는 등 유연한 데이터 관리 정책을 제공합니다.  시간이 지남에 따라 작업 부하와 요구 사항이 바뀌므로 ILM 정책도 시간이 지남에 따라 변경해야 하는 것이 일반적입니다.  ILM 정책을 수정하는 것은 StorageGRID 고객이 끊임없이 변화하는 환경에 빠르고 쉽게 적응할 수 있도록 하는 핵심 기능입니다.
 
 
 
+[[performance]]
 === 성능
 
 StorageGRID VM, 베어 메탈 또는 특수 목적 어플라이언스와 같은 더 많은 스토리지 노드를 추가하여 성능을 확장합니다.link:https://www.netapp.com/pdf.html?item=/media/7931-ds-3613.pdf["SG5712, SG5760, SG6060 또는 SGF6024"^] .  테스트 결과, SGF6024 어플라이언스를 사용하여 최소 크기의 3노드 그리드로 Apache Kafka의 주요 성능 요구 사항을 충족했습니다.  고객이 추가 브로커를 사용하여 Kafka 클러스터를 확장하면 더 많은 스토리지 노드를 추가하여 성능과 용량을 늘릴 수 있습니다.
 
 
 
+[[load-balancer-and-endpoint-configuration]]
 === 로드 밸런서 및 엔드포인트 구성
 
 StorageGRID 의 관리 노드는 StorageGRID 시스템을 보고, 구성하고, 관리할 수 있는 Grid Manager UI(사용자 인터페이스)와 REST API 엔드포인트를 제공하며, 시스템 활동을 추적하기 위한 감사 로그를 제공합니다.  Confluent Kafka 계층형 스토리지에 고가용성 S3 엔드포인트를 제공하기 위해 관리 노드와 게이트웨이 노드에서 서비스로 실행되는 StorageGRID 로드 밸런서를 구현했습니다.  또한, 로드 밸런서는 로컬 트래픽을 관리하고 GSLB(글로벌 서버 로드 밸런싱)와 통신하여 재해 복구를 지원합니다.
@@ -64,12 +69,14 @@ StorageGRID 의 관리 노드는 StorageGRID 시스템을 보고, 구성하고, 
 
 
 
+[[traffic-classification-in-storagegrid]]
 === StorageGRID 의 트래픽 분류
 
 StorageGRID 에는 QoS 기능이 내장되어 있습니다.  트래픽 분류 정책은 클라이언트 애플리케이션에서 발생하는 다양한 유형의 S3 트래픽을 모니터링하는 데 도움이 될 수 있습니다.  그런 다음 입출력 대역폭, 동시 읽기/쓰기 요청 수 또는 읽기/쓰기 요청 속도를 기준으로 이 트래픽에 제한을 두는 정책을 만들고 적용할 수 있습니다.
 
 
 
+[[apache-kafka]]
 == 아파치 카프카
 
 Apache Kafka는 Java와 Scala로 작성된 스트림 처리를 사용하는 소프트웨어 버스의 프레임워크 구현입니다.  실시간 데이터 피드를 처리하기 위한 통합적이고 처리량이 높으며 지연 시간이 짧은 플랫폼을 제공하는 것이 목표입니다.  Kafka는 Kafka Connect를 통해 외부 시스템에 연결하여 데이터를 내보내고 가져올 수 있으며, Java 스트림 처리 라이브러리인 Kafka 스트림을 제공합니다.  카프카는 효율성을 위해 최적화된 바이너리 TCP 기반 프로토콜을 사용하며, 네트워크 왕복 오버헤드를 줄이기 위해 자연스럽게 메시지를 그룹화하는 "메시지 세트" 추상화에 의존합니다.  이를 통해 더 큰 순차적 디스크 작업, 더 큰 네트워크 패킷, 연속적인 메모리 블록이 가능해져서 Kafka는 무작위 메시지 쓰기의 버스트 스트림을 선형 쓰기로 전환할 수 있습니다.  다음 그림은 Apache Kafka의 기본적인 데이터 흐름을 보여줍니다.
@@ -95,6 +102,7 @@ Kafka에는 5가지 주요 API가 있습니다.
 
 
 
+[[apache-kafka-use-cases]]
 === Apache Kafka 사용 사례
 
 Apache Kafka는 메시징, 웹사이트 활동 추적, 메트릭, 로그 집계, 스트림 처리, 이벤트 소싱 및 커밋 로깅에 가장 많이 사용됩니다.
@@ -110,18 +118,21 @@ Apache Kafka는 메시징, 웹사이트 활동 추적, 메트릭, 로그 집계,
 
 
 
+[[confluent]]
 == 지류
 
 Confluent Platform은 Kafka를 고급 기능으로 완성하여 애플리케이션 개발 및 연결을 가속화하고, 스트림 처리를 통해 변환을 지원하고, 대규모 기업 운영을 단순화하고, 엄격한 아키텍처 요구 사항을 충족하는 엔터프라이즈급 플랫폼입니다.  Apache Kafka의 최초 개발자가 개발한 Confluent는 Kafka의 이점을 엔터프라이즈급 기능으로 확장하는 동시에 Kafka 관리나 모니터링의 부담을 제거합니다.  오늘날 Fortune 100 기업 중 80% 이상이 데이터 스트리밍 기술을 사용하고 있으며, 그 중 대부분은 Confluent를 사용합니다.
 
 
 
+[[why-confluent]]
 === 왜 Confluent를 선택해야 할까요?
 
 Confluent는 과거 데이터와 실시간 데이터를 단일의 중앙 진실 소스로 통합하여 완전히 새로운 종류의 최신 이벤트 중심 애플리케이션을 쉽게 구축하고, 보편적인 데이터 파이프라인을 확보하고, 완전한 확장성, 성능, 안정성을 갖춘 강력한 새로운 사용 사례를 창출할 수 있도록 지원합니다.
 
 
 
+[[what-is-confluent-used-for]]
 === Confluent는 무엇에 사용되나요?
 
 Confluent Platform을 사용하면 여러 시스템 간에 데이터가 전송되거나 통합되는 방식과 같은 기본적인 메커니즘에 대해 걱정하는 대신 데이터에서 비즈니스 가치를 도출하는 방법에 집중할 수 있습니다.  특히, Confluent Platform은 Kafka에 대한 데이터 소스 연결, 스트리밍 애플리케이션 구축, Kafka 인프라의 보안, 모니터링 및 관리를 간소화합니다.  오늘날 Confluent Platform은 금융 서비스, 옴니채널 소매, 자율주행차부터 사기 탐지, 마이크로서비스, IoT까지 다양한 산업에 걸쳐 광범위한 사용 사례에 사용되고 있습니다.
@@ -132,6 +143,7 @@ image:confluent-kafka-006.png["입력/출력 대화 상자 또는 서면 내용�
 
 
 
+[[overview-of-confluents-event-streaming-technology]]
 === Confluent의 이벤트 스트리밍 기술 개요
 
 Confluent 플랫폼의 핵심은 다음과 같습니다. https://kafka.apache.org/["아파치 카프카"^] 가장 인기 있는 오픈소스 분산 스트리밍 플랫폼입니다.  카프카의 주요 기능은 다음과 같습니다.
@@ -145,6 +157,7 @@ Confluent Platform에는 기본적으로 스키마 레지스트리, REST 프록�
 
 
 
+[[overview-of-confluent-platforms-enterprise-features]]
 === Confluent 플랫폼의 엔터프라이즈 기능 개요
 
 * *Confluent 제어 센터.*  Kafka를 관리하고 모니터링하기 위한 GUI 기반 시스템입니다.  Kafka Connect를 쉽게 관리하고 다른 시스템에 대한 연결을 생성, 편집, 관리할 수 있습니다.

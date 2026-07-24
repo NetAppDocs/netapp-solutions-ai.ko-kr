@@ -15,12 +15,14 @@ David Espejo, Union.ai Sathish Thyagarajan, NetApp
 
 
 
+[[overview]]
 == 개요
 
 Union.ai의 하이브리드 오케스트레이션 플랫폼은 NetApp ONTAP 및 FlexCache 와 완벽하게 통합되어 AI/ML 교육 워크플로를 가속화합니다.  이 솔루션을 사용하면 클라우드 기반 GPU 컴퓨팅을 AI 학습 워크로드에 활용하는 동시에 데이터를 온프레미스에 안전하게 보관할 수 있습니다.  NetApp FlexCache 필요한 데이터만 클라우드에 캐시되도록 하여 효율적이고 안전하며 확장 가능한 하이브리드 AI/ML 파이프라인을 구현합니다.
 
 
 
+[[customer-use-case-hybrid-cloud-ai-training]]
 == 고객 사용 사례: 하이브리드 클라우드 AI 교육
 
 * 온프레미스 데이터: 규정 준수 및 보안을 위해 NetApp ONTAP 에 저장됩니다.
@@ -31,6 +33,7 @@ Union.ai의 하이브리드 오케스트레이션 플랫폼은 NetApp ONTAP 및 
 
 
 
+[[customer-value]]
 == 고객 가치
 
 * NetApp ONTAP의 확장 기능을 사용하여 방대한 데이터 세트에서 AI 워크로드를 실행하세요.
@@ -42,6 +45,7 @@ Union.ai의 하이브리드 오케스트레이션 플랫폼은 NetApp ONTAP 및 
 
 
 
+[[enabling-the-plugin-prerequisites]]
 == 플러그인 활성화 – 필수 구성 요소
 
 [cols="32%,68%"]
@@ -80,6 +84,7 @@ ONTAP 및 Kubernetes 클러스터에 대한 관리자 액세스.
 |===
 
 
+[[reference-architecture]]
 == 참조 아키텍처
 
 다음 그림은 하이브리드 AI 교육을 위해 NetApp 스토리지와 통합된 Union.ai 제어 평면을 보여줍니다.
@@ -93,6 +98,7 @@ image::ai-hybrid-union-001.png[Union.ai와 NetApp 활용한 하이브리드 AI �
 
 
 
+[[step-1-create-a-flexcache-volume]]
 === _1단계: FlexCache 볼륨 생성_
 
 ONTAP 시스템 관리자 사용
@@ -110,6 +116,7 @@ ONTAP 시스템 관리자 사용
 
 
 
+[[step-2-configure-trident]]
 === _2단계: Trident 구성_
 
 두 클러스터에 Trident 설치합니다.
@@ -153,6 +160,7 @@ kubectl apply -f storageclass-flexcache.yaml
 ----
 
 
+[[step-3-deploy-union-ai-workflows]]
 === _3단계: Union.ai 워크플로 배포_
 
 Union은 PVC를 사용하여 FlexCache 볼륨을 교육 작업에 마운트합니다.
@@ -212,6 +220,7 @@ train_model(pvc_path="/data/flexcache")
 
 
 
+[[step-4-validate-integration]]
 === 4단계: 통합 검증
 
 [cols="21%,79%"]
@@ -234,6 +243,7 @@ NetApp BlueXP 또는 ONTAP CLI를 사용하여 성능을 모니터링합니다.
 
 
 
+[[security-considerations]]
 == 보안 고려 사항
 
 * FSx for NetApp ONTAP 에 VPC 엔드포인트 사용
@@ -244,6 +254,7 @@ NetApp BlueXP 또는 ONTAP CLI를 사용하여 성능을 모니터링합니다.
 
 
 
+[[monitoring-and-optimization]]
 == 모니터링 및 최적화
 
 [cols="31%,69%"]
@@ -300,6 +311,7 @@ NetApp BlueXP 또는 ONTAP CLI를 사용하여 성능을 모니터링합니다.
 
 
 
+[[related-links]]
 == 관련 링크
 
 * https://docs.union.ai["+++Union.ai 문서+++"]
@@ -310,12 +322,14 @@ NetApp BlueXP 또는 ONTAP CLI를 사용하여 성능을 모니터링합니다.
 
 
 
+[[conclusion]]
 == 결론
 
 이제 Union.ai와 NetApp FlexCache 사용하여 검증된 하이브리드 AI 교육 환경이 구축되었습니다.  전체 데이터 세트를 복제하거나 거버넌스를 손상시키지 않고도 온프레미스 데이터에 안전하고 효율적으로 액세스하면서 클라우드에서 교육 작업을 실행할 수 있습니다.
 
 
 
+[[union-ai-companion-guide]]
 === *Union.ai - 동반 가이드*
 
 

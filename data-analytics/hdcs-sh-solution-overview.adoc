@@ -33,6 +33,7 @@ Karthikeyan Nagalingam 및 Sathish Thyagarajan, NetApp
 
 
 
+[[why-hadoop-data-protection]]
 == Hadoop 데이터 보호가 필요한 이유는?
 
 Hadoop 및 Spark 환경에서는 다음과 같은 문제를 해결해야 합니다.
@@ -44,6 +45,7 @@ Hadoop 및 Spark 환경에서는 다음과 같은 문제를 해결해야 합니�
 
 
 
+[[data-protection-challenges-for-hadoop-and-spark-customers]]
 == Hadoop 및 Spark 고객을 위한 데이터 보호 과제
 
 Hadoop 및 Spark 고객이 겪는 일반적인 과제는 데이터 보호 중에 프로덕션 클러스터의 성능에 부정적인 영향을 미치지 않으면서 백업 시간을 줄이고 백업 안정성을 높이는 것입니다.

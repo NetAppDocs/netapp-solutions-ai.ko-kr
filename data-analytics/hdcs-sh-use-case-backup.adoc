@@ -18,6 +18,7 @@ summary: 이 시나리오에서 고객은 대규모 온프레미스 Hadoop 저�
 
 
 
+[[requirements-and-challenges]]
 == 요구 사항 및 과제
 
 이 사용 사례에 대한 주요 요구 사항과 과제는 다음과 같습니다.
@@ -35,6 +36,7 @@ summary: 이 시나리오에서 고객은 대규모 온프레미스 Hadoop 저�
 
 
 
+[[customers-existing-backup-solutionx]]
 == 고객의 기존 백업 솔루션x
 
 아래 그림은 원래 Hadoop 기본 백업 솔루션을 보여줍니다.
@@ -63,12 +65,14 @@ image:hdcs-sh-005.png["입력/출력 대화 상자 또는 서면 내용을 나�
 
 
 
+[[backup-solutions]]
 == 백업 솔루션
 
 이러한 과제와 요구 사항을 바탕으로 기존 백업 시스템을 고려하여 세 가지 가능한 백업 솔루션이 제안되었습니다.  다음 하위 섹션에서는 솔루션 A부터 솔루션 C까지 라벨이 붙은 세 가지 백업 솔루션 각각에 대해 설명합니다.
 
 
 
+[[solution-a]]
 === 솔루션 A
 
 솔루션 A에서는 백업 Hadoop 클러스터가 보조 백업을 NetApp NFS 스토리지 시스템으로 보내서 아래 그림과 같이 테이프가 필요하지 않습니다.
@@ -114,6 +118,7 @@ NOTE: SnapMirror 기술을 사용하면 Hadoop 데이터를 클라우드뿐만 �
 
 
 
+[[solution-b]]
 === 솔루션 B
 
 솔루션 B는 프로덕션 Hadoop 클러스터에 NFS 볼륨을 추가하여 아래 그림과 같이 백업 Hadoop 클러스터가 필요 없게 합니다.
@@ -141,6 +146,7 @@ Hadoop 네이티브 `hadoop distcp` 명령은 프로덕션 클러스터 HDFS의 
 
 
 
+[[solution-c]]
 === 솔루션 C
 
 솔루션 C에서는 NetApp SAN 볼륨이 아래 그림과 같이 HDFS 스토리지를 위한 Hadoop 프로덕션 클러스터에 직접 프로비저닝됩니다.

@@ -18,6 +18,7 @@ summary: 우리는 ONTAP 및 storagegrid와 같은 NetApp 개체 스토리지를
 
 
 
+[[sql-query-on-object-storage]]
 === 객체 스토리지에 대한 SQL 쿼리
 
 . dremio.env에서 서버당 메모리를 250GB로 설정합니다.

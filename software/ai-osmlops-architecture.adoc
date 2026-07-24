@@ -18,6 +18,7 @@ summary: NetApp 사용한 오픈 소스 MLOps - 아키텍처
 
 
 
+[[apache-airflow-validation-environment]]
 == Apache Airflow 검증 환경
 
 |===
@@ -34,6 +35,7 @@ summary: NetApp 사용한 오픈 소스 MLOps - 아키텍처
 |===
 
 
+[[jupyterhub-validation-environment]]
 == JupyterHub 검증 환경
 
 |===
@@ -50,6 +52,7 @@ summary: NetApp 사용한 오픈 소스 MLOps - 아키텍처
 |===
 
 
+[[mlflow-validation-environment]]
 == MLflow 검증 환경
 
 |===
@@ -66,6 +69,7 @@ summary: NetApp 사용한 오픈 소스 MLOps - 아키텍처
 |===
 
 
+[[kubeflow-validation-environment]]
 == Kubeflow 검증 환경
 
 |===
@@ -82,6 +86,7 @@ summary: NetApp 사용한 오픈 소스 MLOps - 아키텍처
 |===
 
 
+[[support]]
 == 지원하다
 
 NetApp Apache Airflow, JupyterHub, MLflow, Kubeflow 또는 Kubernetes에 대한 엔터프라이즈 지원을 제공하지 않습니다.  완벽하게 지원되는 MLOps 플랫폼에 관심이 있으시다면,link:https://www.netapp.com/us/contact-us/index.aspx?for_cr=us["NetApp 에 문의하세요"^] NetApp 파트너와 함께 제공하는 완벽하게 지원되는 MLOps 솔루션에 대해 알아보세요.

@@ -18,6 +18,7 @@ summary: 이 섹션에서는 Confluent 인증에 사용되는 하드웨어와 �
 
 
 
+[[simple]]
 == 단순한
 
 간단 모드는 Apache Kafka를 처음 사용하는 사용자나 초기 상태 사용 사례에 적합합니다.  이 모드에서는 처리량(MBps), 읽기 팬아웃, 보존 및 리소스 활용률(기본값은 60%)과 같은 요구 사항을 제공합니다.  또한 온프레미스(베어메탈, VMware, Kubernetes 또는 OpenStack)나 클라우드와 같은 환경으로 들어갑니다.  이 정보를 기반으로 Kafka 클러스터의 크기를 조정하면 브로커, Zookeeper, Apache Kafka Connect Worker, 스키마 레지스트리, REST 프록시, ksqlDB 및 Confluent 제어 센터에 필요한 서버 수가 제공됩니다.
@@ -26,6 +27,7 @@ summary: 이 섹션에서는 Confluent 인증에 사용되는 하드웨어와 �
 
 
 
+[[producers]]
 === 프로듀서
 
 Apache Kafka의 제작자(예: 네이티브 클라이언트, REST 프록시 또는 Kafka 커넥터)를 설명하려면 다음 정보를 제공하세요.
@@ -81,6 +83,7 @@ Apache Kafka의 제작자(예: 네이티브 클라이언트, REST 프록시 또�
 
 
 
+[[consumers]]
 === 소비자들
 
 Apache Kafka에서 데이터를 사용하지만 Apache Kafka로 다시 데이터를 생성하지 않는 애플리케이션이나 서비스를 설명해 주세요. 예를 들어, 네이티브 클라이언트나 Kafka 커넥터가 있습니다.
@@ -117,6 +120,7 @@ Apache Kafka에서 데이터를 사용하지만 Apache Kafka로 다시 데이터
 
 
 
+[[describe-your-environment]]
 === 주변 환경을 설명하세요
 
 * *클러스터는 어떤 환경에서 실행되나요?*  Amazon Web Services, Microsoft Azure, Google Cloud Platform, 온프레미스 베어메탈, 온프레미스 VMware, 온프레미스 OpenStack, 온프레미스 Kubernates 중 어떤 것을 선택하시겠습니까?

@@ -22,6 +22,7 @@ Sathish Thyagarajan, David Arnette, NetApp Mircea Troaca, Lenovo
 
 
 
+[[target-audience]]
 == 타겟 고객층
 
 이 문서는 다음과 같은 독자를 대상으로 합니다.
@@ -34,6 +35,7 @@ Sathish Thyagarajan, David Arnette, NetApp Mircea Troaca, Lenovo
 
 
 
+[[solution-architecture]]
 == 솔루션 아키텍처
 
 Lenovo ThinkSystem 서버와 AFF 스토리지를 탑재한 NetApp ONTAP 탑재한 이 솔루션은 기존 CPU와 함께 GPU의 처리 능력을 활용하여 대규모 데이터 세트에 대한 AI 교육을 처리하도록 설계되었습니다.  이 검증은 단일 NetApp AFF A400 스토리지 시스템과 함께 1개, 2개 또는 4개의 Lenovo SR670 V2 서버를 사용하는 확장형 아키텍처를 통해 높은 성능과 최적의 데이터 관리를 보여줍니다.  다음 그림은 아키텍처 개요를 제공합니다.

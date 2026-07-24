@@ -20,6 +20,7 @@ image:bda-ai-005.png["입력/출력 대화 상자 또는 서면 내용을 나타
 
 
 
+[[gpfs-essentials]]
 == GPFS 필수 사항
 
 GPFS에서는 다음과 같은 노드 유형이 사용됩니다.
@@ -33,12 +34,14 @@ GPFS에서는 다음과 같은 노드 유형이 사용됩니다.
 
 
 
+[[list-of-operations-for-gpfs-nfs-and-xcp]]
 == GPFS, NFS 및 XCP에 대한 작업 목록
 
 이 섹션에서는 GPFS를 생성하고, GPFS를 NFS 내보내기로 내보내고, XCP를 사용하여 데이터를 전송하는 작업 목록을 제공합니다.
 
 
 
+[[create-gpfs]]
 === GPFS 생성
 
 GPFS를 생성하려면 다음 단계를 완료하세요.
@@ -62,6 +65,7 @@ GPFS를 생성하려면 다음 단계를 완료하세요.
 
 
 
+[[export-gpfs-into-nfs]]
 === GPFS를 NFS로 내보내기
 
 GPFS를 NFS로 내보내려면 다음 단계를 완료하세요.
@@ -74,6 +78,7 @@ GPFS를 NFS로 내보내려면 다음 단계를 완료하세요.
 
 
 
+[[configure-nfs-client]]
 === NFS 클라이언트 구성
 
 NFS 클라이언트를 구성하려면 다음 단계를 완료하세요.

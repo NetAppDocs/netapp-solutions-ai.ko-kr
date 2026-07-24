@@ -75,6 +75,7 @@ E-Series와 StorageGRID 검증에는 Hadoop 복제 계수 2를 사용했습니�
 |===
 
 
+[[financial-sentiment-analysis]]
 == 금융 심리 분석
 
 우리는 출판했다link:https://www.netapp.com/pdf.html?item=/media/17123-tr4910pdf.pdf["TR-4910: NetApp AI를 활용한 고객 커뮤니케이션의 감정 분석"^] , 종단 간 대화형 AI 파이프라인이 다음을 사용하여 구축되었습니다. https://github.com/NetApp/netapp-dataops-toolkit["NetApp DataOps 툴킷"^] , AFF 스토리지 및 NVIDIA DGX 시스템.  파이프라인은 DataOps Toolkit을 활용하여 일괄 오디오 신호 처리, 자동 음성 인식(ASR), 전이 학습 및 감정 분석을 수행합니다. https://developer.nvidia.com/riva["NVIDIA 리바 SDK"^] , 그리고 https://developer.nvidia.com/tao["타오 프레임워크"^] .  감정 분석 사용 사례를 금융 서비스 산업으로 확장하여 SparkNLP 워크플로를 구축하고, 명명된 엔터티 인식과 같은 다양한 NLP 작업을 위해 세 개의 BERT 모델을 로드하고, NASDAQ 상위 10대 기업의 분기별 실적 전화 회의에 대한 문장 수준의 감정을 얻었습니다.
@@ -160,6 +161,7 @@ image:apache-spark-011.png["Spark NLP 감정 분석 종단간 워크플로 런�
 
 
 
+[[distributed-training-with-horovod-performance]]
 == Horovod 성능을 활용한 분산 학습
 
 다음 명령은 단일 명령을 사용하여 Spark 클러스터에서 런타임 정보와 로그 파일을 생성했습니다. `master` 각각 1개의 코어를 갖춘 160개의 실행자가 있는 노드입니다.  메모리 부족 오류를 방지하기 위해 실행자 메모리는 5GB로 제한되었습니다.  섹션을 참조하세요link:spark-python-scripts.html["각 주요 사용 사례에 대한 Python 스크립트"] 데이터 처리, 모델 학습 및 모델 정확도 계산에 대한 자세한 내용은 `keras_spark_horovod_rossmann_estimator.py` .
@@ -236,6 +238,7 @@ image:apache-spark-012.png["Horovod Spark 워크플로 런타임."]
 
 
 
+[[deep-learning-models-for-ctr-prediction-performance]]
 == CTR 예측 성능을 위한 딥러닝 모델
 
 CTR을 극대화하도록 설계된 추천 시스템의 경우, 낮은 순위에서 높은 순위까지 수학적으로 계산할 수 있는 사용자 행동의 이면에 있는 정교한 기능 상호작용을 학습해야 합니다.  좋은 딥 러닝 모델에서는 낮은 순서와 높은 순서의 특징 상호작용이 둘 다 똑같이 중요해야 하며, 어느 한쪽에 치우치지 않아야 합니다.  인수분해 머신 기반 신경망인 DeepFM(Deep Factorization Machine)은 추천을 위한 인수분해 머신과 기능 학습을 위한 딥러닝을 새로운 신경망 아키텍처로 결합합니다.

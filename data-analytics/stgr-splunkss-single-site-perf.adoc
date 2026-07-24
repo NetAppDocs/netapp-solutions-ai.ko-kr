@@ -24,6 +24,7 @@ image:stgr-splunkss-011.png["입력/출력 대화 상자 또는 서면 내용을
 
 
 
+[[configuration]]
 == 구성
 
 이 표는 SmartStorage 성능 검증에 사용된 하드웨어를 나열합니다.
@@ -51,6 +52,7 @@ image:stgr-splunkss-011.png["입력/출력 대화 상자 또는 서면 내용을
 |===
 
 
+[[smartstore-remote-store-performance-validation]]
 == SmartStore 원격 매장 성능 검증
 
 이 성능 검증에서는 모든 인덱서의 로컬 스토리지에 10일 분의 데이터를 저장하는 SmartStore 캐시를 구성했습니다.  우리는 가능하게 했습니다 `maxDataSize=auto` (버킷 크기 750MB) Splunk 클러스터 관리자에서 모든 인덱서에 변경 사항을 푸시했습니다.  업로드 성능을 측정하기 위해 10일 동안 매일 10TB를 수집하고 모든 핫 버킷을 동시에 워밍업 버킷으로 전환한 다음 SmartStore 모니터링 콘솔 대시보드에서 인스턴스별 및 배포 전반의 최대 및 평균 처리량을 파악했습니다.
@@ -152,6 +154,7 @@ image:stgr-splunkss-015.png["입력/출력 대화 상자 또는 서면 내용을
 
 
 
+[[storagegrid-performance]]
 == StorageGRID 성능
 
 SmartStore의 성능은 대량의 데이터에서 특정 패턴과 문자열을 검색하는 데 기반합니다.  이 검증에서는 이벤트가 다음을 사용하여 생성됩니다. https://github.com/splunk/eventgen["이벤트젠"^] 검색 헤드를 통해 특정 Splunk 인덱스(eventgen-test)에 대한 검색이 수행되고, 대부분의 쿼리에 대한 요청은 StorageGRID 로 이동합니다.  다음 이미지는 쿼리 데이터의 적중과 미적중을 보여줍니다.  히트 데이터는 로컬 디스크에서 가져오고, 미스 데이터는 StorageGRID 컨트롤러에서 가져옵니다.
@@ -167,6 +170,7 @@ image:stgr-splunkss-017.png["입력/출력 대화 상자 또는 서면 내용을
 
 
 
+[[storagegrid-hardware-usage]]
 == StorageGRID 하드웨어 사용
 
 StorageGRID 인스턴스에는 로드 밸런서 1개와 StorageGRID 컨트롤러 3개가 있습니다.  세 개의 컨트롤러 모두의 CPU 사용률은 75%에서 100%입니다.
@@ -175,6 +179,7 @@ image:stgr-splunkss-018.png["입력/출력 대화 상자 또는 서면 내용을
 
 
 
+[[smartstore-with-netapp-storage-controller-benefits-for-the-customer]]
 == NetApp 스토리지 컨트롤러를 탑재한 SmartStore - 고객 혜택
 
 * *컴퓨팅과 스토리지 분리.*  Splunk SmartStore는 컴퓨팅과 스토리지를 분리하여 독립적으로 확장할 수 있도록 도와줍니다.

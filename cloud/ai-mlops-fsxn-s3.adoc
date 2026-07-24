@@ -18,6 +18,7 @@ summary: 이 게시물에서는 AWS SageMaker를 사용하여 FSx ONTAP 프라�
 
 
 
+[[introduction]]
 == 소개
 
 이 페이지에서는 SageMaker를 예로 들어 FSx ONTAP 개인 S3 버킷으로 구성하는 방법에 대한 지침을 제공합니다.
@@ -26,10 +27,12 @@ FSx ONTAP 에 대한 자세한 내용은 이 프레젠테이션을 참조하세�
 
 
 
+[[user-guide]]
 == 사용자 가이드
 
 
 
+[[server-creation]]
 === 서버 생성
 
 
@@ -102,6 +105,7 @@ image:mlops-fsxn-s3-integration-012.png["FSx 콘솔을 검사하세요"]
 
 
 
+[[server-configuration]]
 === 서버 구성
 
 
@@ -231,6 +235,7 @@ binary_data = bucket.Object(data.filename).get()['Body']
 
 
 
+[[useful-debugging-checklist]]
 == 유용한 디버깅 체크리스트
 
 * SageMaker Notebook 인스턴스와 FSx ONTAP 파일 시스템이 동일한 VPC에 있는지 확인하세요.
@@ -239,6 +244,7 @@ binary_data = bucket.Object(data.filename).get()['Body']
 
 
 
+[[faq-as-of-sep-27-2023]]
 == FAQ (2023년 9월 27일 기준)
 
 질문: FSx ONTAP 에 파일을 업로드할 때 "*CreateMultipartUpload 작업을 호출하는 동안 오류가 발생했습니다(NotImplemented). 요청한 s3 명령이 구현되지 않았습니다*"라는 오류가 발생하는 이유는 무엇입니까?

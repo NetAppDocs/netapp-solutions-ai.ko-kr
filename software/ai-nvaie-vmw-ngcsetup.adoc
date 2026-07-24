@@ -18,18 +18,21 @@ summary: NetApp 및 VMware를 사용한 NVIDIA AI Enterprise - NVIDIA NGC 소프
 
 
 
+[[prerequisites]]
 == 필수 조건
 
 이 섹션에 설명된 단계를 수행하기 전에 이미 NVIDIA AI Entrprise 호스트 소프트웨어를 배포했다고 가정합니다.link:ai-nvaie-vmw-setup.html["초기 설정"] 페이지.
 
 
 
+[[create-an-ubuntu-guest-vm-with-vgpu]]
 == vGPU를 사용하여 Ubuntu 게스트 VM 만들기
 
 먼저, vGPU가 있는 Ubuntu 20.04 게스트 VM을 만들어야 합니다.  vGPU를 사용하여 Ubuntu 20.04 게스트 VM을 생성하려면 다음 지침을 따르세요.link:https://docs.nvidia.com/ai-enterprise/deployment-guide-vmware/0.1.0/first-vm.html["NVIDIA AI 엔터프라이즈 배포 가이드"] .
 
 
 
+[[download-and-install-nvidia-guest-software]]
 == NVIDIA 게스트 소프트웨어 다운로드 및 설치
 
 다음으로, 이전 단계에서 만든 게스트 VM 내에 필요한 NVIDIA 게스트 소프트웨어를 설치해야 합니다.  게스트 VM 내에서 필요한 NVIDIA 게스트 소프트웨어를 다운로드하고 설치하려면 섹션 5.1-5.4에 설명된 지침을 따르세요.link:https://docs.nvidia.com/ai-enterprise/latest/quick-start-guide/index.html["NVIDIA AI Enterprise 빠른 시작 가이드"] .
@@ -39,12 +42,14 @@ NOTE: 섹션 5.4에 설명된 검증 작업을 수행할 때, 가이드 작성 �
 
 
 
+[[download-aianalytics-framework-containers]]
 == AI/분석 프레임워크 컨테이너 다운로드
 
 다음으로, 게스트 VM에서 사용할 수 있도록 NVIDIA NGC에서 필요한 AI 또는 분석 프레임워크 컨테이너 이미지를 다운로드해야 합니다.  게스트 VM 내에서 프레임워크 컨테이너를 다운로드하려면 다음 지침을 따르세요.link:https://docs.nvidia.com/ai-enterprise/deployment-guide-vmware/0.1.0/installing-ai.html["NVIDIA AI 엔터프라이즈 배포 가이드"] .
 
 
 
+[[install-and-configure-the-netapp-dataops-toolkit]]
 == NetApp DataOps 툴킷 설치 및 구성
 
 다음으로, 게스트 VM 내에 NetApp DataOps Toolkit for Traditional Environment를 설치해야 합니다.  NetApp DataOps Toolkit을 사용하면 게스트 VM 내의 터미널에서 직접 ONTAP 시스템의 확장형 데이터 볼륨을 관리할 수 있습니다.  게스트 VM 내에 NetApp DataOps Toolkit을 설치하려면 다음 작업을 수행하세요.
@@ -83,6 +88,7 @@ Created config file: '/home/user/.netapp_dataops/config.json'.
 
 
 
+[[create-a-guest-vm-template]]
 == 게스트 VM 템플릿 만들기
 
 마지막으로 게스트 VM을 기반으로 VM 템플릿을 만들어야 합니다.  이 템플릿을 사용하면 NVIDIA NGC 소프트웨어를 활용하는 게스트 VM을 빠르게 만들 수 있습니다.
