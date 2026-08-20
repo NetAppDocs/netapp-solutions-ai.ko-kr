@@ -3,6 +3,9 @@ section: ai-use-cases
 title: AI 사용 사례
 url: "/ai-use-cases/index.html"
 entries:
+- title: NetApp을 통한 KV 캐시 오프로딩
+  pdf-filename: NetApp을 통한 KV 캐시 오프로딩
+  url: "/software/ai-kv-cache-offloading-netapp.html"
 - title: 기업 RAG를 위한 NetApp AIPod Mini
   pdf-filename: RAG 추론을 위한 NetApp AIPod Mini
   url: "/infra/ai-minipod.html"
