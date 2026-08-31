@@ -4,8 +4,6 @@
   <block id="7a206e7f1f7bd7df4f649256e750768b" category="doc">NetApp 전문가의 AI 솔루션 블로그를 읽어보세요</block>
   <block id="683be49e9105a56d06431bcdc1630cb6" category="paragraph">업계 동향, 혁신, 실제 영향에 대한 내용을 다루는 AI/ML 블로그를 읽어보세요. 또한 개발자 리소스, 커뮤니티 통찰력, NetApp AI 솔루션을 사용하는 데 필요한 실용적인 도구도 제공합니다.</block>
   <block id="5bbe94ba0a14c52be3cc9534b43f4713" category="paragraph-title">AI 동향 및 산업 통찰력</block>
-  <block id="78463a384a5aa4fad5fa73e2f506ecfc" category="inline-link-macro">영어</block>
-  <block id="69501f595c5bd3cdb17ea63c90291622" category="paragraph">다양한 분야에서 산업 동향, 혁신, 그리고 AI가 실제로 미치는 영향을 살펴보세요. <block ref="3b277c3e8740f32e48fe9dd888ed34aa" category="inline-link-macro-rx"></block> &amp;f:@facet_soultion_mktg=[AI, 분석, 인공지능]++[ NetApp 에서 AI 블로그 읽기^]</block>
   <block id="d5769d364696d52f17c7b56bd51573f8" category="paragraph-title">개발자 리소스 및 커뮤니티</block>
   <block id="bb765a119d53333b43f301b6a00a388a" category="inline-link-macro">Pub에서 AI 블로그를 읽어보세요</block>
   <block id="43c273574ee7233878bcc9fc0bd893c9" category="paragraph">AI/ML 실무자를 위한 기술적 통찰력, 실용적인 도구 및 커뮤니티 중심 콘텐츠를 제공합니다.<block ref="f89e2ffa35ae5933259a8ae6e49a69ad" category="inline-link-macro-rx"></block></block>
@@ -198,8 +196,6 @@
   <block id="7a431daf3a478d96ed5ffc10a4056228" category="paragraph">FSx ONTAP (Amazon FSx ONTAP)은 AWS 스토리지 서비스입니다.  여기에는 NetApp ONTAP 시스템에서 실행되는 파일 시스템과 이에 연결되는 AWS 관리 시스템 가상 머신(SVM)이 포함됩니다.  제공된 다이어그램에서 AWS가 관리하는 NetApp ONTAP 서버는 VPC 외부에 있습니다.  SVM은 SageMaker와 NetApp ONTAP 시스템 사이의 중개자 역할을 하며, SageMaker로부터 작업 요청을 수신하여 기본 스토리지로 전달합니다.  FSx ONTAP 에 액세스하려면 SageMaker가 FSx ONTAP 배포와 동일한 VPC 내에 있어야 합니다.  이 구성은 SageMaker와 FSx ONTAP 간의 통신과 데이터 액세스를 보장합니다.</block>
   <block id="f8aacfa5c683858912c498f517c9b457" category="section-title">데이터 액세스</block>
   <block id="70385d02db6379c01d4b7b17101f2004" category="paragraph">실제 상황에서 데이터 과학자는 일반적으로 FSx ONTAP 에 저장된 기존 데이터를 활용하여 머신 러닝 모델을 구축합니다.  그러나 데모 목적으로, FSx ONTAP 파일 시스템은 생성된 후 처음에는 비어 있으므로 수동으로 교육 데이터를 업로드해야 합니다.  이는 FSx ONTAP SageMaker에 볼륨으로 마운트하여 달성할 수 있습니다.  파일 시스템이 성공적으로 마운트되면 마운트된 위치에 데이터 세트를 업로드하여 SageMaker 환경 내에서 모델을 학습할 수 있습니다.  이 접근 방식을 사용하면 SageMaker를 사용하여 모델을 개발하고 학습하는 동안 FSx ONTAP 의 저장 용량과 기능을 활용할 수 있습니다.</block>
-  <block id="23ea498668d1fa717fb7cfb600bf3238" category="inline-link-macro">1부 - Amazon FSx for NetApp ONTAP (FSx ONTAP)을 AWS SageMaker에 개인 S3 버킷으로 통합</block>
-  <block id="95d89db7f4a106e280e1c30cde658610" category="paragraph">데이터 읽기 프로세스에는 FSx ONTAP 개인 S3 버킷으로 구성하는 작업이 포함됩니다.  자세한 구성 지침을 알아보려면 다음을 참조하세요.<block ref="8e7379c67a0724b1a49308a7ae6ac3d5" category="inline-link-macro-rx"></block></block>
   <block id="30eaeebc8f9611f55e018d1dd51789ba" category="section-title">통합 개요</block>
   <block id="7ffc912d31a398685c5667622bb5ed7f" category="inline-image-macro">교육 워크플로</block>
   <block id="29e5f040e75c8e4e628e90efc594e3ef" category="paragraph"><block ref="29e5f040e75c8e4e628e90efc594e3ef" category="inline-image-macro-rx" type="image"></block></block>
@@ -315,7 +311,6 @@
   <block id="090e55ccd8633a454f9d471ca3ed004d" category="list-text">클라우드 관리자와 설계자는 하이브리드 클라우드 리소스를 설정하고 관리할 수 있어야 합니다.</block>
   <block id="3cb782c6019ddcbb4e7f6bf8ae154d40" category="list-text">비즈니스 사용자는 분석, AI, ML, DL 애플리케이션에 액세스할 수 있기를 원합니다.</block>
   <block id="3dfd24951a51ec1661b0294f59bea86e" category="paragraph">이 기술 보고서에서는 NetApp AFF, E-Series, StorageGRID, NFS 직접 액세스, Apache Spark, Horovod 및 Keras가 이러한 각 역할이 비즈니스에 가치를 제공하는 데 어떻게 도움이 되는지 설명합니다.</block>
-  <block id="49c9a66d1f76b5f264fea5d54130b82a" category="summary">TeraGen 벤치마킹 도구의 TeraSort 및 TeraValidate 스크립트를 사용하여 E5760, E5724 및 AFF-A800 구성으로 Spark 성능 검증을 측정했습니다.  또한, Spark NLP 파이프라인과 TensorFlow 분산 학습, Horovod 분산 학습, DeepFM을 사용한 CTR 예측을 위한 Keras를 사용한 다중 워커 딥 러닝이라는 세 가지 주요 사용 사례가 테스트되었습니다.</block>
   <block id="41be8de44faa8ba43210d7494ee095d2" category="doc">테스트 결과</block>
   <block id="60637296d8b6dcd84aaff3afc778241d" category="paragraph">TeraGen 벤치마킹 도구의 TeraSort 및 TeraValidate 스크립트를 사용하여 E5760, E5724 및 AFF-A800 구성으로 Spark 성능 검증을 측정했습니다.  또한, Spark NLP 파이프라인과 TensorFlow 분산 학습, Horovod 분산 학습, DeepFM을 사용한 CTR 예측을 위한 Keras를 사용한 다중 워커 딥 러닝의 세 가지 주요 사용 사례가 테스트되었습니다.</block>
   <block id="653a9ba51c0af0c11aab6af3ecfdc8c6" category="paragraph">E-Series와 StorageGRID 검증에는 Hadoop 복제 계수 2를 사용했습니다.  AFF 검증을 위해 우리는 단 하나의 데이터 소스만 사용했습니다.</block>
@@ -2177,7 +2172,6 @@
   <block id="cfb5f1c014066f18d7979fa1d35a934d" category="paragraph">다음 세 가지 Python 스크립트는 테스트된 세 가지 주요 사용 사례에 해당합니다.  첫 번째는<block ref="b01d528ada3b5a6e0e9094642b727562" prefix=" " category="inline-code"></block> .</block>
   <block id="d3abf6f12cafa2cc1b795b31cd547c75" category="paragraph">두 번째 스크립트는<block ref="b502aa50c7ae6d7ea7adaf15de40ffe5" prefix=" " category="inline-code"></block> .</block>
   <block id="6e9120b39f924b2eed528e3bcdd009ac" category="paragraph">세 번째 스크립트는<block ref="5e1386bf4aaea9725a3cc5bc8e2bc9f4" prefix=" " category="inline-code"></block> .</block>
-  <block id="90f0f970ed32524c528ba2778079d485" category="summary">NetApp 에는 FAS/ AFF, E-Series, Cloud Volumes ONTAP 세 가지 스토리지 포트폴리오가 있습니다.  우리는 Apache Spark를 기반으로 Hadoop 솔루션을 위한 ONTAP 스토리지 시스템을 갖춘 AFF 와 E-시리즈를 검증했습니다.  NetApp 이 지원하는 데이터 패브릭은 데이터 액세스, 제어, 보호 및 보안을 위한 데이터 관리 서비스와 애플리케이션(빌딩 블록)을 통합합니다.</block>
   <block id="12a9f57585cd6b3b985dd451bf552845" category="doc">NetApp Spark 솔루션 개요</block>
   <block id="c7516072fbed3396e6f4c39a5f2356a6" category="paragraph">NetApp FAS/ AFF, E-Series, Cloud Volumes ONTAP 세 가지 스토리지 포트폴리오가 있습니다.  우리는 Apache Spark를 기반으로 Hadoop 솔루션을 위한 ONTAP 스토리지 시스템을 갖춘 AFF 와 E-시리즈를 검증했습니다.</block>
   <block id="710b54a5dd637d8e21574c4fb3eea545" category="inline-image-macro">데이터 패브릭은 데이터 관리 서비스와 애플리케이션을 제공합니다.</block>
@@ -3246,7 +3240,6 @@
   <block id="3a4a320ee019614122e99baebf056b86" category="list-text">로컬 스토리지를 사용한 단일 서버 AI 추론</block>
   <block id="adf25fe660bba733a104887732393fdd" category="list-text">네트워크 스토리지를 활용한 단일 서버 AI 추론</block>
   <block id="34e4c32e4097a70208139be85d5dc892" category="list-text">네트워크 스토리지를 활용한 멀티 서버 AI 추론</block>
-  <block id="8708911de20cfce9bafb315fd0cde0a2" category="summary">제안된 아키텍처의 성능을 평가하기 위해 다양한 테스트가 실행되었습니다.  6가지의 서로 다른 워크로드(이미지 분류, 객체 감지[소규모], 객체 감지[대규모], 의료 영상, 음성-텍스트 변환, 자연어 처리[NLP])가 있으며, 오프라인, 단일 스트림, 멀티 스트림의 세 가지 시나리오에서 실행할 수 있습니다.</block>
   <block id="3274a50ba9f0d3c0adefdfa11c5094be" category="doc">테스트 결과</block>
   <block id="a274daca2deace9b89099b24f248715c" category="paragraph">제안된 아키텍처의 성능을 평가하기 위해 다양한 테스트가 실행되었습니다.</block>
   <block id="37bf74d7f686cd395d40af1cc2ed7c55" category="paragraph">오프라인, 단일 스트림, 멀티 스트림의 세 가지 시나리오에서 실행할 수 있는 6가지 워크로드(이미지 분류, 객체 감지[소규모], 객체 감지[대규모], 의료 영상, 음성-텍스트 변환, 자연어 처리[NLP])가 있습니다.</block>
@@ -3394,14 +3387,8 @@
   <block id="2ea563f362255807faae7242f06c9881" category="list-text">Karthikeyan Nagalingam, 기술 마케팅 엔지니어, NetApp</block>
   <block id="cccf21ceeae034a9e54b62eb00d9b6b3" category="list-text">Jarrett Upton, Lenovo AI 랩 시스템 관리자</block>
   <block id="fdc944d7a0de8d8e3dfff03c6a0e03c6" category="list-text">NetApp All Flash Arrays 제품 페이지</block>
-  <block id="d875955d78b62e4aff0847425410f79a" category="inline-link"><block ref="d875955d78b62e4aff0847425410f79a" category="inline-link-rx"></block></block>
-  <block id="45f6f9585c85146b389a4f896653a5f9" category="paragraph"><block ref="45f6f9585c85146b389a4f896653a5f9" category="inline-link-rx"></block></block>
   <block id="ec5282877903d9d2aceb3db45b21da54" category="list-text">NetApp AFF A400 페이지</block>
-  <block id="1f84bc4168c48270f2cc931b900d9eb4" category="inline-link"><block ref="1f84bc4168c48270f2cc931b900d9eb4" category="inline-link-rx"></block></block>
-  <block id="04438df627d0343d17b2f6f307b489ed" category="paragraph"><block ref="04438df627d0343d17b2f6f307b489ed" category="inline-link-rx"></block></block>
   <block id="9d92155996555576a58d20e697fc2bd6" category="list-text">NetApp ONTAP 데이터 관리 소프트웨어 제품 페이지</block>
-  <block id="dae4be95628a9cc8cb5ecb4b90cd738e" category="inline-link"><block ref="dae4be95628a9cc8cb5ecb4b90cd738e" category="inline-link-rx"></block></block>
-  <block id="2f08744b4a39af375744e1fc4a15b53a" category="paragraph"><block ref="2f08744b4a39af375744e1fc4a15b53a" category="inline-link-rx"></block></block>
   <block id="45913847e0b47b72b60766711f7a8c21" category="inline-link"><block ref="45913847e0b47b72b60766711f7a8c21" category="inline-link-rx"></block></block>
   <block id="229469a202dbd3052c7b165bd55eda87" category="paragraph"><block ref="229469a202dbd3052c7b165bd55eda87" category="inline-link-rx"></block></block>
   <block id="dedba6b3261804ab1e5c2b75051c62ac" category="list-text">NVIDIA SMI(nvidia-smi)</block>
@@ -4178,7 +4165,6 @@
   <block id="217af7d1776d22530d98be04d104fd49" category="cell">23.07</block>
   <block id="db5eb84117d06047c97c9a0191b5fffe" category="section-title">지원하다</block>
   <block id="b2e75bbfb9933bc21b7f875e8676641d" category="inline-link-macro">NetApp 에 문의하세요</block>
-  <block id="952c6ea6549ebf347f6aae3d6b029756" category="paragraph">NetApp Apache Airflow, JupyterHub, MLflow, Kubeflow 또는 Kubernetes에 대한 엔터프라이즈 지원을 제공하지 않습니다.  완벽하게 지원되는 MLOps 플랫폼에 관심이 있으시다면,<block ref="15a32e54137b30751a17b6bf2b412f99" category="inline-link-macro-rx"></block> NetApp 파트너와 함께 제공하는 완벽하게 지원되는 MLOps 솔루션에 대해 알아보세요.</block>
   <block id="6999319a5a39a9ca41436977f2cb8b8d" category="summary">NetApp 활용한 오픈소스 MLOps - 기술 개요</block>
   <block id="4c9ffff73cd2c66ec9f6be3cb2b21333" category="paragraph">이 섹션에서는 NetApp 사용한 오픈소스 MLOps에 대한 기술 개요에 중점을 둡니다.</block>
   <block id="5cd2adc9e2a5254e4c1da803519f298b" category="section-title">인공지능</block>
@@ -5401,7 +5387,6 @@
   <block id="6eac7b0a5cfc938d19f189c4a925ae85" category="section-title">_2단계: Trident 구성_</block>
   <block id="56c52a0dabd55220d0a00db845f7eb1f" category="paragraph">두 클러스터에 Trident 설치합니다.</block>
   <block id="45d2098b426afc9ab859375c1adbe887" category="inline-link">+++ Trident 설치 가이드+++</block>
-  <block id="d250649bce56841bd7a8ae7e4a825154" category="paragraph">🔗 <block ref="d4fe2bbcee5aa3fc712cc2604ddb189d" category="inline-link-rx"></block></block>
   <block id="ce18e85a5244ef1099f883c207b32d36" category="paragraph">Trident 백엔드 만들기</block>
   <block id="1d505b9bfd6afef0b98758bef1cef23c" category="paragraph">401 권한 없음 오류가 발생하면 ONTAP 사용자에게 충분한 API 권한이 있는지, 올바른 사용자 이름(vsadmin)과 비밀번호가 사용되었는지 확인하세요.</block>
   <block id="e5250cf37b377ddb3586661f3e7bdc3e" category="paragraph">StorageClass 정의</block>
@@ -5551,7 +5536,6 @@
   <block id="b360c8c43818ee701c2c04aea42cd62a" category="section-title">7. K8s 클러스터 배포(Trident 포함)</block>
   <block id="0e2e4419e3eb7aa754e49ee968cd9405" category="paragraph">클러스터와 Trident CSI를 배포하려면 configure 및 install 태그를 사용하여 ansible-playbook playbooks/infrastructure.yaml을 실행하십시오.</block>
   <block id="41ea2d03e0d611507cffcee378f6559a" category="inline-link">NetApp Trident CSI 엔터프라이즈 RAG 통합</block>
-  <block id="6a1fa30ffb46efef37952483ac8b77d0" category="paragraph">참고: - 노드에 암호 없는 sudo 권한이 설정되어 있지 않은 경우<block ref="13d87b4892426ec19bdc58a4643d3104" prefix=" " category="inline-code"></block>을 이 명령에 추가해야 합니다. <block ref="13d87b4892426ec19bdc58a4643d3104" prefix=" " category="inline-code"></block>를 사용할 때는 각 노드에서 ssh 사용자의 암호가 동일해야 합니다. - 자세한 내용은<block ref="df44a473c05d78f41c72a7649c842643" category="inline-link-rx"></block>를 참조하십시오. 자세한 내용은<block ref="0fa543c14587a20e022922b0d6d40500" category="inline-link-rx"></block>를 참조하십시오.</block>
   <block id="6ea33c0cef6e57544b8e10c644b762af" category="section-title">8. iwatch 열기 설명자 개수 변경</block>
   <block id="8b594829fa102007d7fb98eb374b87bd" category="inline-link">iwatch 열린 디스크립터</block>
   <block id="0b90ae516b9c9e0b43fab8d0faccdace" category="paragraph">자세한 내용은<block ref="7175b82763deb794c2905a8612fbe6de" category="inline-link-rx"></block>를 참조하십시오.</block>
@@ -5779,4 +5763,626 @@
   <block id="ad9a3bc80573e30d355ceade1a1a0df0" category="paragraph">계층형 KV 캐시 아키텍처를 배포하면 KV 캐시가 GPU 메모리에서 CPU 메모리 및 공유 NetApp 스토리지로 이동하여 추론이 사용자 수와 컨텍스트 길이에 따라 확장될 수 있으며, 반복적인 사전 채우기에 GPU 사이클이 낭비되지 않습니다. 공유 스토리지를 통해 캐시는 여러 서비스 인스턴스에서 재사용 가능한 인프라가 되어 기존 GPU 투자에서 더 큰 가치를 얻을 수 있습니다.</block>
   <block id="f333cd9299f433a3c4b700d33c3c8aa9" category="paragraph">NetApp 스토리지는 프로덕션 추론에 필요한 단순 용량 이상의 기능을 제공하기 때문에 이 계층에 매우 적합합니다. S3 및 NFS/pNFS를 통한 표준 액세스, 여러 서비스 엔진 인스턴스가 동시에 사용할 수 있는 공유 캐시, 그리고 내구성, 보호 및 거버넌스를 위해 이미 사용하고 있는 엔터프라이즈 데이터 서비스 등이 여기에 포함됩니다. 별도의 클라이언트가 필요하지 않으며, KV 캐시 오프로딩 프레임워크는 익숙한 프로토콜을 사용하여 StorageGRID S3 또는 ONTAP NAS 마운트에 연결할 수 있습니다.</block>
   <block id="76c31e105f288ff172a4369d68076253" category="paragraph">NetApp은 추론 실행 방식이나 팀의 데이터 관리 방식을 변경하지 않고도 KV 캐시 오프로딩을 위한 익숙한 스토리지 기반을 제공합니다.</block>
+  <block id="7f81d4beec39a48a9c89bdc01911cb68" category="inline-link-macro">NetApp.com에서 AI 블로그를 읽어보세요</block>
+  <block id="0bf9d2d7a2690fbfa406fbab84718f0a" category="paragraph">다양한 분야에 걸친 산업 동향, 혁신 및 실제 AI의 영향에 대해 알아보세요. <block ref="664aa1dcd8c100045b2cda193137e6b7" category="inline-link-macro-rx"></block></block>
+  <block id="5b7c2e1131022c94db3527c404bf4075" category="paragraph">데이터 읽기 프로세스에는 FSx ONTAP을 개인 S3 버킷으로 구성하는 작업이 포함됩니다. 자세한 구성 지침은 <block ref="a4f6db8ee799d71c8436c5d66421c857" category="inline-link-macro-rx"></block>을 참조하십시오.</block>
+  <block id="f6f063eccd373c25744d28ef8af6a6db" category="summary">E5760, E5724, AFF-A800 구성에서 Spark 성능 검증을 측정하기 위해 TeraGen 벤치마킹 툴의 TeraSort 및 TeraValidate 스크립트를 사용했습니다.</block>
+  <block id="7effc798d6695bcdf299c9d6f49fb7e5" category="summary">NetApp은 세 가지 스토리지 포트폴리오를 보유하고 있습니다. FAS 및 AFF, E-Series, Cloud Volumes ONTAP. 당사는 Apache Spark를 사용하는 Hadoop 솔루션을 위해 AFF 및 E-Series ONTAP 스토리지 시스템을 검증했습니다. NetApp이 지원하는 데이터 패브릭은 데이터 액세스, 제어, 보호 및 보안을 위한 데이터 관리 서비스와 애플리케이션(구성 요소)을 통합합니다.</block>
+  <block id="8f162c0dfd9f119fb9683160247618d5" category="paragraph">참고: - 노드에 암호 없는 sudo 권한이 설정되어 있지 않은 경우<block ref="13d87b4892426ec19bdc58a4643d3104" prefix=" " category="inline-code"></block>을 이 명령에 추가해야 합니다. <block ref="13d87b4892426ec19bdc58a4643d3104" prefix=" " category="inline-code"></block>를 사용할 때는 각 노드에서 ssh 사용자의 암호가 동일해야 합니다. - 자세한 내용은 <block ref="df44a473c05d78f41c72a7649c842643" category="inline-link-rx"></block>을(를) 참조하십시오. 자세한 내용은<block ref="ee42a3ab3b8bbd38a7c5f36f55d2fb5d" category="inline-link-rx"></block>를 참조하십시오.</block>
+  <block id="dc9609005748fb37ba46e98cc99030e1" category="summary">NetApp E-Series 스토리지 빌딩 블록 설계, 확장 규칙, HA 모델, 네트워크 토폴로지 및 클라이언트 통합을 통해 Lustre를 이해하십시오.</block>
+  <block id="83ffc53d15196aeb1a817460dbb486aa" category="doc">Lustre with NetApp E-Series 스토리지 - 솔루션 아키텍처</block>
+  <block id="8ae9700922a0bb4891f51a48ed4ef464" category="paragraph">NetApp E-Series 스토리지를 사용하는 Lustre가 구성 요소, 고가용성, 네트워크 토폴로지 및 클라이언트를 활용하여 용량, 성능 및 장애 조치를 계획하는 방법을 알아보십시오.</block>
+  <block id="2168104e73d11c05aa64fc655516a82f" category="section-title">빌딩 블록 디자인</block>
+  <block id="26534a28e7b4d9bd2dfa3eadc9cf999d" category="paragraph">빌딩 블록은 NetApp E-Series Lustre 솔루션의 기본 확장 단위입니다. 각 빌딩 블록은 Lustre 오브젝트 스토리지 서버(OSS) 및 메타데이터 서버(MDS) 기능을 제공하는 고가용성(HA) 쌍으로 구성된 두 개의 서버 노드, 두 개의 NetApp E-Series 올플래시 어레이, 서버와 어레이 간의 전용 백엔드 NVMe over Fabrics(NVMe-oF) 연결, 그리고 클라이언트와 노드 간 통신을 위한 전용 프런트엔드 Lustre 네트워킹(LNet) 연결로 구성됩니다. Pacemaker 및 Corosync HA 클러스터는 하나 이상의 빌딩 블록에서 서버 쌍을 포함할 수 있습니다. NetApp<block ref="a0483fb858f70ef7270ed27766b1a748" prefix=" " category="inline-code"></block> 컬렉션은 Ansible 자동화를 사용하여 Lustre 서비스를 배포하고 구성합니다.</block>
+  <block id="17a6f4a0cccca248a9e2b75f4387a067" category="paragraph-title">Lustre 빌딩 블록</block>
+  <block id="b1c9036bef997910c340a575472f7e91" category="inline-image-macro">두 개의 OSS/MDS 서버 노드와 두 개의 E-Series EF80 어레이로 구성된 Lustre HA 빌딩 블록</block>
+  <block id="d669f6c4bb64d85cbd5ff5963a5c6e12" category="paragraph"><block ref="d669f6c4bb64d85cbd5ff5963a5c6e12" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="3cfddb8045406573ceedbf76423d82fb" category="paragraph">빌딩 블록은 파일 시스템의 성장 요구 사항에 맞춰 확장됩니다. 모든 파일 시스템에는 하나의 기본 빌딩 블록이 필요합니다. 기본 빌딩 블록은 관리 대상(MGT)에 관리 서버(MGS)를 호스팅하고 초기 메타데이터 대상(MDT) 및 오브젝트 스토리지 대상(OST) 용량을 제공합니다. 추가 빌딩 블록은 파일 시스템을 확장하고 기본 빌딩 블록의 MGS에 MDT 및 OST 대상을 등록합니다. 이러한 모듈식 접근 방식을 통해 워크로드 요구 사항에 따라 용량과 성능을 독립적으로 확장할 수 있습니다.</block>
+  <block id="b9ffd0f5d2fbeca8a21d0e7f6c3fd99d" category="paragraph">NetApp은 대부분의 배포 환경에 대해 다음과 같은 빌딩 블록 구성 프로파일을 권장합니다. 나열된 MGS, MDT 및 OST 개수는 E-Series 스토리지 어레이의 성능과 용량을 극대화하도록 최적화된 권장 기본값입니다. 워크로드 요구 사항에 맞게 Ansible 인벤토리에서 대상 개수, 볼륨 크기 및 E-Series 드라이브 할당을 조정하십시오. 예를 들어, 더 많은 메타데이터 스토리지 용량이 필요한 배포 환경에서는 동일한 빌딩 블록 하드웨어 내에서 더 많은 MDT와 더 적은 OST를 프로비저닝할 수 있습니다.</block>
+  <block id="88e8c06052f9e72ef6c6e4069fd7b276" category="paragraph">다음 표는 구성 요소 유형과 권장 목표 개수를 요약한 것입니다.</block>
+  <block id="26e2cdaaf8f34633fee6f31dbb424c86" category="cell">MGS</block>
+  <block id="e0f67ead95c63aee6a8fe009bacf6c50" category="cell">MDTs</block>
+  <block id="5e67f7a1d587efcc376c11c9806cf456" category="cell">OST</block>
+  <block id="ad8783089f828b927473fb61d51940ec" category="cell">사용</block>
+  <block id="095a1b43effec73955e31e790438de49" category="cell">베이스</block>
+  <block id="5e19de7ff972cdc4394b10f96a9fb0fa" category="cell">파일 시스템의 첫 번째 구성 요소입니다. MGS와 초기 MDT 및 OST 용량을 호스팅합니다.</block>
+  <block id="4b160bd7bc9d2d97b1132396a4548529" category="cell">MDT+OST</block>
+  <block id="9ee291176e6650ee7aca2375921cfd81" category="cell">메타데이터 및 데이터 용량을 추가합니다. 기본 구성 요소인 MGS에 등록하십시오.</block>
+  <block id="5d93aaa6378dba134d0b51c6efb34fba" category="cell">OST 전용</block>
+  <block id="edbad65223505b7cb3e8a1910da9a48a" category="cell">데이터 용량만 추가합니다. 기본 구성 요소인 MGS에 등록하십시오.</block>
+  <block id="f93aa434cbe5bab4ec93ef90f5d87697" category="list-text">*드라이브 유형 및 풀 레이아웃:* E-Series는 기존 RAID 볼륨 그룹과 동적 디스크 풀(DDP)을 지원합니다.  TLC NVMe 드라이브의 경우, OST 스토리지에는 RAID 6 볼륨 그룹을, MGS 및 MDT 스토리지에는 RAID 1 볼륨 그룹을 사용하십시오.  QLC NVMe 드라이브의 경우, 공유 드라이브 풀에 DDP를 사용하십시오.</block>
+  <block id="afa16f87b0793f1f055d7f4c8fc94a8c" category="inline-link-macro">타겟 분포 및 NVMe-oF 연결성</block>
+  <block id="e47f832e68af8d68b0991a362aa4db96" category="list-text">*타겟 분산:* 각 빌딩 블록의 Lustre 타겟은 OSS/MDS 서버 노드와 E-Series 어레이 모두에 걸쳐 균형 있게 분산됩니다. 이러한 레이아웃은 서버 CPU와 어레이 컨트롤러에 I/O를 분산시켜 NVMe-oF 경로 성능을 향상시키고 이중화를 유지합니다. <block ref="3cc6169fe479d4e15a96418fa2b92a35" category="inline-link-macro-rx"></block>의 <block ref="b951df04c708233bd0e6aa30024a444e" category="inline-link-macro-rx"></block>을 참조하십시오.</block>
+  <block id="697ea025ecb303d4f40d1bf3a8b4bde0" category="inline-link-macro">NetApp 상호 운용성 매트릭스 툴(IMT)</block>
+  <block id="5368a693aa74a0eba7b84abbd9be3a75" category="paragraph">지원되는 운영 체제, Lustre 버전, 어레이 펌웨어 및 관련 구성 요소는 <block ref="dea5a7fef452493e48f46a815b88571f" category="inline-link-macro-rx"></block> *E-Series Lustre* 항목에 나열되어 있습니다. 자세한 볼륨 수, 드라이브 레이아웃 및 크기 조정 지침은 <block ref="b951df04c708233bd0e6aa30024a444e" category="inline-link-macro-rx"></block>을 참조하십시오. 소프트웨어 구성 요소는 <block ref="50dec6b1119ecf8040454f42ce24288c" category="inline-link-macro-rx"></block>을 참조하십시오.</block>
+  <block id="b6bf6b7b72e2440dd65804236671aaf2" category="section-title">확장성 권장 사항</block>
+  <block id="219f5cf2d51ca12a90e8e6f6dead489f" category="paragraph">Lustre 파일 시스템은 메타데이터 용량, 데이터 용량 또는 둘 다 제한 요소가 될 때 구성 요소를 추가하여 확장합니다. MDT는 파일 수와 메타데이터 IOPS를 기준으로 확장하고, OST는 용량 및 총 처리량 요구 사항을 기준으로 확장합니다.</block>
+  <block id="be46f21ebcdd3e8dbc3407f201e7671f" category="list-text">*파일 시스템당 하나의 기본 빌딩 블록:* 기본 빌딩 블록을 정확히 하나만 배포하십시오. 이 블록에는 MGS와 초기 MDT 및 OST 대상이 포함됩니다.</block>
+  <block id="a51646c3ef687993c117154c9bd9c2e9" category="list-text">*추가 빌딩 블록 프로필:* 기존 MDT 용량이 충분하고 데이터 용량 또는 처리량을 늘려야 하는 경우 OST 전용 빌딩 블록을 추가하십시오. 메타데이터 성능 또는 네임스페이스 용량이 병목 현상이 되면 MDT+OST 빌딩 블록을 추가하십시오.</block>
+  <block id="bc8b43c37df464527d4967a75891ed34" category="list-text">*HA 클러스터 제한:* 각 Pacemaker 및 Corosync HA 클러스터는 최대 5개의 빌딩 블록(10개의 Lustre 서버 노드)으로 제한됩니다. 대규모 배포 환경에서는 리소스 제약을 방지하기 위해 여러 HA 클러스터로 균등하게 분할하십시오.</block>
+  <block id="49a6e0259d41be0a04ea6873c59a3935" category="paragraph">다음 그림은 42U 랙에 최대 5개의 빌딩 블록이 쌓인 모습을 보여줍니다(랙당 Pacemaker HA 클러스터 1개). 여러 랙이 하나의 Lustre 파일 시스템에 참여할 수 있으며, 기본 빌딩 블록에만 MGS가 호스팅됩니다.</block>
+  <block id="adb3b1a9740a4792db095434b57d730d" category="paragraph-title">러스터 병렬 파일 시스템 랙 스케일링</block>
+  <block id="3124af7a7890d90dc620feeb1baf29f4" category="inline-image-macro">Lustre 병렬 파일 시스템은 여러 개의 42U 랙에 걸쳐 확장 가능하며, 각 랙에는 하나의 Pacemaker HA 클러스터 내에서 최대 5개의 빌딩 블록을 구성할 수 있습니다.</block>
+  <block id="31f2e44e6941fd0758165db8d6a4b611" category="paragraph"><block ref="31f2e44e6941fd0758165db8d6a4b611" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="1be138531fe213ae00cd83288ff59040" category="paragraph">사이즈 예시는 <block ref="fd37d50a703eb90bca5592e7cf7939cb" category="inline-link-macro-rx"></block>을 참조하십시오.</block>
+  <block id="cf03dce6d27c37ae2bf803a5ad8ddb93" category="section-title">HA 아키텍처</block>
+  <block id="8a13f8617619d3e648e8c45a19f4c599" category="paragraph">Lustre with NetApp E-Series 스토리지는 NetApp E-Series 스토리지와 통합된 공유 디스크 고가용성(HA) 아키텍처를 사용합니다. Pacemaker는 HA 리소스를 관리하고 Corosync는 클러스터 멤버십 및 메시징을 제공합니다. 이 둘은 함께 각 빌딩 블록의 두 OSS/MDS 서버 노드 간 Lustre 타겟 페일오버를 관리합니다. 다중 경로 NVMe-oF는 두 OSS/MDS 서버 노드를 동일한 E-Series 볼륨에 연결하므로 필요에 따라 어느 노드든 타겟 서비스를 인계받을 수 있습니다.</block>
+  <block id="384280ea651954973b3d9bce2e1c4fea" category="paragraph">각 MGS, MDT 및 OST는 종속 리소스와 함께 Pacemaker 리소스 그룹에 HA 리소스로 구성됩니다. Pacemaker는 리소스가 올바른 순서로 시작 및 중지되고, 동일한 노드에 함께 배치되며, 한 번에 하나의 노드에서만 실행되도록 보장합니다. 두 노드에서 동일한 대상에 동시에 액세스하면 기본 파일 시스템이 손상될 수 있습니다.</block>
+  <block id="229f171ab4ff38290d5b4ca86d00f328" category="list-text">*타겟 페일오버:* OSS/MDS 서버 노드는 클러스터에서 서로 동등한 위치에 있지만, 각 Lustre 타겟은 한 번에 하나의 노드에서만 활성화됩니다. Pacemaker 모니터링 리소스는 각 타겟과 해당 종속 요소의 상태를 감시하고, 타겟이 현재 노드에서 사용 불가능해지면 페일오버를 트리거합니다. 장애 발생 시 Pacemaker는 파트너 노드에서 영향을 받는 리소스 그룹을 올바른 순서로 다시 시작하고, 서비스가 재개되면 클라이언트는 새 위치의 타겟에 투명하게 다시 연결됩니다. 각 타겟이 단일 노드에서만 활성화되므로 파일 시스템은 두 노드에서 동시에 쓰기 작업에 노출되지 않습니다.</block>
+  <block id="29a2de841205976f47a4fa0209832a9c" category="list-text">*공유 스토리지 액세스:* 다중 경로 NVMe-oF 경로는 각 OSS/MDS 서버 노드를 빌딩 블록의 모든 E-Series 컨트롤러에 연결하여 모든 타겟 볼륨에 어느 노드에서든 접근할 수 있도록 합니다. 서버 노드에 장애가 발생하면 파트너 노드는 이미 동일한 볼륨에 대한 활성 경로를 보유하고 있으므로 스토리지 연결을 재구성하지 않고도 타겟에 대한 소유권을 인계받을 수 있습니다. 어레이 컨트롤러 또는 경로에 장애가 발생하면 다중 경로가 I/O를 정상 작동 중인 컨트롤러로 리디렉션합니다. 이러한 이중 중복성을 통해 Lustre 타겟은 백업 볼륨에 대한 액세스를 잃지 않고 OSS/MDS 서버 노드 또는 어레이 컨트롤러 간에 장애 조치를 수행할 수 있습니다.</block>
+  <block id="a482c53de2fc843e0bb2f865a9f6a655" category="list-text">*STONITH 펜싱:* 장애가 발생하면 Pacemaker는 때때로 장애가 발생한 노드와 통신하여 해당 노드의 타겟이 중지되었는지 확인할 수 없습니다. 이러한 타겟을 다른 곳에서 재시작하기 전에 Pacemaker는 전원을 차단하는 등의 방법으로 장애가 발생한 노드를 펜싱하여 완전히 다운되었는지 확인합니다. 펜싱은 두 노드가 동시에 동일한 타겟에 액세스하여 기본 파일 시스템을 손상시키는 스플릿 브레인 시나리오를 방지하고, 장애 조치 중에 데이터 무결성을 유지합니다. NetApp은 Redfish를 지원하는 베이스보드 관리 컨트롤러(BMC)가 있는 서버에<block ref="ed7a45bcbbe63a63733ab17ec2246fcc" prefix=" " category="inline-code"></block>를 권장합니다. 다른 펜싱 에이전트(<block ref="138fd23846f5d48fe0a28591814e283f" prefix=" " category="inline-code"></block> 등)도 지원됩니다.</block>
+  <block id="1fdcbe69d913b747190662ff186848c2" category="inline-link-macro">HA 사용자 가이드</block>
+  <block id="89f3bec5eaf56f644be8beb09688b8e8" category="inline-link-macro">ansible-lustre 컬렉션</block>
+  <block id="1635607a80c549691f35dccafcee86d0" category="paragraph">클러스터 관리 및 펜싱 구성에 대해서는 <block ref="b3db81bf0fae1fdfc6b6cee591291abc" category="inline-link-macro-rx"></block>의 <block ref="6e79803b16c52a648633d8620cb9f221" category="inline-link-macro-rx"></block>을 참조하십시오.</block>
+  <block id="82c161268dfe0b9b1287ad4fe5c236b0" category="section-title">네트워크 아키텍처</block>
+  <block id="d2893affb3627b50d8c0adf917d16ba5" category="paragraph">이 솔루션은 스토리지 백엔드 트래픽과 LNet 프런트엔드 트래픽에 대해 별도의 네트워크 경로를 사용합니다.</block>
+  <block id="602b1c8167e99c819b0279b3ea2a890e" category="inline-link-macro">Lustre 하드웨어 랙 및 케이블 연결</block>
+  <block id="7ed3467ebc44638b347f49a62ba1e2fb" category="inline-link-macro">목표 분포</block>
+  <block id="31bcce12b5160e4886c47b8a0d991888" category="list-text">*백엔드(NVMe-oF):* OSS/MDS 서버 노드는 NVMe/InfiniBand 또는 NVMe/RoCE를 사용하여 NVMe-oF를 통해 E-Series 어레이에 연결됩니다. NVMe-oF 경로는 Lustre 타겟 서비스와 E-Series 볼륨 간에 블록 I/O를 전송합니다. EF80 6-HCA 백엔드 케이블 연결은 <block ref="18bea05bda8ed8f518d518ea28b4f1ab" category="inline-link-macro-rx"></block>을 참조하십시오. 노드 및 어레이 전반의 기본 타겟 배치에 대해서는 <block ref="b951df04c708233bd0e6aa30024a444e" category="inline-link-macro-rx"></block>의 <block ref="ff23c4948ae50c95f779a1609ba4e520" category="inline-link-macro-rx"></block>을 참조하십시오.</block>
+  <block id="f7dd9a813b10b7d4884b4643def972f5" category="list-text">*프런트엔드(LNet):* Lustre 클라이언트와 OSS/MDS 서버 노드는 NVIDIA OFED 스택을 사용하는<block ref="c49f0c3c2926c11287cf9b9355c7aa1f" prefix=" " category="inline-code"></block> 네트워크 유형인 LNet을 통해 통신합니다. InfiniBand와 RoCE는 모두 검증된 프런트엔드 전송 프로토콜입니다. ansible-lustre 컬렉션은 모든 프런트엔드 인터페이스를 멀티레일 LNet으로 구성하여 여러 포트를 통합함으로써 대역폭을 높이고 클라이언트 및 노드 간 트래픽에 대한 경로 이중화를 제공합니다.</block>
+  <block id="a43c363f559b33460c8075b618d0eaf8" category="list-text">*관리 및 클러스터:* 아웃오브밴드(out-of-band) 관리 네트워크는 서버 관리, BMC 액세스 및 어레이 관리를 제공합니다.  STONITH 펜싱 에이전트 등<block ref="ed7a45bcbbe63a63733ab17ec2246fcc" prefix=" " category="inline-code"></block>은 이 네트워크를 사용하여 서버 BMC에 연결하고 장애가 발생한 노드의 전원을 차단합니다.  Corosync는 프런트엔드 패브릭과 함께 추가 링으로 이 네트워크를 통해 클러스터 통신을 실행할 수도 있습니다.  Corosync를 여러 링으로 구성하면 클러스터 메시징에 대한 이중화가 추가되어 단일 네트워크 장애로 인해 쿼럼이 중단될 위험이 줄어듭니다.</block>
+  <block id="145312809fb4d503a6e0ac92674276ac" category="section-title">Lustre 클라이언트</block>
+  <block id="5ab70d1058c71efddd71a0b5b4a39d61" category="inline-link-macro">Lustre 지원 매트릭스</block>
+  <block id="ecd1920a56f570c6a4fe79526a61389b" category="paragraph">Lustre 클라이언트는 클라이언트 커널 모듈을 로드하고, OSS/MDS 서버 노드와의 LNet 연결을 설정한 후, 파일 시스템을 마운트하여 애플리케이션에 단일하고 일관된 POSIX 호환 네임스페이스를 제공합니다.  I/O는 활성 OST 전체에 병렬로 분산됩니다.  클라이언트 노드는 빌딩 블록 외부에 있으며 프런트엔드 LNet 패브릭을 통해 파일 시스템을 사용합니다.  이 솔루션에 대한 클라이언트 운영 체제는 IMT에 나열되어 있지 않습니다. 배포된 Lustre 릴리스에서 지원하는 테스트된 클라이언트 배포판 및 커널 버전(예: Red Hat Enterprise Linux 9, SUSE Linux Enterprise Server 15, Ubuntu 24.04)은 <block ref="612e690bea76796aad3a16779b18be6e" category="inline-link-macro-rx"></block>을 참조하십시오.</block>
+  <block id="9998d218109c40ea696c5c329fc14bc7" category="paragraph">클라이언트 노드는 OSS/MDS 서버 노드와 동일한 LNet 패브릭 및 네트워크 유형에 연결되어야 합니다. 필요한 경우 LNet 라우터를 사용하여 서로 다른 LNet 서브넷 또는 패브릭을 연결할 수 있습니다.</block>
+  <block id="b6df2ef001d9ba7e28f5c5f925e6400d" category="inline-link-macro">netapp-lustre repository</block>
+  <block id="5f326ef4b597e980cb188da5a716d991" category="paragraph">NetApp은 Rocky Linux 9.8 및 Red Hat Enterprise Linux 9.8용 Lustre 서버 RPM 패키지를 제공합니다. NetApp은 클라이언트 패키지를 제공하지 않습니다. <block ref="a26fe5a6450900f32fdc60abe5f6c5e6" category="inline-link-macro-rx"></block>의 Lustre 소스 코드에서 클라이언트 운영 체제 및 커널용 클라이언트 패키지를 빌드하십시오.</block>
+  <block id="f6fe383d782ca3cc78e7f5626027ddd3" category="inline-link-macro">솔루션 배포</block>
+  <block id="6d68186fae21c34bab6837e5625f472c" category="inline-link-macro">lustre_client 역할 문서</block>
+  <block id="c524fafdc97e3e8be7ee3233f1f35afc" category="paragraph">클라이언트 패키지가 설치되면, 선택적<block ref="99fc42f6ce60cac70cab6ee0f8f2330f" prefix=" " category="inline-code"></block> 역할이 <block ref="6e79803b16c52a648633d8620cb9f221" category="inline-link-macro-rx"></block> 클라이언트 네트워크 인터페이스와 LNet을 구성하고, 선택 시 멀티레일 LNet을 활성화하고, 연결성을 검증하고, 영구적인 systemd 마운트 장치를 관리합니다. 이 역할은 Lustre를 빌드하지 않습니다. <block ref="d5f50bdd80db018bfa3d362452fb861d" prefix=" " category="inline-code"></block>가 채워진 경우에만 클라이언트 패키지를 설치합니다. 필요한 경우 클라이언트를 수동으로 구성할 수 있습니다. 단계별 절차는 <block ref="8f49e9bdbd514d6a8081d8c90c9f306a" category="inline-link-macro-rx"></block> 및 <block ref="a0f4d068c029bf8f009ee83ddd7b9328" category="inline-link-macro-rx"></block>을 참조하십시오.</block>
+  <block id="4f5054c7d30512a9939ddf2201d86d54" category="summary">NetApp Ansible 플레이북을 사용하여 Lustre HA 클러스터와 클라이언트를 배포합니다.</block>
+  <block id="33083b65cfe94a2f3ae9f4197d0c53ce" category="doc">Lustre HA 클러스터 및 클라이언트 배포</block>
+  <block id="07148f1dd881fdc7dfe8f1e0688d01c8" category="paragraph">서버 운영 체제를 준비하고, NVIDIA DOCA-OFED를 설치하고, Lustre HA 클러스터를 배포하고, NetApp Ansible 플레이북을 사용하여 Lustre 클라이언트를 구성합니다.</block>
+  <block id="b49b203ba6d22ffb53b89f8af41db490" category="inline-link-macro">Lustre Ansible 인벤토리를 사용자 지정합니다</block>
+  <block id="840f333f0bb0cf08631b9e65cdfd9339" category="paragraph">시작하기 전에, <block ref="48fa4fcc6ef309525d67cfc2e71da78c" category="inline-link-macro-rx"></block>에 설명된 목록을 작성하고 안전하게 보관하십시오.</block>
+  <block id="92329ab03465cefd3513d3cc78541047" category="section-title">Lustre HA 클러스터 배포</block>
+  <block id="f3a29486bed19a90f2da6d007818b427" category="list-title">단계</block>
+  <block id="ae500f96b6ddfd600df7c0bc6b5fa41e" category="list-text">작업 복사본의<block ref="8e25afc00dfc76dcf543a4bd8b70f7d8" prefix=" " category="inline-code"></block> 디렉터리에서 Lustre 서버의 운영 체제를 준비합니다. <block ref="64c25f7bf7bc31acd4f5cc4d7ecb73f5" prefix=" " category="inline-code"></block>를 사용자 지정 인벤토리 디렉터리의 경로로 바꿉니다.</block>
+  <block id="3673a4003851958483ff8498a769ecf3" category="inline-link-macro">NVIDIA DOCA-Host 설치 및 업그레이드</block>
+  <block id="dc5a71188a3275cc63a24b0b74655792" category="list-text">각 Lustre 서버에 NVIDIA DOCA-OFED를 설치합니다. 이전 단계에서 설치한 커널을 기반으로 커널 모듈을 빌드합니다. 사용 중인 커널에 맞는 절차를 <block ref="7d78b1760b4ebb4ab1ad267c85870752" category="inline-link-macro-rx"></block>에서 따르십시오. 다음 예는 RHEL 또는 Rocky Linux에 DOCA-OFED를 설치하는 방법을 보여줍니다.</block>
+  <block id="7dbcaaae23c6528910c2b21076a59632" category="list-text">DOCA 호스트 저장소 패키지를 설치하고 패키지 캐시를 새로 고칩니다. <block ref="f0c55660120f8848748167a8b3832af1" prefix=" " category="inline-code"></block>을 운영 체제 및 아키텍처에 맞는 DOCA 호스트 패키지로 교체합니다.</block>
+  <block id="e8bc4be36e4cdb37c3d25fdce0841b8d" category="list-text">실행 중인 커널용 DOCA 커널 모듈을 빌드합니다. 스크립트는 생성된 패키지의 경로를 출력합니다.</block>
+  <block id="83e3008e4cb223028ba0b7b6966de575" category="list-text">스크립트가 생성한 커널 모듈 저장소 패키지를 설치한 다음 패키지 캐시를 새로 고칩니다. <block ref="aa654633a9857018c94f9b36506e1548" prefix=" " category="inline-code"></block>을 이전 단계의 경로로 바꾸십시오.</block>
+  <block id="4871ece702c640438eee131f662524d5" category="list-text">DOCA-OFED 사용자 공간, 커널 및 NVMe 패키지를 설치합니다. <block ref="da5c2b896a2957f1ee87942e2da7ff73" prefix=" " category="inline-code"></block>을(를) 실행 중인 커널 버전으로 교체합니다.</block>
+  <block id="f9fa68ae7af314229bcdc48211c162c3" category="list-text">메인 배포 플레이북을 실행합니다.</block>
+  <block id="8477b59b4dbd5b47a10b2b9c38042a89" category="admonition">배포 규모에 따라 Ansible이 병렬로 구성할 호스트 수를 제어하려면<block ref="51ded8ed2d854ee1bcb6557aaf84688f" prefix=" " category="inline-code"></block>을 조정합니다. 예를 들어, 더 큰 클러스터의 경우<block ref="2a86fba4a938ce618ea8eefc39d65050" prefix=" " category="inline-code"></block>를 추가합니다.</block>
+  <block id="01a16f7eaa19f99ed1cfdef329e584f2" category="paragraph">플레이북은 E-Series 볼륨 그룹 또는 DDP 풀 및 볼륨을 프로비저닝하고, NVMe-oF 호스트 연결을 구성하고, Lustre 타겟을 포맷 및 마운트하고, LNet을 구성하고, 성능 튜닝을 적용하고, Pacemaker HA 리소스를 구성합니다.</block>
+  <block id="ff3ff2497027b0fe1b310b10a084a716" category="inline-link-macro">HA 관리 사용자 가이드</block>
+  <block id="fe06485e37868a7559e7f21c10b5fb16" category="admonition">하나의 구성 요소로 이루어진 배포는 2노드 Pacemaker 클러스터를 구성합니다.  노드 A는 장애 조치 시 추가 투표권을 갖습니다.  2노드 클러스터에서 쿼럼을 달성하려면 qdevice 구성을 고려하십시오.  배포에 여러 구성 요소가 포함된 경우, 각 구성 요소는 문서에 명시된 클러스터 제한까지 더 큰 Pacemaker 클러스터에 2노드 서버 쌍을 제공합니다.  <block ref="366b62f6dcea4b62f9ab1e6c11adfdc9" category="inline-link-macro-rx"></block>의 펜싱 및 쿼럼 구성을 검토하여 노드 장애 발생 시 클러스터가 안전하게 타겟을 복구할 수 있도록 하십시오.</block>
+  <block id="65d39f81777200093c526fc1556aad51" category="section-title">Lustre 클라이언트 배포</block>
+  <block id="ba5289041c7fafcab23ace4ff8fd6d9b" category="paragraph">클라이언트 배포 템플릿을 사용자 지정하고 클라이언트 플레이북을 실행하여 파일 시스템 액세스가 필요한 모든 시스템에 Lustre 클라이언트를 배포할 수 있습니다.</block>
+  <block id="5170ac37884b96453d1e6b82a815c4d6" category="inline-link-macro">netapp-lustre</block>
+  <block id="14e4a498fd2bac1e92f8e542185e0cda" category="list-text">호환되는 클라이언트 운영 체제와 커널을 <block ref="612e690bea76796aad3a16779b18be6e" category="inline-link-macro-rx"></block>에서 선택하십시오. 해당 커널용 Lustre 클라이언트 패키지가 아직 설치되지 않은 경우 <block ref="be60e290dc17959a4905f75b82e3dad6" category="inline-link-macro-rx"></block>에서 빌드 및 설치하십시오.</block>
+  <block id="3ecb3b700b08dd014a63fca3af74da77" category="list-text">공유 <block ref="97a67fc90fe6d13cef22fa951de48f8d" prefix=" " category="inline-code"></block> 파일을 포함하여 <block ref="fac04ca68a48af91f0290001604a2463" prefix=" " category="inline-code"></block> 템플릿 디렉토리의 작업 복사본을 생성하고, 패브릭과 일치하는 템플릿을 선택합니다.</block>
+  <block id="80f21b5d5686ebf74112f9e0f36c7569" category="inline-link-macro">IB_lustre_cluster_clients</block>
+  <block id="677221edf3da01fe7ab07685265d8062" category="list-text">*InfiniBand:* <block ref="35e4b458ad871ca1f95b4932bb7cda13" category="inline-link-macro-rx"></block></block>
+  <block id="4111ad1003028b71065d3de237a53787" category="inline-link-macro">ROCE_lustre_cluster_clients</block>
+  <block id="a20b9b6f9eda64ea2918cc6cd869bd9a" category="list-text">*RoCE:* <block ref="2a9c8d5e1726d46d316bd69280f6ba0d" category="inline-link-macro-rx"></block></block>
+  <block id="64a5c7a596b010742dcc41993dc90e60" category="list-text">클라이언트에 맞게 <block ref="ca5b470e14f1597be2a41f1c443527b5" prefix=" " category="inline-code"></block>, <block ref="3342582e194d63e4c91b56623752c9c6" prefix=" " category="inline-code"></block>, 및 <block ref="96fa973cda8809ad84f646e3d8fbbc1c" prefix=" " category="inline-code"></block>를 사용자 지정하세요. 표의 줄 참조는 <block ref="a0483fb858f70ef7270ed27766b1a748" prefix=" " category="inline-code"></block><block ref="e4dcd80dd2930580c435398aa52a9b6d" prefix=" " category="inline-code"></block> 태그에 있는 RoCE 클라이언트 템플릿 파일을 가리킵니다. InfiniBand 클라이언트 템플릿은 별도로 명시된 경우를 제외하고 동일한 변수를 사용합니다.</block>
+  <block id="6f16a5f8ff5d75ab84c018adacdfcbb7" category="cell">필드</block>
+  <block id="97497e4f12b766346e472319e9f36261" category="cell">Ansible 변수</block>
+  <block id="697fa0809c141a51ad35505df3cc002c" category="cell">템플릿 파일 <block ref="e4dcd80dd2930580c435398aa52a9b6d" prefix="(" category="inline-code"></block>)</block>
+  <block id="5d113f2038d289f391614c39043629e8" category="cell">범위</block>
+  <block id="f4c6f851b00d5518bf888815de279aba" category="cell">참고</block>
+  <block id="8be1a9d1b639b001a740bd70f202f545" category="cell">클라이언트 호스트</block>
+  <block id="f8f0230eb9a10081a6983c55a009596c" category="cell"><block ref="7c311b499aee4363d8dfccb8e00eb65c" prefix="" category="inline-code"></block></block>
+  <block id="4319c164a7c3bc200ff559ee1f9f9012" category="inline-link-macro">lustre_client_inventory.yml#L4</block>
+  <block id="90ce4d39a17095097495da298e0d723f" category="cell"><block ref="90ce4d39a17095097495da298e0d723f" category="inline-link-macro-rx"></block></block>
+  <block id="3db64796d547827f6e1ce991769830d1" category="cell">고객별</block>
+  <block id="3131d8b15b19d5601f1e7f150bfcec03" category="cell">각 클라이언트 호스트 이름을 나열합니다.</block>
+  <block id="3b0cd6ef1ad5815f5876514623cdc732" category="cell">클라이언트 SSH 사용자 및 비밀번호 되기</block>
+  <block id="75183c22c6ed23f273cd33ff93cf5bfa" category="cell"><block ref="2059341c4409e15a9f13830208b77e56" prefix="" category="inline-code"></block> /<block ref="846082d5f2a5a221d387dc3719e8d096" prefix=" " category="inline-code"></block></block>
+  <block id="e672e0b08f2ae1f26424c9210007f2e7" category="inline-link-macro">passwords.yml#L2</block>
+  <block id="939b8d59ca6d09cea63e285c50fed916" category="cell"><block ref="939b8d59ca6d09cea63e285c50fed916" category="inline-link-macro-rx"></block></block>
+  <block id="a8a92c2afc6585e5fa081901419d1b6e" category="cell">클러스터 전체</block>
+  <block id="eb5dc2a531453217cdd76674000cead8" category="cell">SSH 사용자가 아닌 경우에만 become 비밀번호를 설정하십시오<block ref="63a9f0ea7bb98050796b649e85481845" prefix=" " category="inline-code"></block>.</block>
+  <block id="b51137da99daab4e87a07179ef60b7bb" category="cell">LNet 인터페이스</block>
+  <block id="6abd80c04895fc2904236adea666f5bb" category="cell"><block ref="ef28b8b060b698f7614ae0f0773879d7" prefix="" category="inline-code"></block></block>
+  <block id="db105a090f4b3178b97050461d585230" category="inline-link-macro">group_vars/all.yml#L7</block>
+  <block id="32d2980dce4814173fdeae36bf8fb9f4" category="cell"><block ref="32d2980dce4814173fdeae36bf8fb9f4" category="inline-link-macro-rx"></block></block>
+  <block id="cb297a8d150b85cde575250ed180c09b" category="cell">클라이언트 측 LNet 인터페이스 이름(L13의 값).</block>
+  <block id="7c9c93c85fa5555fb2d20e1f30ecf193" category="cell">마운트 MGS NID</block>
+  <block id="8035c29187a1f6b393d457b37b6e59f3" category="cell"><block ref="297aebd8865be3c5176be647ec05d8b6" prefix="" category="inline-code"></block></block>
+  <block id="87098da60fa086fd5bd5018a8dadad76" category="inline-link-macro">group_vars/all.yml#L17</block>
+  <block id="87d9b1f2ef4d1ed85fac9c490ac9e8fd" category="cell"><block ref="87d9b1f2ef4d1ed85fac9c490ac9e8fd" category="inline-link-macro-rx"></block></block>
+  <block id="3b20230a140792bd3a080f55546cc77b" category="cell">파일 시스템을 마운트하는 데 사용되는 MGS NID(L20의 값).</block>
+  <block id="443bd317da0c7f5d88ff99b0c047c7f5" category="cell">파일 시스템 이름</block>
+  <block id="88f98cb728bdeec611e192b39efea1b4" category="cell"><block ref="9a37a14aef09a5e40c4b65d4ffe4f84d" prefix="" category="inline-code"></block></block>
+  <block id="5c7c2d7eb4ca78e38ece35e0cb311532" category="inline-link-macro">group_vars/all.yml#L21</block>
+  <block id="539c3a3bc51e3e53e36cd00cf3aa35d9" category="cell"><block ref="539c3a3bc51e3e53e36cd00cf3aa35d9" category="inline-link-macro-rx"></block></block>
+  <block id="84801f7e79e1f99301c9575758d60fcb" category="cell">클러스터와 일치해야 합니다<block ref="9948b2d72c189368aba79ff6a6f29e9f" prefix=" " category="inline-code"></block>.</block>
+  <block id="0bc0058b2b986d2f1a1c89a94d6bfda6" category="cell">마운트 포인트</block>
+  <block id="3cd86aacaf7923faca6ea2da7707ee4e" category="cell"><block ref="03b4cb723e91f1cecf0324aa97555270" prefix="" category="inline-code"></block></block>
+  <block id="031d0aa4c67fd872bd944298af012b5e" category="inline-link-macro">group_vars/all.yml#L22</block>
+  <block id="eff88b9bf540236200c5a3407412db56" category="cell"><block ref="eff88b9bf540236200c5a3407412db56" category="inline-link-macro-rx"></block></block>
+  <block id="680370327c4f3d77d7ff35c210978000" category="cell">클라이언트 마운트 디렉터리.</block>
+  <block id="21c9bef152653e3fcf9d610ee543235c" category="cell">클라이언트 관리 IP</block>
+  <block id="26b672f4cd021fb18ef56983414f134c" category="cell"><block ref="e15cba2a55d1c830968665125de5abf6" prefix="" category="inline-code"></block></block>
+  <block id="67f48ec24a12d065b454bbeac7878968" category="inline-link-macro">host_vars/client_01.yml#L4</block>
+  <block id="605bd5ebce3e987c1975bd3d0aeed280" category="cell"><block ref="605bd5ebce3e987c1975bd3d0aeed280" category="inline-link-macro-rx"></block></block>
+  <block id="7a0f487b094afb8328bef454792eb431" category="cell">고객별로 반복</block>
+  <block id="19988a9a8dd0ce44cf0228707868bb1a" category="cell">One<block ref="b6b61f33b6f898807880665e9e5f94de" prefix=" " category="inline-code"></block> 클라이언트당 파일 하나.</block>
+  <block id="ecd174b586df36adb7803f4f17f8f8e1" category="cell">스토리지 패브릭 인터페이스</block>
+  <block id="ab462ebb7ad10b4077acdc4a2ee7e661" category="cell"><block ref="4b785157a5e72b7262c130d2302f2206" prefix="" category="inline-code"></block></block>
+  <block id="58a404858b4958b16eab97fa7c74fdf8" category="inline-link-macro">host_vars/client_01.yml#L10</block>
+  <block id="c443d457524e158ff1f4d18df7b496d3" category="cell"><block ref="c443d457524e158ff1f4d18df7b496d3" category="inline-link-macro-rx"></block></block>
+  <block id="55908942c22db1aa7358ed0c0070f047" category="cell">프런트엔드 인터페이스 주소(L15 값). InfiniBand 템플릿에서 <block ref="e3f0f10215cb725eaa278fec38bd76e6" prefix=" " category="inline-code"></block>을(를) 사용합니다.</block>
+  <block id="b2731fdd0dec92240838b47554534f06" category="paragraph">각 클라이언트에 대해 설정을 반복합니다. 클라이언트별로 <block ref="b6b61f33b6f898807880665e9e5f94de" prefix=" " category="inline-code"></block> 파일을 하나씩 생성하고 해당 호스트를 <block ref="ca5b470e14f1597be2a41f1c443527b5" prefix=" " category="inline-code"></block>에 추가합니다. 공유 <block ref="81fc088f3a9391600c7af8878cb365e6" prefix=" " category="inline-code"></block> 파일에 데이터를 입력하고 클라이언트 플레이북을 실행하기 전에 Ansible Vault로 암호화합니다.</block>
+  <block id="36523ec6a2cfaa5f35f4a133d166ef0b" category="list-text">클라이언트 템플릿 디렉터리에서 클라이언트 플레이북을 실행합니다.</block>
+  <block id="6e53643c8b5ab7ab3a87799e37ce5743" category="paragraph">클라이언트 플레이북은 클라이언트 네트워크 인터페이스와 LNet을 구성하고, Lustre 파일 시스템에 대한 영구적인 systemd 마운트 유닛을 생성할 수 있습니다.</block>
+  <block id="bd965e38a0c9cf27aa1bde099308e23f" category="section-title">완료한 후</block>
+  <block id="d4be0cd50f8113c9539912151e7021a8" category="inline-link-macro">배포를 확인합니다</block>
+  <block id="dc3b94d1e90e58c76ff8007e6eceb45b" category="paragraph"><block ref="0bb6b88af486d04bc1cb72af611125a0" category="inline-link-macro-rx"></block>.</block>
+  <block id="09cee721f0b4e3f153330cf11723d57f" category="summary">Lustre 빌딩 블록을 구성하기 위해 서버, EF80 어레이, 백엔드 NVMe-oF 네트워크 및 프런트엔드 LNet 패브릭을 랙에 설치하고 케이블을 연결합니다.</block>
+  <block id="57265f475d0b1c925f29247bf9ffd849" category="doc">랙 및 케이블 Lustre 하드웨어</block>
+  <block id="3b2606d1286290a450fa0fbac710df97" category="paragraph">Lustre 서버와 NetApp EF80 어레이를 랙에 설치한 다음, 각 구성 요소에 대해 백엔드 NVMe-oF 및 프런트엔드 LNet 패브릭을 케이블로 연결합니다.</block>
+  <block id="135b308ed83c53f1516b7c754566d1c4" category="section-title">시작하기 전에</block>
+  <block id="62f5efbb78bbf058114f0fe9d5e86cca" category="paragraph">HCA 개수, PCIe 슬롯 요구 사항, 경로 요구 사항 및 MTU 지침은 <block ref="b951df04c708233bd0e6aa30024a444e" category="inline-link-macro-rx"></block>에서 검토하십시오.</block>
+  <block id="a0b0137ed670e8af15faa3b11abb8d48" category="list-text">모든 Lustre 서버와 E-Series 스토리지 어레이를 구성 요소 토폴로지에 따라 랙에 장착하고 케이블을 연결하십시오.</block>
+  <block id="786669c9f212d6c20ffc339eb2367a8e" category="inline-image-macro">두 개의 OSS/MDS 서버와 두 개의 EF80 어레이가 포함된 Lustre 빌딩 블록 스택 레이블</block>
+  <block id="736fbba86d0a03b59b6eeee9c3d86c83" category="paragraph"><block ref="736fbba86d0a03b59b6eeee9c3d86c83" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f9b4774d94693f6b2e8c99ab5a85b0f1" category="inline-link-macro">EF50 및 EF80 컨트롤러 간 미러링 연결 케이블 연결</block>
+  <block id="f016230d9333347a56544d34190817e2" category="list-text">각 EF80 어레이에 대해 컨트롤러 A의 포트 4a를 컨트롤러 B의 포트 4a에, 그리고 컨트롤러 A의 포트 4b를 컨트롤러 B의 포트 4b에 케이블로 연결하십시오. 이러한 전용 연결은 컨트롤러 간 미러링을 제공하며 호스트 트래픽에는 사용되지 않습니다. 자세한 내용은 <block ref="2167f991eb9981359d79aa07afa06edc" category="inline-link-macro-rx"></block>을 참조하십시오.</block>
+  <block id="0efa2e875fbcce2ca098bc7d3beffa59" category="list-text">EF80 6-HCA 토폴로지에 따라 서버와 어레이 간의 백엔드 NVMe-oF 네트워크를 케이블로 연결합니다.</block>
+  <block id="cc0250785d0c2de26d745fcf0f2d1741" category="paragraph-title">EF80 6-HCA 백엔드 케이블링(RoCE 또는 InfiniBand)</block>
+  <block id="5dc0d089dbc7f323c2b2db3adda4aceb" category="inline-image-macro">두 개의 OSS/MDS 서버 노드와 두 개의 EF80 어레이 간의 EF80 6-HCA 백엔드 NVMe-oF 케이블 연결</block>
+  <block id="fa0c84ec25d5521949201d115aea8f0d" category="paragraph"><block ref="fa0c84ec25d5521949201d115aea8f0d" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="4a70c61365d613b05bf336ff2d3b6331" category="list-text">각 Lustre 서버와 Lustre 클라이언트의 프런트엔드 LNet 인터페이스 4개(i1 및 i4 HCA)를 전용 InfiniBand 또는 RoCE 스위치 패브릭에 연결합니다.</block>
+  <block id="549e900f52bc5aae5d24e560cda8f002" category="list-text">RoCE를 사용할 때는 우선순위 흐름 제어(PFC)를 통해 무손실 동작이 가능하도록 네트워크 패브릭을 구성하십시오. Ansible 플레이북은 빌딩 블록의 모든 인터페이스에 무손실 RoCE를 구성합니다.</block>
+  <block id="8ff63dda38394cf7e27b69e493fc02d8" category="inline-link-macro">서버, 어레이 및 Ansible 제어 노드를 준비합니다.</block>
+  <block id="ac9c449909db3bbc27c2d5c6630efdea" category="paragraph"><block ref="b82e71660dcff2c4b12ae3bc9d103566" category="inline-link-macro-rx"></block>.</block>
+  <block id="7fb6b1e6bab59eccacbd98c19cc1c38c" category="summary">Lustre 서버, EF80 어레이, 네트워크 및 HA 리소스에 맞게 NetApp Ansible 배포 인벤토리를 사용자 지정합니다.</block>
+  <block id="07d5e0c6744dedd5f7049570b1ac34ae" category="doc">Lustre Ansible 인벤토리를 사용자 지정합니다</block>
+  <block id="849fa199688169bda702b938798074ee" category="paragraph">EF80 배포 템플릿의 작업 복사본을 만들고 서버, 어레이, 네트워크 및 Lustre 구성 요소에 맞게 인벤토리를 사용자 지정합니다.</block>
+  <block id="ba5fc3a997ddadbbd02c4f2135ea89b4" category="paragraph">선택한 인벤토리를 해당 패브릭 및 플랫폼 디렉터리 아래에 보관하십시오. 공유<block ref="f48601f3d578d4005c478a296758f8af" prefix=" " category="inline-code"></block> 디렉터리와<block ref="97a67fc90fe6d13cef22fa951de48f8d" prefix=" " category="inline-code"></block> 파일을<block ref="4c9ed35a5bd895e82f72511e6cec8913" prefix=" " category="inline-code"></block>의 루트에 유지하십시오.</block>
+  <block id="b092a0a76f85e0b51b2b5d3e06255ea3" category="section-title">배포 템플릿을 선택합니다</block>
+  <block id="5cde57a20fc900ae9b57f3113bffb1dc" category="paragraph">사이트의 네트워크 패브릭과 일치하는 템플릿에서 시작합니다:</block>
+  <block id="fc4237a05da8825b9eb433a52ba633f0" category="inline-link-macro">IB_H2_IB_DAC_A2_EF80/lustre_building_block_cluster_1</block>
+  <block id="52b81e131e1d226662d234ac01012953" category="list-text">*InfiniBand:* <block ref="65b60e6b9c22162bb0aed549ad85be37" category="inline-link-macro-rx"></block></block>
+  <block id="698abb1eaba651b930d805eee8497d5c" category="inline-link-macro">ROCE_H2_ROCE_DAC_A2_EF80/lustre_building_block_cluster_1</block>
+  <block id="abeb9ae212983c6ef1b3bb03e1cdf92b" category="list-text">*RoCE:* <block ref="ca7061a33e7f5cdc5aa0d0093ae53375" category="inline-link-macro-rx"></block></block>
+  <block id="c8ff17e78c3fe1abe573cba77387562f" category="section-title">사이트별 설정 구성</block>
+  <block id="161dddc8fd4745906dbb0976b71174eb" category="paragraph">인벤토리에서 사이트별 값을 설정하고 로컬 저장소 및 udev 규칙 설정을 함께 지정하십시오. 표의 줄 참조는 <block ref="a0483fb858f70ef7270ed27766b1a748" prefix=" " category="inline-code"></block><block ref="e4dcd80dd2930580c435398aa52a9b6d" prefix=" " category="inline-code"></block> 태그에 있는 RoCE EF80 템플릿 파일을 가리킵니다. InfiniBand 템플릿은 LNet 인터페이스 변수를 제외하고 동일한 변수 이름과 구조를 사용하며, 해당 변수는 표에 명시되어 있습니다.</block>
+  <block id="dc092a27b4da7dbaa0f4aada8403dee8" category="cell"><block ref="a294d87e0bba9781edfdb76560bc0bc5" prefix="" category="inline-code"></block>,<block ref="69a0ccdb4868ac688435eca28e0c1ae8" prefix=" " category="inline-code"></block>,<block ref="70f1214c90795f0b99f3c804157a5725" prefix=" " category="inline-code"></block></block>
+  <block id="28ebdf2227e37c2cbe7b419e6f9762f3" category="inline-link-macro">ha_cluster.yml#L76</block>
+  <block id="64162db154d0237e209e51fe9ee5c480" category="inline-link-macro">#L90</block>
+  <block id="0e2366426af40b340c435457fb3eeb30" category="inline-link-macro">#L110</block>
+  <block id="e4f36cb2204e11b20cf8dc587fe2675e" category="cell"><block ref="2cc120a696591d58d931f8e1826ddd7a" category="inline-link-macro-rx"></block>, <block ref="6fe80d99302a728476e69eaf6d4a06ee" category="inline-link-macro-rx"></block>, <block ref="812c7c8e5ff1488f0fb83528a7ad1697" category="inline-link-macro-rx"></block></block>
+  <block id="c6923e59d08c52028fe18b89ea901d1e" category="cell"><block ref="2fcb79070f0e58d8d56aeb420f6af256" prefix=" " category="inline-code"></block> 아래에 중첩됩니다(MGT, MDT, OST 맵의 경우). 최대 8자입니다. 세 위치 모두에 동일한 값을 사용하십시오. 최상위 <block ref="9948b2d72c189368aba79ff6a6f29e9f" prefix=" " category="inline-code"></block> 키는 아무런 효과가 없습니다.</block>
+  <block id="2825e20c61c0fedd16ff6898b977df56" category="cell">표적 등록을 위한 MGS NID</block>
+  <block id="d8c7784427dbc9854cc5b9c63a4f334f" category="cell"><block ref="a16670ebe2fc1221d321770495fd3993" prefix="" category="inline-code"></block>,<block ref="b3f34377f449167c79bd9cf61c043ff1" prefix=" " category="inline-code"></block></block>
+  <block id="dd11a332ef88fa73b21cfd1bd77575a2" category="inline-link-macro">ha_cluster.yml#L98</block>
+  <block id="ec381a353275bfd44e020062b3fd99fa" category="inline-link-macro">#L118</block>
+  <block id="729ec7d67659e14164dce49fbf4731ae" category="cell"><block ref="9584ff8ab41e94b311d547c836f1d8b7" category="inline-link-macro-rx"></block>, <block ref="66717e95762f304aba48b059b79beab0" category="inline-link-macro-rx"></block></block>
+  <block id="bceefbcfbe8a5e76a1e25b28875382f9" category="cell">MDT 및 OST 아래에 중첩됩니다<block ref="2fcb79070f0e58d8d56aeb420f6af256" prefix=" " category="inline-code"></block>. HA 쌍의 두 노드 모두에서 프런트엔드 LNet NID를 포함합니다. 기본 MGS 소유자로 구성된 노드의 NID를 먼저 나열하고 그 뒤에 파트너 노드의 NID를 나열합니다.</block>
+  <block id="db0e9bbe14f69452cb025c4585a1984c" category="cell">Pacemaker 클러스터 이름</block>
+  <block id="d4dadd76ce4715776cfcda468992e55b" category="cell"><block ref="22ef28d91e6a54cd1e917c5030de68ef" prefix="" category="inline-code"></block></block>
+  <block id="b0cfee9d061f8586a1bcd4bfdff03026" category="inline-link-macro">ha_cluster.yml#L228</block>
+  <block id="3b6ae527a7c2a4ab73d38f52aee32d31" category="cell"><block ref="3b6ae527a7c2a4ab73d38f52aee32d31" category="inline-link-macro-rx"></block></block>
+  <block id="4fcc3aba99cf6eddd67ef2dc0b3ea449" category="cell">Pacemaker CIB 속성 재정의 아래에 중첩됩니다. HA 클러스터에 대한 고유 이름입니다.</block>
+  <block id="0819953d792a0e5537c5d335b34e7e50" category="cell">BMC 펜싱 주소</block>
+  <block id="2a35365d9c941c0421715291f38de458" category="cell"><block ref="0721ac52e00ff9d39bfc7ac6ea226c19" prefix="" category="inline-code"></block></block>
+  <block id="9deffbe868d493a1cb7eeb5499782ee0" category="inline-link-macro">ha_cluster.yml#L211</block>
+  <block id="f2627bacca2db635ecfb76f8fc3ab09f" category="inline-link-macro">#L214</block>
+  <block id="7685a2c6de328ab53aa694dd72b4c7ed" category="inline-link-macro">#L217</block>
+  <block id="376cab8c66e9e46e0a6e2308b81313b3" category="inline-link-macro">#L220</block>
+  <block id="90aa2dad0631ae7e6b5e7fa249b8acf8" category="cell"><block ref="57f1866b7c6c96aede22bff74850a7a1" category="inline-link-macro-rx"></block>, <block ref="5f56188f908f185423a80af398e2647d" category="inline-link-macro-rx"></block>, <block ref="218da9a6c1fbcdb4655478b7c9d688ba" category="inline-link-macro-rx"></block>, <block ref="efe7443fe5778cfa1021ecaffa0c368b" category="inline-link-macro-rx"></block></block>
+  <block id="8fad9b2f1bb07b7137b792ab9dda3abf" category="cell">Lustre 서버당 반복</block>
+  <block id="6f8108e5d862d3575d73f220aa5c9187" category="cell">각 서버 노드의 Redfish BMC IP 주소입니다.</block>
+  <block id="48432554382ecd7b3a9e4a0820481377" category="cell">알림 이메일 수신자</block>
+  <block id="85e3c19dd4a66bc102a0e81eb6e20c6c" category="cell"><block ref="0c41e283fc637b718002e2855c06798c" prefix="" category="inline-code"></block></block>
+  <block id="8d1fe2e28a39fa6135959b4a9183d295" category="inline-link-macro">ha_cluster.yml#L233</block>
+  <block id="5672bf78ba92c2a6e869d7580ae4ce4b" category="cell"><block ref="5672bf78ba92c2a6e869d7580ae4ce4b" category="inline-link-macro-rx"></block></block>
+  <block id="faf7f93a5bb1a4334bcc080e520a00bb" category="cell">HA 리소스 및 장애 알림 수신자입니다.</block>
+  <block id="705e2aa73a8fa6d0668c74c80e9ccef2" category="cell">메일 도메인</block>
+  <block id="4eb84af5d4ab198d4c0e9fb0f1571628" category="cell"><block ref="cf0c208b30eac9839752881b2bef28d5" prefix="" category="inline-code"></block></block>
+  <block id="cd7966b537c9a656c3dffb64cd0ac869" category="inline-link-macro">ha_cluster.yml#L240</block>
+  <block id="e0dfd7110a4d5e9de24736a906ea205f" category="cell"><block ref="e0dfd7110a4d5e9de24736a906ea205f" category="inline-link-macro-rx"></block></block>
+  <block id="a7e3d851dc5c0eb2956c1f1ff000e8a8" category="cell">Postfix 도메인은 알림 이메일을 보내는 데 사용됩니다.</block>
+  <block id="c3a147e1ee28f6349c57421b4d5cb524" category="cell">NTP 시간 소스</block>
+  <block id="a5826cb41f6e95f2ff5f79e012f44360" category="cell"><block ref="99ad683ffc6dbf7d99fb2050c2cc0c1c" prefix="" category="inline-code"></block></block>
+  <block id="cf2c30f90edf99467126c607a878acfc" category="inline-link-macro">ha_cluster.yml#L250</block>
+  <block id="625528c84d430ec70773e4f1101cc139" category="cell"><block ref="625528c84d430ec70773e4f1101cc139" category="inline-link-macro-rx"></block></block>
+  <block id="467d09a3bfe35b45f5c3e650ece8bdf5" category="cell">클러스터 노드의 시간 소스입니다. NTP 풀 또는 하나 이상의 개별 NTP 서버를 지정합니다. 필수<block ref="b10a8c0bede9eb4ea771b04db3149f28" prefix=" " category="inline-code"></block>또는<block ref="cf1e8c14e54505f60aa10ceb8d5d8ab3" prefix=" " category="inline-code"></block>지시문과<block ref="4e78b2062a724468763b086556c73046" prefix=" " category="inline-code"></block>등의 옵션을 포함합니다.</block>
+  <block id="907b60c8cfd6057cb141020e21390ffd" category="cell">인터페이스 PCI-to-name udev 맵</block>
+  <block id="d3ba215665e71ef616a9d66adc2fba1c" category="cell"><block ref="24106e17a501ccfc6e41dec4a61aab0c" prefix="" category="inline-code"></block></block>
+  <block id="32a69362da83b6aa610263b2d6738923" category="inline-link-macro">ha_cluster.yml#L172</block>
+  <block id="1369c547b38f0e5caae682fa78d337bc" category="cell"><block ref="1369c547b38f0e5caae682fa78d337bc" category="inline-link-macro-rx"></block></block>
+  <block id="4b4404ddf34ee3ed378224e664fbeb1c" category="cell">HCA 슬롯 레이아웃당 반복</block>
+  <block id="84dab3f787eddd5f32097b8d666403cc" category="cell">각 PCI 슬롯을 영구 인터페이스 이름(L182의 값)에 매핑합니다. <block ref="6da975c28b569d5b3195b69314ff8cd3" prefix=" " category="inline-code"></block>을 사용하여 수집합니다.</block>
+  <block id="b566633973f2388105706e2db3286ef0" category="cell">로컬 패키지 저장소(선택 사항)</block>
+  <block id="234cefeab428deb613b757e069321dbf" category="cell"><block ref="4b2bda69c5f1ab28684c4c68820bee9a" prefix="" category="inline-code"></block></block>
+  <block id="01b4efd53143b7423d9e98362a51afb5" category="inline-link-macro">ha_cluster.yml#L256</block>
+  <block id="ff92ddbbc1558dd25d95a862d8b0ab07" category="inline-link-macro">#L261</block>
+  <block id="e6a84f4548df3d6a4995d2f0141fde9b" category="cell"><block ref="8147b353047ac75b2aaa643fb1051f6c" category="inline-link-macro-rx"></block>, <block ref="90c9532fa4f9c4b777a0daf5d0fd3c56" category="inline-link-macro-rx"></block></block>
+  <block id="a2e1abbebb66ae0c88c85bf74515e8da" category="cell">에어갭 설치의 경우 해당 블록의 주석 처리를 해제하고 저장소<block ref="572d4e421e5e6b9bc11d815e8a027112" prefix=" " category="inline-code"></block>(L264)를 설정하십시오.</block>
+  <block id="54a9a3e8b66d38394d513bb788a737af" category="cell">서버 관리 IP</block>
+  <block id="636203dc4440306a14dd696c4de5931a" category="inline-link-macro">host_vars/lustre_01.yml#L10</block>
+  <block id="65802799f33fb909f185b3f75d5dde47" category="cell"><block ref="65802799f33fb909f185b3f75d5dde47" category="inline-link-macro-rx"></block></block>
+  <block id="4289d0b4a0eb9de69ee5a0eb8dac75ea" category="cell">서버당 파일 하나.<block ref="d15ffd2d191c94654e8e50c55cf273b9" prefix=" " category="inline-code"></block></block>
+  <block id="91ca84480d7b5ee6738d3687875165de" category="cell">NVMe-oF 백엔드 인터페이스</block>
+  <block id="ef2f483559dc6ae3841f7a2413191328" category="cell"><block ref="acd335a4d756a503bbe90f51587e6cd6" prefix="" category="inline-code"></block> (RoCE) /<block ref="f70b96976b303b11c8901e62834ddcbf" prefix=" " category="inline-code"></block> (InfiniBand)</block>
+  <block id="44670a832e8c669d616a8e5bb73ea90d" category="inline-link-macro">RoCE host_vars/lustre_01.yml#L21</block>
+  <block id="e4fe71da7ee64ff1432c605328af6949" category="inline-link-macro">InfiniBand host_vars/lustre_01.yml#L17</block>
+  <block id="043caf30caa6df90601c496a87eba920" category="cell"><block ref="d5dd1f2ccfb900d7775232d615bbd59d" category="inline-link-macro-rx"></block>, <block ref="f8506d7da0c02cce792e8f991f3efdb6" category="inline-link-macro-rx"></block></block>
+  <block id="de3294bf0a8c13aec72739c96ab358df" category="cell">E-Series 어레이로의 NVMe-oF 스토리지 트래픽에 사용되는 백엔드 인터페이스 주소입니다.</block>
+  <block id="d1eca90db1b5937ecf631c86492e542a" category="cell">LNet 클러스터 인터페이스</block>
+  <block id="f4cfcf44d6d2bd79213a39876836b2a7" category="cell"><block ref="4b785157a5e72b7262c130d2302f2206" prefix="" category="inline-code"></block> (RoCE) /<block ref="e3f0f10215cb725eaa278fec38bd76e6" prefix=" " category="inline-code"></block> (InfiniBand)</block>
+  <block id="c88c4966964eb7fd171c670b02bea1be" category="inline-link-macro">RoCE host_vars/lustre_01.yml#L47</block>
+  <block id="3be01edee3acf1567e136111efc731a9" category="inline-link-macro">InfiniBand host_vars/lustre_01.yml#L38</block>
+  <block id="3a312ec8c30a90b41b8e95b33186f9f9" category="cell"><block ref="0bf6a33116c634b0311082d3b8b27524" category="inline-link-macro-rx"></block>, <block ref="209a601e7842c823a6d9437e13f7ac6f" category="inline-link-macro-rx"></block></block>
+  <block id="daa858dd88f813bf2abe72e05ac79104" category="cell">프런트엔드 LNet 인터페이스 주소(L56의 RoCE 값, InfiniBand L47의 InfiniBand 값).</block>
+  <block id="8f275be344e18a73f50c90c98862730c" category="cell">Corosync 노드 IP</block>
+  <block id="3bcebedf92386c6d782a4fb1d9245fbe" category="cell"><block ref="b3da4c961227c7f785b5051a5f3d1ca2" prefix="" category="inline-code"></block></block>
+  <block id="d26865aecb9841f5fa8e4a2ad002653f" category="inline-link-macro">host_vars/lustre_01.yml#L58</block>
+  <block id="7674410161b2469ec2f0588d7cb0133c" category="cell"><block ref="7674410161b2469ec2f0588d7cb0133c" category="inline-link-macro-rx"></block></block>
+  <block id="499bfea2697a63f16233ea2f3b77b2c5" category="cell">HA 클러스터의 모든 노드 IP 주소를 나열합니다(L62 레벨 값).</block>
+  <block id="dd603111f7aedcb686a7d943e7470a9a" category="cell">Lustre 타겟 서비스 NID</block>
+  <block id="84d5fb1f5c4c2a3b20e920eab695f987" category="cell"><block ref="1f853ce28851014f6eadd5c849ba3ce1" prefix="" category="inline-code"></block></block>
+  <block id="3642d5fc1bd5e1d5a2d0a0aea7f8fec5" category="inline-link-macro">host_vars/lustre_01.yml#L64</block>
+  <block id="f1680e035658b9a3e449dbce28e26600" category="cell"><block ref="f1680e035658b9a3e449dbce28e26600" category="inline-link-macro-rx"></block></block>
+  <block id="ad71d199400e65302247951bced69da2" category="cell">HA 쌍의 두 노드 모두에서 프런트엔드 LNet NID(<block ref="c49f0c3c2926c11287cf9b9355c7aa1f" prefix="(" category="inline-code"></block>)를 포함하여 장애 조치 후에도 대상 서비스에 계속 접근할 수 있도록 합니다(L67의 값 참조).</block>
+  <block id="ce1cdc9c6fba0be5fab535b8c6c76141" category="cell">어레이 관리 IP</block>
+  <block id="e9ad5d914deda2bd4c808eeb12731073" category="inline-link-macro">host_vars/netapp_01.yml#L13</block>
+  <block id="79f1e43a9431bc629779c58d7b668a19" category="cell"><block ref="79f1e43a9431bc629779c58d7b668a19" category="inline-link-macro-rx"></block></block>
+  <block id="1ed3694d7fef8516584c13d7e425a15f" category="cell">E-Series 어레이별로 반복합니다.</block>
+  <block id="c1e52517a2b31863df6c2d898abcc01d" category="cell">컨트롤러 하나의 관리 IP 주소입니다. API URL은 이 주소에서 파생됩니다.</block>
+  <block id="f4ef5ebc27d3b5a17305f41fb5c5db15" category="cell">구성 요소 그룹 멤버십</block>
+  <block id="8652be8ec7c0b4c93fed54d63fc4199a" category="cell"><block ref="8f0c7cb61ff113f553b01d302349363d" prefix="" category="inline-code"></block> /<block ref="4647aa62acfd3b810edc652fa314c7cb" prefix=" " category="inline-code"></block> /<block ref="bf32ff9511689bd14861dff657e44726" prefix=" " category="inline-code"></block></block>
+  <block id="d786551e185211b4a5d09185f23fb538" category="inline-link-macro">lustre_inventory.yml</block>
+  <block id="6effedf6fbec7408857e1bfb2b346819" category="cell"><block ref="6effedf6fbec7408857e1bfb2b346819" category="inline-link-macro-rx"></block></block>
+  <block id="b700b11efc5bf105f3d1d016a1898ccb" category="cell">빌딩 블록당</block>
+  <block id="edbb7fde506d06d0a74f410ae74ae9bd" category="cell">각 인벤토리 호스트 이름은 해당<block ref="3342582e194d63e4c91b56623752c9c6" prefix=" " category="inline-code"></block> 파일의 기본 이름과 일치해야 합니다. 예를 들어, 호스트<block ref="fd9c79d5ba03f66eeda1a5779a2f6306" prefix=" " category="inline-code"></block>는<block ref="9fce5ea0bbc826006c4eca4c77528b7f" prefix=" " category="inline-code"></block>를 사용하고,<block ref="3d1a3866e5aadfdac8b0e07e6740b0fe" prefix=" " category="inline-code"></block>는<block ref="2b15be3da156715623b1ee1a391ea9a3" prefix=" " category="inline-code"></block>를 사용합니다. MGS 그룹은 첫 번째 빌딩 블록에만 포함하십시오. MDS 그룹은 기본 빌딩 블록과 각 MDT+OST 확장 빌딩 블록에 포함하고, OST 전용 확장 빌딩 블록에서는 MDS 그룹을 제외하십시오. <block ref="66a6093c519e2b125743a6852a2ec6e3" prefix=" " category="inline-code"></block>를 사용하여 기존 MGS에 대한 확장 대상을 등록하십시오.</block>
+  <block id="2d19cf156c50d25894c04c35fb419694" category="paragraph">각 호스트 및 빌딩 블록에 대해 설정을 반복합니다. Lustre 서버당 하나의<block ref="d15ffd2d191c94654e8e50c55cf273b9" prefix=" " category="inline-code"></block> 파일과 어레이당 하나의<block ref="dc2f43c391dc7b72c12fc5ae6d01e2e1" prefix=" " category="inline-code"></block> 파일을 생성하고, 추가 빌딩 블록마다 인벤토리 그룹을 반복합니다.</block>
+  <block id="4ddffb6f5d60e20069aba18bc5a26927" category="paragraph">배포 플레이북은 공유<block ref="effd9a6216a1b8004049a82746c94314" prefix=" " category="inline-code"></block> 파일에서 배열, Pacemaker 및 BMC 자격 증명을 로드합니다. 배포 전에 이 파일을 채우고 Ansible Vault로 암호화하거나<block ref="eba52ae7bfe34d5eddd33dafc00e5e80" prefix=" " category="inline-code"></block>를 사용하여 런타임에 안전하게 값을 재정의하십시오. 평문 자격 증명을 소스 제어 시스템에 저장하지 마십시오.</block>
+  <block id="4728df228c58b637c323edba3c3e2651" category="admonition">배포 템플릿의 IP 주소, 호스트 이름, 인터페이스 이름 및 볼륨 사이징 등이 예시입니다. 플레이북을 실행하기 전에 환경에 대한 모든 인벤토리 파일을 수정하십시오.</block>
+  <block id="b4c9bb8273733c93d9b34e9b8fe4bfad" category="inline-link-macro">Lustre HA 클러스터 및 클라이언트 배포</block>
+  <block id="e444981416b2b56e2e032006135ac278" category="paragraph"><block ref="d63814e8d0dc8874c6eba881ba68dc47" category="inline-link-macro-rx"></block>.</block>
+  <block id="5466c0d4ffb6f769d1c408d88d1083c2" category="summary">EF80 어레이, Lustre 서버 및 Ansible 제어 노드를 배포에 맞게 준비합니다.</block>
+  <block id="b68d1a7653b43062b1d13b68e387e5b8" category="doc">Lustre 배포 환경 준비</block>
+  <block id="c243ac8f423a29c70eb01c1a8c1ae957" category="paragraph">각 EF80 어레이와 Lustre 서버에서 관리 액세스 및 기본 설정을 구성한 다음, 솔루션을 배포하기 위한 Ansible 제어 노드를 준비합니다.</block>
+  <block id="f264ece3aaeed3db20a2b300f28e9fbe" category="section-title">E-Series 어레이를 준비합니다.</block>
+  <block id="015845bc306336e251ba0d56cc71e4f8" category="list-text">각 컨트롤러에서 관리 인터페이스를 구성하고 SANtricity System Manager에 연결할 수 있는지 확인하십시오.</block>
+  <block id="e8cd3a67fd7e717452047c8319f2779d" category="list-text">Ansible 인벤토리에서 사용할 배열 이름과 관리자 자격 증명을 설정합니다.</block>
+  <block id="8f105d1078a3f1fc3858fca41ae18caa" category="list-text">어레이가 최적의 상태인지, 모든 드라이브가 연결되어 있고 올바르게 보고되는지 확인하십시오.</block>
+  <block id="5f93f381aa8df330451fa5b834f54def" category="inline-link-macro">E-Series 문서</block>
+  <block id="cf9c8969a8f36b71a631549cd210c8af" category="paragraph">관리 연결 구성에 대한 지침은 <block ref="2cc0659a11dd150e4355ca76ab859281" category="inline-link-macro-rx"></block>을 참조하십시오.</block>
+  <block id="202d68e6f10e849c503adec016a54186" category="section-title">Lustre 서버를 준비합니다</block>
+  <block id="1d9ade1a525ab17b4d5a1b8d2b09a87c" category="list-text">각 서버의 베이스보드 관리 컨트롤러(BMC)를 대역 외 액세스용으로 구성하고, UEFI 시스템 설정을 최대 성능으로 설정하십시오.</block>
+  <block id="8547ee8ccbab16fc1313ea67f7c1cbc5" category="list-text">지원되는 운영 체제(RHEL 또는 Rocky Linux)를 설치한 다음 호스트 이름과 관리 네트워크 포트를 구성하십시오.</block>
+  <block id="e6b3b756a9c5d91c12715f63dabbe816" category="list-text"><block ref="50dec6b1119ecf8040454f42ce24288c" category="inline-link-macro-rx"></block>에 설명된 대로 *E-Series Lustre* 솔루션의 요구 사항을 충족하도록 모든 펌웨어 및 소프트웨어 패키지를 준비하십시오.</block>
+  <block id="c905fe3dcc47b0021bfb73ee3d615d27" category="section-title">Ansible 제어 노드를 준비합니다</block>
+  <block id="5452fd954c3588ac163c8a0e4d94d46f" category="paragraph">모든 Lustre 서버 및 E-Series 어레이에 관리 네트워크 액세스가 가능한 가상 또는 물리적 Linux 시스템을 Ansible 제어 노드로 지정합니다.</block>
+  <block id="3db8211c26067646b30239b42a6650cf" category="inline-link-macro">Ansible 설치 문서</block>
+  <block id="6624f68bd1c684f6278be9cf8e5c73ab" category="paragraph">다음 단계는 Ubuntu 24.04를 기준으로 설명합니다. 다른 Linux 배포판에 대한 지침은 <block ref="75aed5bdfff6643a132a6cb6627cfa57" category="inline-link-macro-rx"></block>을 참조하십시오.</block>
+  <block id="45d8e08cbdfb0c80051d2252faf66e2e" category="list-text">Python, pip 및 Python 가상 환경 패키지를 설치합니다.</block>
+  <block id="85c7fc2b5251a2a1047b7bd19243340f" category="list-text">Python 가상 환경을 생성하고 활성화합니다.</block>
+  <block id="8d61a1feedbb860ef24ffeeb121b3a8f" category="list-text">활성화된 가상 환경에 Ansible 및 필요한 Python 패키지를 설치합니다.</block>
+  <block id="4b252920722abdb27a58fce5f6847b75" category="list-text">NetApp E-Series Lustre Ansible 컬렉션을 설치합니다. 이 컬렉션을 설치하면 SANtricity 및 Host 컬렉션을 포함한 종속 컬렉션도 함께 설치됩니다.</block>
+  <block id="58d742766289ad9f8a66eae3f38d58c1" category="list-text">설치된 Ansible, Python 및 컬렉션 버전을 확인하십시오.</block>
+  <block id="c361abe3eb19c6b2c20c934ad698ed99" category="list-text">제어 노드에서 각 Lustre 서버로 암호 없는 SSH 연결을 구성하십시오. <block ref="1b0e31c855bd7a5dc464ccf21906bea7" prefix=" " category="inline-code"></block>을 서버의 관리 IP 주소 또는 호스트 이름으로 바꾸십시오.</block>
+  <block id="c52ff3210c41c4071bbf9378ddfef945" category="paragraph">각 Lustre 서버에 대해 이 과정을 반복하십시오.<block ref="d1fd123ca1c739243e073c2b1cd2ea8a" prefix=" " category="inline-code"></block></block>
+  <block id="cc9b0c78a14caf25a8424a58645f2ba1" category="admonition">E-Series 어레이에 암호 없는 SSH 연결을 구성하지 마십시오. Ansible은 인벤토리에 정의된 자격 증명을 사용하여 SANtricity 웹 서비스 API를 통해 어레이를 관리합니다.</block>
+  <block id="8f8e00f4ddf518b4c8df4259e2c96208" category="inline-link-macro">Ansible 인벤토리를 사용자 정의합니다</block>
+  <block id="0661c0c85897475266fb322dc1e1c329" category="paragraph"><block ref="5c3c79c91f4421395a6e039ca5ce5cf6" category="inline-link-macro-rx"></block>.</block>
+  <block id="f512fd62623fb95c7da02e83def540a0" category="summary">Lustre 클러스터의 상태, 마운트 및 용량을 확인하고 추가 구성 요소를 사용하여 파일 시스템을 확장합니다.</block>
+  <block id="9b1a211e28c27e7be6ab33ec7f15870e" category="doc">Lustre 배포 확인 및 확장</block>
+  <block id="bdc457d598b68edd5d84a1f89228d39f" category="paragraph">운영 환경에 사용하기 전에 클러스터 상태, Lustre 마운트 및 파일 시스템 용량을 확인한 다음, 필요할 때 동일한 인벤토리를 사용하여 구성 요소를 추가하십시오.</block>
+  <block id="7b36e2b8da7242fb8b3aeff6be03faee" category="list-text">Lustre 서버에서 모든 Pacemaker 리소스가 예상 노드에서 시작되었는지 확인하십시오.</block>
+  <block id="56591ae2fa4dc3003f3bfbad61e9823b" category="list-text">Lustre 클라이언트에서 Lustre 파일 시스템이 마운트되었는지 확인하십시오.</block>
+  <block id="72ead98bd79a33a5c23a9e1b1fd24877" category="list-text">Lustre 클라이언트에서 파일 시스템 용량과 MDT 및 OST 대상이 표시되는지 확인하십시오.</block>
+  <block id="7cb7830e5b9c67652611ea466146a806" category="paragraph">IOR, mdtest 및 fio를 사용한 성능 검증에 대해서는 <block ref="fd37d50a703eb90bca5592e7cf7939cb" category="inline-link-macro-rx"></block>을 참조하십시오.</block>
+  <block id="6c94763c7d8df828ecbe010cceec9cfb" category="paragraph">제어된 대상 마이그레이션 또는 HA 페일오버 테스트를 위해서는 <block ref="366b62f6dcea4b62f9ab1e6c11adfdc9" category="inline-link-macro-rx"></block>에 있는 절차를 따르십시오.</block>
+  <block id="a0bbb5f8f21362b9d8f4cddff6521b69" category="section-title">파일 시스템을 확장합니다</block>
+  <block id="a71551e38a5b0644628ff55a32469baf" category="paragraph">용량 또는 메타데이터 성능을 추가하려면 기존 인벤토리를 추가 빌딩 블록으로 확장하십시오. 새 빌딩 블록에 대해 별도의 인벤토리를 생성하지 마십시오. 플레이북은 자동으로 고유한 MDT 및 OST 인덱스를 할당하고 기존 MGS에 새 타겟을 등록합니다.</block>
+  <block id="fac470f4d13ddc18a7024f7bd30076b8" category="list-text">새로운 빌딩 블록 호스트, 어레이 및 리소스 그룹(MDT+OST 또는 OST 전용)을 원래 배포에 사용했던 인벤토리 및<block ref="3342582e194d63e4c91b56623752c9c6" prefix=" " category="inline-code"></block> 및<block ref="96fa973cda8809ad84f646e3d8fbbc1c" prefix=" " category="inline-code"></block> 파일에 추가합니다.</block>
+  <block id="7d471dc171c1928c93a04c7faff513b5" category="list-text">업데이트된 인벤토리를 사용하여 메인 배포 플레이북을 다시 실행하십시오.</block>
+  <block id="1b0203b9d370708b33f381a1b31a295f" category="paragraph">확장 규칙은 <block ref="f6c91e3cd1480b3865622c5a1b7e2c1a" category="inline-link-macro-rx"></block>을, 각 구성 요소 유형을 추가해야 하는 시점에 대한 지침은 <block ref="fd37d50a703eb90bca5592e7cf7939cb" category="inline-link-macro-rx"></block>을 참조하십시오.</block>
+  <block id="2e548b4b0ee367c75017120d19fdefad" category="summary">NetApp Ansible 자동화를 사용하여 NetApp E-Series 스토리지에 Lustre를 배포하는 워크플로를 따르십시오.</block>
+  <block id="c4fa415b14936859bd30c244373b8719" category="doc">NetApp E-Series 스토리지를 사용하여 Lustre 배포</block>
+  <block id="e7c5f4d355b794ab148c3e19c9065406" category="paragraph">NetApp E-Series 스토리지를 사용하여 Lustre를 배포하려면 하드웨어, 환경 준비, 인벤토리, Ansible 배포 및 검증 작업을 순서대로 완료하십시오.</block>
+  <block id="634c8a03e1c23b6e01567d5c131eda80" category="paragraph">배포를 시작하기 전에 다음 사항을 확인하십시오.</block>
+  <block id="96db7f03b12a89b0ca45058db1871021" category="list-text"><block ref="fd37d50a703eb90bca5592e7cf7939cb" category="inline-link-macro-rx"></block>의 크기 조정 및 구성 요소 지침을 따르고 <block ref="b951df04c708233bd0e6aa30024a444e" category="inline-link-macro-rx"></block>에 맞는 하드웨어를 선택했습니다.</block>
+  <block id="9ed4a475dd3705157a9fed8811f63ce2" category="inline-link-macro">NetApp 상호 운용성 매트릭스 도구</block>
+  <block id="bdf6a8b01b09cea74e4188812c710058" category="list-text">서버, HCA, E-Series, 운영 체제, Lustre, SANtricity OS 및 DOCA-OFED 조합이 <block ref="27dc27dbb2e442190a59a9d515bed42e" category="inline-link-macro-rx"></block>의 *E-Series Lustre*에 대해 목록에 포함되어 있음을 확인하셨습니다.</block>
+  <block id="fb184c2f31e921caeb46e135904d297e" category="list-text">계획된 빌딩 블록에 필요한 모든 OSS/MDS 서버 노드와 E-Series 어레이가 현장에 도착하여 랙에 설치할 준비가 완료되었습니다.</block>
+  <block id="19e4234fd56bba4caeddc4973c4bb493" category="list-text">서버 BMC, 어레이 관리 포트 및 Ansible 제어 노드 역할을 할 호스트에 대한 자격 증명과 네트워크 액세스 권한이 있습니다.</block>
+  <block id="41991ae5fa9af370516bc6e8e7699edf" category="inline-link-macro">NetApp E-Series Lustre Ansible 컬렉션</block>
+  <block id="51e937517ed052afa113ee31f25e669e" category="admonition">NetApp은 <block ref="8e2a23bd15e3969732c3c3c02b7e888d" category="inline-link-macro-rx"></block>을 사용하여 Lustre HA 클러스터 및 Lustre 클라이언트 배포를 지원합니다. Lustre 타겟, LNet, NVMe-oF 호스트 연결 또는 Pacemaker 리소스를 수동으로 구성하지 마십시오.</block>
+  <block id="ab3ccb0be518e752d20f706d36d252c9" category="section-title">배포 워크플로</block>
+  <block id="6446de4e3a4c91eb5ceee947cddbf2cd" category="paragraph">다음 작업을 순서대로 완료하십시오.</block>
+  <block id="f8d0621bfc76e98c8da3e8ec2c60a9de" category="list-text"><block ref="18bea05bda8ed8f518d518ea28b4f1ab" category="inline-link-macro-rx"></block>.</block>
+  <block id="384ec04c02303d55f04afb8625c2cd78" category="paragraph">Lustre 서버와 EF80 어레이를 랙에 설치한 다음 백엔드 NVMe-oF 및 프런트엔드 LNet 패브릭을 케이블로 연결합니다.</block>
+  <block id="05b3aade2a55147217f8d5b60d082545" category="inline-link-macro">Lustre 배포 환경 준비</block>
+  <block id="5ecfb2411abb9ae2f27e3c2bc8e2a772" category="list-text"><block ref="4188895c156711220c815e9a4b2ea443" category="inline-link-macro-rx"></block>.</block>
+  <block id="7081aacf6f5e2318d2326d72a27d2a97" category="paragraph">어레이와 서버를 구성한 다음 제어 노드에 Ansible과 그 종속성을 설치합니다.</block>
+  <block id="0d6f2ba2a2f5a52bdfd841cd1db512eb" category="list-text"><block ref="48fa4fcc6ef309525d67cfc2e71da78c" category="inline-link-macro-rx"></block>.</block>
+  <block id="f3b74c1b0b29400dbfc46e03b50c19fb" category="paragraph">사이트 패브릭에 사용할 템플릿을 선택하고 서버, 어레이, 네트워크, 구성 요소 및 자격 증명을 입력합니다.</block>
+  <block id="a2a52db1796cdf539ddfd27ef5732c90" category="paragraph">서버 운영 체제를 준비하고, NVIDIA DOCA-OFED를 설치하고, 메인 배포 플레이북을 실행하고, Lustre 클라이언트를 구성합니다.</block>
+  <block id="2b054a0aa93c332a143e0cec3ff9e061" category="inline-link-macro">Lustre 배포 확인 및 확장</block>
+  <block id="0b1521677ac3664d94ae25b3d6d4c5c2" category="list-text"><block ref="6c60201ff84ef475bbfc690252f1172f" category="inline-link-macro-rx"></block>.</block>
+  <block id="a50a203162e3224c31f5fe2ef16a4ef6" category="paragraph">운영 환경에 사용하기 전에 클러스터 상태, 마운트 및 용량을 확인하십시오. 파일 시스템에 추가 구성 요소가 필요한 경우 기존 인벤토리를 확장하십시오.</block>
+  <block id="30f60d67f457bb040dffde52197a54da" category="section-title">관련 정보</block>
+  <block id="8e2a23bd15e3969732c3c3c02b7e888d" category="list-text"><block ref="8e2a23bd15e3969732c3c3c02b7e888d" category="inline-link-macro-rx"></block></block>
+  <block id="b9de6db7191a1a0d0e04fa49d4199e02" category="inline-link-macro">NetApp Lustre 소스 저장소</block>
+  <block id="e7ef2acb3680391a121a9687c0ebe804" category="list-text"><block ref="e7ef2acb3680391a121a9687c0ebe804" category="inline-link-macro-rx"></block></block>
+  <block id="366b62f6dcea4b62f9ab1e6c11adfdc9" category="list-text"><block ref="366b62f6dcea4b62f9ab1e6c11adfdc9" category="inline-link-macro-rx"></block></block>
+  <block id="1062a9f69fedd03cf5c196062584b354" category="inline-link-macro">성능 튜닝 가이드</block>
+  <block id="9f4631b80a285f37169fdf4b4c652838" category="list-text"><block ref="9f4631b80a285f37169fdf4b4c652838" category="inline-link-macro-rx"></block></block>
+  <block id="e4af092b71f831178fefaea6eb1922ef" category="inline-link-macro">Lustre 클라이언트 배포 템플릿</block>
+  <block id="59da7ad32ac5797f6501497f3975d0e0" category="list-text"><block ref="59da7ad32ac5797f6501497f3975d0e0" category="inline-link-macro-rx"></block></block>
+  <block id="caa95fe7ebded3747d511825fc6fcc8f" category="summary">스토리지 레이아웃 NetApp E-Series 스토리지를 사용하는 Lustre에 필요한 서버, E-Series 어레이, 스토리지 레이아웃 및 네트워킹 요구 사항을 검토하십시오.</block>
+  <block id="b7ea201d504ea6f080678b3c979de443" category="doc">Lustre와 NetApp E-Series 스토리지 - 하드웨어 구성 요소</block>
+  <block id="81991feaf6923c4fd9b81edeb70dd9a3" category="paragraph">서버, NetApp E-Series 어레이, 스토리지 레이아웃 및 네트워킹에 대한 이 하드웨어 요구 사항은 NetApp E-Series 스토리지를 사용하여 Lustre를 구성하고 주문할 때 활용하십시오. 소프트웨어 구성 요소에 대한 자세한 내용은 <block ref="50dec6b1119ecf8040454f42ce24288c" category="inline-link-macro-rx"></block>을 참조하십시오.</block>
+  <block id="a54c13ad42512dbfec4e8a44d793a52e" category="section-title">서버 요구 사항</block>
+  <block id="78ed065cb3df976744e0d46f7e1f97ca" category="paragraph">이 솔루션은 BYOS(Bring Your Own Server) 모델을 사용합니다. 각 구성 요소에는 다음 사양을 충족하거나 초과하는 두 개의 OSS/MDS 서버 노드가 필요합니다.</block>
+  <block id="e452931b6e576f590cdc2132f39b130b" category="section-title">노드 사양</block>
+  <block id="e139714fc2ea5bd9ac8bcdd636991cf7" category="paragraph">다음 표는 OSS/MDS 노드별 최소 서버 요구 사항을 나열합니다.</block>
+  <block id="9b97b7bd5e0a87be7bf218224ada83cf" category="cell">요구 사항</block>
+  <block id="b93c1e71d0cc69036373fec0dcd00014" category="cell">건물 블록당 노드 2개</block>
+  <block id="2b55387dd066c5bac646ac61543d152d" category="cell">CPU</block>
+  <block id="a049576965d96442d114a03d817a5b2d" category="cell">AMD EPYC 또는 Intel Xeon, 32코어 이상</block>
+  <block id="9fada4ad196fc991729d77da6a8f7048" category="cell">256 GB DDR5 (최소)</block>
+  <block id="3174063e7fab5fd01a8dc7e162d83800" category="cell">네트워크 HCAs</block>
+  <block id="91115ee144fbc5c7db04ab01cfaae42f" category="inline-xref">HCA 연결성</block>
+  <block id="94f5d4bd00c39175401b53e3083fa6e7" category="cell">6개의 듀얼 포트 200Gb HCA(<block ref="91d5ecc9eeeedc6f912504c692ce76ae" category="inline-xref-macro-rx"></block> 참조)</block>
+  <block id="ed3de05402aeebdbbd72a1163c6ef0c3" category="cell">PCIe 슬롯</block>
+  <block id="136f2ccfc4df7464cd2d8d3d3151a5a2" category="inline-xref">PCIe 슬롯 요구 사항</block>
+  <block id="a73df56899af925e823f65941bf78d66" category="cell">2× PCIe Gen5 x16 및 4× PCIe Gen5 x8 (<block ref="9fdc123f380db06577db86c231cb801c" category="inline-xref-macro-rx"></block> 참조)</block>
+  <block id="73bd40fbfbb43e05a7d49999490cd8b5" category="cell">부팅 드라이브</block>
+  <block id="a07db6ed1ccb81d8757e348f8e12761f" category="cell">RAID 1 구성의 드라이브 2개 (소프트웨어 또는 하드웨어 RAID 권장)</block>
+  <block id="34a0cba450633565dd8edc33b276814e" category="paragraph">NetApp은 Lenovo ThinkSystem SR665 V3 서버를 사용하여 솔루션을 검증했습니다. 다른 공급업체의 동등한 서버도 이러한 요구 사항을 충족하는 경우 지원됩니다.</block>
+  <block id="b42ad946fa28ef06221a22e36921c258" category="paragraph">다음 표는 OSS/MDS 서버 노드별 HCA, LNet 프런트엔드 포트 및 NVMe-oF 경로 요구 사항을 나열합니다.</block>
+  <block id="04f79ca300c4ecd33c5fc70e94db8b78" category="cell">노드당 HCA</block>
+  <block id="6fe54bd087eedf5557a8a15a2b3c5581" category="cell">Lustre 노드당 LNet 포트</block>
+  <block id="bebcb9fa822ce49b099df7de2dc692df" category="cell">Lustre 노드당 NVMe-oF 경로</block>
+  <block id="36a2b5ba460d59f9fe9b9c905e14fadb" category="cell">예시 HCA</block>
+  <block id="e50ec4a698a66b4fa259974f9cf281c9" category="cell">6개 (12개 포트)</block>
+  <block id="361cc1d48f74d44920aa8753cff62bbf" category="cell">총 8개 (각 배열에 4개씩)</block>
+  <block id="6a518eec4f4f044ae9b8e1d68f7d75a5" category="cell">MCX755106AS-HEAT (듀얼 포트 200Gb PCIe gen5 카드)</block>
+  <block id="2e5bc4227e7487d5c5f3e4c7198a7aa6" category="paragraph">NetApp은 EF80 스토리지 어레이의 대역폭을 극대화하기 위해 노드당 6개의 HCA를 권장합니다.</block>
+  <block id="b816d84857aedb981d87478ded2591fe" category="paragraph">EF80 빌딩 블록의 각 OSS/MDS 서버 노드에는 6개의 듀얼 포트 HCA가 있습니다. 이 중 2개는 LNet용이고 4개는 NVMe-oF용입니다. 슬롯 너비는 각 HCA에서 사용할 수 있는 대역폭을 결정하므로 카드 자체의 너비가 아닌 모든 슬롯과 라이저의 전기적 너비를 확인해야 합니다. Gen5 x16 카드를 Gen5 x8 슬롯에 설치하면 x8 속도로 작동합니다.</block>
+  <block id="017880590506bf9828d8a6d8ed843069" category="list-text">*LNet HCAs:* 프런트엔드 처리량을 극대화하려면 PCIe Gen5 x16 슬롯에 설치하십시오.</block>
+  <block id="d9b61efd07bfce373a3d6debb3e68ca1" category="list-text">*NVMe-oF HCAs:* PCIe Gen5 x8 또는 PCIe Gen5 x16 슬롯에 설치하십시오.</block>
+  <block id="4b924cd64cab85a53d7c8707226caff4" category="list-text">*NUMA 균형:* HCA를 두 NUMA 영역에 균등하게 분배하여 각 영역에 LNet 인터페이스 2개와 NVMe-oF 인터페이스 4개가 할당되도록 합니다.</block>
+  <block id="e81dc46e61b8efa1caeebc8fa2cf1de2" category="paragraph">다음 표는 EF80 빌딩 블록에서 각 OSS/MDS 서버 노드에 필요한 최소 슬롯 수를 나타냅니다.</block>
+  <block id="89652e228f31afd994aaf865c5a3cf43" category="cell">트래픽 유형</block>
+  <block id="59065c8586207fb91f7f3a7d2f6585ff" category="cell">최소 슬롯 폭</block>
+  <block id="9c57a7a0125988664fa9e571e956761c" category="cell">NUMA 구역별 슬롯</block>
+  <block id="7adc9aaf7a709c04465b8be2b625ac55" category="cell">LNet</block>
+  <block id="4879ce833a0d9c6f3525586e5c17574f" category="cell">PCIe Gen5 x16</block>
+  <block id="6151632541dcd80356c6c76b34d69d0c" category="cell">NVMe-oF</block>
+  <block id="c8e9eae5723730c0a28c5c18050509bd" category="cell">PCIe Gen5 x8</block>
+  <block id="93e46d5be1dfcebf5a0312e47dd1a08b" category="paragraph">선택적으로 듀얼 포트 HCA에서 포트를 분할하여 한 포트는 LNet 트래픽을, 다른 포트는 NVMe-oF 트래픽을 처리하도록 할 수 있습니다. 모든 LNet 포트가 최대 처리량을 발휘하도록 하려면 이 HCA 4개를 모두 PCIe Gen5 x16 슬롯에 설치한 다음, 나머지 NVMe-oF 포트를 위해 Gen5 x8 또는 Gen5 x16 슬롯에 HCA 2개를 추가하십시오.</block>
+  <block id="e57447ad8a8d0ad93aa00fa69630452e" category="example-title">Lenovo ThinkSystem SR665 V3 라이저 구성 예</block>
+  <block id="bbd4d047c88735bc852c18bf4819702e" category="paragraph">다음 두 가지 라이저 조합 모두 EF80 빌딩 블록에 필요한 슬롯 요구 사항을 충족합니다.</block>
+  <block id="25bc9491897a5c4b24406688428aacdd" category="paragraph">*최소 슬롯 너비*</block>
+  <block id="42fae264b9f290a4ad9a2fa547be6583" category="paragraph">BPQU 라이저를 라이저 위치 1과 2에 설치하십시오. 각 BPQU 라이저는 PCIe Gen5 x16 슬롯 1개와 PCIe Gen5 x8 슬롯 2개를 제공합니다. 이 라이저들을 함께 사용하면 LNet용 Gen5 x16 슬롯 2개와 NVMe-oF용 Gen5 x8 슬롯 4개를 NUMA 영역에 균등하게 분배하여 사용할 수 있습니다.</block>
+  <block id="f16e60a24a1ac25de0216c5166cf683e" category="inline-image-macro">Lenovo ThinkSystem SR665 V3 후면 모습으로, 1번과 2번 위치에 BPQU 라이저가 장착되어 있으며, NUMA 영역당 PCIe Gen5 x16 슬롯 1개와 PCIe Gen5 x8 슬롯 2개가 표시됩니다.</block>
+  <block id="6358b3e11dc1f96b2a895c64c974eff1" category="paragraph"><block ref="6358b3e11dc1f96b2a895c64c974eff1" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="24f23035dc6e8677da9c4b9c43b6025b" category="paragraph">*모든 Gen5 x16 슬롯*</block>
+  <block id="068285d2f7495639d808b09bf2243a36" category="paragraph">라이저 위치 1과 2에 BPQV 라이저를, 라이저 위치 3에 BLL9 라이저를 설치하십시오. 각 BPQV 라이저는 두 개의 PCIe Gen5 x16 슬롯을 제공합니다. BLL9 라이저는 NUMA 영역 0에 슬롯 7, NUMA 영역 1에 슬롯 8을 제공하며, 두 슬롯 모두 PCIe Gen5 x16입니다. 이 조합을 통해 NUMA 영역당 세 개씩 총 여섯 개의 Gen5 x16 슬롯을 사용할 수 있으며, 동일한 HCA의 포트 간에 LNet 및 NVMe-oF 트래픽을 분산할 수 있습니다.</block>
+  <block id="fff0668328c6d36b56cf8e5ed7f4e84d" category="inline-image-macro">Lenovo ThinkSystem SR665 V3 후면 모습입니다. 1번과 2번 위치에는 BPQV 라이저가, 3번 위치에는 BLL9 라이저가 장착되어 있으며, 두 개의 NUMA 영역에 걸쳐 6개의 PCIe Gen5 x16 슬롯이 균형 있게 배치되어 있습니다.</block>
+  <block id="e441b41777f230105bc86ea39e8563ca" category="paragraph"><block ref="e441b41777f230105bc86ea39e8563ca" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="1765c02ab7d15d86df8ef8035ababf81" category="section-title">EF80 표준 구성 요소</block>
+  <block id="099068557034096e5947c45a5a4f8ac4" category="paragraph">EF80은 이번 솔루션 릴리스를 위한 검증된 표준 플랫폼입니다.</block>
+  <block id="ed8b6a4496f4b1a82c54ccc9cab580f6" category="section-title">어레이 사양</block>
+  <block id="fc020f5d89405a936b2cf9f0537596ce" category="paragraph">다음 표는 빌딩 블록(두 개의 어레이)에 대한 EF80 어레이 사양을 나열합니다.</block>
+  <block id="875b0e30e76428bc0706b781b36b31aa" category="cell">사양</block>
+  <block id="68ecd453fb43d227d49c318213fb28a9" category="cell">NetApp EF80</block>
+  <block id="9efd743b10abbfb56a447d476d84417e" category="cell">폼 팩터</block>
+  <block id="55d943f8f4869a46a33edc808c11baee" category="cell">2U 기본 섀시, 24개의 내부 NVMe SSD 슬롯</block>
+  <block id="cbfb14f470701bf93424d757c624369a" category="cell">컨트롤러</block>
+  <block id="9f115c37b3c44c920f538bc7bae444e4" category="cell">듀얼 컨트롤러(A 및 B)</block>
+  <block id="63a6b9b3b5de50d32228700cfe042610" category="cell">드라이브</block>
+  <block id="3316683fedafa7e596384f15ab9f7aa4" category="cell">어레이당 24개의 NVMe SSD</block>
+  <block id="115d5fe153ac0eb60c5da1768094f759" category="cell">입출력 연결성</block>
+  <block id="8e219b200e3c81e016857500975f1dda" category="cell">검증된 Lustre 설계에서 어레이당 8× 200Gb NVMe/IB 또는 NVMe/RoCE 호스트 포트</block>
+  <block id="6c5426ec4b27eee4669fb4c94b380c1b" category="paragraph">EF80 플랫폼은 각 컨트롤러에 2포트 호스트 I/O 모듈 3개를 설치할 경우 어레이당 최대 12개의 호스트 포트를 지원합니다. 검증된 Lustre 설계는 슬롯 1과 2에 호스트 I/O 모듈을 사용하여 어레이당 8개의 호스트 포트를 제공합니다.</block>
+  <block id="731ebee23e331d859e88ac080271361b" category="paragraph">각 EF80 어레이는 컨트롤러 간 미러링을 위해 전용 슬롯 4 I/O 모듈을 사용합니다. 컨트롤러 A의 포트 4a를 컨트롤러 B의 포트 4a에, 컨트롤러 A의 포트 4b를 컨트롤러 B의 포트 4b에 연결하십시오. 이러한 연결은 캐시 미러링 및 I/O 전송을 제공하며 호스트 NVMe-oF 트래픽에는 사용되지 않습니다. 을 참조하십시오. <block ref="2167f991eb9981359d79aa07afa06edc" category="inline-link-macro-rx"></block></block>
+  <block id="75accf3dcef2d9c3e9dbe705113b051c" category="inline-link-macro">NetApp EF 시리즈 올플래시 어레이 데이터시트</block>
+  <block id="45a1a3c9bbfbafab9bafe87965faab9d" category="paragraph">모든 모델의 EF-Series 전체 사양은 <block ref="3763b875a199c9f3b55717ee21ea1a75" category="inline-link-macro-rx"></block>을 참조하십시오.</block>
+  <block id="99630099f424a9c7b805230d850190ba" category="section-title">드라이브 레이아웃 (어레이당 24개 드라이브)</block>
+  <block id="d54adc2cb5e2aaad6185dd7d1713c006" category="paragraph">기본 구성 요소의 각 EF80 어레이는 24개의 NVMe 드라이브 슬롯을 모두 사용합니다.</block>
+  <block id="48ad878bc96958eff82106474f087415" category="list-text">MGS/MDT 저장소용 RAID 1 구성의 드라이브 4개 (공유 볼륨 그룹 또는 DDP 할당)</block>
+  <block id="7210016fbf7fd878170c76c8afaf4eb5" category="list-text">OST 저장소(첫 번째 OST 풀)용 RAID 6 구성의 드라이브 10개</block>
+  <block id="728458f10c65d1d220b2cb8a581bbbd2" category="list-text">OST 저장소(두 번째 OST 풀)용 RAID 6 구성의 드라이브 10개</block>
+  <block id="c1691d3196804b2efabd5f48c29c6d4c" category="paragraph">이 레이아웃은 기존 볼륨 그룹에서 3.84TB, 7.68TB 또는 15.3TB 드라이브를 사용할 때 적용됩니다. 30.7TB 또는 61.4TB Capacity Flash(QLC) 드라이브를 사용하는 경우, 24개 드라이브 전체에 걸쳐 단일 Dynamic Disk Pool을 프로비저닝하고, MGS 및 MDT 볼륨에는 풀 내부에 RAID 1 볼륨을 생성하고, OST에는 기본 RAID 6 볼륨을 사용하십시오.</block>
+  <block id="edb5641665bc486497fd9e7920923bc2" category="admonition">1.92TB 드라이브는 현재 이 솔루션에 권장되지 않습니다. 위에 나열된 검증된 드라이브 용량 중 하나를 사용하십시오.</block>
+  <block id="b419fbdf2d118176e0f6adcbb1d99bc7" category="inline-image-macro">EF80 어레이당 24개의 NVMe 드라이브를 사용하는 Lustre 드라이브 레이아웃</block>
+  <block id="55c3520d74000136762b9bb0923e6628" category="paragraph"><block ref="55c3520d74000136762b9bb0923e6628" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="17dc4581092a0978deb62717a11f5a3e" category="section-title">볼륨 및 타겟 수(기본 빌딩 블록)</block>
+  <block id="3cbc775f08ccfdf141850e7218d0f13a" category="paragraph">다음 표는 기본 구성 요소에 대한 MGS, MDT 및 OST 수를 나열합니다.</block>
+  <block id="4b5c3b58ede7a0d491ab1747a82d7023" category="cell">대상 유형</block>
+  <block id="eb2c08111c5fdf7a89eae6bfd370ee67" category="cell">BB당 개수</block>
+  <block id="18554b17590a7acfecccce391f155585" category="cell">RAID/풀</block>
+  <block id="b570b356e451561b543910c162ea4887" category="cell">RAID 1</block>
+  <block id="57d92c72fa5a1925944e22ec1e8b3152" category="cell">기본 구성 요소만 해당; 배열 1</block>
+  <block id="c9b9ae1b4267024d489995d8371bbb3b" category="cell">MDT</block>
+  <block id="214543128bd54d1f5b887d33e6ed5822" category="cell">배열당 4개</block>
+  <block id="d4f3255a163ffc89a90dcfc1275787b4" category="cell">OST</block>
+  <block id="2b116cf8287ed646770b256104ded46d" category="cell">RAID 6(TLC) 또는 DDP(QLC)</block>
+  <block id="d8fb23be0a5d01a77e3a1526fa67fd05" category="cell">배열당 16개</block>
+  <block id="88169d5f5a6db17cadad8063250cac84" category="paragraph">Ansible 인벤토리의 시작점으로 다음 볼륨 사이징 지침을 사용하십시오.</block>
+  <block id="7ab06248edcf5ef00ed9c5a20078e126" category="cell">권장 크기</block>
+  <block id="774b7401cbec0cc0c0bf37d0ed482e68" category="cell">5–10 GiB</block>
+  <block id="2f4ef260f2a93a460aad488814320f77" category="cell">구성 데이터만</block>
+  <block id="16ff1695f2688f1eb59ab2b823782d38" category="cell">RAID 1 용량 ÷ MDT 개수</block>
+  <block id="513a2f16127f2b1cd1d4ead9d0a1d6fe" category="cell">개당 약 1~2 TiB (일반적)</block>
+  <block id="1c1a315b0fb2350dba8a0994704e9f25" category="cell">RAID 6 또는 DDP 용량 ÷ 풀당 OST 개수</block>
+  <block id="1a73114d8c2cae924ffbb4e56b0be00c" category="cell">드라이브 용량에 따라 확장됩니다. 자세한 내용은 <block ref="fd37d50a703eb90bca5592e7cf7939cb" category="inline-link-macro-rx"></block>을 참조하십시오.</block>
+  <block id="c9e4f284ea4bc6ee4ffef88655c3ec75" category="section-title">기본 구성 요소 볼륨 배포</block>
+  <block id="abfa81f45567e6183dbe69416b85863f" category="paragraph">다음 그림은 기본 EF80 빌딩 블록에서 OSS/MDS 서버 노드와 E-Series 어레이 간의 Lustre 타겟 배치 및 NVMe-oF 연결 구성을 보여줍니다. 다이어그램에서 관리 타겟은 *MGT*(관리 타겟)로 표시되어 있으며, 하나의 MGT는 이 문서의 다른 부분에서 참조되는 MGS(관리 서버) 서비스를 호스팅합니다.</block>
+  <block id="9dcfed954e3861ba5d3ad8eec8977a30" category="paragraph-title">기본 구성 요소 목표 분포(EF80)</block>
+  <block id="6b63b075c2fe3eec9fadad4d1dff1934" category="inline-image-macro">EF80 기본 구성 요소에서 OSS/MDS 서버 노드와 E-Series 어레이 전반에 걸친 Lustre 타겟 분산 및 NVMe-oF 경로</block>
+  <block id="ba71f32a6a7ae638d1f32be405bdc274" category="paragraph"><block ref="ba71f32a6a7ae638d1f32be405bdc274" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="4f9d21caea706bcb18efb4c63bd62aca" category="paragraph">다음 표는 두 어레이에 걸쳐 볼륨이 어떻게 분산되는지, 그리고 각 대상이 어떤 서버를 선호하는지를 보여줍니다.</block>
+  <block id="e7900a0eb431a2b052bcd3085cce0913" category="cell">어레이 1</block>
+  <block id="f908fa5126d6544f1ab00e51870f0d03" category="cell">어레이 2</block>
+  <block id="d6215740bda3784681fb145c37570b01" category="cell">Server 1</block>
+  <block id="4c9e921e05ec66314d5aca64cd2089b0" category="cell">서버 2</block>
+  <block id="f7462993267777388adc7b523aa91283" category="cell">기본 빌딩 블록만 해당</block>
+  <block id="3c5a7a9a6658ef9ca0bc3285cedd12fd" category="cell">각 서버는 각 어레이에서 2개의 MDT를 선호합니다.</block>
+  <block id="7720a0a093547746fb9c28fa647bdc4a" category="cell">RAID 6 풀당 8개 × 어레이당 2개 풀 또는 이에 상응하는 DDP 할당</block>
+  <block id="a4737e750a3cc072e2de0cbfed013a9f" category="cell">*총 볼륨*</block>
+  <block id="5361a4a31f16c2727eea74663d43cfef" category="cell">*21*</block>
+  <block id="cc9c3e7ef1ccd7735f183b0f85fabbc5" category="cell">*20*</block>
+  <block id="87115ea827e568992ff6254262182fad" category="section-title">스토리지 풀 선택: TLC vs QLC</block>
+  <block id="8a1a8395aadef29e919648e2370bc2e5" category="paragraph">어레이의 NVMe 드라이브 용량에 따라 E-Series 풀 유형을 선택하십시오.</block>
+  <block id="312b3904d397e8acaf0dc33e9634b0f2" category="list-text">*3.84TB, 7.68TB 및 15.3TB 드라이브:* OST 볼륨에는 *RAID 6 볼륨 그룹*을, MGS 및 MDT 볼륨에는 *RAID 1 볼륨 그룹*을 사용하거나 공유 드라이브 풀에 DDP를 사용하십시오.</block>
+  <block id="fbdc62c247ebc132cdd9a5e831996143" category="list-text">*30.7TB 및 61.4TB 용량의 플래시(QLC) 드라이브:* *동적 디스크 풀(DDP)*만 사용하십시오. MGS 및 MDT 스토리지를 위해 DDP 내부에 RAID 1 볼륨을 생성하십시오. OST 스토리지를 위해 DDP에서 RAID 6 볼륨을 생성하십시오.</block>
+  <block id="ccfefb464f5df4d6ebb06b1724291f0b" category="paragraph">빌딩 블록별 드라이브 크기 및 레이아웃에 따른 사용 가능 용량 추정치는 <block ref="fd37d50a703eb90bca5592e7cf7939cb" category="inline-link-macro-rx"></block>을 참조하십시오.</block>
+  <block id="bdd8837c5f5666c1f37ec05326aa385f" category="section-title">네트워크 요구 사항</block>
+  <block id="b374c02c23c43b6770829fceebc42fac" category="section-title">백엔드(NVMe-oF)</block>
+  <block id="b3d563e4241c1f8fa7c8d5c9fec4bdc2" category="list-text">각 OSS/MDS 노드와 각 E-Series 어레이 간의 NVMe/InfiniBand 또는 NVMe/RoCE</block>
+  <block id="94a30a8068a5aa4b74271a8f9bc93215" category="list-text">NVMe/RoCE 백엔드 인터페이스의 MTU 9000(일반)</block>
+  <block id="011be5d8aea7d6a0794481da8e0c780e" category="list-text">각 Lustre 노드에서 스토리지 어레이로 연결되는 경로는 총 8개입니다(어레이당 4개).</block>
+  <block id="0f01398befdf8b3a5f7516261c268a54" category="inline-link-macro">EF80 6-HCA 백엔드 케이블링</block>
+  <block id="82fee62126751ddf3305ff61f08a0be1" category="list-text">EF80은 노드당 6개의 HCA(NVMe-oF의 경우 i2, i3, i5 및 i6, LNet의 경우 i1 및 i4)를 사용합니다. 노드 A의 케이블을 레이블이<block ref="0cc175b9c0f1b6a831c399e269772661" prefix=" " category="inline-code"></block>로 끝나는 컨트롤러 포트(예:<block ref="efaa153b0f682ae5170a3184fa0df28c" prefix=" " category="inline-code"></block> 및<block ref="e36314e624d2b2ca257e1f1ecb381f93" prefix=" " category="inline-code"></block>)에 연결합니다. 노드 B의 케이블을 레이블이<block ref="92eb5ffee6ae2fec3ad71c777531578f" prefix=" " category="inline-code"></block>로 끝나는 컨트롤러 포트(예:<block ref="a35aea60fe097c885568babb48ee7d1e" prefix=" " category="inline-code"></block> 및<block ref="f8bc2fbe2c937ea5b5e8839cbea69491" prefix=" " category="inline-code"></block>)에 연결합니다. <block ref="edb65af51b5b76af78c51b3678ad8402" category="inline-link-macro-rx"></block>을 참조하십시오.</block>
+  <block id="8a4b8798ab4caa9e54e6dcd1741f20ef" category="section-title">프런트엔드(LNet)</block>
+  <block id="86adc200b8e8c47e240f8017eb6b489d" category="list-text">LNet <block ref="c49f0c3c2926c11287cf9b9355c7aa1f" prefix="(" category="inline-code"></block> 네트워크 유형의 경우 IPoIB 또는 RoCE)</block>
+  <block id="2abb61ccfc9e540001c985b539006316" category="list-text">RoCE 프런트엔드 인터페이스의 MTU 9000 (일반적인 경우)</block>
+  <block id="2f7a335df40dbc598eb3769a68a65bbe" category="list-text">프런트엔드 포트가 4개 사용 가능한 경우(EF80: i1 및 i4 HCA, 두 포트 모두) 멀티레일 LNet 사용을 권장합니다.</block>
+  <block id="61c21286db2f11dbaf60ba2e64e10212" category="list-text">OSS/MDS 서버 노드와 Lustre 클라이언트를 연결하는 전용 InfiniBand 또는 RoCE 스위치 패브릭</block>
+  <block id="5ee35a82d01497dffb5640490e92fcea" category="list-text">RoCE 패브릭에는 무손실 RoCE(PFC)를 권장합니다.</block>
+  <block id="fe4dbcab9b910577e5035e97ac068dae" category="section-title">관리</block>
+  <block id="31e5d6897cccc36b8c5b264d6d06d17e" category="list-text">서버 BMC 및 어레이 관리 포트용 대역 외 관리 네트워크</block>
+  <block id="f3b30a75854b3cd35b00f6633c1cb4e1" category="list-text">전용 Corosync 네트워크 또는 공유 프런트엔드 패브릭(사이트에 따라 다름)</block>
+  <block id="a971692564529effd1b1270a2a6d1be7" category="summary">Lustre with NetApp E-Series 스토리지는 NetApp E-Series 올플래시 어레이의 반복 가능한 빌딩 블록 아키텍처를 통해 AI 및 HPC 워크로드를 위한 검증되고 확장 가능한 병렬 파일 시스템을 제공합니다.</block>
+  <block id="888fbbb67b463874639198729553a2c5" category="doc">Lustre with NetApp E-Series 스토리지 - 소개</block>
+  <block id="551e8f9c00e2572dd220f4af7e5590a5" category="paragraph">NetApp E-Series 스토리지를 사용하는 Lustre는 AI 및 HPC 워크로드를 위한 검증된 병렬 파일 시스템 솔루션으로, HA 서버 쌍과 E-Series 올플래시 어레이라는 반복 가능한 구성 요소로 이루어져 있습니다.</block>
+  <block id="721d467e631ca0b407762c8ded76ad2b" category="paragraph">Lustre와 NetApp E-Series 스토리지는 오픈 소스 Lustre 병렬 파일 시스템과 NetApp E-Series 블록 스토리지를 결합하여 데이터 집약적인 워크로드를 위한 확장 가능하고 고성능의 기반을 제공합니다. 각 구성 요소는 고가용성(HA)으로 구성된 두 개의 OSS/MDS 서버 노드와 두 개의 E-Series 올플래시 어레이로 이루어져 있습니다. 백엔드 NVMe-oF 연결을 통해 블록 I/O가 어레이로 전달되며, 별도의 LNet 패브릭을 통해 클라이언트와 OSS/MDS 서버 노드를 연결하여 병렬 파일 시스템에 액세스할 수 있습니다.</block>
+  <block id="90dcc7ba481f73de6e19244d8cb3faa1" category="paragraph">기본 구성 요소는 관리 서버(MGS)와 초기 메타데이터 대상(MDT) 및 오브젝트 스토리지 대상(OST)을 호스팅합니다. 추가 구성 요소는 기본 MGS에 등록되어 워크로드 요구 사항이 증가함에 따라 메타데이터 용량, 데이터 용량 및 전체 처리량을 확장합니다.</block>
+  <block id="fc867d1b66dc4bfa1fcc5398878562a3" category="paragraph">다음 그림은 LNet을 통해 연결된 여러 구성 요소와 Lustre 클라이언트를 포함하는 배포 예시를 보여줍니다.</block>
+  <block id="bbaa0bd4e33c53fb27a995509baf9809" category="paragraph-title">Lustre with NetApp E-Series 스토리지 솔루션 개요</block>
+  <block id="3de9beda22b5738ed507f4320ebd16d2" category="inline-image-macro">Lustre with NetApp E-Series 스토리지 솔루션 개요(구성 요소 및 클라이언트 포함)</block>
+  <block id="d18cd12ca955a0d4461a8bd26b4a62b6" category="paragraph"><block ref="d18cd12ca955a0d4461a8bd26b4a62b6" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e5a4a25c986e70bef8837211beda74c5" category="summary">NetApp E-Series Storage를 사용하는 Lustre 관련 문서, 툴 및 소프트웨어를 찾아보십시오.</block>
+  <block id="80456a973884931f76f18e20f1b88d92" category="doc">Lustre with NetApp E-Series 스토리지 - 관련 자료</block>
+  <block id="4102f0b5b086858fa22e676362d1b795" category="paragraph">Lustre with NetApp E-Series 스토리지 배포를 계획하거나 확장할 때 관련 문서, 툴 및 소프트웨어는 다음 링크를 참조하십시오. 사이징 및 배포 단계는 <block ref="fd37d50a703eb90bca5592e7cf7939cb" category="inline-link-macro-rx"></block> 및 <block ref="8f49e9bdbd514d6a8081d8c90c9f306a" category="inline-link-macro-rx"></block>을 참조하십시오.</block>
+  <block id="ed08ca4078374e76c6df3f1999af7274" category="section-title">NetApp 리소스</block>
+  <block id="e016dafca1cca24ab39f1acf3f59ca72" category="list-text"><block ref="27dc27dbb2e442190a59a9d515bed42e" category="inline-link-macro-rx"></block>. *E-Series Lustre*를 검색합니다.</block>
+  <block id="3763b875a199c9f3b55717ee21ea1a75" category="list-text"><block ref="3763b875a199c9f3b55717ee21ea1a75" category="inline-link-macro-rx"></block></block>
+  <block id="b84be9aeeb7d442b640d3bd848f311a8" category="inline-link-macro">NetApp SANtricity 시스템 관리자 설명서</block>
+  <block id="c342c84ee7efec3704a54620e4065b6d" category="list-text"><block ref="c342c84ee7efec3704a54620e4065b6d" category="inline-link-macro-rx"></block></block>
+  <block id="801fb9c6d060327b67b48b4b980fba6c" category="inline-link-macro">NetApp ansible-lustre 컬렉션</block>
+  <block id="dc7f6a9434c69a7d96a27eaf8f6a5810" category="list-text"><block ref="de7ef047282cd8f5c2a6e192940a1ba6" category="inline-link-macro-rx"></block>. 재고 관리 현장 지침은 <block ref="48fa4fcc6ef309525d67cfc2e71da78c" category="inline-link-macro-rx"></block>을 참조하십시오.</block>
+  <block id="91a4557f9eb7d50540382e1f00258306" category="list-text"><block ref="e7ef2acb3680391a121a9687c0ebe804" category="inline-link-macro-rx"></block>. NetApp은 Rocky Linux 9.8 및 Red Hat Enterprise Linux 9.8용으로 미리 빌드된 Lustre 서버 RPM 패키지를 제공합니다. NetApp 소스에서 클라이언트 운영 체제 및 커널에 맞는 Lustre 클라이언트 패키지를 빌드하십시오.</block>
+  <block id="272e2791266a1c05b53f467fd4e215fc" category="section-title">Lustre 커뮤니티</block>
+  <block id="20d075262dba6c66c6b234942f75e15c" category="inline-link-macro">Lustre 파일 시스템</block>
+  <block id="213e36085425d4e1da968c8691faa4ed" category="list-text"><block ref="213e36085425d4e1da968c8691faa4ed" category="inline-link-macro-rx"></block></block>
+  <block id="4c0ee2e702465cabf84aca52c40af703" category="list-text"><block ref="612e690bea76796aad3a16779b18be6e" category="inline-link-macro-rx"></block> 클라이언트 운영 체제 및 커널의 경우</block>
+  <block id="572d7d4c247e39abc81276ad61bda94d" category="inline-link-macro">Lustre Wiki: Lustre 튜닝</block>
+  <block id="f20d6276bdb17320fda3a696111a0d9c" category="list-text"><block ref="f20d6276bdb17320fda3a696111a0d9c" category="inline-link-macro-rx"></block></block>
+  <block id="49ba65b58125bde5c701c1152dbdb41d" category="section-title">관련 NetApp AI 인프라 솔루션</block>
+  <block id="345d569e2c898b48aaaa804d305550c7" category="list-text"><block ref="345d569e2c898b48aaaa804d305550c7" category="inline-link-macro-rx"></block></block>
+  <block id="1db760587a86f5c1b9ab39aa8cf8cf3d" category="inline-link-macro">NetApp E-Series 스토리지를 사용한 IBM Spectrum Scale 배포</block>
+  <block id="f11bce155d611798d1912aa61e8901b3" category="list-text"><block ref="f11bce155d611798d1912aa61e8901b3" category="inline-link-macro-rx"></block></block>
+  <block id="9b31c43608a903b3b7af19106b8ccc40" category="list-text"><block ref="9b31c43608a903b3b7af19106b8ccc40" category="inline-link-macro-rx"></block></block>
+  <block id="7e756b7eef65f36227a7b85af8135456" category="summary">NetApp E-Series 스토리지 빌딩 블록을 사용하여 용량 및 메타데이터 요구 사항에 따라 Lustre의 크기를 조정하고, 확장 시점을 결정하고, 성능에 영향을 미치는 요소를 검토하십시오.</block>
+  <block id="59c3f54c9a0cecdea180a6456551f46d" category="doc">Lustre with NetApp E-Series 스토리지 - 사이징 가이드</block>
+  <block id="d0251bd1f80532046cdfdcea7bc1ab03" category="paragraph">NetApp E-Series 스토리지 빌딩 블록을 사용하여 용량 및 메타데이터 요구 사항에 따라 Lustre의 크기를 조정하고, 용량 추가 시점을 결정하고, 성능에 영향을 미치는 요소를 검토하십시오.</block>
+  <block id="12e479a1ce559951ecb94cea66c585f3" category="section-title">용량 사이징</block>
+  <block id="74d91d3e01704d33bc05d0aee3fb1378" category="paragraph">두 개의 EF80 어레이로 구성된 기본 빌딩 블록은 다음과 같은 Lustre 타겟 레이아웃을 제공합니다. 권장 타겟 배치 및 NVMe-oF 경로에 대한 자세한 내용은 <block ref="8bc00f55bad76f62eced17332034b2aa" category="inline-link-macro-rx"></block> 의 <block ref="b951df04c708233bd0e6aa30024a444e" category="inline-link-macro-rx"></block>을 참조하십시오.</block>
+  <block id="e93f994f01c537c4e2f7d8528c3eb5e9" category="cell">개수</block>
+  <block id="a1973c341c7bad553b2bd00820b204be" category="cell">일반적인 볼륨 사이징(대상당)</block>
+  <block id="1a47456e43cf15df911f2376bbaee476" category="cell">5~10GiB</block>
+  <block id="37da030cbd42d7475398218adf8b3f1d" category="cell">크기는 드라이브 용량 및 RAID 레이아웃에 따라 다릅니다.</block>
+  <block id="a79871208c930b8bcf98799a0c2e1b03" category="paragraph">각 EF80 어레이는 24개의 NVMe 드라이브를 사용합니다. 지원되는 용량은 기존 볼륨 그룹(MGS/MDT용 RAID 1 및 OST용 RAID 6) 또는 DDP를 사용하는 경우 3.84TB, 7.68TB 및 15.3TB이며, DDP만 사용하는 경우 30.7TB 또는 61.4TB 용량 플래시(QLC) 드라이브도 지원합니다. 1.92TB 드라이브는 현재 이 솔루션에 권장되지 않습니다. 드라이브 슬롯 레이아웃 및 풀 선택에 대한 자세한 내용은 <block ref="b951df04c708233bd0e6aa30024a444e" category="inline-link-macro-rx"></block>을 참조하십시오.</block>
+  <block id="9de6a58c633ced695e7f35182e4f9c63" category="paragraph">다음 표는 EF80 구성 요소(어레이 2개, 드라이브 48개)의 대략적인 사용 가능 용량을 나타냅니다. 어레이 사용 가능 용량은 최종 Lustre 파일 시스템 사용 가능 용량과 다릅니다. MDT inode 할당, 저널, 과잉 프로비저닝 및 인벤토리 볼륨 비율로 인해 애플리케이션에서 사용할 수 있는 용량이 줄어듭니다.</block>
+  <block id="bf4f4c18d7c050df8976c2158378f211" category="cell">드라이브 용량</block>
+  <block id="b014e19abb88d7a6895fa9a4978359c2" category="cell">레이아웃(배열별)</block>
+  <block id="24de389e1b80346cfc5655dde589d264" category="cell">대략적인 사용 가능 (구성 요소)</block>
+  <block id="841ea7afe795b1f98fa361e5a937261b" category="cell">3.84 TB</block>
+  <block id="504badece79df74e1ca6a1943d9ea638" category="cell">RAID 1 (2+2) + RAID 6 (10) + RAID 6 (10)</block>
+  <block id="a4a7870bd0f30a501a3bc37f298069e2" category="cell">138.08 TB</block>
+  <block id="f9ee319553daeb50ac9c1bd728f141cc" category="cell">DDP(24개 드라이브, 2개 예약됨)</block>
+  <block id="6bb2f6c5e4d96bf8ece28ee94d769d61" category="cell">133.63 TB</block>
+  <block id="905eb11b1164dde7de88ccc095db332a" category="cell">7.68 TB</block>
+  <block id="e3c57404bad7f03d0fad7d2667cc4d18" category="cell">276.35 TB</block>
+  <block id="8db55378b1ad856c51cbced3a802cf51" category="cell">DDP(24)</block>
+  <block id="c5ec564364fe6f3a8f4127941faf6a13" category="cell">267.47 TB</block>
+  <block id="a9773e9c4005724e36e58faf83312b93" category="cell">15.3 TB</block>
+  <block id="fff2b38f6568264c123f485d4712b2ec" category="cell">552.88 TB</block>
+  <block id="7e75112ad5c27d9638d9c377e68c1cef" category="cell">535.15 TB</block>
+  <block id="655523e8b6dc97cc5f09578f26864c6b" category="cell">30.7 TB</block>
+  <block id="f5feb804f8feca4de703cdcdb2289ade" category="cell">DDP 전용</block>
+  <block id="08de6cc45bdd714c2a30c46236813c5b" category="cell">1,070.35 TB</block>
+  <block id="c9bba9d9690235f20292e75cb68c184f" category="cell">61.4 TB</block>
+  <block id="ea54dfd3b77728997ed3f50f00001833" category="cell">2,162.70 TB</block>
+  <block id="19e92cc95f52bcadee0ac5af136e0e4d" category="paragraph">메타데이터와 데이터의 크기를 별도로 지정한 다음 Ansible 인벤토리에서 볼륨 크기를 설정합니다. 배포 템플릿은 ldiskfs를 사용하여 대상을 포맷하고, MDT는 Lustre의 기본 inode 비율을 사용하며, OST 템플릿은<block ref="3c645790e3726dcf6be13baa9c1e56c2" prefix=" " category="inline-code"></block>을 설정합니다.</block>
+  <block id="a06df10f2c87a60cbc7cb20ae5ce2661" category="list-text">*메타데이터(MDT):* 예상 파일 수를 기준으로 MDT 크기를 조정하십시오. 파일 수 증가를 고려하여 예상 파일 수의 약 두 배를 계획하십시오. MDT 크기가 부족하면 OST 용량이 남아 있더라도 새 파일 생성이 차단될 수 있습니다.</block>
+  <block id="935cb846bf7018be2b36205354a885cb" category="list-text">*데이터(OST):* 사용 가능한 용량과 처리량 요구 사항을 기준으로 OST 크기를 지정합니다.</block>
+  <block id="0a280617c3c5d75f5cad72b4d235544a" category="list-text">*MGS:* 파일 시스템 구성에만 소용량 관리 타겟(5~10GiB)을 사용하십시오.</block>
+  <block id="d78f2c10b39a4de8134e05cbbeef88cf" category="paragraph">선택한 드라이브 용량에 맞게 인벤토리에서 MDT 및 OST 볼륨 크기를 조정하십시오. <block ref="cacffef7307ad1ca469fde6b5578422a" prefix=" " category="inline-code"></block>을 <block ref="11493f05b06ee0c05f68413399f7a704" prefix=" " category="inline-code"></block> 또는 <block ref="c5d13f36ab0941dd19bdbf0e007c972b" prefix=" " category="inline-code"></block>에서 변경하는 것은 사이트에서 다른 inode 비율이 필요한 경우에만 수행하십시오. inode 비율에 대한 배경 정보는 <block ref="f20d6276bdb17320fda3a696111a0d9c" category="inline-link-macro-rx"></block>을 참조하십시오. 빌딩 블록을 추가해야 하는 시점은 <block ref="bf0eac056881e080673af3338260e54f" category="inline-xref-macro-rx"></block>을 참조하십시오.</block>
+  <block id="bc967dc2d57e6eff184a821bf7577a80" category="section-title">확장</block>
+  <block id="b5165c065ecd6f7df456195a5837649f" category="paragraph">용량이나 메타데이터 부하가 필요할 때 구성 요소를 추가합니다.</block>
+  <block id="c6016c4989752ac4ba0c1bc2d37771ea" category="list-text">*OST 전용:* 파일 수와 메타데이터 로드가 기존 MDT 용량 내에 있지만 데이터 용량 또는 총 처리량이 더 필요한 경우. OST 32개와 OSS/MDS 서버 노드 2개를 추가합니다.</block>
+  <block id="0542b35a0c887339c1b730319191a84e" category="list-text">*MDT+OST:* 파일 수 또는 메타데이터 처리량이 MDT 용량에 근접했거나, 메타데이터 처리량과 데이터 용량 모두 더 필요한 경우. MDT 8개와 OST 32개를 추가합니다.</block>
+  <block id="188e8b041d8de5566b88189f59e809fc" category="paragraph">기존 MDT에서 <block ref="b1a5bd8baac9f30b53cd68f65243f1b5" prefix=" " category="inline-code"></block>을 사용하여 메타데이터가 포화 상태인지 확인하십시오.  각 Pacemaker/Corosync 클러스터를 5개의 빌딩 블록(10개의 OSS/MDS 서버 노드)으로 제한하십시오.  대규모 배포의 경우 빌딩 블록을 여러 HA 클러스터에 균등하게 분산하십시오.  확장 규칙은 <block ref="f6c91e3cd1480b3865622c5a1b7e2c1a" category="inline-link-macro-rx"></block>을 참조하십시오.</block>
+  <block id="ed50a739e29323312b31bff9a6ed12c7" category="paragraph">다음 예는 기본 구성 요소와 OST 전용 구성 요소를 포함하는 파일 시스템을 하나의 HA 클러스터에 나타낸 것입니다.</block>
+  <block id="fdd0fa6524b4c92bc95af5176461013e" category="cell">빌딩 블록</block>
+  <block id="ac659513b2353187192e88c5d1988228" category="cell">서버</block>
+  <block id="ff43b8de4f41d5103405ddb62eb8d34e" category="cell">배열</block>
+  <block id="a3781aed953e0188563e879828c56061" category="cell">BB1</block>
+  <block id="32fbcabed73ba199a63dd1a684d58a39" category="cell">BB2</block>
+  <block id="96b0141273eabab320119c467cdcaf17" category="cell">총</block>
+  <block id="48af2a85fb5e9a78b7eb6d081635f7cc" category="paragraph">BB2는 <block ref="19f18f5b36600af4ea17354c94083b4d" prefix=" " category="inline-code"></block>을 사용하여 BB1의 MGS에 대해 OST 대상을 등록합니다. BB2의 OST 인덱스는 전역적으로 할당됩니다(예: OST0032~OST0063). 따라서 인덱스가 BB1과 충돌하지 않습니다.</block>
+  <block id="26a885a8b3e010fc6e8077dfd984fec6" category="paragraph">형식적 검증은 Lustre 클라이언트의 IOR, mdtest 및 fio를 사용하여 상대적 처리량, IOPS 및 메타데이터 동작을 특성화하고 HA 페일오버를 검증합니다. 이러한 테스트는 보장된 성능 수치를 제공하지 않습니다. 합성 벤치마크는 최상의 경우 동작을 측정하며 실제 애플리케이션 성능을 반영하지 않을 수 있습니다.</block>
+  <block id="a25fc9d39767010278f116fa1cdd1f0a" category="paragraph">성능은 구성 요소의 수에 비례하여 향상됩니다. 실제 결과는 드라이브 유형 및 풀 레이아웃, NVMe-oF 경로 수, LNet 패브릭 및 클라이언트 수, 데이터 및 메타데이터 I/O의 비율에 따라 달라집니다.</block>
+  <block id="7f7e308769861daef896f945c6a341be" category="paragraph">워크로드별 크기 조정 및 성능 권장 사항에 대해서는 NetApp 계정 담당 팀에 문의하십시오.</block>
+  <block id="c5c2ea62983e1e188786ad8bfa88f7fb" category="paragraph">드라이브 레이아웃 및 볼륨 수에 대해서는 <block ref="b951df04c708233bd0e6aa30024a444e" category="inline-link-macro-rx"></block>을 참조하십시오. 배포 단계에 대해서는 <block ref="8f49e9bdbd514d6a8081d8c90c9f306a" category="inline-link-macro-rx"></block>을 참조하십시오. 현장 수준 인벤토리 지침에 대해서는 <block ref="48fa4fcc6ef309525d67cfc2e71da78c" category="inline-link-macro-rx"></block>을 참조하십시오.</block>
+  <block id="dae2d3f855359018480bd9e9ef676792" category="summary">NetApp E-Series 스토리지를 사용하여 Lustre를 배포하는 데 사용된 소프트웨어 구성 요소 및 Ansible 자동화를 검토합니다.</block>
+  <block id="2fed2b0537192296a3697912cd2d3b32" category="doc">Lustre with NetApp E-Series 스토리지 - 소프트웨어 구성 요소</block>
+  <block id="8d0e3a3ae8f0b6693431338ff101e9f3" category="paragraph">NetApp E-Series 스토리지를 사용하여 Lustre를 배포하는 소프트웨어 스택 및 Ansible 자동화를 검토하십시오. 서버, 스토리지 및 네트워크에 대한 자세한 내용은 <block ref="b951df04c708233bd0e6aa30024a444e" category="inline-link-macro-rx"></block>을 참조하십시오.</block>
+  <block id="3ddeb7b39d4e1ebdeff20c88b90f8118" category="section-title">빌딩 블록 소프트웨어</block>
+  <block id="444ad67e0ba1ebc75540bd3505333dbb" category="paragraph">다음 표는 E-Series 어레이 및 OSS/MDS 서버 노드에서 사용되는 소프트웨어 구성 요소를 나열합니다. <block ref="dea5a7fef452493e48f46a815b88571f" category="inline-link-macro-rx"></block>를 지원되는 버전 및 구성 요소 조합에 대한 권위 있는 소스로 사용하십시오. *E-Series Lustre*를 검색하여 배포 전에 운영 체제, Lustre, SANtricity OS, DOCA-OFED, HCA 펌웨어 및 HA 패키지 버전을 확인하십시오.</block>
+  <block id="86408593c34af77fdd90df932f8b5261" category="cell">기능</block>
+  <block id="e791d47d690cbc6aa7c7f9434ebd2fa1" category="cell">SANtricity OS</block>
+  <block id="5ca4fd1919e76260b3d43547bad111d4" category="cell">각 E-Series 어레이에서 실행되며 SANtricity System Manager, 자동 I/O 경로 페일오버를 통한 듀얼 액티브 컨트롤러 고가용성, 자동 로드 밸런싱 및 경로 모니터링, 동적 디스크 풀 및 기존 RAID, 자동 드라이브 재구축, 미러링된 캐시 보호, Data Assurance, 사전 예방적 드라이브 상태 모니터링, 온라인 소프트웨어, 펌웨어 및 구성 변경 기능을 제공합니다.</block>
+  <block id="af33584349c4303df5160e032fea6eb8" category="cell">Lustre</block>
+  <block id="7dcb13804687bff071f09fb210b81adf" category="cell">클라이언트에게 단일 POSIX 호환 네임스페이스를 제공하는 동시에 메타데이터와 파일 데이터를 여러 대상에 분산하여 병렬 액세스를 지원합니다. 관리 서버(MGS)는 파일 시스템 구성을 저장하고, 메타데이터 대상(MDT)은 네임스페이스를 관리하며, 오브젝트 스토리지 대상(OST)은 E-Series 볼륨에 파일 데이터를 저장합니다. 이러한 분리를 통해 구성 요소를 추가하여 성능과 용량을 확장할 수 있습니다.</block>
+  <block id="943819b5da243944c1ae08b5be94436e" category="cell">Red Hat Enterprise Linux(RHEL) 또는 Rocky Linux</block>
+  <block id="0690c5e2cfb58ff86b8cbecd26a64a9e" category="cell">Lustre 타겟 서비스, 고가용성 클러스터링, 스토리지 및 네트워크 연결을 위한 커널, 시스템 서비스 및 패키지 프레임워크를 제공합니다. 지원되는 운영 체제 리포지토리에는 Pacemaker, Corosync, 펜스 에이전트, NVMe-oF 및 다중 경로 패키지도 포함되어 있으며, 이러한 패키지들은 솔루션 스택으로 함께 테스트되었습니다.</block>
+  <block id="56c886c423386e51f9242611a3ddd86b" category="cell">고가용성 클러스터 서비스(Pacemaker, Corosync 및 fence agents)</block>
+  <block id="e4661564e283a6f5a615b5c108f2ee9f" category="cell">이러한 서비스들은 함께 OSS/MDS 서버 노드 전반에 걸쳐 Lustre 타겟에 대한 고가용성을 제공합니다. 클러스터 멤버십 및 쿼럼을 유지하고, 리소스를 모니터링하며, 순차적인 페일오버를 오케스트레이션하고, 응답하지 않는 노드를 격리한 후 다른 곳에서 공유 타겟을 활성화합니다. 이러한 조정을 통해 E-Series 볼륨에 대한 스플릿 브레인 액세스를 방지하고 장애 발생 시 파일 시스템 무결성을 보호합니다.</block>
+  <block id="cd88c8c03aeba4f72c5636c4e1345954" category="cell">NVIDIA DOCA-OFED</block>
+  <block id="ed24c241434368c2bbaf242ddd3ab0b2" category="cell">InfiniBand 및 RoCE 패브릭용 HCA 드라이버, RDMA 라이브러리 및 관리 유틸리티를 제공합니다. 동일한 소프트웨어 스택은 E-Series 어레이에 대한 저지연 백엔드 NVMe-oF 액세스와 Lustre 클라이언트와의 고처리량 프런트엔드 LNet 통신을 지원합니다.</block>
+  <block id="419b231880de9252ac834d52a075d58e" category="paragraph">NetApp 은 Rocky Linux 9.8 및 Red Hat Enterprise Linux 9.8용으로 사전 구축된 Lustre 서버 RPM 패키지를 제공합니다.</block>
+  <block id="f309660aa7ddccfcd74a91e5e1eba500" category="section-title">Ansible 자동화</block>
+  <block id="89a844364f22dcf7fdcf1bce0e4507d5" category="paragraph">NetApp E-Series 스토리지를 사용하는 Lustre는 E-Series 어레이 및 OSS/MDS 서버 노드에 대한 관리 액세스 권한이 있는 제어 노드에서 Ansible 자동화를 사용하여 제공 및 배포됩니다. Ansible 인벤토리는 어레이, 서버, 스토리지 할당, 네트워크 인터페이스 및 HA 클러스터 리소스를 포함하여 원하는 솔루션을 모델링합니다.</block>
+  <block id="2a8fd198917f5b8e5bf2c5e099545a35" category="paragraph">NetApp E-Series Lustre Ansible 컬렉션은 SANtricity 및 Host 컬렉션을 사용하여 엔드투엔드 배포를 오케스트레이션합니다. 이 두 컬렉션을 함께 사용하면 E-Series 스토리지 프로비저닝 및 매핑, 서버 운영 체제 준비, NVMe-oF 및 LNet 연결 구성, Lustre 타겟 배포, Pacemaker 리소스 생성 등의 작업을 수행할 수 있습니다. 이러한 자동화를 통해 구성을 반복할 수 있으며 기존 파일 시스템에 구성 요소를 추가하는 작업을 간소화할 수 있습니다.</block>
+  <block id="ca90e19253cf2e48ef5424e516ec986b" category="paragraph">다음 표는 Ansible 제어 노드에서 사용되는 주요 소프트웨어 패키지를 요약한 것입니다. 현재 패키지 종속성은 <block ref="d1a1b24c47947abfae4f7a836682839e" category="inline-link-macro-rx"></block>을 참조하십시오.</block>
+  <block id="209802fb858e2c83205027dbbb5d9e6c" category="cell">패키지</block>
+  <block id="bf45656cff8cabbcedd92fb1ca66bdd4" category="cell">의존성 또는 목적</block>
+  <block id="e697f15cbb321abdd59018a4ea71f66a" category="cell">Ansible 및 필요한 Python 모듈의 런타임을 제공합니다.</block>
+  <block id="38ffe3e951cbcb69b273ce33552fd9d1" category="cell">ansible-core</block>
+  <block id="a702c09b535302cbc6561c203cb0f4a8" category="cell">Python이 필요하며 NetApp E-Series Ansible 컬렉션을 실행합니다.</block>
+  <block id="d35d779fe31977939a0a72c5c962d2af" category="cell">추가 Python 패키지</block>
+  <block id="f22c7fea934a6eb824b3f4b041e9f534" category="cell"><block ref="e0d00b9f337d357c6faa2f8ceae4a60d" prefix="" category="inline-code"></block>,<block ref="6d14525117cc12ced056e2289c5669ab" prefix=" " category="inline-code"></block>,<block ref="6ed1630535e149ee97279a775dccb954" prefix=" " category="inline-code"></block>,<block ref="1aa69b45474a1c5cc94422f60a915609" prefix=" " category="inline-code"></block>,<block ref="bc54684915644d97a72624e17a72eef6" prefix=" " category="inline-code"></block>,<block ref="45e959010cbec742b865b68a40fdb3d7" prefix=" " category="inline-code"></block>, 그리고<block ref="a29a14b370fd47fe2a7d1c665bcba045" prefix=" " category="inline-code"></block></block>
+  <block id="97246c2acb58fd6b8e955f919adb0923" category="cell">Lustre, LNet, NVMe-oF 호스트 연결 및 Pacemaker 리소스를 구성합니다.</block>
+  <block id="0db654f6b4a67eb4049f1fd501c9f7be" category="cell">NetApp E-Series SANtricity Ansible 컬렉션</block>
+  <block id="0ec973c334798e2f0a5118cb9157c765" category="cell">SANtricity 웹 서비스 API를 통해 E-Series 어레이, 스토리지 풀, 볼륨 및 호스트 매핑을 구성합니다.</block>
+  <block id="23c28d851624a5f8fa634080658c4707" category="cell">NetApp E-Series 호스트 Ansible 컬렉션</block>
+  <block id="42098180c27d0c4f6030713a975ebe6b" category="cell">OSS/MDS 서버 노드를 E-Series 어레이와의 LNet 및 NVMe-oF 연결을 위해 준비합니다.</block>
+  <block id="16a82006af64f2b5bee8ebe98b80a248" category="section-title">Lustre 클라이언트 소프트웨어</block>
+  <block id="b849bf31bf12a9824d75fbf4f2c31f7e" category="paragraph">Lustre 클라이언트 소프트웨어는 시스템이 프런트엔드 LNet 패브릭을 통해 병렬 파일 시스템에 접근할 수 있도록 합니다. 각 클라이언트는 실행 중인 커널 및 서버에 배포된 Lustre 릴리스와 호환되는 Lustre 커널 모듈과 Lustre 클라이언트 유틸리티가 필요합니다.</block>
+  <block id="793bd0e5fbfc31c0292029e837a76450" category="paragraph"><block ref="612e690bea76796aad3a16779b18be6e" category="inline-link-macro-rx"></block>을 사용하여 Lustre 버전에 맞는 클라이언트 운영 체제 및 커널을 찾으십시오. NetApp은 사전 빌드된 Lustre 클라이언트 패키지를 제공하지 않습니다. <block ref="a26fe5a6450900f32fdc60abe5f6c5e6" category="inline-link-macro-rx"></block>에 있는 NetApp이 제공하는 Lustre 소스 코드에서 클라이언트 운영 체제 및 커널용 클라이언트 패키지를 빌드하십시오. Lustre 클라이언트 패키지가 설치되면 <block ref="99fc42f6ce60cac70cab6ee0f8f2330f" prefix=" " category="inline-code"></block> 역할은 네트워크 인터페이스, LNet을 구성하고 Lustre 파일 시스템에 대한 영구적인 systemd 마운트 유닛을 생성할 수 있습니다.</block>
+  <block id="5bdf49c5dd95c601fd517185f5df6e15" category="paragraph">클라이언트 배포 단계는 <block ref="8f49e9bdbd514d6a8081d8c90c9f306a" category="inline-link-macro-rx"></block>을 참조하십시오.</block>
+  <block id="a805c2d846a91199e3cb54800e713f68" category="summary">제안된 아키텍처의 성능을 평가하기 위해 다양한 테스트를 수행했습니다. 이미지 분류, 소규모 오브젝트 감지, 대규모 오브젝트 감지, 의료 영상, 음성-텍스트 변환, 자연어 처리(NLP) 등 6가지 워크로드를 오프라인, 단일 스트림, 멀티스트림의 세 가지 시나리오에서 실행할 수 있습니다.</block>
+  <block id="beca071ad49a9c68928cfdd7e5db33c2" category="inline-link"><block ref="beca071ad49a9c68928cfdd7e5db33c2" category="inline-link-rx"></block></block>
+  <block id="939097de2d6ac448a6a39221d1b90a3f" category="paragraph"><block ref="939097de2d6ac448a6a39221d1b90a3f" category="inline-link-rx"></block></block>
+  <block id="cfcb27d55de1a05460222aaae2ce5968" category="inline-link"><block ref="cfcb27d55de1a05460222aaae2ce5968" category="inline-link-rx"></block></block>
+  <block id="c87a795ad50945fa0e730c7c01ccac47" category="paragraph"><block ref="c87a795ad50945fa0e730c7c01ccac47" category="inline-link-rx"></block></block>
+  <block id="a92e88134d3accfc1d9920721715f966" category="inline-link"><block ref="a92e88134d3accfc1d9920721715f966" category="inline-link-rx"></block></block>
+  <block id="ef854b81531246a9b4dcf221a58cc76e" category="paragraph"><block ref="ef854b81531246a9b4dcf221a58cc76e" category="inline-link-rx"></block></block>
+  <block id="d0a5c98873d3d051dc52621664b65724" category="paragraph">🔗 <block ref="14d1afb05a5bd011ea59181d58fb4ae4" category="inline-link-rx"></block></block>
+  <block id="4c589e0b8589cef9be14170911c5f09b" category="paragraph">NetApp은 Apache Airflow, JupyterHub, MLflow, Kubeflow 또는 Kubernetes에 대한 엔터프라이즈 지원을 제공하지 않습니다. 완벽한 지원을 제공하는 MLOps 플랫폼에 관심이 있으시다면, <block ref="0dd3a80d3a14a1d362eb2892c01dba52" category="inline-link-macro-rx"></block> NetApp이 파트너사와 공동으로 제공하는 완벽한 지원 MLOps 솔루션에 대해 알아보시기 바랍니다.</block>
+  <block id="8580f71d04f7cf5070bef20ec7f9399d" category="sidebar">E-시리즈를 사용하는 Lustre 병렬 파일 시스템</block>
+  <block id="7968dca1c563e638b3f7b4f92c64484f" category="sidebar">NetApp E-Series 스토리지를 사용하는 Lustre</block>
+  <block id="f0b169ab419064a5528cbd15cf20888e" category="sidebar">랙 및 케이블 하드웨어</block>
+  <block id="f816bb441bc6fff2071c78484140ef17" category="sidebar">배포 환경을 준비합니다</block>
+  <block id="8e9935960e71710f3253321e54a9e37c" category="sidebar">HA 클러스터와 클라이언트를 배포합니다.</block>
+  <block id="a6d0a294c308f6406404b87b69662279" category="sidebar">배포 확인 및 확장</block>
+  <block id="ef6a7f3bd6d67f44f7bd0323fa734758" category="sidebar">관련 자료</block>
 </blocks>

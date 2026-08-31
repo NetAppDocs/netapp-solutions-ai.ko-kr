@@ -121,7 +121,7 @@ ONTAP 시스템 관리자 사용
 
 두 클러스터에 Trident 설치합니다.
 
-🔗 https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html["+++ Trident 설치 가이드+++"]
+🔗 https://docs.netapp.com/us-en/trident/trident-install/kubernetes-deploy-operator.html["+++ Trident 설치 가이드+++"]
 
 Trident 백엔드 만들기
 

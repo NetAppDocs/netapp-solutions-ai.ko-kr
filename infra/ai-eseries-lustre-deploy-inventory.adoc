@@ -1,0 +1,103 @@
+---
+sidebar: sidebar 
+permalink: infra/ai-eseries-lustre-deploy-inventory.html 
+keywords: Lustre, NetApp E-Series, Ansible inventory, EF80, deployment 
+summary: Lustre 서버, EF80 어레이, 네트워크 및 HA 리소스에 맞게 NetApp Ansible 배포 인벤토리를 사용자 지정합니다. 
+---
+= Lustre Ansible 인벤토리를 사용자 지정합니다
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+EF80 배포 템플릿의 작업 복사본을 만들고 서버, 어레이, 네트워크 및 Lustre 구성 요소에 맞게 인벤토리를 사용자 지정합니다.
+
+선택한 인벤토리를 해당 패브릭 및 플랫폼 디렉터리 아래에 보관하십시오. 공유 `playbooks` 디렉터리와 `passwords.yml` 파일을 `building_blocks`의 루트에 유지하십시오.
+
+
+
+[[select-a-deployment-template]]
+== 배포 템플릿을 선택합니다
+
+사이트의 네트워크 패브릭과 일치하는 템플릿에서 시작합니다:
+
+* *InfiniBand:* link:https://github.com/NetApp/ansible-lustre/tree/release/1.0.0/getting_started/lustre_deployment_template/building_blocks/IB_H2_IB_DAC_A2_EF80/lustre_building_block_cluster_1["IB_H2_IB_DAC_A2_EF80/lustre_building_block_cluster_1"^]
+* *RoCE:* link:https://github.com/NetApp/ansible-lustre/tree/release/1.0.0/getting_started/lustre_deployment_template/building_blocks/ROCE_H2_ROCE_DAC_A2_EF80/lustre_building_block_cluster_1["ROCE_H2_ROCE_DAC_A2_EF80/lustre_building_block_cluster_1"^]
+
+
+
+
+[[configure-site-specific-settings]]
+== 사이트별 설정 구성
+
+인벤토리에서 사이트별 값을 설정하고 로컬 저장소 및 udev 규칙 설정을 함께 지정하십시오. 표의 줄 참조는  `ansible-lustre` `release/1.0.0` 태그에 있는 RoCE EF80 템플릿 파일을 가리킵니다. InfiniBand 템플릿은 LNet 인터페이스 변수를 제외하고 동일한 변수 이름과 구조를 사용하며, 해당 변수는 표에 명시되어 있습니다.
+
+[cols="2,3,4,2,4"]
+|===
+| 필드 | Ansible 변수 | 템플릿 파일 (`release/1.0.0`) | 범위 | 참고 
+
+
+| 파일 시스템 이름 | `eseries_lustre_filesystem_mgt.format_options.fsname`, `eseries_lustre_filesystem_mdt.format_options.fsname`, `eseries_lustre_filesystem_ost.format_options.fsname` | link:https://github.com/NetApp/ansible-lustre/blob/release/1.0.0/getting_started/lustre_deployment_template/building_blocks/ROCE_H2_ROCE_DAC_A2_EF80/lustre_building_block_cluster_1/group_vars/ha_cluster.yml#L76["ha_cluster.yml#L76"^], link:https://github.com/NetApp/ansible-lustre/blob/release/1.0.0/getting_started/lustre_deployment_template/building_blocks/ROCE_H2_ROCE_DAC_A2_EF80/lustre_building_block_cluster_1/group_vars/ha_cluster.yml#L90["#L90"^], link:https://github.com/NetApp/ansible-lustre/blob/release/1.0.0/getting_started/lustre_deployment_template/building_blocks/ROCE_H2_ROCE_DAC_A2_EF80/lustre_building_block_cluster_1/group_vars/ha_cluster.yml#L110["#L110"^] | 클러스터 전체 |  `format_options` 아래에 중첩됩니다(MGT, MDT, OST 맵의 경우). 최대 8자입니다. 세 위치 모두에 동일한 값을 사용하십시오. 최상위  `fsname` 키는 아무런 효과가 없습니다. 
+
+
+| 표적 등록을 위한 MGS NID | `eseries_lustre_filesystem_mdt.format_options.mgsnode`, `eseries_lustre_filesystem_ost.format_options.mgsnode` | link:https://github.com/NetApp/ansible-lustre/blob/release/1.0.0/getting_started/lustre_deployment_template/building_blocks/ROCE_H2_ROCE_DAC_A2_EF80/lustre_building_block_cluster_1/group_vars/ha_cluster.yml#L98["ha_cluster.yml#L98"^], link:https://github.com/NetApp/ansible-lustre/blob/release/1.0.0/getting_started/lustre_deployment_template/building_blocks/ROCE_H2_ROCE_DAC_A2_EF80/lustre_building_block_cluster_1/group_vars/ha_cluster.yml#L118["#L118"^] | 클러스터 전체 | MDT 및 OST 아래에 중첩됩니다 `format_options`. HA 쌍의 두 노드 모두에서 프런트엔드 LNet NID를 포함합니다. 기본 MGS 소유자로 구성된 노드의 NID를 먼저 나열하고 그 뒤에 파트너 노드의 NID를 나열합니다. 
+
+
+| Pacemaker 클러스터 이름 | `eseries_lustre_pacemaker_cib_properties_overrides.cluster_properties.cluster-name` | link:https://github.com/NetApp/ansible-lustre/blob/release/1.0.0/getting_started/lustre_deployment_template/building_blocks/ROCE_H2_ROCE_DAC_A2_EF80/lustre_building_block_cluster_1/group_vars/ha_cluster.yml#L228["ha_cluster.yml#L228"^] | 클러스터 전체 | Pacemaker CIB 속성 재정의 아래에 중첩됩니다. HA 클러스터에 대한 고유 이름입니다. 
+
+
+| BMC 펜싱 주소 | `eseries_lustre_pacemaker_fencing_agents.fence_redfish.ip` | link:https://github.com/NetApp/ansible-lustre/blob/release/1.0.0/getting_started/lustre_deployment_template/building_blocks/ROCE_H2_ROCE_DAC_A2_EF80/lustre_building_block_cluster_1/group_vars/ha_cluster.yml#L211["ha_cluster.yml#L211"^], link:https://github.com/NetApp/ansible-lustre/blob/release/1.0.0/getting_started/lustre_deployment_template/building_blocks/ROCE_H2_ROCE_DAC_A2_EF80/lustre_building_block_cluster_1/group_vars/ha_cluster.yml#L214["#L214"^], link:https://github.com/NetApp/ansible-lustre/blob/release/1.0.0/getting_started/lustre_deployment_template/building_blocks/ROCE_H2_ROCE_DAC_A2_EF80/lustre_building_block_cluster_1/group_vars/ha_cluster.yml#L217["#L217"^], link:https://github.com/NetApp/ansible-lustre/blob/release/1.0.0/getting_started/lustre_deployment_template/building_blocks/ROCE_H2_ROCE_DAC_A2_EF80/lustre_building_block_cluster_1/group_vars/ha_cluster.yml#L220["#L220"^] | Lustre 서버당 반복 | 각 서버 노드의 Redfish BMC IP 주소입니다. 
+
+
+| 알림 이메일 수신자 | `eseries_lustre_alert_email_list` | link:https://github.com/NetApp/ansible-lustre/blob/release/1.0.0/getting_started/lustre_deployment_template/building_blocks/ROCE_H2_ROCE_DAC_A2_EF80/lustre_building_block_cluster_1/group_vars/ha_cluster.yml#L233["ha_cluster.yml#L233"^] | 클러스터 전체 | HA 리소스 및 장애 알림 수신자입니다. 
+
+
+| 메일 도메인 | `eseries_lustre_mail_service_overrides.conf.mydomain` | link:https://github.com/NetApp/ansible-lustre/blob/release/1.0.0/getting_started/lustre_deployment_template/building_blocks/ROCE_H2_ROCE_DAC_A2_EF80/lustre_building_block_cluster_1/group_vars/ha_cluster.yml#L240["ha_cluster.yml#L240"^] | 클러스터 전체 | Postfix 도메인은 알림 이메일을 보내는 데 사용됩니다. 
+
+
+| NTP 시간 소스 | `eseries_lustre_time_sync_overrides.server_pools` | link:https://github.com/NetApp/ansible-lustre/blob/release/1.0.0/getting_started/lustre_deployment_template/building_blocks/ROCE_H2_ROCE_DAC_A2_EF80/lustre_building_block_cluster_1/group_vars/ha_cluster.yml#L250["ha_cluster.yml#L250"^] | 클러스터 전체 | 클러스터 노드의 시간 소스입니다. NTP 풀 또는 하나 이상의 개별 NTP 서버를 지정합니다. 필수 `pool`또는 `server`지시문과 `iburst`등의 옵션을 포함합니다. 
+
+
+| 인터페이스 PCI-to-name udev 맵 | `eseries_ip_udev_rules` | link:https://github.com/NetApp/ansible-lustre/blob/release/1.0.0/getting_started/lustre_deployment_template/building_blocks/ROCE_H2_ROCE_DAC_A2_EF80/lustre_building_block_cluster_1/group_vars/ha_cluster.yml#L172["ha_cluster.yml#L172"^] | HCA 슬롯 레이아웃당 반복 | 각 PCI 슬롯을 영구 인터페이스 이름(L182의 값)에 매핑합니다.  `lspci -nnvmm`을 사용하여 수집합니다. 
+
+
+| 로컬 패키지 저장소(선택 사항) | `eseries_common_yum_repos` | link:https://github.com/NetApp/ansible-lustre/blob/release/1.0.0/getting_started/lustre_deployment_template/building_blocks/ROCE_H2_ROCE_DAC_A2_EF80/lustre_building_block_cluster_1/group_vars/ha_cluster.yml#L256["ha_cluster.yml#L256"^], link:https://github.com/NetApp/ansible-lustre/blob/release/1.0.0/getting_started/lustre_deployment_template/building_blocks/ROCE_H2_ROCE_DAC_A2_EF80/lustre_building_block_cluster_1/group_vars/ha_cluster.yml#L261["#L261"^] | 클러스터 전체 | 에어갭 설치의 경우 해당 블록의 주석 처리를 해제하고 저장소 `url`(L264)를 설정하십시오. 
+
+
+| 서버 관리 IP | `ansible_host` | link:https://github.com/NetApp/ansible-lustre/blob/release/1.0.0/getting_started/lustre_deployment_template/building_blocks/ROCE_H2_ROCE_DAC_A2_EF80/lustre_building_block_cluster_1/host_vars/lustre_01.yml#L10["host_vars/lustre_01.yml#L10"^] | Lustre 서버당 반복 | 서버당 파일 하나. `host_vars/lustre_NN.yml` 
+
+
+| NVMe-oF 백엔드 인터페이스 | `eseries_nvme_roce_interfaces` (RoCE) / `eseries_nvme_ib_interfaces` (InfiniBand) | link:https://github.com/NetApp/ansible-lustre/blob/release/1.0.0/getting_started/lustre_deployment_template/building_blocks/ROCE_H2_ROCE_DAC_A2_EF80/lustre_building_block_cluster_1/host_vars/lustre_01.yml#L21["RoCE host_vars/lustre_01.yml#L21"^], link:https://github.com/NetApp/ansible-lustre/blob/release/1.0.0/getting_started/lustre_deployment_template/building_blocks/IB_H2_IB_DAC_A2_EF80/lustre_building_block_cluster_1/host_vars/lustre_01.yml#L17["InfiniBand host_vars/lustre_01.yml#L17"^] | Lustre 서버당 반복 | E-Series 어레이로의 NVMe-oF 스토리지 트래픽에 사용되는 백엔드 인터페이스 주소입니다. 
+
+
+| LNet 클러스터 인터페이스 | `eseries_roce_interfaces` (RoCE) / `eseries_ipoib_interfaces` (InfiniBand) | link:https://github.com/NetApp/ansible-lustre/blob/release/1.0.0/getting_started/lustre_deployment_template/building_blocks/ROCE_H2_ROCE_DAC_A2_EF80/lustre_building_block_cluster_1/host_vars/lustre_01.yml#L47["RoCE host_vars/lustre_01.yml#L47"^], link:https://github.com/NetApp/ansible-lustre/blob/release/1.0.0/getting_started/lustre_deployment_template/building_blocks/IB_H2_IB_DAC_A2_EF80/lustre_building_block_cluster_1/host_vars/lustre_01.yml#L38["InfiniBand host_vars/lustre_01.yml#L38"^] | Lustre 서버당 반복 | 프런트엔드 LNet 인터페이스 주소(L56의 RoCE 값, InfiniBand L47의 InfiniBand 값). 
+
+
+| Corosync 노드 IP | `eseries_lustre_corosync_node_ips` | link:https://github.com/NetApp/ansible-lustre/blob/release/1.0.0/getting_started/lustre_deployment_template/building_blocks/ROCE_H2_ROCE_DAC_A2_EF80/lustre_building_block_cluster_1/host_vars/lustre_01.yml#L58["host_vars/lustre_01.yml#L58"^] | Lustre 서버당 반복 | HA 클러스터의 모든 노드 IP 주소를 나열합니다(L62 레벨 값). 
+
+
+| Lustre 타겟 서비스 NID | `lustre_target_service_nodes` | link:https://github.com/NetApp/ansible-lustre/blob/release/1.0.0/getting_started/lustre_deployment_template/building_blocks/ROCE_H2_ROCE_DAC_A2_EF80/lustre_building_block_cluster_1/host_vars/lustre_01.yml#L64["host_vars/lustre_01.yml#L64"^] | Lustre 서버당 반복 | HA 쌍의 두 노드 모두에서 프런트엔드 LNet NID((`@o2ib`)를 포함하여 장애 조치 후에도 대상 서비스에 계속 접근할 수 있도록 합니다(L67의 값 참조). 
+
+
+| 어레이 관리 IP | `ansible_host` | link:https://github.com/NetApp/ansible-lustre/blob/release/1.0.0/getting_started/lustre_deployment_template/building_blocks/ROCE_H2_ROCE_DAC_A2_EF80/lustre_building_block_cluster_1/host_vars/netapp_01.yml#L13["host_vars/netapp_01.yml#L13"^] | E-Series 어레이별로 반복합니다. | 컨트롤러 하나의 관리 IP 주소입니다. API URL은 이 주소에서 파생됩니다. 
+
+
+| 구성 요소 그룹 멤버십 | `mgs` / `mds_NN` / `oss_NN` | link:https://github.com/NetApp/ansible-lustre/blob/release/1.0.0/getting_started/lustre_deployment_template/building_blocks/ROCE_H2_ROCE_DAC_A2_EF80/lustre_building_block_cluster_1/lustre_inventory.yml#L1["lustre_inventory.yml"^] | 빌딩 블록당 | 각 인벤토리 호스트 이름은 해당 `host_vars` 파일의 기본 이름과 일치해야 합니다. 예를 들어, 호스트 `lustre_01`는 `host_vars/lustre_01.yml`를 사용하고, `netapp_01`는 `host_vars/netapp_01.yml`를 사용합니다. MGS 그룹은 첫 번째 빌딩 블록에만 포함하십시오. MDS 그룹은 기본 빌딩 블록과 각 MDT+OST 확장 빌딩 블록에 포함하고, OST 전용 확장 빌딩 블록에서는 MDS 그룹을 제외하십시오.  `mgsnode`를 사용하여 기존 MGS에 대한 확장 대상을 등록하십시오. 
+|===
+각 호스트 및 빌딩 블록에 대해 설정을 반복합니다. Lustre 서버당 하나의 `host_vars/lustre_NN.yml` 파일과 어레이당 하나의 `host_vars/netapp_NN.yml` 파일을 생성하고, 추가 빌딩 블록마다 인벤토리 그룹을 반복합니다.
+
+배포 플레이북은 공유 `building_blocks/passwords.yml` 파일에서 배열, Pacemaker 및 BMC 자격 증명을 로드합니다. 배포 전에 이 파일을 채우고 Ansible Vault로 암호화하거나 `--extra-vars`를 사용하여 런타임에 안전하게 값을 재정의하십시오. 평문 자격 증명을 소스 제어 시스템에 저장하지 마십시오.
+
+
+NOTE: 배포 템플릿의 IP 주소, 호스트 이름, 인터페이스 이름 및 볼륨 사이징 등이 예시입니다. 플레이북을 실행하기 전에 환경에 대한 모든 인벤토리 파일을 수정하십시오.
+
+
+
+[[after-you-finish]]
+== 완료한 후
+
+link:ai-eseries-lustre-deploy-cluster.html["Lustre HA 클러스터 및 클라이언트 배포"].

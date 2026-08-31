@@ -1,0 +1,107 @@
+---
+sidebar: sidebar 
+permalink: infra/ai-eseries-lustre-deploy-prepare.html 
+keywords: Lustre, NetApp E-Series, Ansible control node, EF80, deployment 
+summary: EF80 어레이, Lustre 서버 및 Ansible 제어 노드를 배포에 맞게 준비합니다. 
+---
+= Lustre 배포 환경 준비
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+각 EF80 어레이와 Lustre 서버에서 관리 액세스 및 기본 설정을 구성한 다음, 솔루션을 배포하기 위한 Ansible 제어 노드를 준비합니다.
+
+
+
+[[prepare-e-series-arrays]]
+== E-Series 어레이를 준비합니다.
+
+.단계
+. 각 컨트롤러에서 관리 인터페이스를 구성하고 SANtricity System Manager에 연결할 수 있는지 확인하십시오.
+. Ansible 인벤토리에서 사용할 배열 이름과 관리자 자격 증명을 설정합니다.
+. 어레이가 최적의 상태인지, 모든 드라이브가 연결되어 있고 올바르게 보고되는지 확인하십시오.
+
+
+관리 연결 구성에 대한 지침은 link:https://docs.netapp.com/us-en/e-series/["E-Series 문서"^]을 참조하십시오.
+
+
+
+[[prepare-lustre-servers]]
+== Lustre 서버를 준비합니다
+
+.단계
+. 각 서버의 베이스보드 관리 컨트롤러(BMC)를 대역 외 액세스용으로 구성하고, UEFI 시스템 설정을 최대 성능으로 설정하십시오.
+. 지원되는 운영 체제(RHEL 또는 Rocky Linux)를 설치한 다음 호스트 이름과 관리 네트워크 포트를 구성하십시오.
+. link:ai-eseries-lustre-sw.html["소프트웨어 구성 요소"]에 설명된 대로 *E-Series Lustre* 솔루션의 요구 사항을 충족하도록 모든 펌웨어 및 소프트웨어 패키지를 준비하십시오.
+
+
+
+
+[[prepare-the-ansible-control-node]]
+== Ansible 제어 노드를 준비합니다
+
+모든 Lustre 서버 및 E-Series 어레이에 관리 네트워크 액세스가 가능한 가상 또는 물리적 Linux 시스템을 Ansible 제어 노드로 지정합니다.
+
+다음 단계는 Ubuntu 24.04를 기준으로 설명합니다. 다른 Linux 배포판에 대한 지침은 link:https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html["Ansible 설치 문서"^]을 참조하십시오.
+
+.단계
+. Python, pip 및 Python 가상 환경 패키지를 설치합니다.
++
+[source, console]
+----
+sudo apt-get install python3 python3-pip python3-setuptools python3-venv
+----
+. Python 가상 환경을 생성하고 활성화합니다.
++
+[source, console]
+----
+python3 -m venv ~/pyenv
+source ~/pyenv/bin/activate
+----
+. 활성화된 가상 환경에 Ansible 및 필요한 Python 패키지를 설치합니다.
++
+[source, console]
+----
+pip install "ansible-core>=2.19" cryptography jinja2 ipaddr netaddr \
+  passlib pyyaml resolvelib
+----
+. NetApp E-Series Lustre Ansible 컬렉션을 설치합니다. 이 컬렉션을 설치하면 SANtricity 및 Host 컬렉션을 포함한 종속 컬렉션도 함께 설치됩니다.
++
+[source, console]
+----
+ansible-galaxy collection install netapp_eseries.lustre
+----
+. 설치된 Ansible, Python 및 컬렉션 버전을 확인하십시오.
++
+[source, console]
+----
+ansible --version
+python3 --version
+ansible-galaxy collection list netapp_eseries.lustre
+----
+. 제어 노드에서 각 Lustre 서버로 암호 없는 SSH 연결을 구성하십시오.  `<ip_or_hostname>`을 서버의 관리 IP 주소 또는 호스트 이름으로 바꾸십시오.
++
+[source, console]
+----
+ssh-keygen
+ssh-copy-id <ip_or_hostname>
+----
++
+각 Lustre 서버에 대해 이 과정을 반복하십시오. `ssh-copy-id`
+
+
+
+
+NOTE: E-Series 어레이에 암호 없는 SSH 연결을 구성하지 마십시오. Ansible은 인벤토리에 정의된 자격 증명을 사용하여 SANtricity 웹 서비스 API를 통해 어레이를 관리합니다.
+
+
+
+[[after-you-finish]]
+== 완료한 후
+
+link:ai-eseries-lustre-deploy-inventory.html["Ansible 인벤토리를 사용자 정의합니다"].

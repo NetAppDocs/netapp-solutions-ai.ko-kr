@@ -1,0 +1,74 @@
+---
+sidebar: sidebar 
+permalink: infra/ai-eseries-lustre-deploy.html 
+keywords: Lustre, NetApp E-Series, EF80, deployment, Ansible, NVMe-oF 
+summary: NetApp Ansible 자동화를 사용하여 NetApp E-Series 스토리지에 Lustre를 배포하는 워크플로를 따르십시오. 
+---
+= NetApp E-Series 스토리지를 사용하여 Lustre 배포
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+NetApp E-Series 스토리지를 사용하여 Lustre를 배포하려면 하드웨어, 환경 준비, 인벤토리, Ansible 배포 및 검증 작업을 순서대로 완료하십시오.
+
+
+
+[[prerequisites]]
+== 필수 조건
+
+배포를 시작하기 전에 다음 사항을 확인하십시오.
+
+* link:ai-eseries-lustre-sizing.html["사이즈 가이드"]의 크기 조정 및 구성 요소 지침을 따르고 link:ai-eseries-lustre-hw.html["하드웨어 구성 요소"]에 맞는 하드웨어를 선택했습니다.
+* 서버, HCA, E-Series, 운영 체제, Lustre, SANtricity OS 및 DOCA-OFED 조합이 link:https://imt.netapp.com/imt/#welcome["NetApp 상호 운용성 매트릭스 도구"^]의 *E-Series Lustre*에 대해 목록에 포함되어 있음을 확인하셨습니다.
+* 계획된 빌딩 블록에 필요한 모든 OSS/MDS 서버 노드와 E-Series 어레이가 현장에 도착하여 랙에 설치할 준비가 완료되었습니다.
+* 서버 BMC, 어레이 관리 포트 및 Ansible 제어 노드 역할을 할 호스트에 대한 자격 증명과 네트워크 액세스 권한이 있습니다.
+
+
+
+NOTE: NetApp은 link:https://github.com/NetApp/ansible-lustre/tree/release/1.0.0["NetApp E-Series Lustre Ansible 컬렉션"^]을 사용하여 Lustre HA 클러스터 및 Lustre 클라이언트 배포를 지원합니다. Lustre 타겟, LNet, NVMe-oF 호스트 연결 또는 Pacemaker 리소스를 수동으로 구성하지 마십시오.
+
+
+
+[[deployment-workflow]]
+== 배포 워크플로
+
+다음 작업을 순서대로 완료하십시오.
+
+. link:ai-eseries-lustre-deploy-hardware.html["Lustre 하드웨어 랙 및 케이블 연결"].
++
+Lustre 서버와 EF80 어레이를 랙에 설치한 다음 백엔드 NVMe-oF 및 프런트엔드 LNet 패브릭을 케이블로 연결합니다.
+
+. link:ai-eseries-lustre-deploy-prepare.html["Lustre 배포 환경 준비"].
++
+어레이와 서버를 구성한 다음 제어 노드에 Ansible과 그 종속성을 설치합니다.
+
+. link:ai-eseries-lustre-deploy-inventory.html["Lustre Ansible 인벤토리를 사용자 지정합니다"].
++
+사이트 패브릭에 사용할 템플릿을 선택하고 서버, 어레이, 네트워크, 구성 요소 및 자격 증명을 입력합니다.
+
+. link:ai-eseries-lustre-deploy-cluster.html["Lustre HA 클러스터 및 클라이언트 배포"].
++
+서버 운영 체제를 준비하고, NVIDIA DOCA-OFED를 설치하고, 메인 배포 플레이북을 실행하고, Lustre 클라이언트를 구성합니다.
+
+. link:ai-eseries-lustre-deploy-verify.html["Lustre 배포 확인 및 확장"].
++
+운영 환경에 사용하기 전에 클러스터 상태, 마운트 및 용량을 확인하십시오. 파일 시스템에 추가 구성 요소가 필요한 경우 기존 인벤토리를 확장하십시오.
+
+
+
+
+
+[[related-information]]
+== 관련 정보
+
+* link:https://github.com/NetApp/ansible-lustre/tree/release/1.0.0["NetApp E-Series Lustre Ansible 컬렉션"^]
+* link:https://github.com/NetApp/netapp-lustre/tree/master["NetApp Lustre 소스 저장소"^]
+* link:https://github.com/NetApp/ansible-lustre/blob/release/1.0.0/roles/lustre/docs/ha_user_guide.md["HA 관리 사용자 가이드"^]
+* link:https://github.com/NetApp/ansible-lustre/blob/release/1.0.0/roles/lustre/docs/performance_tuning.md["성능 튜닝 가이드"^]
+* link:https://github.com/NetApp/ansible-lustre/tree/release/1.0.0/getting_started/lustre_deployment_template/clients["Lustre 클라이언트 배포 템플릿"^]
+

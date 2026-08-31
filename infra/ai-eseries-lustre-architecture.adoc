@@ -1,0 +1,111 @@
+---
+sidebar: sidebar 
+permalink: infra/ai-eseries-lustre-architecture.html 
+keywords: Lustre, NetApp E-Series, EF80, building block, NVMe-oF, LNet, Pacemaker, HA, scaling, clients 
+summary: NetApp E-Series 스토리지 빌딩 블록 설계, 확장 규칙, HA 모델, 네트워크 토폴로지 및 클라이언트 통합을 통해 Lustre를 이해하십시오. 
+---
+= Lustre with NetApp E-Series 스토리지 - 솔루션 아키텍처
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+NetApp E-Series 스토리지를 사용하는 Lustre가 구성 요소, 고가용성, 네트워크 토폴로지 및 클라이언트를 활용하여 용량, 성능 및 장애 조치를 계획하는 방법을 알아보십시오.
+
+
+
+[[building-block-design]]
+== 빌딩 블록 디자인
+
+빌딩 블록은 NetApp E-Series Lustre 솔루션의 기본 확장 단위입니다. 각 빌딩 블록은 Lustre 오브젝트 스토리지 서버(OSS) 및 메타데이터 서버(MDS) 기능을 제공하는 고가용성(HA) 쌍으로 구성된 두 개의 서버 노드, 두 개의 NetApp E-Series 올플래시 어레이, 서버와 어레이 간의 전용 백엔드 NVMe over Fabrics(NVMe-oF) 연결, 그리고 클라이언트와 노드 간 통신을 위한 전용 프런트엔드 Lustre 네트워킹(LNet) 연결로 구성됩니다. Pacemaker 및 Corosync HA 클러스터는 하나 이상의 빌딩 블록에서 서버 쌍을 포함할 수 있습니다. NetApp `ansible-lustre` 컬렉션은 Ansible 자동화를 사용하여 Lustre 서비스를 배포하고 구성합니다.
+
+.Lustre 빌딩 블록
+image:eseries-lustre-building-block.png["두 개의 OSS/MDS 서버 노드와 두 개의 E-Series EF80 어레이로 구성된 Lustre HA 빌딩 블록"]
+
+빌딩 블록은 파일 시스템의 성장 요구 사항에 맞춰 확장됩니다. 모든 파일 시스템에는 하나의 기본 빌딩 블록이 필요합니다. 기본 빌딩 블록은 관리 대상(MGT)에 관리 서버(MGS)를 호스팅하고 초기 메타데이터 대상(MDT) 및 오브젝트 스토리지 대상(OST) 용량을 제공합니다. 추가 빌딩 블록은 파일 시스템을 확장하고 기본 빌딩 블록의 MGS에 MDT 및 OST 대상을 등록합니다. 이러한 모듈식 접근 방식을 통해 워크로드 요구 사항에 따라 용량과 성능을 독립적으로 확장할 수 있습니다.
+
+NetApp은 대부분의 배포 환경에 대해 다음과 같은 빌딩 블록 구성 프로파일을 권장합니다. 나열된 MGS, MDT 및 OST 개수는 E-Series 스토리지 어레이의 성능과 용량을 극대화하도록 최적화된 권장 기본값입니다. 워크로드 요구 사항에 맞게 Ansible 인벤토리에서 대상 개수, 볼륨 크기 및 E-Series 드라이브 할당을 조정하십시오. 예를 들어, 더 많은 메타데이터 스토리지 용량이 필요한 배포 환경에서는 동일한 빌딩 블록 하드웨어 내에서 더 많은 MDT와 더 적은 OST를 프로비저닝할 수 있습니다.
+
+다음 표는 구성 요소 유형과 권장 목표 개수를 요약한 것입니다.
+
+|===
+| 유형 | MGS | MDTs | OST | 사용 
+
+
+| 베이스 | 1 | 8 | 32 | 파일 시스템의 첫 번째 구성 요소입니다. MGS와 초기 MDT 및 OST 용량을 호스팅합니다. 
+
+
+| MDT+OST | 0 | 8 | 32 | 메타데이터 및 데이터 용량을 추가합니다. 기본 구성 요소인 MGS에 등록하십시오. 
+
+
+| OST 전용 | 0 | 0 | 32 | 데이터 용량만 추가합니다. 기본 구성 요소인 MGS에 등록하십시오. 
+|===
+* *드라이브 유형 및 풀 레이아웃:* E-Series는 기존 RAID 볼륨 그룹과 동적 디스크 풀(DDP)을 지원합니다.  TLC NVMe 드라이브의 경우, OST 스토리지에는 RAID 6 볼륨 그룹을, MGS 및 MDT 스토리지에는 RAID 1 볼륨 그룹을 사용하십시오.  QLC NVMe 드라이브의 경우, 공유 드라이브 풀에 DDP를 사용하십시오.
+* *타겟 분산:* 각 빌딩 블록의 Lustre 타겟은 OSS/MDS 서버 노드와 E-Series 어레이 모두에 걸쳐 균형 있게 분산됩니다. 이러한 레이아웃은 서버 CPU와 어레이 컨트롤러에 I/O를 분산시켜 NVMe-oF 경로 성능을 향상시키고 이중화를 유지합니다. link:ai-eseries-lustre-hw.html#_primary_building_block_volume_distribution["타겟 분포 및 NVMe-oF 연결성"]의 link:ai-eseries-lustre-hw.html["하드웨어 구성 요소"]을 참조하십시오.
+
+
+지원되는 운영 체제, Lustre 버전, 어레이 펌웨어 및 관련 구성 요소는 link:https://imt.netapp.com/imt/#welcome["NetApp 상호 운용성 매트릭스 툴(IMT)"^] *E-Series Lustre* 항목에 나열되어 있습니다. 자세한 볼륨 수, 드라이브 레이아웃 및 크기 조정 지침은 link:ai-eseries-lustre-hw.html["하드웨어 구성 요소"]을 참조하십시오. 소프트웨어 구성 요소는 link:ai-eseries-lustre-sw.html["소프트웨어 구성 요소"]을 참조하십시오.
+
+
+
+[[scaling-recommendations]]
+== 확장성 권장 사항
+
+Lustre 파일 시스템은 메타데이터 용량, 데이터 용량 또는 둘 다 제한 요소가 될 때 구성 요소를 추가하여 확장합니다. MDT는 파일 수와 메타데이터 IOPS를 기준으로 확장하고, OST는 용량 및 총 처리량 요구 사항을 기준으로 확장합니다.
+
+. *파일 시스템당 하나의 기본 빌딩 블록:* 기본 빌딩 블록을 정확히 하나만 배포하십시오. 이 블록에는 MGS와 초기 MDT 및 OST 대상이 포함됩니다.
+. *추가 빌딩 블록 프로필:* 기존 MDT 용량이 충분하고 데이터 용량 또는 처리량을 늘려야 하는 경우 OST 전용 빌딩 블록을 추가하십시오. 메타데이터 성능 또는 네임스페이스 용량이 병목 현상이 되면 MDT+OST 빌딩 블록을 추가하십시오.
+. *HA 클러스터 제한:* 각 Pacemaker 및 Corosync HA 클러스터는 최대 5개의 빌딩 블록(10개의 Lustre 서버 노드)으로 제한됩니다. 대규모 배포 환경에서는 리소스 제약을 방지하기 위해 여러 HA 클러스터로 균등하게 분할하십시오.
+
+
+다음 그림은 42U 랙에 최대 5개의 빌딩 블록이 쌓인 모습을 보여줍니다(랙당 Pacemaker HA 클러스터 1개). 여러 랙이 하나의 Lustre 파일 시스템에 참여할 수 있으며, 기본 빌딩 블록에만 MGS가 호스팅됩니다.
+
+.러스터 병렬 파일 시스템 랙 스케일링
+image:eseries-lustre-2x2-rack-scaling.png["Lustre 병렬 파일 시스템은 여러 개의 42U 랙에 걸쳐 확장 가능하며, 각 랙에는 하나의 Pacemaker HA 클러스터 내에서 최대 5개의 빌딩 블록을 구성할 수 있습니다."]
+
+사이즈 예시는 link:ai-eseries-lustre-sizing.html["사이즈 가이드"]을 참조하십시오.
+
+
+
+[[ha-architecture]]
+== HA 아키텍처
+
+Lustre with NetApp E-Series 스토리지는 NetApp E-Series 스토리지와 통합된 공유 디스크 고가용성(HA) 아키텍처를 사용합니다. Pacemaker는 HA 리소스를 관리하고 Corosync는 클러스터 멤버십 및 메시징을 제공합니다. 이 둘은 함께 각 빌딩 블록의 두 OSS/MDS 서버 노드 간 Lustre 타겟 페일오버를 관리합니다. 다중 경로 NVMe-oF는 두 OSS/MDS 서버 노드를 동일한 E-Series 볼륨에 연결하므로 필요에 따라 어느 노드든 타겟 서비스를 인계받을 수 있습니다.
+
+각 MGS, MDT 및 OST는 종속 리소스와 함께 Pacemaker 리소스 그룹에 HA 리소스로 구성됩니다. Pacemaker는 리소스가 올바른 순서로 시작 및 중지되고, 동일한 노드에 함께 배치되며, 한 번에 하나의 노드에서만 실행되도록 보장합니다. 두 노드에서 동일한 대상에 동시에 액세스하면 기본 파일 시스템이 손상될 수 있습니다.
+
+* *타겟 페일오버:* OSS/MDS 서버 노드는 클러스터에서 서로 동등한 위치에 있지만, 각 Lustre 타겟은 한 번에 하나의 노드에서만 활성화됩니다. Pacemaker 모니터링 리소스는 각 타겟과 해당 종속 요소의 상태를 감시하고, 타겟이 현재 노드에서 사용 불가능해지면 페일오버를 트리거합니다. 장애 발생 시 Pacemaker는 파트너 노드에서 영향을 받는 리소스 그룹을 올바른 순서로 다시 시작하고, 서비스가 재개되면 클라이언트는 새 위치의 타겟에 투명하게 다시 연결됩니다. 각 타겟이 단일 노드에서만 활성화되므로 파일 시스템은 두 노드에서 동시에 쓰기 작업에 노출되지 않습니다.
+* *공유 스토리지 액세스:* 다중 경로 NVMe-oF 경로는 각 OSS/MDS 서버 노드를 빌딩 블록의 모든 E-Series 컨트롤러에 연결하여 모든 타겟 볼륨에 어느 노드에서든 접근할 수 있도록 합니다. 서버 노드에 장애가 발생하면 파트너 노드는 이미 동일한 볼륨에 대한 활성 경로를 보유하고 있으므로 스토리지 연결을 재구성하지 않고도 타겟에 대한 소유권을 인계받을 수 있습니다. 어레이 컨트롤러 또는 경로에 장애가 발생하면 다중 경로가 I/O를 정상 작동 중인 컨트롤러로 리디렉션합니다. 이러한 이중 중복성을 통해 Lustre 타겟은 백업 볼륨에 대한 액세스를 잃지 않고 OSS/MDS 서버 노드 또는 어레이 컨트롤러 간에 장애 조치를 수행할 수 있습니다.
+* *STONITH 펜싱:* 장애가 발생하면 Pacemaker는 때때로 장애가 발생한 노드와 통신하여 해당 노드의 타겟이 중지되었는지 확인할 수 없습니다. 이러한 타겟을 다른 곳에서 재시작하기 전에 Pacemaker는 전원을 차단하는 등의 방법으로 장애가 발생한 노드를 펜싱하여 완전히 다운되었는지 확인합니다. 펜싱은 두 노드가 동시에 동일한 타겟에 액세스하여 기본 파일 시스템을 손상시키는 스플릿 브레인 시나리오를 방지하고, 장애 조치 중에 데이터 무결성을 유지합니다. NetApp은 Redfish를 지원하는 베이스보드 관리 컨트롤러(BMC)가 있는 서버에 `fence_redfish`를 권장합니다. 다른 펜싱 에이전트( `fence_apc` 등)도 지원됩니다.
+
+
+클러스터 관리 및 펜싱 구성에 대해서는 link:https://github.com/NetApp/ansible-lustre/blob/release/1.0.0/roles/lustre/docs/ha_user_guide.md["HA 사용자 가이드"^]의 link:https://github.com/NetApp/ansible-lustre/tree/release/1.0.0["ansible-lustre 컬렉션"^]을 참조하십시오.
+
+
+
+[[network-architecture]]
+== 네트워크 아키텍처
+
+이 솔루션은 스토리지 백엔드 트래픽과 LNet 프런트엔드 트래픽에 대해 별도의 네트워크 경로를 사용합니다.
+
+* *백엔드(NVMe-oF):* OSS/MDS 서버 노드는 NVMe/InfiniBand 또는 NVMe/RoCE를 사용하여 NVMe-oF를 통해 E-Series 어레이에 연결됩니다. NVMe-oF 경로는 Lustre 타겟 서비스와 E-Series 볼륨 간에 블록 I/O를 전송합니다. EF80 6-HCA 백엔드 케이블 연결은 link:ai-eseries-lustre-deploy-hardware.html["Lustre 하드웨어 랙 및 케이블 연결"]을 참조하십시오. 노드 및 어레이 전반의 기본 타겟 배치에 대해서는 link:ai-eseries-lustre-hw.html["하드웨어 구성 요소"]의 link:ai-eseries-lustre-hw.html#_primary_building_block_volume_distribution["목표 분포"]을 참조하십시오.
+* *프런트엔드(LNet):* Lustre 클라이언트와 OSS/MDS 서버 노드는 NVIDIA OFED 스택을 사용하는 `@o2ib` 네트워크 유형인 LNet을 통해 통신합니다. InfiniBand와 RoCE는 모두 검증된 프런트엔드 전송 프로토콜입니다. ansible-lustre 컬렉션은 모든 프런트엔드 인터페이스를 멀티레일 LNet으로 구성하여 여러 포트를 통합함으로써 대역폭을 높이고 클라이언트 및 노드 간 트래픽에 대한 경로 이중화를 제공합니다.
+* *관리 및 클러스터:* 아웃오브밴드(out-of-band) 관리 네트워크는 서버 관리, BMC 액세스 및 어레이 관리를 제공합니다.  STONITH 펜싱 에이전트 등 `fence_redfish`은 이 네트워크를 사용하여 서버 BMC에 연결하고 장애가 발생한 노드의 전원을 차단합니다.  Corosync는 프런트엔드 패브릭과 함께 추가 링으로 이 네트워크를 통해 클러스터 통신을 실행할 수도 있습니다.  Corosync를 여러 링으로 구성하면 클러스터 메시징에 대한 이중화가 추가되어 단일 네트워크 장애로 인해 쿼럼이 중단될 위험이 줄어듭니다.
+
+
+
+
+[[lustre-clients]]
+== Lustre 클라이언트
+
+Lustre 클라이언트는 클라이언트 커널 모듈을 로드하고, OSS/MDS 서버 노드와의 LNet 연결을 설정한 후, 파일 시스템을 마운트하여 애플리케이션에 단일하고 일관된 POSIX 호환 네임스페이스를 제공합니다.  I/O는 활성 OST 전체에 병렬로 분산됩니다.  클라이언트 노드는 빌딩 블록 외부에 있으며 프런트엔드 LNet 패브릭을 통해 파일 시스템을 사용합니다.  이 솔루션에 대한 클라이언트 운영 체제는 IMT에 나열되어 있지 않습니다. 배포된 Lustre 릴리스에서 지원하는 테스트된 클라이언트 배포판 및 커널 버전(예: Red Hat Enterprise Linux 9, SUSE Linux Enterprise Server 15, Ubuntu 24.04)은 link:https://wiki.whamcloud.com/display/PUB/Lustre+Support+Matrix["Lustre 지원 매트릭스"^]을 참조하십시오.
+
+클라이언트 노드는 OSS/MDS 서버 노드와 동일한 LNet 패브릭 및 네트워크 유형에 연결되어야 합니다. 필요한 경우 LNet 라우터를 사용하여 서로 다른 LNet 서브넷 또는 패브릭을 연결할 수 있습니다.
+
+NetApp은 Rocky Linux 9.8 및 Red Hat Enterprise Linux 9.8용 Lustre 서버 RPM 패키지를 제공합니다. NetApp은 클라이언트 패키지를 제공하지 않습니다. link:https://github.com/NetApp/netapp-lustre["netapp-lustre repository"^]의 Lustre 소스 코드에서 클라이언트 운영 체제 및 커널용 클라이언트 패키지를 빌드하십시오.
+
+클라이언트 패키지가 설치되면, 선택적 `lustre_client` 역할이 link:https://github.com/NetApp/ansible-lustre/tree/release/1.0.0["ansible-lustre 컬렉션"^] 클라이언트 네트워크 인터페이스와 LNet을 구성하고, 선택 시 멀티레일 LNet을 활성화하고, 연결성을 검증하고, 영구적인 systemd 마운트 장치를 관리합니다. 이 역할은 Lustre를 빌드하지 않습니다.  `lustre_client_packages`가 채워진 경우에만 클라이언트 패키지를 설치합니다. 필요한 경우 클라이언트를 수동으로 구성할 수 있습니다. 단계별 절차는 link:ai-eseries-lustre-deploy.html["솔루션 배포"] 및 link:https://github.com/NetApp/ansible-lustre/blob/release/1.0.0/roles/lustre_client/README.md["lustre_client 역할 문서"^]을 참조하십시오.

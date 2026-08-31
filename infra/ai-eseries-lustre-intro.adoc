@@ -1,0 +1,31 @@
+---
+sidebar: sidebar 
+permalink: infra/ai-eseries-lustre-intro.html 
+keywords: Lustre, NetApp E-Series, EF80, HPC, AI, parallel file system, NVMe-oF, high-performance storage 
+summary: Lustre with NetApp E-Series 스토리지는 NetApp E-Series 올플래시 어레이의 반복 가능한 빌딩 블록 아키텍처를 통해 AI 및 HPC 워크로드를 위한 검증되고 확장 가능한 병렬 파일 시스템을 제공합니다. 
+---
+= Lustre with NetApp E-Series 스토리지 - 소개
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+NetApp E-Series 스토리지를 사용하는 Lustre는 AI 및 HPC 워크로드를 위한 검증된 병렬 파일 시스템 솔루션으로, HA 서버 쌍과 E-Series 올플래시 어레이라는 반복 가능한 구성 요소로 이루어져 있습니다.
+
+
+
+[[solution-overview]]
+== 솔루션 개요
+
+Lustre와 NetApp E-Series 스토리지는 오픈 소스 Lustre 병렬 파일 시스템과 NetApp E-Series 블록 스토리지를 결합하여 데이터 집약적인 워크로드를 위한 확장 가능하고 고성능의 기반을 제공합니다. 각 구성 요소는 고가용성(HA)으로 구성된 두 개의 OSS/MDS 서버 노드와 두 개의 E-Series 올플래시 어레이로 이루어져 있습니다. 백엔드 NVMe-oF 연결을 통해 블록 I/O가 어레이로 전달되며, 별도의 LNet 패브릭을 통해 클라이언트와 OSS/MDS 서버 노드를 연결하여 병렬 파일 시스템에 액세스할 수 있습니다.
+
+기본 구성 요소는 관리 서버(MGS)와 초기 메타데이터 대상(MDT) 및 오브젝트 스토리지 대상(OST)을 호스팅합니다. 추가 구성 요소는 기본 MGS에 등록되어 워크로드 요구 사항이 증가함에 따라 메타데이터 용량, 데이터 용량 및 전체 처리량을 확장합니다.
+
+다음 그림은 LNet을 통해 연결된 여러 구성 요소와 Lustre 클라이언트를 포함하는 배포 예시를 보여줍니다.
+
+.Lustre with NetApp E-Series 스토리지 솔루션 개요
+image:eseries-lustre-overview-diagram.png["Lustre with NetApp E-Series 스토리지 솔루션 개요(구성 요소 및 클라이언트 포함)"]

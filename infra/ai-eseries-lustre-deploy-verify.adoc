@@ -1,0 +1,61 @@
+---
+sidebar: sidebar 
+permalink: infra/ai-eseries-lustre-deploy-verify.html 
+keywords: Lustre, NetApp E-Series, deployment verification, Pacemaker, scaling 
+summary: Lustre 클러스터의 상태, 마운트 및 용량을 확인하고 추가 구성 요소를 사용하여 파일 시스템을 확장합니다. 
+---
+= Lustre 배포 확인 및 확장
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+운영 환경에 사용하기 전에 클러스터 상태, Lustre 마운트 및 파일 시스템 용량을 확인한 다음, 필요할 때 동일한 인벤토리를 사용하여 구성 요소를 추가하십시오.
+
+
+
+[[verify-the-deployment]]
+== 배포를 확인합니다
+
+.단계
+. Lustre 서버에서 모든 Pacemaker 리소스가 예상 노드에서 시작되었는지 확인하십시오.
++
+[source, cli]
+----
+pcs status
+----
+. Lustre 클라이언트에서 Lustre 파일 시스템이 마운트되었는지 확인하십시오.
++
+[source, cli]
+----
+mount -t lustre
+----
+. Lustre 클라이언트에서 파일 시스템 용량과 MDT 및 OST 대상이 표시되는지 확인하십시오.
++
+[source, cli]
+----
+lfs df -h
+----
+
+
+IOR, mdtest 및 fio를 사용한 성능 검증에 대해서는 link:ai-eseries-lustre-sizing.html["사이즈 가이드"]을 참조하십시오.
+
+제어된 대상 마이그레이션 또는 HA 페일오버 테스트를 위해서는 link:https://github.com/NetApp/ansible-lustre/blob/release/1.0.0/roles/lustre/docs/ha_user_guide.md["HA 관리 사용자 가이드"^]에 있는 절차를 따르십시오.
+
+
+
+[[expand-the-file-system]]
+== 파일 시스템을 확장합니다
+
+용량 또는 메타데이터 성능을 추가하려면 기존 인벤토리를 추가 빌딩 블록으로 확장하십시오. 새 빌딩 블록에 대해 별도의 인벤토리를 생성하지 마십시오. 플레이북은 자동으로 고유한 MDT 및 OST 인덱스를 할당하고 기존 MGS에 새 타겟을 등록합니다.
+
+.단계
+. 새로운 빌딩 블록 호스트, 어레이 및 리소스 그룹(MDT+OST 또는 OST 전용)을 원래 배포에 사용했던 인벤토리 및 `host_vars` 및 `group_vars` 파일에 추가합니다.
+. 업데이트된 인벤토리를 사용하여 메인 배포 플레이북을 다시 실행하십시오.
+
+
+확장 규칙은 link:ai-eseries-lustre-architecture.html["솔루션 아키텍처"]을, 각 구성 요소 유형을 추가해야 하는 시점에 대한 지침은 link:ai-eseries-lustre-sizing.html["사이즈 가이드"]을 참조하십시오.

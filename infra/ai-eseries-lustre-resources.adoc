@@ -1,0 +1,49 @@
+---
+sidebar: sidebar 
+permalink: infra/ai-eseries-lustre-resources.html 
+keywords: Lustre, NetApp E-Series, EF80, documentation, references, Ansible 
+summary: NetApp E-Series Storage를 사용하는 Lustre 관련 문서, 툴 및 소프트웨어를 찾아보십시오. 
+---
+= Lustre with NetApp E-Series 스토리지 - 관련 자료
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lustre with NetApp E-Series 스토리지 배포를 계획하거나 확장할 때 관련 문서, 툴 및 소프트웨어는 다음 링크를 참조하십시오. 사이징 및 배포 단계는 link:ai-eseries-lustre-sizing.html["사이즈 가이드"] 및 link:ai-eseries-lustre-deploy.html["솔루션 배포"]을 참조하십시오.
+
+
+
+[[netapp-resources]]
+== NetApp 리소스
+
+* link:https://imt.netapp.com/imt/#welcome["NetApp 상호 운용성 매트릭스 도구"^]. *E-Series Lustre*를 검색합니다.
+* link:https://www.netapp.com/pdf.html?item=/media/14036-ds-4082.pdf["NetApp EF 시리즈 올플래시 어레이 데이터시트"^]
+* link:https://docs.netapp.com/us-en/e-series-santricity/["NetApp SANtricity 시스템 관리자 설명서"^]
+* link:https://github.com/NetApp/ansible-lustre/tree/release/1.0.0["NetApp ansible-lustre 컬렉션"^]. 재고 관리 현장 지침은 link:ai-eseries-lustre-deploy-inventory.html["Lustre Ansible 인벤토리를 사용자 지정합니다"]을 참조하십시오.
+* link:https://github.com/NetApp/netapp-lustre/tree/master["NetApp Lustre 소스 저장소"^]. NetApp은 Rocky Linux 9.8 및 Red Hat Enterprise Linux 9.8용으로 미리 빌드된 Lustre 서버 RPM 패키지를 제공합니다. NetApp 소스에서 클라이언트 운영 체제 및 커널에 맞는 Lustre 클라이언트 패키지를 빌드하십시오.
+
+
+
+
+[[lustre-community]]
+== Lustre 커뮤니티
+
+* link:https://www.lustre.org/["Lustre 파일 시스템"^]
+* link:https://wiki.whamcloud.com/display/PUB/Lustre+Support+Matrix["Lustre 지원 매트릭스"^] 클라이언트 운영 체제 및 커널의 경우
+* link:https://wiki.lustre.org/Lustre_Tuning["Lustre Wiki: Lustre 튜닝"^]
+
+
+
+
+[[related-netapp-ai-infrastructure-solutions]]
+== 관련 NetApp AI 인프라 솔루션
+
+* link:ai-eseries-beegfs.html["E-Series 스토리지를 갖춘 NetApp 의 BeeGFS"]
+* link:ai-eseries-spectrumscale.html["NetApp E-Series 스토리지를 사용한 IBM Spectrum Scale 배포"]
+* link:ai-eseries-superpod.html["NetApp EF 시리즈를 탑재한 NVIDIA DGX SuperPOD"]
+

@@ -33,6 +33,35 @@ entries:
 - title: E-Series 스토리지를 갖춘 NetApp 의 BeeGFS
   pdf-filename: E-Series 스토리지를 갖춘 NetApp 의 BeeGFS
   url: "/infra/ai-eseries-beegfs.html"
+- title: NetApp E-Series 스토리지를 사용하는 Lustre
+  pdf-filename: NetApp E-Series 스토리지를 사용하는 Lustre
+  entries:
+  - title: 소개
+    url: "/infra/ai-eseries-lustre-intro.html"
+  - title: 솔루션 아키텍처
+    url: "/infra/ai-eseries-lustre-architecture.html"
+  - title: 하드웨어 구성 요소
+    url: "/infra/ai-eseries-lustre-hw.html"
+  - title: 소프트웨어 구성 요소
+    url: "/infra/ai-eseries-lustre-sw.html"
+  - title: 사이즈 가이드
+    url: "/infra/ai-eseries-lustre-sizing.html"
+  - title: 솔루션 배포
+    entries:
+    - title: 배포 워크플로
+      url: "/infra/ai-eseries-lustre-deploy.html"
+    - title: 랙 및 케이블 하드웨어
+      url: "/infra/ai-eseries-lustre-deploy-hardware.html"
+    - title: 배포 환경을 준비합니다
+      url: "/infra/ai-eseries-lustre-deploy-prepare.html"
+    - title: Ansible 인벤토리를 사용자 정의합니다
+      url: "/infra/ai-eseries-lustre-deploy-inventory.html"
+    - title: HA 클러스터와 클라이언트를 배포합니다.
+      url: "/infra/ai-eseries-lustre-deploy-cluster.html"
+    - title: 배포 확인 및 확장
+      url: "/infra/ai-eseries-lustre-deploy-verify.html"
+  - title: 관련 자료
+    url: "/infra/ai-eseries-lustre-resources.html"
 - title: E-Series 스토리지를 사용하여 IBM Spectrum Scale 배포
   pdf-filename: E-Series 스토리지를 사용하여 IBM Spectrum Scale 배포
   url: "/infra/ai-eseries-spectrumscale.html"

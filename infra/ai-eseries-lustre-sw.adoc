@@ -1,0 +1,89 @@
+---
+sidebar: sidebar 
+permalink: infra/ai-eseries-lustre-sw.html 
+keywords: Lustre, NetApp E-Series, software, SANtricity, Rocky Linux, Pacemaker, Corosync, DOCA, Lustre client 
+summary: NetApp E-Series 스토리지를 사용하여 Lustre를 배포하는 데 사용된 소프트웨어 구성 요소 및 Ansible 자동화를 검토합니다. 
+---
+= Lustre with NetApp E-Series 스토리지 - 소프트웨어 구성 요소
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+NetApp E-Series 스토리지를 사용하여 Lustre를 배포하는 소프트웨어 스택 및 Ansible 자동화를 검토하십시오. 서버, 스토리지 및 네트워크에 대한 자세한 내용은 link:ai-eseries-lustre-hw.html["하드웨어 구성 요소"]을 참조하십시오.
+
+
+
+[[building-block-software]]
+== 빌딩 블록 소프트웨어
+
+다음 표는 E-Series 어레이 및 OSS/MDS 서버 노드에서 사용되는 소프트웨어 구성 요소를 나열합니다. link:https://imt.netapp.com/imt/#welcome["NetApp 상호 운용성 매트릭스 툴(IMT)"^]를 지원되는 버전 및 구성 요소 조합에 대한 권위 있는 소스로 사용하십시오. *E-Series Lustre*를 검색하여 배포 전에 운영 체제, Lustre, SANtricity OS, DOCA-OFED, HCA 펌웨어 및 HA 패키지 버전을 확인하십시오.
+
+[cols="30%,70%"]
+|===
+| 요소 | 기능 
+
+
+| SANtricity OS | 각 E-Series 어레이에서 실행되며 SANtricity System Manager, 자동 I/O 경로 페일오버를 통한 듀얼 액티브 컨트롤러 고가용성, 자동 로드 밸런싱 및 경로 모니터링, 동적 디스크 풀 및 기존 RAID, 자동 드라이브 재구축, 미러링된 캐시 보호, Data Assurance, 사전 예방적 드라이브 상태 모니터링, 온라인 소프트웨어, 펌웨어 및 구성 변경 기능을 제공합니다. 
+
+
+| Lustre | 클라이언트에게 단일 POSIX 호환 네임스페이스를 제공하는 동시에 메타데이터와 파일 데이터를 여러 대상에 분산하여 병렬 액세스를 지원합니다. 관리 서버(MGS)는 파일 시스템 구성을 저장하고, 메타데이터 대상(MDT)은 네임스페이스를 관리하며, 오브젝트 스토리지 대상(OST)은 E-Series 볼륨에 파일 데이터를 저장합니다. 이러한 분리를 통해 구성 요소를 추가하여 성능과 용량을 확장할 수 있습니다. 
+
+
+| Red Hat Enterprise Linux(RHEL) 또는 Rocky Linux | Lustre 타겟 서비스, 고가용성 클러스터링, 스토리지 및 네트워크 연결을 위한 커널, 시스템 서비스 및 패키지 프레임워크를 제공합니다. 지원되는 운영 체제 리포지토리에는 Pacemaker, Corosync, 펜스 에이전트, NVMe-oF 및 다중 경로 패키지도 포함되어 있으며, 이러한 패키지들은 솔루션 스택으로 함께 테스트되었습니다. 
+
+
+| 고가용성 클러스터 서비스(Pacemaker, Corosync 및 fence agents) | 이러한 서비스들은 함께 OSS/MDS 서버 노드 전반에 걸쳐 Lustre 타겟에 대한 고가용성을 제공합니다. 클러스터 멤버십 및 쿼럼을 유지하고, 리소스를 모니터링하며, 순차적인 페일오버를 오케스트레이션하고, 응답하지 않는 노드를 격리한 후 다른 곳에서 공유 타겟을 활성화합니다. 이러한 조정을 통해 E-Series 볼륨에 대한 스플릿 브레인 액세스를 방지하고 장애 발생 시 파일 시스템 무결성을 보호합니다. 
+
+
+| NVIDIA DOCA-OFED | InfiniBand 및 RoCE 패브릭용 HCA 드라이버, RDMA 라이브러리 및 관리 유틸리티를 제공합니다. 동일한 소프트웨어 스택은 E-Series 어레이에 대한 저지연 백엔드 NVMe-oF 액세스와 Lustre 클라이언트와의 고처리량 프런트엔드 LNet 통신을 지원합니다. 
+|===
+NetApp 은 Rocky Linux 9.8 및 Red Hat Enterprise Linux 9.8용으로 사전 구축된 Lustre 서버 RPM 패키지를 제공합니다.
+
+
+
+[[ansible-automation]]
+== Ansible 자동화
+
+NetApp E-Series 스토리지를 사용하는 Lustre는 E-Series 어레이 및 OSS/MDS 서버 노드에 대한 관리 액세스 권한이 있는 제어 노드에서 Ansible 자동화를 사용하여 제공 및 배포됩니다. Ansible 인벤토리는 어레이, 서버, 스토리지 할당, 네트워크 인터페이스 및 HA 클러스터 리소스를 포함하여 원하는 솔루션을 모델링합니다.
+
+NetApp E-Series Lustre Ansible 컬렉션은 SANtricity 및 Host 컬렉션을 사용하여 엔드투엔드 배포를 오케스트레이션합니다. 이 두 컬렉션을 함께 사용하면 E-Series 스토리지 프로비저닝 및 매핑, 서버 운영 체제 준비, NVMe-oF 및 LNet 연결 구성, Lustre 타겟 배포, Pacemaker 리소스 생성 등의 작업을 수행할 수 있습니다. 이러한 자동화를 통해 구성을 반복할 수 있으며 기존 파일 시스템에 구성 요소를 추가하는 작업을 간소화할 수 있습니다.
+
+다음 표는 Ansible 제어 노드에서 사용되는 주요 소프트웨어 패키지를 요약한 것입니다. 현재 패키지 종속성은 link:https://github.com/NetApp/ansible-lustre["NetApp E-Series Lustre Ansible 컬렉션"^]을 참조하십시오.
+
+[cols="35%,65%"]
+|===
+| 패키지 | 의존성 또는 목적 
+
+
+| 파이썬 | Ansible 및 필요한 Python 모듈의 런타임을 제공합니다. 
+
+
+| ansible-core | Python이 필요하며 NetApp E-Series Ansible 컬렉션을 실행합니다. 
+
+
+| 추가 Python 패키지 | `cryptography`, `ipaddr`, `netaddr`, `passlib`, `resolvelib`, `jinja2`, 그리고 `pyyaml` 
+
+
+| NetApp E-Series Lustre Ansible 컬렉션 | Lustre, LNet, NVMe-oF 호스트 연결 및 Pacemaker 리소스를 구성합니다. 
+
+
+| NetApp E-Series SANtricity Ansible 컬렉션 | SANtricity 웹 서비스 API를 통해 E-Series 어레이, 스토리지 풀, 볼륨 및 호스트 매핑을 구성합니다. 
+
+
+| NetApp E-Series 호스트 Ansible 컬렉션 | OSS/MDS 서버 노드를 E-Series 어레이와의 LNet 및 NVMe-oF 연결을 위해 준비합니다. 
+|===
+
+
+[[lustre-client-software]]
+== Lustre 클라이언트 소프트웨어
+
+Lustre 클라이언트 소프트웨어는 시스템이 프런트엔드 LNet 패브릭을 통해 병렬 파일 시스템에 접근할 수 있도록 합니다. 각 클라이언트는 실행 중인 커널 및 서버에 배포된 Lustre 릴리스와 호환되는 Lustre 커널 모듈과 Lustre 클라이언트 유틸리티가 필요합니다.
+
+link:https://wiki.whamcloud.com/display/PUB/Lustre+Support+Matrix["Lustre 지원 매트릭스"^]을 사용하여 Lustre 버전에 맞는 클라이언트 운영 체제 및 커널을 찾으십시오. NetApp은 사전 빌드된 Lustre 클라이언트 패키지를 제공하지 않습니다. link:https://github.com/NetApp/netapp-lustre["netapp-lustre repository"^]에 있는 NetApp이 제공하는 Lustre 소스 코드에서 클라이언트 운영 체제 및 커널용 클라이언트 패키지를 빌드하십시오. Lustre 클라이언트 패키지가 설치되면  `lustre_client` 역할은 네트워크 인터페이스, LNet을 구성하고 Lustre 파일 시스템에 대한 영구적인 systemd 마운트 유닛을 생성할 수 있습니다.
+
+클라이언트 배포 단계는 link:ai-eseries-lustre-deploy.html["솔루션 배포"]을 참조하십시오.
