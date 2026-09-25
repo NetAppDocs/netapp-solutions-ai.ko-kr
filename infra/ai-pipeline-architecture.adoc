@@ -1,0 +1,63 @@
+---
+sidebar: sidebar 
+permalink: infra/ai-pipeline-architecture.html 
+keywords:  
+summary:  
+---
+= 3. 아키텍처 개요
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+Karthikeyan Nagalingam, NetApp
+
+이 섹션에서는 검증된 AI 파이프라인의 논리적 워크플로, 구성 요소 상호 작용, 물리적 배포 및 데이터 계보를 보여줍니다. 다이어그램을 통해 Apache Airflow가 StorageGRID에서 ONTAP NAS를 거쳐 데이터 이동을 오케스트레이션하고, 선택적으로 NetApp XCP를 사용하여 모델 실행을 위해 ONTAP S3 또는 LustreFS에 데이터를 배치하고, 관리되는 결과를 StorageGRID 아카이브 스토리지에 반환하는 방식을 확인할 수 있습니다.
+
+
+
+[[3-1-high-level-three-tier-ai-storage-architecture]]
+== 3.1 고수준 3계층 AI 스토리지 아키텍처
+
+NetApp AI 스토리지 아키텍처는 각 라이프사이클 단계에 가장 적합한 스토리지 계층에 데이터를 배치합니다. StorageGRID는 확장 가능하고 비용 효율적인 원시 데이터 수집 및 관리형 아카이빙에 사용됩니다. ONTAP NAS와 ONTAP S3는 활성 준비, 데이터 이동 스테이징 및 객체 기반 학습 워크플로에 사용됩니다. 높은 처리량의 병렬 학습 I/O가 필요한 경우에는 LustreFS가 탑재된 E-Series가 사용됩니다. Apache Airflow는 라이프사이클 전반을 관리하며, NetApp XCP는 준비된 데이터를 ONTAP NAS 계층에서 선택된 활성 학습 계층으로 이동합니다.
+
+image::ai-pipeline-three-tier-storage-arch.png[고수준 3계층 AI 스토리지 아키텍처]
+
+
+
+[[3-2-high-level-solution-architecture]]
+== 3.2 고수준 솔루션 아키텍처
+
+이 워크플로 다이어그램은 Airflow로 제어되는 원시 StorageGRID 데이터부터 준비, 선택적 XCP 이동성, 모델 실행, 체크포인트 생성 및 아카이빙에 이르는 전체 수명 주기를 보여줍니다. `enable++_++xcp` 준비된 데이터를 학습 전에 ONTAP NAS 버킷에서 ONTAP S3 또는 LustreFS로 복사할지 여부를 결정합니다. 아카이브 분기는 독립적입니다. `manual++_++archive++_++stage=model++_++training` 학습 직후 기준선을 아카이빙하고, `manual++_++archive++_++stage=inferencing` 예측이 생성된 후 전체 결과를 아카이빙합니다.
+
+image::ai-pipeline-overview.png[고수준 솔루션 아키텍처]
+
+
+
+[[3-3-component-interaction-diagram]]
+== 3.3 구성 요소 상호 작용 다이어그램
+
+이 시퀀스 다이어그램은 각 데이터 교환을 수행하는 플랫폼 구성 요소를 보여줍니다.  Airflow는 StorageGRID에서 원시 객체를 읽고 ONTAP NAS 버킷에 준비된 데이터를 기록한 다음 SSH를 통해 XCP를 호출합니다.  XCP는 ONTAP NAS NFS 내보내기를 읽어 구성된 트레이닝 계층에 기록합니다.  마지막 조건 블록은 StorageGRID 아카이브 콘텐츠가 선택된 수동 아카이브 단계에 따라 달라진다는 것을 보여줍니다.
+
+image::ai-pipeline-component-interaction.png[구성 요소 상호 작용 다이어그램]
+
+
+
+[[3-4-physical-deployment-architecture]]
+== 3.4 물리적/배포 아키텍처
+
+이 배포 다이어그램은 필요한 호스트, 스토리지 엔드포인트 및 네트워크 인터페이스를 보여줍니다. Airflow 호스트는 StorageGRID, ONTAP NAS 버킷 및 선택된 ONTAP S3 대상에 대한 S3 API를 사용하고 SSH를 사용하여 XCP 호스트를 제어합니다. XCP 호스트는 NFS를 통해 준비된 데이터 소스에 액세스하고 ONTAP S3 또는 LustreFS 마운트에 데이터를 기록합니다. LustreFS가 선택된 경우 Airflow 호스트도 학습 데이터를 읽고 아티팩트를 구체화하기 위해 LustreFS를 마운트해야 합니다.
+
+image::ai-pipeline-physical-deployment.png[물리적/배포 아키텍처]
+
+
+
+[[3-5-data-flow-overview]]
+== 3.5 데이터 흐름 개요
+
+이 간결한 흐름도는 데이터 및 아티팩트의 출처를 요약합니다. 각 실행에는 고유한  `run++_++stamp`가 할당되어 준비된 데이터, XCP 출력, 모델 아티팩트, 예측 및 아카이브된 객체가 동일한 실행과 연관되어 있음을 추적할 수 있습니다. XCP 대상 선택은 학습 데이터 및 모델 아티팩트 계층을 결정하며,  `manual++_++archive++_++stage`는 StorageGRID가 기본 학습 패키지를 수신할지 전체 추론 패키지를 수신할지를 결정합니다.
+
+image::ai-pipeline-data-flow.png[데이터 흐름 개요]

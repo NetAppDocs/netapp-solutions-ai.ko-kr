@@ -1,0 +1,79 @@
+---
+sidebar: sidebar 
+permalink: infra/ai-pipeline-netapp-components.html 
+keywords:  
+summary:  
+---
+= 4. NetApp, 타사 및 오픈 소스 기술 구성 요소
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+Karthikeyan Nagalingam, NetApp
+
+[cols="50%,50%"]
+|===
+| 요소 | 솔루션에서의 역할 
+
+
+| NetApp StorageGRID | S3 호환 원시 데이터 수집 및 아카이브 오브젝트 스토리지 계층 
+
+
+| NetApp ONTAP NAS 버킷 / NFS | 준비된 데이터 계층; NFS 소스 내보내기는 데이터 이동 전에 XCP 프리플라이트에 의해 검증됨 
+
+
+| NetApp ONTAP S3 | XCP 학습 데이터 및 모델 아티팩트의 저장 위치(선택 사항) 
+
+
+| NetApp XCP | 고성능 데이터 이동 엔진; S3 또는 LustreFS로 복사 
+
+
+| NetApp FabricPool | 비용 최적화를 위해 ONTAP NAS 준비 데이터 및 아카이브 인접 데이터에 대한 선택적 계층화 
+
+
+| LustreFS(NetApp 통합) | 훈련 계층을 위한 고성능 병렬 파일 시스템 
+
+
+| NetApp Console(선택 사항) | ONTAP 및 XCP 리소스에 대한 확장된 모니터링/관찰 가능성 
+
+
+| ONTAP 스냅샷/백업 | 파이프라인과 무관하게 ONTAP NAS 계층에 준비된 데이터에 대한 특정 시점 보호 
+|===
+
+
+[[4-1-netapp-xcp-core-value]]
+== 4.1 NetApp XCP — 핵심 가치
+
+XCP는 데이터 위치와 컴퓨팅 위치를 분리하는 모빌리티 계층입니다. 단일 구성 스위치 (`xcp++_++copy++_++destination`)를 통해 준비된 데이터와 모델 아티팩트가 NetApp ONTAP S3 또는 LustreFS 고성능 계층에 저장될지 여부가 결정되며,  `model++_++training`,  `fine++_++tuning`, 및  `inferencing`는 동일한 대상에서 자동으로 읽기 및 쓰기 작업을 수행합니다.
+
+
+
+[[4-2-third-party-and-open-source-technology-components]]
+== 4.2 타사 및 오픈 소스 기술 구성 요소
+
+[cols="50%,50%"]
+|===
+| 요소 | 목적 
+
+
+| 아파치 에어플로우 | DAG 오케스트레이션, 재시도, XCom 태스크 통신, 스케줄링 
+
+
+| Apache Spark |  `data++_++prep`용 선택적 분산 변환 엔진 
+
+
+| Delta Lake / Apache Iceberg | 준비된 테이블 형식 데이터를 위한 선택적 레이크하우스 테이블 형식 
+
+
+| scikit-learn | `LinearRegression` (표 형식) 및 `SGDClassifier` (텍스트, 증분 형식) 
+
+
+| Airbyte / Apache NiFi | 선택적 수집 커넥터가 앞에 있습니다. `data++_++prep` 
+
+
+| boto3 | StorageGRID, ONTAP NAS 버킷 및 ONTAP S3 상호 작용에 사용되는 AWS S3 호환 SDK 
+|===

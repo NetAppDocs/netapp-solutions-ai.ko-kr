@@ -1,0 +1,37 @@
+---
+sidebar: sidebar 
+permalink: infra/ai-pipeline-overview.html 
+keywords:  
+summary:  
+---
+= NetApp 스토리지 플랫폼(StorageGRID, ONTAP 및 E-Series) 전반에 걸쳐 AI 파이프라인 간소화
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+Karthikeyan Nagalingam, NetApp
+
+이 검증된 아키텍처는 Apache Airflow로 오케스트레이션되는 스토리지 계층 인식 AI 데이터 파이프라인을 제공합니다. 이 솔루션은 NetApp StorageGRID에서 원시 테이블 형식 및 텍스트 데이터를 수집하고, ONTAP NAS 버킷에 결정론적 데이터 세트와 매니페스트를 준비한 다음, NetApp XCP를 사용하여 런타임 구성에 따라 준비된 데이터를 NetApp ONTAP S3 또는 LustreFS로 이동합니다. 그런 다음 scikit-learn 모델을 학습하고 점진적으로 미세 조정하며, 예측을 생성하고, 성공적인 학습 결과를 체크포인트에 저장하고, 모델, 메트릭, 매니페스트 및 예측 증거를 StorageGRID에 아카이빙합니다. 이 아키텍처는 AI 수명 주기 전반에 걸쳐 재현 가능한 실행, 구성 가능한 스토리지 배치, 장애 방지 장치, 체크포인트 기반 복구 및 감사 가능한 데이터 계보를 제공합니다. 이 솔루션은 NetApp 스토리지 계층 전반에 걸쳐 AI 파이프라인을 위한 반복 가능한 배포 및 검증 패턴이 필요한 아키텍트, 데이터 엔지니어, 머신러닝 엔지니어 및 인프라 팀을 위해 설계되었습니다.
+
+'''
+
+
+[[table-of-contents]]
+=== 목차
+
+. link:ai-pipeline-executive-summary.html["요약"]
+. link:ai-pipeline-solution-overview.html["솔루션 개요, 비즈니스 가치 및 고객 혜택"]
+. link:ai-pipeline-architecture.html["아키텍처 개요"]
+. link:ai-pipeline-netapp-components.html["NetApp, 타사 및 오픈 소스 기술 구성 요소"]
+. link:ai-pipeline-solution-design-and-storage-architecture.html["솔루션 설계 및 스토리지 아키텍처 상세 정보"]
+. link:ai-pipeline-data-mobility.html["NetApp XCP를 사용한 데이터 이동성"]
+. link:ai-pipeline-deployment-architecture.html["배포 아키텍처"]
+. link:ai-pipeline-configuration-reference.html["구성 참조"]
+. link:ai-pipeline-operational-guide.html["운영 가이드"]
+. link:ai-pipeline-security-considerations-validation-testing.html["보안 고려 사항, 검증 및 테스트"]
+. link:ai-pipeline-differentiation-appendices.html["NetApp 차별화 및 경쟁력 강화 전략, 부록"]
+

@@ -44,6 +44,8 @@ indexpage:
       url: "/infra/ai-storagegrid-datalake-adas.html"
     - title: E-시리즈를 탑재한 Quantum StorNext
       url: "/infra/ai-eseries-nva1150-design.html"
+    - title: NetApp 스토리지 플랫폼 전반에 걸쳐 AI 파이프라인 간소화
+      url: "/infra/ai-pipeline-overview.html"
   - title: MLOps 및 데이터 관리
     links:
     - title: NetApp 사용한 오픈 소스 MLOps

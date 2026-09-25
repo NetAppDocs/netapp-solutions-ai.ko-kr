@@ -1,0 +1,86 @@
+---
+sidebar: sidebar 
+permalink: infra/ai-pipeline-operational-guide.html 
+keywords:  
+summary:  
+---
+= 9. 운영 지침
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+Karthikeyan Nagalingam, NetApp
+
+이 가이드는 일상적인 실행, 모니터링, 사고 분류, 교육 복구, 아카이브 검증, 용량 조정 및 데이터 보호에 대해 다룹니다. 8절의 구성 시나리오와 함께 사용하면 로컬, ONTAP S3 및 LustreFS 교육 모드 전반에 걸쳐 동일한 파이프라인을 일관되게 운영할 수 있습니다.
+
+
+
+[[9-1-execution-walkthrough]]
+== 9.1 실행 과정 안내
+
+ `trigger++_++and++_++wait++_++ai++_++pipeline++_++sklearn.sh`를 통해 실행을 트리거하고 `CONF++_++JSON` 페이로드를 사용합니다. 스크립트는 고유한 이름의 수동 실행을 한 번 제출하고, 종료 상태에 도달할 때까지 폴링하며, 실패한 작업에 대한 로컬 로그 테일을 가능한 경우 출력합니다. 각 기본 작업은 시작 시  `effective++_++config` 레코드를 생성하므로 운영자는 제출된 페이로드에만 의존하지 않고 평가된 구성을 확인할 수 있습니다.
+
+
+
+[[9-2-monitoring-and-observability]]
+== 9.2 모니터링 및 관찰 가능성
+
+Airflow UI 또는 CLI에서 DAG 상태를 모니터링하고 실행 ID와 `run++_++stamp`의 상관 관계를 확인합니다. 가드 로그는 grep으로 쉽게 검색할 수 있습니다: `++[++data++_++prep++]++ effective++_++config`, `++[++model++_++training++]++ effective++_++config`, `++[++xcp++_++copy++]++ effective++_++config`, 그리고 `++[++checkpoint++]++ resume++_++summary`. 이러한 항목을 검토하여 각 실행에 대한 변환 엔진, 선택된 XCP 대상, 학습 소스 및 체크포인트 재사용 결정을 검증합니다.
+
+
+
+[[9-3-troubleshooting-quick-reference]]
+== 9.3 문제 해결 빠른 참조
+
+이 표를 사용하여 일반적인 작업 실패와 첫 번째 해결 조치를 연결하십시오. 실행을 다시 시도하기 전에 소스 연결 및 마운트 문제를 해결하십시오. 잘못된 구성이나 사용 불가능한 엔드포인트를 수정하지 않고 다시 시도하면 동일한 오류가 발생합니다.
+
+[cols="34%,33%,33%"]
+|===
+| 징후 | 가능성 있는 원인 | 해결 
+
+
+| `Could not resolve XCP S3 credentials` | 누락/잘못된 `xcp++_++s3++_++profile` 항목( `xcp++_++s3++_++profiles`) | 프로필 이름 및 자격 증명 맵을 확인합니다 
+
+
+| `no readable Lustre source directory` | LustreFS가 마운트되지 않았거나 잘못되었습니다. `xcp++_++lustrefs++_++dest++_++path` | 파일 시스템 유형을 확인하세요 `findmnt -T /mnt/lustre/client -o FSTYPE,TARGET -n`; 올바른 경로 
+
+
+| `Missing required text dataset files` | 원시 S3 접두사에 없는 텍스트 JSON | 업로드 `text++_++base.json`, `text++_++finetune.json`, `text++_++infer.json` 
+
+
+| Preflight 종료 코드 1 | SSH에 연결할 수 없습니다 | 연결 `ssh++_++default` 및 호스트/사용자 확인 
+
+
+| Preflight 종료 코드 2 | NFS 경로가 내보내지지 않았거나 표시되지 않습니다 | 내보내기를 확인하세요 `xcp show ++<++ip++>++` 
+|===
+
+
+[[9-4-checkpoint-operations]]
+== 9.4 체크포인트 작업
+
+체크포인트 기능은  `model++_++training`에만 적용됩니다. 유효한 학습 완료 결과를 재사용하고 중복 모델 학습을 건너뛰려면  `training++_++checkpoint++_++reuse++_++mode=resume++_++if++_++exists`로 설정하거나, 건너뛰지 않고 체크포인트 적격성을 검증하려면  `verify++_++only`을 사용하세요. 초기 테스트 중이나 학습 입력, 구성 또는 예상 결과물이 변경된 경우에는 재사용 기능을 비활성화 상태((`off`)로 유지하세요.
+
+
+
+[[9-5-manual-archive-operations]]
+== 9.5 수동 아카이브 작업
+
+ `manual++_++archive++_++enabled=true`을 설정하고  `manual++_++archive++_++stage`을 신중하게 선택하십시오.  거버넌스에서 학습이 완료되는 즉시 핵심 모델 기준선이 필요한 경우  `model++_++training`을 사용하고, 아카이브에 최종 예측 결과를 포함해야 하는 경우  `inferencing`을 사용하십시오.   `model++_++training`이 선택된 상태로 실행하면 아카이브 분기 이후에도 미세 조정 및 추론이 계속 진행되지만, 이후 출력 결과는 아카이브되지 않습니다.  실행 스탬프가 찍힌 StorageGRID 접두사로 업로드된 파일을 확인하고, 선택한 단계, 발견된 파일, 업로드 횟수에 대한  `++[++manual++_++archive++]++` 로그를 검토하십시오.
+
+
+
+[[9-6-scaling-guidance]]
+== 9.6 확장 지침
+
+ `sample++_++count`,  `spark++_++driver++_++memory`,  `spark++_++executor++_++memory`, 및  `spark++_++timeout++_++secs`를 입력 볼륨 및 서비스 수준 목표에 맞게 조정하십시오. 먼저 제한된 샘플로 데이터 형태와 라우팅을 검증한 다음, StorageGRID, ONTAP NAS, XCP 및 선택한 학습 계층의 용량과 처리량이 충분해지면 전체 행 실행에  `sample++_++count=0`를 사용하십시오.
+
+
+
+[[9-7-backup-and-recovery]]
+== 9.7 백업 및 복구
+
+ONTAP 스냅샷 및 백업을 사용하여 ONTAP NAS 준비 데이터 버킷을 보호하십시오. 원시 버킷과 아카이브 버킷에 StorageGRID 보호 및 보존 정책을 적용하십시오. 아카이브 버킷은 파이프라인 재실행과 관계없이 기록을 보존합니다. 이러한 스토리지 보호 기능을 교육 체크포인트 기록과 결합하여 작업, 호스트 또는 사이트 수준의 중단 후에도 올바른 실행 범위 데이터와 기준선 아티팩트를 복구할 수 있습니다.

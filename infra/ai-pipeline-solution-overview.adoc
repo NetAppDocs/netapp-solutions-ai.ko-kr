@@ -1,0 +1,106 @@
+---
+sidebar: sidebar 
+permalink: infra/ai-pipeline-solution-overview.html 
+keywords:  
+summary:  
+---
+= 2. 솔루션 개요, 비즈니스 가치 및 고객 혜택
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+Karthikeyan Nagalingam, NetApp
+
+
+
+[[2-1-solution-description]]
+== 2.1 솔루션 설명
+
+파이프라인은 Airflow DAG `example++_++ai++_++pipeline++_++sklearn`로 구현되며,  `ingestion`,  `data++_++prep`,  `xcp++_++preflight++_++source`,  `xcp++_++copy++_++prep++_++to++_++training`,  `model++_++training`,  `fine++_++tuning`,  `inferencing`,  `checkpoint++_++model++_++training`,  `route++_++manual++_++archive++_++stage`, 및  `manual++_++archive` 작업으로 구성됩니다.
+
+
+
+[[2-2-use-case-and-problem-statement]]
+== 2.2 사용 사례 및 문제 설명
+
+고객은 StorageGRID에서 가져온 원시 데이터를 사용하여 표 형식 회귀 및 텍스트 분류 모델을 학습시키고 주기적으로 갱신해야 합니다. 파이프라인은 해당 데이터를 ONTAP NAS 버킷에 준비한 다음, 실행별 대상 선택에 따라 학습을 위해 ONTAP S3 또는 LustreFS로 전송하기 위해 NetApp XCP를 사용합니다.
+
+
+
+[[2-3-target-customer-profile-and-industry-applicability]]
+== 2.3 목표 고객 프로필 및 산업 적용 가능성
+
+금융 서비스(위험/사기 모델), 제조(예측 유지보수), 의료(분류/분류), 소매(수요 예측) 등 NetApp 인프라에서 관리되고 반복 가능한 머신러닝 학습이 필요한 모든 기업에 적합합니다.
+
+
+
+[[2-4-solution-scope-and-boundaries]]
+== 2.4 솔루션 범위 및 한계
+
+*범위 내 항목:* 데이터 수집 게이팅, 데이터 준비(Python/Spark), XCP 데이터 이동성(S3/LustreFS), scikit-learn 학습 및 점진적 미세 조정, 추론, 체크포인트 생성, 수동 아카이빙. *범위 외 항목:* 실시간 모델 제공 API, 스트리밍 데이터 수집, GPU 기반 딥러닝 프레임워크.
+
+
+
+[[2-5-assumptions-and-prerequisites]]
+== 2.5 가정 및 전제 조건
+
+* Airflow에서 원시 데이터 액세스 및 아카이빙을 위해 접근 가능한 StorageGRID S3 호환 엔드포인트입니다.
+* 준비된 데이터 쓰기를 위해 Airflow에서 접근 가능하고 NFS를 통해 XCP 호스트에 노출되는 ONTAP NAS 버킷.
+* NetApp ONTAP S3를 교육 대상으로 선택하면 Airflow 및 XCP에서 ONTAP S3 호환 엔드포인트에 접근할 수 있습니다.
+* NetApp XCP가 설치되어 있고 SSH(Airflow 연결 `ssh++_++default`)를 통해 접속 가능합니다.
+* LustreFS가 선택되면 LustreFS 클라이언트가 XCP 호스트에 마운트됩니다.
+* Airflow 2.x with `boto3`, `scikit-learn`; 선택 사항: PySpark &#43; Delta/Iceberg 패키지.
+
+
+
+
+[[2-6-business-drivers]]
+== 2.6 비즈니스 동인
+
+모델링 시간을 단축하고, 점진적 학습을 통해 인프라 비용을 절감하며, 일회성 스크립팅 위험을 제거합니다.
+
+
+
+[[2-7-value-proposition-summary]]
+== 2.7 가치 제안 요약
+
+StorageGRID, ONTAP NAS, ONTAP S3, LustreFS 및 XCP를 Airflow 오케스트레이션과 결합하여 스토리지 계층을 인식하고 관찰 가능하며 복원력이 뛰어난 AI 파이프라인을 제공합니다.
+
+
+
+[[2-8-stakeholder-benefits]]
+== 2.8 이해관계자 혜택
+
+[cols="50%,50%"]
+|===
+| 이해관계자 | 혜택 
+
+
+| 데이터 엔지니어링 | 선언적이고 매개변수 기반의 파일 준비; 자동 파일 검색; Spark/Delta/Iceberg 지원 
+
+
+| 데이터 과학/머신러닝 | 점진적 미세 조정; 모든 단계에서 일관된 아티팩트 발생원; 재현 가능한 분할 
+
+
+| IT 운영 | 런타임 저장소 선택; 가드/유효 구성 로그; 체크포인트 기반 복구 
+
+
+| 규정 준수/지배구조 | 매니페스트 및 보관 기록은 감사 가능한 이력을 제공하며, 보존 단계를 구성할 수 있습니다. 
+|===
+
+
+[[2-9-tco-considerations]]
+== 2.9 TCO 고려사항
+
+점진적 미세 조정 및 체크포인트 재개 기능을 통해 반복적인 컴퓨팅 비용을 절감할 수 있으며, 스토리지 계층의 유연성을 통해 모든 워크로드에 고성능 스토리지를 과도하게 프로비저닝하는 것을 방지할 수 있습니다.
+
+
+
+[[2-10-roi-considerations]]
+== 2.10 투자수익률(ROI) 고려사항
+
+모델 업데이트 주기가 빨라지고, 수동 유지 보수가 줄어들며, 장애 발생 시 복구 시간이 단축됩니다.
