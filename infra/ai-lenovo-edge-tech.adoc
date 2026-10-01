@@ -108,7 +108,7 @@ image:ai-edge-007.png["입력/출력 대화 상자 또는 서면 내용을 나�
 
 
 
-NOTE: 자세한 내용은 다음을 참조하세요. https://www.netapp.com/pdf.html?item=/media/19339-DS-4082.pdf["NetApp EF-시리즈 NetApp EF-시리즈 올플래시 어레이 EF600, F300, EF570 및 EF280 데이터시트"^] .
+NOTE: 자세한 내용은 https://www.netapp.com/pdf.html?item=/media/19339-ds-4082.pdf["NetApp EF-시리즈 NetApp EF-시리즈 올플래시 어레이 EF600, F300, EF570 및 EF280 데이터시트"^]를 참조하십시오.
 
 
 

@@ -48,7 +48,7 @@ FlexCache 볼륨을 생성하려면 BlueXP 사용하는 것이 좋습니다.  Bl
 
 BlueXP 사용하지 않으려면 ONTAP System Manager나 ONTAP CLI를 사용하여 FlexCache 볼륨을 생성할 수 있습니다.  System Manager를 사용하여 FlexCache 볼륨을 생성하려면 다음 지침을 참조하십시오.link:https://docs.netapp.com/us-en/ontap/task_nas_flexcache.html["ONTAP 문서"] .  ONTAP CLI를 사용하여 FlexCache 볼륨을 생성하려면 다음 지침을 참조하십시오.link:https://docs.netapp.com/us-en/ontap/flexcache/index.html["ONTAP 문서"] .
 
-이 프로세스를 자동화하려면 다음을 사용할 수 있습니다.link:https://docs.netapp.com/us-en/bluexp-automation/["BlueXP API"] , 그link:https://devnet.netapp.com/restapi.php["ONTAP REST API"] , 또는link:https://docs.ansible.com/ansible/latest/collections/netapp/ontap/index.html["ONTAP Ansible 컬렉션"] .
+이 프로세스를 자동화하려면 link:https://docs.netapp.com/us-en/bluexp-automation/["BlueXP API"], link:https://docs.netapp.com/us-en/ontap-restapi/index.html["ONTAP REST API"] 또는 link:https://docs.ansible.com/ansible/latest/collections/netapp/ontap/index.html["ONTAP Ansible 컬렉션"]을 사용할 수 있습니다.
 
 
 NOTE: Amazon FSx ONTAP 에서는 System Manager를 사용할 수 없습니다.
@@ -92,7 +92,7 @@ SnapMirror 관계를 생성하려면 BlueXP 사용하는 것이 좋습니다.  B
 
 BlueXP 사용하지 않으려면 ONTAP System Manager나 ONTAP CLI를 사용하여 SnapMirror 관계를 생성할 수 있습니다.  System Manager와 SnapMirror 관계를 생성하려면 다음 지침을 참조하세요.link:https://docs.netapp.com/us-en/ontap/task_dp_configure_mirror.html["ONTAP 문서"] .  ONTAP CLI를 사용하여 SnapMirror 관계를 생성하려면 다음 지침을 참조하세요.link:https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-replication-workflow-concept.html["ONTAP 문서"] .
 
-이 프로세스를 자동화하려면 다음을 사용할 수 있습니다.link:https://docs.netapp.com/us-en/bluexp-automation/["BlueXP API"] , 그link:https://devnet.netapp.com/restapi.php["ONTAP REST API"] , 또는link:https://docs.ansible.com/ansible/latest/collections/netapp/ontap/index.html["ONTAP Ansible 컬렉션"] .
+이 프로세스를 자동화하려면 link:https://docs.netapp.com/us-en/bluexp-automation/["BlueXP API"], link:https://docs.netapp.com/us-en/ontap-restapi/index.html["ONTAP REST API"] 또는 link:https://docs.ansible.com/ansible/latest/collections/netapp/ontap/index.html["ONTAP Ansible 컬렉션"]을 사용할 수 있습니다.
 
 
 NOTE: Amazon FSx ONTAP 에서는 System Manager를 사용할 수 없습니다.
@@ -111,7 +111,7 @@ SnapMirror 관계를 끊으려면 BlueXP 사용하는 것이 좋습니다.  Blue
 
 BlueXP 사용하지 않으려면 ONTAP System Manager나 ONTAP CLI를 사용하여 SnapMirror 관계를 끊을 수 있습니다.  System Manager와 SnapMirror 관계를 끊으려면 다음 지침을 참조하세요.link:https://docs.netapp.com/us-en/ontap/task_dp_serve_data_from_destination.html["ONTAP 문서"] .  ONTAP CLI를 사용하여 SnapMirror 관계를 끊으려면 다음 지침을 참조하세요.link:https://docs.netapp.com/us-en/ontap/data-protection/make-destination-volume-writeable-task.html["ONTAP 문서"] .
 
-이 프로세스를 자동화하려면 다음을 사용할 수 있습니다.link:https://docs.netapp.com/us-en/bluexp-automation/["BlueXP API"] , 그link:https://devnet.netapp.com/restapi.php["ONTAP REST API"] , 또는link:https://docs.ansible.com/ansible/latest/collections/netapp/ontap/index.html["ONTAP Ansible 컬렉션"] .
+이 프로세스를 자동화하려면 link:https://docs.netapp.com/us-en/bluexp-automation/["BlueXP API"], link:https://docs.netapp.com/us-en/ontap-restapi/index.html["ONTAP REST API"] 또는 link:https://docs.ansible.com/ansible/latest/collections/netapp/ontap/index.html["ONTAP Ansible 컬렉션"]을 사용할 수 있습니다.
 
 
 

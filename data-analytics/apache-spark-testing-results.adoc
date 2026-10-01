@@ -78,7 +78,7 @@ E-Series와 StorageGRID 검증에는 Hadoop 복제 계수 2를 사용했습니�
 [[financial-sentiment-analysis]]
 == 금융 심리 분석
 
-우리는 출판했다link:https://www.netapp.com/pdf.html?item=/media/17123-tr4910pdf.pdf["TR-4910: NetApp AI를 활용한 고객 커뮤니케이션의 감정 분석"^] , 종단 간 대화형 AI 파이프라인이 다음을 사용하여 구축되었습니다. https://github.com/NetApp/netapp-dataops-toolkit["NetApp DataOps 툴킷"^] , AFF 스토리지 및 NVIDIA DGX 시스템.  파이프라인은 DataOps Toolkit을 활용하여 일괄 오디오 신호 처리, 자동 음성 인식(ASR), 전이 학습 및 감정 분석을 수행합니다. https://developer.nvidia.com/riva["NVIDIA 리바 SDK"^] , 그리고 https://developer.nvidia.com/tao["타오 프레임워크"^] .  감정 분석 사용 사례를 금융 서비스 산업으로 확장하여 SparkNLP 워크플로를 구축하고, 명명된 엔터티 인식과 같은 다양한 NLP 작업을 위해 세 개의 BERT 모델을 로드하고, NASDAQ 상위 10대 기업의 분기별 실적 전화 회의에 대한 문장 수준의 감정을 얻었습니다.
+저희는 link:https://www.netapp.com/pdf.html?item=/media/17123-tr4910.pdf["TR-4910: NetApp AI를 활용한 고객 커뮤니케이션의 감정 분석"^],  https://github.com/NetApp/netapp-dataops-toolkit["NetApp DataOps 툴킷"^], AFF 스토리지, NVIDIA DGX 시스템을 활용하여 엔드투엔드 대화형 AI 파이프라인을 구축한 논문을 발표했습니다. 이 파이프라인은 DataOps Toolkit,  https://developer.nvidia.com/riva["NVIDIA 리바 SDK"^],  https://developer.nvidia.com/tao["타오 프레임워크"^]를 활용하여 배치 오디오 신호 처리, 자동 음성 인식(ASR), 전이 학습, 감정 분석을 수행합니다. 감정 분석 활용 사례를 금융 서비스 산업으로 확장하여 SparkNLP 워크플로우를 구축하고, 개체명 인식 등 다양한 자연어 처리(NLP) 작업을 위해 세 가지 BERT 모델을 로드하여 NASDAQ 상위 10개 기업의 분기별 실적 발표에 대한 문장 수준의 감정을 분석했습니다.
 
 다음 스크립트 `sentiment_analysis_spark. py` 다음 표에 표시된 것처럼 FinBERT 모델을 사용하여 HDFS에서 전사본을 처리하고 긍정적, 중립적, 부정적 감정 수를 생성합니다.
 

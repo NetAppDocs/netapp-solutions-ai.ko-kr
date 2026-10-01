@@ -149,7 +149,7 @@ EF80 플랫폼은 각 컨트롤러에 2포트 호스트 I/O 모듈 3개를 설�
 
 각 EF80 어레이는 컨트롤러 간 미러링을 위해 전용 슬롯 4 I/O 모듈을 사용합니다. 컨트롤러 A의 포트 4a를 컨트롤러 B의 포트 4a에, 컨트롤러 A의 포트 4b를 컨트롤러 B의 포트 4b에 연결하십시오. 이러한 연결은 캐시 미러링 및 I/O 전송을 제공하며 호스트 NVMe-oF 트래픽에는 사용되지 않습니다. 을 참조하십시오. link:https://docs.netapp.com/us-en/e-series/install-hw-ef50-ef80/install-cable.html#step-1-cable-the-inter-controller-mirroring-connections["EF50 및 EF80 컨트롤러 간 미러링 연결 케이블 연결"^]
 
-모든 모델의 EF-Series 전체 사양은 link:https://www.netapp.com/pdf.html?item=/media/14036-ds-4082.pdf["NetApp EF 시리즈 올플래시 어레이 데이터시트"^]을 참조하십시오.
+모든 모델의 EF-Series 전체 사양은 link:https://www.netapp.com/pdf.html?item=/media/19339-ds-4082.pdf["NetApp EF 시리즈 올플래시 어레이 데이터시트"^]을 참조하십시오.
 
 
 

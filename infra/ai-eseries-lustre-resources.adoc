@@ -22,7 +22,7 @@ Lustre with NetApp E-Series 스토리지 배포를 계획하거나 확장할 때
 == NetApp 리소스
 
 * link:https://imt.netapp.com/imt/#welcome["NetApp 상호 운용성 매트릭스 도구"^]. *E-Series Lustre*를 검색합니다.
-* link:https://www.netapp.com/pdf.html?item=/media/14036-ds-4082.pdf["NetApp EF 시리즈 올플래시 어레이 데이터시트"^]
+* link:https://www.netapp.com/pdf.html?item=/media/19339-ds-4082.pdf["NetApp EF 시리즈 올플래시 어레이 데이터시트"^]
 * link:https://docs.netapp.com/us-en/e-series-santricity/["NetApp SANtricity 시스템 관리자 설명서"^]
 * link:https://github.com/NetApp/ansible-lustre/tree/release/1.0.0["NetApp ansible-lustre 컬렉션"^]. 재고 관리 현장 지침은 link:ai-eseries-lustre-deploy-inventory.html["Lustre Ansible 인벤토리를 사용자 지정합니다"]을 참조하십시오.
 * link:https://github.com/NetApp/netapp-lustre/tree/master["NetApp Lustre 소스 저장소"^]. NetApp은 Rocky Linux 9.8 및 Red Hat Enterprise Linux 9.8용으로 미리 빌드된 Lustre 서버 RPM 패키지를 제공합니다. NetApp 소스에서 클라이언트 운영 체제 및 커널에 맞는 Lustre 클라이언트 패키지를 빌드하십시오.

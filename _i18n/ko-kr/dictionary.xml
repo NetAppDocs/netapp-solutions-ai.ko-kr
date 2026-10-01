@@ -362,7 +362,6 @@
   <block id="74bef786b12cb9d03a6c04df1f605181" category="inline-link">NetApp DataOps 툴킷</block>
   <block id="559cf37b505e9001d46e6d6bd73e746c" category="inline-link">NVIDIA 리바 SDK</block>
   <block id="e65b49198d65919095402991b0cf5624" category="inline-link">타오 프레임워크</block>
-  <block id="460926218a6b1ab3e124f410ee69f408" category="paragraph">우리는 출판했다<block ref="d791c48f7898bbaecde983abed6ac7c1" category="inline-link-macro-rx"></block> , 종단 간 대화형 AI 파이프라인이 다음을 사용하여 구축되었습니다.<block ref="5d9fb1d86d92052bc5dca8ba91d13ff2" category="inline-link-rx"></block> , AFF 스토리지 및 NVIDIA DGX 시스템.  파이프라인은 DataOps Toolkit을 활용하여 일괄 오디오 신호 처리, 자동 음성 인식(ASR), 전이 학습 및 감정 분석을 수행합니다.<block ref="8702bd0254f484bdfe9f1ec1c2a853b1" category="inline-link-rx"></block> , 그리고<block ref="bba656873bd8ccd45c0c4fc908390474" category="inline-link-rx"></block> .  감정 분석 사용 사례를 금융 서비스 산업으로 확장하여 SparkNLP 워크플로를 구축하고, 명명된 엔터티 인식과 같은 다양한 NLP 작업을 위해 세 개의 BERT 모델을 로드하고, NASDAQ 상위 10대 기업의 분기별 실적 전화 회의에 대한 문장 수준의 감정을 얻었습니다.</block>
   <block id="ffeb7ccd27ad1e7d783757733dadec57" category="paragraph">다음 스크립트<block ref="e313c2865ad76497c3eaf980ccfa3d03" prefix=" " category="inline-code"></block> 다음 표에 표시된 것처럼 FinBERT 모델을 사용하여 HDFS에서 전사본을 처리하고 긍정적, 중립적, 부정적 감정 수를 생성합니다.</block>
   <block id="077259b584adffb379f7f2638be91edc" category="paragraph">다음 표는 2016년부터 2020년까지 NASDAQ 상위 10개 기업의 수익 발표 및 문장 단위 감정 분석을 나열한 것입니다.</block>
   <block id="30702e828192097c5634358e6047d0cf" category="cell">감정 수와 백분율</block>
@@ -541,7 +540,6 @@
   <block id="f5ac1e3c252855373c7f660dbd89699d" category="list-text">NetApp FlexGroup 볼륨 모범 사례 및 구현 가이드</block>
   <block id="7d72333a4556beea0bd57e4b8a007b47" category="paragraph"><block ref="7d72333a4556beea0bd57e4b8a007b47" category="inline-link-rx"></block></block>
   <block id="bc4fe2352063642d68529f2aa0ca7ca3" category="list-text">NetApp 제품 문서</block>
-  <block id="c9617ae303d0bce89d13bebecca2ea1b" category="paragraph"><block ref="c9617ae303d0bce89d13bebecca2ea1b" category="inline-link-rx"></block></block>
   <block id="e0a1057b7f63b9621d22a28a118e4a79" category="summary">이 섹션에서는 이 솔루션의 비즈니스 이점에 대해 설명합니다.</block>
   <block id="7f0cbc7391fd4e971628295e6bff035a" category="doc">사업상의 이점</block>
   <block id="239f77225835899839f2d1318d1cc1c4" category="paragraph">빅데이터 분석에서 AI로 데이터를 이동하면 다음과 같은 이점이 있습니다.</block>
@@ -697,7 +695,6 @@
   <block id="201dde15c75147909c8154fe3e727aed" category="section-title">일반 병렬 파일 시스템</block>
   <block id="510b2e746f7cab5126465c64edad8541" category="paragraph">IBM의 GPFS는 HDFS에 대한 대안을 제공하는 엔터프라이즈 파일 시스템입니다.  GPFS는 애플리케이션이 블록 크기와 복제 레이아웃을 결정할 수 있는 유연성을 제공하여 뛰어난 성능과 효율성을 제공합니다.</block>
   <block id="49d7c87b66a2b688ec65b1a4fe9b5ddc" category="section-title">NetApp In-Place 분석 모듈</block>
-  <block id="f1b570aebec7f92867ad62cf2fe7c50c" category="paragraph">NetApp In-Place Analytics Module(NIPAM)은 Hadoop 클러스터가 NFS 데이터에 액세스하기 위한 드라이버 역할을 합니다.  여기에는 연결 풀, NFS 입력 스트림, 파일 핸들 캐시, NFS 출력 스트림의 4가지 구성 요소가 있습니다. 자세한 내용은 다음을 참조하세요. <block ref="ead8bf031afc74347ebd06de968e5895" category="inline-link-rx"></block> .</block>
   <block id="0be6a753178a606f6e24a10fde5ec644" category="section-title">Hadoop 분산 복사</block>
   <block id="3cc73009b533164939781f9f6a4a1aa0" category="paragraph">Hadoop Distributed Copy(DistCp)는 대규모 클러스터 간 및 클러스터 내 대처 작업에 사용되는 분산 복사 도구입니다.  이 도구는 데이터 배포, 오류 처리, 보고를 위해 MapReduce를 사용합니다.  파일과 디렉토리 목록을 확장하고 이를 맵 작업에 입력하여 소스 목록에서 데이터를 복사합니다.  아래 이미지는 HDFS와 nonHDFS에서의 DistCp 작업을 보여줍니다.</block>
   <block id="513bd70b6fe800dda2548dae1bc404df" category="paragraph"><block ref="513bd70b6fe800dda2548dae1bc404df" category="inline-image-macro-rx" type="image"></block></block>
@@ -2087,8 +2084,6 @@
   <block id="e7d54d48522774aa8774f3733414d084" category="inline-link"><block ref="f575d0e12f7a285daadcaf60a35e305e" category="inline-link-rx"></block></block>
   <block id="a0b810672fcf48d5064bdbf73f520d55" category="paragraph"><block ref="d41dfcb87efb2171f45941c801c9f5cc" category="inline-link-rx"></block></block>
   <block id="1ae50adfec05c416d0398e26bea5fc01" category="list-text">BlueXP 복사 및 동기화</block>
-  <block id="90a11f9647f9e3f6cfead9fdd4f0789d" category="inline-link"><block ref="90a11f9647f9e3f6cfead9fdd4f0789d" category="inline-link-rx"></block></block>
-  <block id="b8cfbcc5c9748a8f12142a1b9aae0e67" category="paragraph"><block ref="b8cfbcc5c9748a8f12142a1b9aae0e67" category="inline-link-rx"></block></block>
   <block id="ce9b5cd96205262213c417b501e9ed55" category="list-text">DataOps 툴킷</block>
   <block id="eb87ce8a565e070f3b8c09faa4e840c1" category="inline-link"><block ref="eb87ce8a565e070f3b8c09faa4e840c1" category="inline-link-rx"></block></block>
   <block id="20a0f3ab42054c3aa4add8c8901b4aa9" category="paragraph"><block ref="20a0f3ab42054c3aa4add8c8901b4aa9" category="inline-link-rx"></block></block>
@@ -2168,7 +2163,6 @@
   <block id="6dc7db5e9c1da14f7d61e2a7f4428219" category="list-text">가장 큰 과제는 온프레미스와 클라우드 환경 간에 하이브리드 분석 서비스를 제공하는 비용 효율적이고 효과적인 솔루션을 구축하는 것입니다.</block>
   <block id="cc4772ffa75dd53e0fb87df4b15528cd" category="paragraph">당사의 데이터 보호 및 멀티클라우드 연결 솔루션은 여러 하이퍼스케일러에 걸쳐 클라우드 분석 애플리케이션을 운영하는 데 따르는 문제점을 해결합니다.  위 그림에서 볼 수 있듯이, 센서의 데이터는 Kafka를 통해 AWS Spark 클러스터로 스트리밍되고 수집됩니다.  데이터는 클라우드 제공자 외부의 Equinix 데이터 센터 내에 있는 NPS에 있는 NFS 공유에 저장됩니다.</block>
   <block id="88971c24837a2734fa58ba8805336328" category="paragraph">NetApp NPS는 Direct Connect 및 Express Route 연결을 통해 각각 Amazon AWS 및 Microsoft Azure에 연결되어 있으므로 고객은 In-Place Analytics Module을 활용하여 Amazon 및 AWS 분석 클러스터의 데이터에 액세스할 수 있습니다.  따라서 온프레미스와 NPS 스토리지 모두 ONTAP 소프트웨어를 실행하기 때문에<block ref="fcca72a796080b3a5e2b7b1394bd00ad" category="inline-link-rx"></block> NPS 데이터를 온프레미스 클러스터로 미러링하여 온프레미스와 여러 클라우드에서 하이브리드 클라우드 분석을 제공할 수 있습니다.</block>
-  <block id="bc35f58684dbedfb73dd7ff64a4bd5a8" category="paragraph">최상의 성능을 위해 NetApp 일반적으로 여러 네트워크 인터페이스와 직접 연결 또는 고속 경로를 사용하여 클라우드 인스턴스의 데이터에 액세스할 것을 권장합니다.  다음을 포함한 다른 데이터 이동 솔루션이 있습니다.<block ref="0adb843c17d646acd72646e9688dde2b" category="inline-link-rx"></block> 그리고<block ref="079cab06c3947ff50532e4e825fc7b2c" category="inline-link-rx"></block> 고객이 애플리케이션 인식, 보안 및 비용 효율적인 하이브리드 클라우드 Spark 클러스터를 구축할 수 있도록 지원합니다.</block>
   <block id="cfb5f1c014066f18d7979fa1d35a934d" category="paragraph">다음 세 가지 Python 스크립트는 테스트된 세 가지 주요 사용 사례에 해당합니다.  첫 번째는<block ref="b01d528ada3b5a6e0e9094642b727562" prefix=" " category="inline-code"></block> .</block>
   <block id="d3abf6f12cafa2cc1b795b31cd547c75" category="paragraph">두 번째 스크립트는<block ref="b502aa50c7ae6d7ea7adaf15de40ffe5" prefix=" " category="inline-code"></block> .</block>
   <block id="6e9120b39f924b2eed528e3bcdd009ac" category="paragraph">세 번째 스크립트는<block ref="5e1386bf4aaea9725a3cc5bc8e2bc9f4" prefix=" " category="inline-code"></block> .</block>
@@ -3277,7 +3271,6 @@
   <block id="928fe421f0c735b90f3b3ec353741235" category="section-title">공유 스토리지</block>
   <block id="ba49c21e7aa335a8ea452042c02f306a" category="paragraph">이 문서의 목적상 테스트 및 검증을 위해 NetApp AFF C190 시스템이 사용되었습니다. 이 시스템은 최대 저장 용량이 50.5TB이고, 순차 읽기 처리량이 4.4GBps이며, 소규모 랜덤 읽기 처리량이 230K IOPS입니다. 이 시스템은 에지 추론 워크로드에 적합한 것으로 입증되었습니다.</block>
   <block id="44114b1635cead15f56735bad0467251" category="inline-link">NetApp EF300</block>
-  <block id="043774815e3806ded716086e0c8c3d03" category="paragraph">하지만 더 많은 저장 용량이나 더 빠른 네트워킹 속도가 필요한 경우 NetApp AFF A220 또는 NetApp AFF A250 스토리지 시스템을 사용해야 합니다.  또한, 최대 용량이 1.5PB이고 대역폭이 10GBps인 NetApp EF280 시스템도 이 솔루션 검증 목적으로 사용되었습니다.  더 높은 대역폭으로 더 많은 저장 용량을 원하시면,<block ref="ab4f2e0c1e56faa457a7a1f93253a647" category="inline-link-rx"></block> 사용할 수 있습니다.</block>
   <block id="6c2749dd86f49cdb85fde6976a317e4b" category="summary">이 섹션에서는 이 AI 솔루션의 기술적 기반을 설명합니다.</block>
   <block id="b2412d3528eff2c1e191154bf1ecfd60" category="section-title">NetApp AFF 시스템</block>
   <block id="b7bec75e06d57a8576b1ec632131ea53" category="paragraph">최첨단 NetApp AFF 스토리지 시스템은 업계 최고의 성능, 탁월한 유연성, 클라우드 통합, 동급 최고의 데이터 관리 기능을 통해 기업의 스토리지 요구 사항을 충족하는 에지에서의 AI 추론 배포를 지원합니다.  플래시에 맞춰 특별히 설계된 NetApp AFF 시스템은 비즈니스에 중요한 데이터를 가속화하고 관리하며 보호하는 데 도움이 됩니다.</block>
@@ -3321,7 +3314,6 @@
   <block id="03597240f9b0b4a23f3ffdf6e159d6ca" category="list-text">20GBps(순차 읽기)</block>
   <block id="ffe3b3adfe232ee25f1914e7e7d266c4" category="list-text">670K IOP(무작위 읽기)</block>
   <block id="7105ea3513c2bdae1a0d63a9f0703579" category="inline-link">NetApp EF-시리즈 NetApp EF-시리즈 올플래시 어레이 EF600, F300, EF570 및 EF280 데이터시트</block>
-  <block id="6e69804b180359b12a32a56c17c0641e" category="admonition">자세한 내용은 다음을 참조하세요.<block ref="5f5484869dc0c271e2b062d172d38bee" category="inline-link-rx"></block> .</block>
   <block id="a5119a6bd0f4d733e0f1f4c10f9d063b" category="section-title">NetApp ONTAP 9</block>
   <block id="b407d5a86fd662f03d5a1615963e0827" category="paragraph">NetApp 의 최신 스토리지 관리 소프트웨어인 ONTAP 9.8.1을 사용하면 기업이 인프라를 현대화하고 클라우드 지원 데이터 센터로 전환할 수 있습니다.  ONTAP 업계 최고의 데이터 관리 역량을 활용하여 데이터가 어디에 있든 단일 도구 세트를 사용하여 데이터를 관리하고 보호할 수 있도록 지원합니다.  또한 필요한 곳, 즉 엣지, 코어, 클라우드로 데이터를 자유롭게 이동할 수 있습니다.  ONTAP 9.8.1에는 데이터 관리를 간소화하고, 중요 데이터를 가속화하고 보호하며, 하이브리드 클라우드 아키텍처 전반에서 차세대 인프라 기능을 지원하는 다양한 기능이 포함되어 있습니다.</block>
   <block id="2e2b24551fd50942c6da57d4f8efdfae" category="paragraph">적절한 리소스가 애플리케이션과 데이터 세트에 사용되도록 하려면 기업 IT 운영에 데이터 관리가 필수적입니다.  ONTAP 에는 다음과 같은 기능이 포함되어 있어 운영을 간소화하고 단순화하며 총 운영 비용을 절감할 수 있습니다.</block>
@@ -3931,7 +3923,6 @@
   <block id="e4de6f9df9cd48ef525131de3cb21481" category="inline-link-macro">BlueXP API</block>
   <block id="0ec641cfacd36c8e22a334135e2abdac" category="inline-link-macro">ONTAP REST API</block>
   <block id="ebf440be7bdce857e55ec25910ae837b" category="inline-link-macro">ONTAP Ansible 컬렉션</block>
-  <block id="dd7a007ea7e610e168238b6d6ab542a1" category="paragraph">이 프로세스를 자동화하려면 다음을 사용할 수 있습니다.<block ref="f07bcb7e875f8bb20680b339fb58364a" category="inline-link-macro-rx"></block> , 그<block ref="0966e902a53f3a5becbd165bbdc18e79" category="inline-link-macro-rx"></block> , 또는<block ref="62c3d824298cc8f488bda82279b91e73" category="inline-link-macro-rx"></block> .</block>
   <block id="2f37e297d79532f437d3ab48727a61c0" category="admonition">Amazon FSx ONTAP 에서는 System Manager를 사용할 수 없습니다.</block>
   <block id="20f99b2a7f22945f3d769fa1def1e403" category="section-title">Domino에 FlexCache 볼륨 노출</block>
   <block id="c9743d6f9b7fcd7047ce3eb9d1f2a273" category="inline-link-macro">'기존 NetApp 볼륨을 Domino에 노출' 섹션</block>
@@ -6181,7 +6172,6 @@
   <block id="6c5426ec4b27eee4669fb4c94b380c1b" category="paragraph">EF80 플랫폼은 각 컨트롤러에 2포트 호스트 I/O 모듈 3개를 설치할 경우 어레이당 최대 12개의 호스트 포트를 지원합니다. 검증된 Lustre 설계는 슬롯 1과 2에 호스트 I/O 모듈을 사용하여 어레이당 8개의 호스트 포트를 제공합니다.</block>
   <block id="731ebee23e331d859e88ac080271361b" category="paragraph">각 EF80 어레이는 컨트롤러 간 미러링을 위해 전용 슬롯 4 I/O 모듈을 사용합니다. 컨트롤러 A의 포트 4a를 컨트롤러 B의 포트 4a에, 컨트롤러 A의 포트 4b를 컨트롤러 B의 포트 4b에 연결하십시오. 이러한 연결은 캐시 미러링 및 I/O 전송을 제공하며 호스트 NVMe-oF 트래픽에는 사용되지 않습니다. 을 참조하십시오. <block ref="2167f991eb9981359d79aa07afa06edc" category="inline-link-macro-rx"></block></block>
   <block id="75accf3dcef2d9c3e9dbe705113b051c" category="inline-link-macro">NetApp EF 시리즈 올플래시 어레이 데이터시트</block>
-  <block id="45a1a3c9bbfbafab9bafe87965faab9d" category="paragraph">모든 모델의 EF-Series 전체 사양은 <block ref="3763b875a199c9f3b55717ee21ea1a75" category="inline-link-macro-rx"></block>을 참조하십시오.</block>
   <block id="99630099f424a9c7b805230d850190ba" category="section-title">드라이브 레이아웃 (어레이당 24개 드라이브)</block>
   <block id="d54adc2cb5e2aaad6185dd7d1713c006" category="paragraph">기본 구성 요소의 각 EF80 어레이는 24개의 NVMe 드라이브 슬롯을 모두 사용합니다.</block>
   <block id="48ad878bc96958eff82106474f087415" category="list-text">MGS/MDT 저장소용 RAID 1 구성의 드라이브 4개 (공유 볼륨 그룹 또는 DDP 할당)</block>
@@ -6262,7 +6252,6 @@
   <block id="4102f0b5b086858fa22e676362d1b795" category="paragraph">Lustre with NetApp E-Series 스토리지 배포를 계획하거나 확장할 때 관련 문서, 툴 및 소프트웨어는 다음 링크를 참조하십시오. 사이징 및 배포 단계는 <block ref="fd37d50a703eb90bca5592e7cf7939cb" category="inline-link-macro-rx"></block> 및 <block ref="8f49e9bdbd514d6a8081d8c90c9f306a" category="inline-link-macro-rx"></block>을 참조하십시오.</block>
   <block id="ed08ca4078374e76c6df3f1999af7274" category="section-title">NetApp 리소스</block>
   <block id="e016dafca1cca24ab39f1acf3f59ca72" category="list-text"><block ref="27dc27dbb2e442190a59a9d515bed42e" category="inline-link-macro-rx"></block>. *E-Series Lustre*를 검색합니다.</block>
-  <block id="3763b875a199c9f3b55717ee21ea1a75" category="list-text"><block ref="3763b875a199c9f3b55717ee21ea1a75" category="inline-link-macro-rx"></block></block>
   <block id="b84be9aeeb7d442b640d3bd848f311a8" category="inline-link-macro">NetApp SANtricity 시스템 관리자 설명서</block>
   <block id="c342c84ee7efec3704a54620e4065b6d" category="list-text"><block ref="c342c84ee7efec3704a54620e4065b6d" category="inline-link-macro-rx"></block></block>
   <block id="801fb9c6d060327b67b48b4b980fba6c" category="inline-link-macro">NetApp ansible-lustre 컬렉션</block>
@@ -7260,4 +7249,16 @@
   <block id="542a293babb1f752a7bc3955516d4d9e" category="sidebar">운영 가이드</block>
   <block id="eda25134f7653bbf8614a1931b31992c" category="sidebar">보안 고려 사항, 검증 및 테스트</block>
   <block id="74cdeb3238b25b8cba8bfeae3d88eefb" category="sidebar">NetApp 차별화 및 경쟁력 있는 포지셔닝, 부록</block>
+  <block id="ba8c9da5d0d100f4e63538050ecdd7cf" category="paragraph">저희는 <block ref="6a940653220d242be27b001d825fb348" category="inline-link-macro-rx"></block>, <block ref="5d9fb1d86d92052bc5dca8ba91d13ff2" category="inline-link-rx"></block>, AFF 스토리지, NVIDIA DGX 시스템을 활용하여 엔드투엔드 대화형 AI 파이프라인을 구축한 논문을 발표했습니다. 이 파이프라인은 DataOps Toolkit, <block ref="8702bd0254f484bdfe9f1ec1c2a853b1" category="inline-link-rx"></block>, <block ref="bba656873bd8ccd45c0c4fc908390474" category="inline-link-rx"></block>를 활용하여 배치 오디오 신호 처리, 자동 음성 인식(ASR), 전이 학습, 감정 분석을 수행합니다. 감정 분석 활용 사례를 금융 서비스 산업으로 확장하여 SparkNLP 워크플로우를 구축하고, 개체명 인식 등 다양한 자연어 처리(NLP) 작업을 위해 세 가지 BERT 모델을 로드하여 NASDAQ 상위 10개 기업의 분기별 실적 발표에 대한 문장 수준의 감정을 분석했습니다.</block>
+  <block id="1497398039e94eb756be9a3cff5649c7" category="paragraph"><block ref="1497398039e94eb756be9a3cff5649c7" category="inline-link-rx"></block></block>
+  <block id="dfe7bc656c588f2eff50dc00854c0ccc" category="paragraph">NetApp In-Place Analytics Module(NIPAM)은 Hadoop 클러스터가 NFS 데이터에 액세스하기 위한 드라이버 역할을 합니다. NIPAM은 연결 풀, NFS InputStream, 파일 핸들 캐시 및 NFS OutputStream의 네 가지 구성 요소로 이루어져 있습니다. 자세한 내용은<block ref="9dd2171dbb372fbb6f51755ca947fe85" category="inline-link-rx"></block>을 참조하십시오.</block>
+  <block id="6fe4264e25ab7d4538e3cd8b851adfcf" category="list-text">복사 및 동기화</block>
+  <block id="2429279d334ad04a97acf3514b55b307" category="inline-link"><block ref="2429279d334ad04a97acf3514b55b307" category="inline-link-rx"></block></block>
+  <block id="84a1e72325e66c236656e2d4013df28b" category="paragraph"><block ref="84a1e72325e66c236656e2d4013df28b" category="inline-link-rx"></block></block>
+  <block id="c1d47e0c69cf4aa24dd1d9be184ba589" category="paragraph">최상의 성능을 위해 NetApp은 일반적으로 클라우드 인스턴스의 데이터에 액세스할 때 여러 네트워크 인터페이스와 직접 연결 또는 고속 경로를 사용하는 것을 권장합니다. NetApp은 <block ref="0adb843c17d646acd72646e9688dde2b" category="inline-link-rx"></block> 및 <block ref="4a924a6869cd4a0767434230d5d6ccd3" category="inline-link-rx"></block>을 포함한 다양한 데이터 이동 솔루션을 제공하여 고객이 애플리케이션 인식 기능을 갖춘 안전하고 비용 효율적인 하이브리드 클라우드 Spark 클러스터를 구축할 수 있도록 지원합니다.</block>
+  <block id="a97fdbc53a2f2ffb669cf5bec4696bf4" category="paragraph">모든 모델의 EF-Series 전체 사양은 <block ref="dd92b2329df22bb549c9780087f3abab" category="inline-link-macro-rx"></block>을 참조하십시오.</block>
+  <block id="dd92b2329df22bb549c9780087f3abab" category="list-text"><block ref="dd92b2329df22bb549c9780087f3abab" category="inline-link-macro-rx"></block></block>
+  <block id="23de458a279cb77c771a906ae7fbf52f" category="paragraph">하지만 더 많은 스토리지 용량이나 더 빠른 네트워크 속도가 필요한 경우 NetApp AFF A220 또는 NetApp AFF A250 스토리지 시스템을 사용하는 것이 좋습니다. 또한, 최대 용량 1.5PB, 대역폭 10GBps의 NetApp EF280 시스템도 본 솔루션 검증 목적으로 사용되었습니다. 더 높은 대역폭으로 더 많은 스토리지 용량을 원하는 경우<block ref="9290c81f76b74b66b7051d50d766b467" category="inline-link-rx"></block>사용할 수 있습니다.</block>
+  <block id="a340a80086a468e2556a247456572a89" category="admonition">자세한 내용은<block ref="a80bca4324b2437c5bf5f4b3248c6eb8" category="inline-link-rx"></block>를 참조하십시오.</block>
+  <block id="f217c81f72a98d73a2ef32abaa405554" category="paragraph">이 프로세스를 자동화하려면 <block ref="f07bcb7e875f8bb20680b339fb58364a" category="inline-link-macro-rx"></block>, <block ref="7fc386eb564c4560b9bf182228e7a332" category="inline-link-macro-rx"></block> 또는 <block ref="62c3d824298cc8f488bda82279b91e73" category="inline-link-macro-rx"></block>을 사용할 수 있습니다.</block>
 </blocks>
