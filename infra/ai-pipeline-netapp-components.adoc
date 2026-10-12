@@ -15,6 +15,9 @@ summary:
 
 Karthikeyan Nagalingam, NetApp
 
+[role="lead"]
+AI 데이터 파이프라인 솔루션은 NetApp, 타사 및 오픈 소스 구성 요소를 사용합니다.
+
 [cols="50%,50%"]
 |===
 | 요소 | 솔루션에서의 역할 

@@ -15,6 +15,7 @@ summary:
 
 Karthikeyan Nagalingam, NetApp
 
+[role="lead"]
 NetApp XCP는 ONTAP NAS 준비 데이터 계층과 활성 학습 계층 간의 제어된 전송 경로를 제공합니다. Airflow는 XCP 호스트를 통해 사전 검사를 수행하고 복사 작업을 호출하며, `xcp++_++copy++_++destination` 각 실행마다 ONTAP S3 또는 LustreFS를 선택합니다. 모델 학습, 미세 조정 및 추론에서 동일하게 선택된 대상을 사용하여 데이터와 아티팩트를 일관된 계층에 유지합니다.
 
 

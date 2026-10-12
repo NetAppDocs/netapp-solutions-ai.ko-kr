@@ -15,6 +15,7 @@ summary:
 
 Karthikeyan Nagalingam, NetApp
 
+[role="lead"]
 이 통합 섹션에서는 아키텍처를 일반적인 대안과 비교하여 설명하고 운영자와 검토자가 공유하는 참조 자료를 제공합니다. 차별점은 단일 스토리지 엔드포인트가 아니라, StorageGRID, ONTAP NAS, ONTAP S3, LustreFS, XCP 및 Airflow의 정책 제어형 조합으로, 각 AI 라이프사이클 단계에서 워크플로를 재구축하지 않고도 적절한 계층을 사용할 수 있게 합니다.
 
 

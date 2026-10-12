@@ -15,6 +15,7 @@ summary:
 
 Karthikeyan Nagalingam, NetApp
 
+[role="lead"]
 이 섹션에서는 검증된 AI 파이프라인의 논리적 워크플로, 구성 요소 상호 작용, 물리적 배포 및 데이터 계보를 보여줍니다. 다이어그램을 통해 Apache Airflow가 StorageGRID에서 ONTAP NAS를 거쳐 데이터 이동을 오케스트레이션하고, 선택적으로 NetApp XCP를 사용하여 모델 실행을 위해 ONTAP S3 또는 LustreFS에 데이터를 배치하고, 관리되는 결과를 StorageGRID 아카이브 스토리지에 반환하는 방식을 확인할 수 있습니다.
 
 

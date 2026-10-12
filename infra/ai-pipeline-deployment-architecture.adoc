@@ -15,6 +15,7 @@ summary:
 
 Karthikeyan Nagalingam, NetApp
 
+[role="lead"]
 이 섹션에서는 파이프라인 운영에 필요한 인프라 배치, 소프트웨어 종속성 및 네트워크 연결을 정의합니다. 배포 시 Airflow 오케스트레이션은 XCP 데이터 이동성 호스트와 분리되고, 두 구성 요소는 StorageGRID, ONTAP NAS 및 선택한 ONTAP S3 또는 LustreFS 학습 대상에 연결됩니다.
 
 

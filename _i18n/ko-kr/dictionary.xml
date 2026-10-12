@@ -7261,4 +7261,5 @@
   <block id="23de458a279cb77c771a906ae7fbf52f" category="paragraph">하지만 더 많은 스토리지 용량이나 더 빠른 네트워크 속도가 필요한 경우 NetApp AFF A220 또는 NetApp AFF A250 스토리지 시스템을 사용하는 것이 좋습니다. 또한, 최대 용량 1.5PB, 대역폭 10GBps의 NetApp EF280 시스템도 본 솔루션 검증 목적으로 사용되었습니다. 더 높은 대역폭으로 더 많은 스토리지 용량을 원하는 경우<block ref="9290c81f76b74b66b7051d50d766b467" category="inline-link-rx"></block>사용할 수 있습니다.</block>
   <block id="a340a80086a468e2556a247456572a89" category="admonition">자세한 내용은<block ref="a80bca4324b2437c5bf5f4b3248c6eb8" category="inline-link-rx"></block>를 참조하십시오.</block>
   <block id="f217c81f72a98d73a2ef32abaa405554" category="paragraph">이 프로세스를 자동화하려면 <block ref="f07bcb7e875f8bb20680b339fb58364a" category="inline-link-macro-rx"></block>, <block ref="7fc386eb564c4560b9bf182228e7a332" category="inline-link-macro-rx"></block> 또는 <block ref="62c3d824298cc8f488bda82279b91e73" category="inline-link-macro-rx"></block>을 사용할 수 있습니다.</block>
+  <block id="ecf051eb19810ee05a1158848fdacf1c" category="paragraph">AI 데이터 파이프라인 솔루션은 NetApp, 타사 및 오픈 소스 구성 요소를 사용합니다.</block>
 </blocks>
