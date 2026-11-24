@@ -1,0 +1,35 @@
+---
+sidebar: sidebar 
+permalink: data-analytics/mongodb-ontap-summary.html 
+keywords: mongodb, ontap, summary, conclusion 
+summary: 이 페이지에서는 NetApp ONTAP에서 MongoDB에 대해 검증된 이점을 요약합니다. 
+---
+= 요약
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 참조 아키텍처는 NetApp 지능형 데이터 인프라에 가상화된 확장형 MongoDB NoSQL 데이터베이스를 효율적으로 배포하기 위한 엔드투엔드 솔루션을 제공합니다. NetApp 스토리지 기술과 VMware vSphere를 결합한 테스트된 아키텍처에서 MongoDB VM과 데이터베이스는 확장형 NetApp AFF 어레이에 호스팅되었습니다. NetApp SnapCenter는 백업을 관리하고, SnapMirror는 재해 복구를 위해 AWS의 Amazon FSx for NetApp ONTAP으로 백업을 복제합니다.
+
+이 솔루션은 다음과 같은 주요 이점을 입증했습니다:
+
+* 예측 가능하고 뛰어난 성능과 일관되게 낮은 지연 시간을 제공하여 가장 까다로운 MongoDB 기반 분석 애플리케이션에도 매우 빠른 응답 시간을 제공합니다.
+* 플래시 스토리지에서 MongoDB를 비용 효율적으로 만드는 인라인 중복 제거 및 압축.
+* 새로운 스토리지가 필요 없이 개발/테스트 및 QA 환경 설정을 신속하게 진행할 수 있는 즉각적이고 공간 효율적인 데이터베이스 복제 기능입니다.
+* 공간 효율적인 NetApp 스냅샷 복사본과 클라우드로의 원격 복제를 기반으로 하는 백업 및 복구.
+
+
+검증 결과 외에도 NetApp AFF는 다음과 같은 주요 기능을 통해 MongoDB를 보완합니다:
+
+* MongoDB와 함께 스토리지를 모듈식으로 확장할 수 있는 스케일업 및 스케일아웃 올플래시 어레이입니다.
+* 최대 가동 시간과 높은 가용성을 제공하는 중단 없는 운영.
+
+
+YCSB 성능 테스트에서 NetApp AFF는 탁월한 결과를 보여주었으며, MongoDB 배포 확장을 위한 고성능의 비용 효율적인 올플래시 어레이임을 입증했습니다.
+
+이 보고서는 또한 MongoDB Atlas에서 Digital Advisor를 제공하는 사례와 MongoDB Ops Manager를 사용한 엔터프라이즈 백업 및 복구라는 두 가지 고객 사용 사례를 설명합니다. Ops Manager의 경우, 스토리지 수준 스냅샷 복사본, 빠른 복구 및 재해 복구를 위해 NetApp SnapCenter를 추가하는 것에 대한 설계 지침을 제공하며, 이는 아직 평가 단계에 있습니다.

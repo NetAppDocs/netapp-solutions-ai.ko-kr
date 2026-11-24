@@ -1,0 +1,116 @@
+---
+sidebar: sidebar 
+permalink: data-analytics/mongodb-ontap-appendix.html 
+keywords: mongodb, quiesce, balancer, sharding, commands, appendix 
+summary: 이 부록에는 검증에 사용된 quiesce 및 balancer 명령과 MongoDB 클러스터 명령이 나열되어 있습니다. 
+---
+= 부록
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+이 부록에는 quiesce 및 balancer 명령과 유효성 검사에 사용된 MongoDB 명령이 나열되어 있습니다.
+
+
+
+[[quiesce-and-balancer-commands]]
+== 정지 및 밸런서 명령
+
+유효성 검사에서는 MongoDB 애플리케이션 서버에서 Python 2.7 스크립트를 중지, 중지 해제 및 사전 종료 명령으로 사용했으며, 해당 스크립트는 포함되어 있지 않습니다. 이러한 종속성을 방지하려면 `mongosh` 명령을 사용하여 xref:mongodb-ontap-solution-validation.html#snapcenter-backup[SnapCenter로 백업]에서 후크를 구성하십시오. 명령을 실행하는 호스트에 `mongosh`을(를) 설치하고, 배포 환경에 맞게 호스트, 포트 및 인증 옵션을 조정하십시오. 유효성 검사 스크립트는 `Connection` 클래스를 제공하는 초기 PyMongo 릴리스를 사용했으며, Python 2 및 `Connection`은(는) 더 이상 지원되지 않습니다.
+
+[cols="35%,65%"]
+|===
+| 유효성 검사에 사용된 스크립트 | 작업 
+
+
+| `wait-for-cleared-locks.py` | 밸런서 잠금이 해제될 때까지 기다린 다음 밸런서를 중지합니다.  `mongosh`에서 진행 중인 밸런싱 라운드가 완료될 때까지 기다리는  `sh.stopBalancer()`을(를) 실행합니다. 
+
+
+| `start-balancer.py` | 밸런서를 재시작합니다.  `mongosh`에서  `sh.startBalancer()`를 실행합니다. 
+
+
+| `fsync-lock.py` | 백업에 정지가 필요한 경우 일관성 그룹 스냅샷 없이 별도의 볼륨에 있는 WiredTiger 데이터 및 저널을 포함하여 디스크에 대한 쓰기를 플러시하고 새로운 쓰기를 차단합니다.  `mongosh`에서 백업되는 각 멤버에 대해  `db.fsyncLock()`를 실행합니다. 
+
+
+| `fsync-unlock.py` | 장애 발생 후를 포함하여 백업을 위해 획득한 각 쓰기 잠금을 해제합니다.  `mongosh`에서  `db.fsyncUnlock()`를 실행합니다. 
+|===
+
+
+[[mongodb-operations]]
+== MongoDB 작업
+
+다음 작업은 샤드 클러스터를 구성하고 두 개의 샤드를 추가합니다. 명령 및 출력은 MongoDB 3.0.7 및 레거시 `mongo` 셸로 캡처되었습니다. 현재 MongoDB 릴리스에서는 `mongosh`를 사용하고, 구성 서버를 복제본 세트로 배포하며( `--configsvr` 및 `--replSet`로 시작하고, 복제본 세트 이름을 `--configdb`와 함께 `mongos`에 전달), 제거된 `--rest` 옵션은 생략하십시오.
+
+. 각 샤드 멤버((`mdb-srv-1`,  `mdb-srv-10`,  `mdb-srv-11`,  `mdb-srv-2`,  `mdb-srv-20` 및  `mdb-srv-21`)에서 MongoDB 데이터베이스에 대해 마운트된 파티션을 확인하십시오. 각 멤버는 다음 위치에 XFS 파일 시스템을 마운트합니다 `/data`:
++
+[listing]
+----
+[mongodb@mdb-srv-1 db_wt]$ df -h /data
+[mongodb@mdb-srv-1 db_wt]$ cat /etc/fstab | grep sdb
+/dev/sdb1 /data xfs defaults 0 0
+----
+. 각 샤드 멤버에서 필요한 폴더를 생성하고, 소유권과 권한을 설정한 다음  `mongod`을(를) 시작합니다. 첫 번째 샤드의 멤버는  `mdb-srv-1`,  `mdb-srv-10` 및  `mdb-srv-11`입니다. 예를 들어,  `mdb-srv-1`에서는 다음과 같습니다.
++
+[listing]
+----
+[root@mdb-srv-1 ~]# mkdir -p /mongodb/data
+[root@mdb-srv-1 ~]# mkdir -p /data/db_wt
+[root@mdb-srv-1 ~]# chown -R mongodb:mongodb /mongodb
+[root@mdb-srv-1 ~]# chown -R mongodb:mongodb /data
+[root@mdb-srv-1 ~]# chmod -R 700 /mongodb
+[mongodb@mdb-srv-1 ~]$ mongod --replSet shard1/mdb-srv-10,mdb-srv-11 --journal --rest --shardsvr --fork --storageEngine wiredTiger --dbpath /data/db_wt --logpath /mongodb/data/mongod.log --directoryperdb
+----
+. 포트 27019에서 config 서버 (`mdb-cfg-1`, `mdb-cfg-2`, and `mdb-cfg-3`)를 시작합니다. 먼저  `mongodb` 소유권과 700 권한으로  `/mongodb/data/configdb`을(를) 생성합니다.
++
+[listing]
+----
+[mongodb@mdb-cfg-3 ~]$ mongod --configsvr --dbpath /mongodb/data/configdb --port 27019 --fork --logpath /mongodb/data/arbiter.log
+----
+. 각 애플리케이션 서버에서 `mongos` 프로세스를 시작하고(`mdb-ms-1` 및 `mdb-ms-2`), 포트 27017에서 수신 대기 중인지 확인합니다.
++
+[listing]
+----
+[mongodb@mdb-ms-1 ~]$ mongos --configdb mdb-cfg-1:27019,mdb-cfg-2:27019,mdb-cfg-3:27019 --logpath /mongodb/data/mongos.log --fork --port 27017
+----
+. 애플리케이션 서버에서 샤드 프라이머리(`mdb-srv-1`)에 연결하고  `rs.initiate(cfg)`로 복제 세트를 초기화합니다:
++
+[listing]
+----
+[mongodb@mdb-ms-1 ~]$ mongo mdb-srv-1:27018/admin
+> var cfg = { _id: "shard1", members: [ { _id: 0, host: "mdb-srv-1:27018" }, { _id: 1, host: "mdb-srv-10:27018" }, { _id: 2, host: "mdb-srv-11:27018" } ] };
+> rs.initiate(cfg);
+----
+. 샤드 멤버에서 복제 세트 상태를 확인하십시오:
++
+[listing]
+----
+[mongodb@mdb-srv-1 ~]$ mongo --host mdb-srv-1 --port 27018
+shard1:PRIMARY> rs.printReplicationInfo()
+PRIMARY> rs.status()
+----
+. 애플리케이션 서버에서 첫 번째 샤드를 추가합니다. 다른 애플리케이션 서버에서 동일한 샤드를 다시 추가하면 MongoDB는 샤드가 이미 존재한다고 보고합니다:
++
+[listing]
+----
+[mongodb@mdb-ms-1 ~]$ mongo mdb-ms-1:27017/admin
+mongos> db.adminCommand( { addShard : "shard1/mdb-srv-1:27018,mdb-srv-10:27018,mdb-srv-11:27018" } )
+----
+. 샤딩 상태를 확인하십시오:
++
+[listing]
+----
+mongos> sh.status();
+----
+. 두 번째 샤드를 추가합니다.  `mdb-srv-2`,  `mdb-srv-20` 및  `mdb-srv-21`을(를) 첫 번째 샤드와 동일한 방식으로 준비하고, 복제 세트를 초기화한 다음 추가합니다:
++
+[listing]
+----
+mongos> db.adminCommand( { addShard : "shard2/mdb-srv-2:27018,mdb-srv-20:27018,mdb-srv-21:27018" } )
+----
+.  `sh.status()`을(를) 다시 실행하여 두 샤드 (`shard1` 및  `shard2`)가 모두 나열되는지 확인하십시오. 샤드를 추가해도 컬렉션 데이터가 자동으로 분산되지는 않습니다. 여기에 표시된 MongoDB 3.0.7 구성의 경우,  `sh.enableSharding()`을(를) 사용하여 데이터베이스에서 샤딩을 활성화하고, 적절한 샤드 키를 선택하고 필요한 인덱스를 생성한 다음,  `sh.shardCollection()`을(를) 사용하여 의도한 각 컬렉션을 샤딩하십시오.
+

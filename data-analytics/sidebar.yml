@@ -188,6 +188,25 @@ entries:
 - title: NetApp E-Series E5700 및 Splunk Enterprise
   pdf-filename: NetApp E-Series E5700 및 Splunk Enterprise
   url: "/data-analytics/tr-4623.html"
+- title: NetApp ONTAP 기반 MongoDB
+  pdf-filename: NetApp ONTAP 기반 MongoDB
+  entries:
+  - title: 소개
+    url: "/data-analytics/mongodb-ontap.html"
+  - title: 솔루션 개요
+    url: "/data-analytics/mongodb-ontap-solution-overview.html"
+  - title: 솔루션 설계
+    url: "/data-analytics/mongodb-ontap-solution-design.html"
+  - title: 솔루션 검증
+    url: "/data-analytics/mongodb-ontap-solution-validation.html"
+  - title: 고객 사용 사례
+    url: "/data-analytics/mongodb-ontap-use-cases.html"
+  - title: 요약
+    url: "/data-analytics/mongodb-ontap-summary.html"
+  - title: 부록
+    url: "/data-analytics/mongodb-ontap-appendix.html"
+  - title: 감사의 글 및 참고 문헌
+    url: "/data-analytics/mongodb-ontap-references.html"
 - title: NetApp 스토리지를 사용하여 Apache Spark 워크로드 배포
   pdf-filename: NetApp 스토리지 솔루션을 사용한 Apache Spark 워크로드(배포 가이드)
   url: "/data-analytics/nva-1157-deploy.html"
